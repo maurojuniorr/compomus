@@ -1,0 +1,23 @@
+version: "Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
+options: "32219d304d561b48d4808cc2b86086fa"
+build_time: [1581150340, 535320000]
+inputs:
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Types/Blob.swift": [1580972466, 536233679]
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Types/Bool.swift": [1580972466, 539128873]
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Helpers/Extensions.swift": [1580972466, 547651672]
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Types/Float.swift": [1580972466, 539646596]
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Types/Impulse.swift": [1580972466, 536814882]
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Types/Int.swift": [1580972466, 537490384]
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Addresses/OSCAddress.swift": [1580972466, 542340549]
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Addresses/OSCAddressPattern.swift": [1580972466, 542862285]
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Elements/OSCBundle.swift": [1580972466, 541663957]
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Communication/OSCClient.swift": [1580972466, 546185573]
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Elements/OSCElementProtocol.swift": [1580972466, 540977398]
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Elements/OSCMessage.swift": [1580972466, 540289130]
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Communication/OSCServer.swift": [1580972466, 545658350]
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Types/OSCTypeProtocol.swift": [1580972466, 537962079]
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Types/String.swift": [1580972466, 538498516]
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Helpers/Timer.swift": [1580972466, 547191384]
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Types/Timetag.swift": [1580972466, 535542307]
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Communication/ysocket/ysocket.swift": [1580972466, 545087822]
+  "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Communication/ysocket/yudpsocket.swift": [1580972466, 544696828]

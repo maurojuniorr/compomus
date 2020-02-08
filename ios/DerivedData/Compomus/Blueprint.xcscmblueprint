@@ -1,0 +1,23 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D4B394E3082BC09CB3EA535A946E55DEDEFB66B3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D4B394E3082BC09CB3EA535A946E55DEDEFB66B3" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "35DEDBBC-3165-4B11-9576-08B88AC01369",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D4B394E3082BC09CB3EA535A946E55DEDEFB66B3" : "Compomus\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Compomus",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ios\/Compomus.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/maurojuniorr\/compomus.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D4B394E3082BC09CB3EA535A946E55DEDEFB66B3"
+    }
+  ]
+}

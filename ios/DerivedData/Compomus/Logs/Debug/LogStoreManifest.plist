@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>1611A35C-AB4E-44F9-B753-CB65E7A9A979</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>1611A35C-AB4E-44F9-B753-CB65E7A9A979.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Compomus project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Compomus</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Compomus</string>
+			<key>timeStartedRecording</key>
+			<real>602818808.72948802</real>
+			<key>timeStoppedRecording</key>
+			<real>602821545.58974195</real>
+			<key>title</key>
+			<string>Debug Compomus</string>
+			<key>uniqueIdentifier</key>
+			<string>1611A35C-AB4E-44F9-B753-CB65E7A9A979</string>
+		</dict>
+		<key>503C14C5-4209-4BEB-8812-23189A0E48AB</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>503C14C5-4209-4BEB-8812-23189A0E48AB.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Compomus project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Compomus</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Compomus</string>
+			<key>timeStartedRecording</key>
+			<real>602837260.37910795</real>
+			<key>timeStoppedRecording</key>
+			<real>602850190.528512</real>
+			<key>title</key>
+			<string>Debug Compomus</string>
+			<key>uniqueIdentifier</key>
+			<string>503C14C5-4209-4BEB-8812-23189A0E48AB</string>
+		</dict>
+		<key>61B434D5-4CFC-4119-95BC-CFE41324A702</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>61B434D5-4CFC-4119-95BC-CFE41324A702.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Compomus project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Compomus</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Compomus</string>
+			<key>timeStartedRecording</key>
+			<real>602817204.66118002</real>
+			<key>timeStoppedRecording</key>
+			<real>602817767.86048996</real>
+			<key>title</key>
+			<string>Debug Compomus</string>
+			<key>uniqueIdentifier</key>
+			<string>61B434D5-4CFC-4119-95BC-CFE41324A702</string>
+		</dict>
+		<key>B74B1C76-57BF-460D-BE6D-652121BE52BD</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>B74B1C76-57BF-460D-BE6D-652121BE52BD.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Compomus project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Compomus</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Compomus</string>
+			<key>timeStartedRecording</key>
+			<real>602839195.43732297</real>
+			<key>timeStoppedRecording</key>
+			<real>602839273.92515695</real>
+			<key>title</key>
+			<string>Debug Compomus</string>
+			<key>uniqueIdentifier</key>
+			<string>B74B1C76-57BF-460D-BE6D-652121BE52BD</string>
+		</dict>
+		<key>C8619BD1-0EEB-48C5-A94B-B96CAE3676C8</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>C8619BD1-0EEB-48C5-A94B-B96CAE3676C8.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Compomus project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Compomus</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Compomus</string>
+			<key>timeStartedRecording</key>
+			<real>602857542.06717205</real>
+			<key>timeStoppedRecording</key>
+			<real>602857869.40807104</real>
+			<key>title</key>
+			<string>Debug Compomus</string>
+			<key>uniqueIdentifier</key>
+			<string>C8619BD1-0EEB-48C5-A94B-B96CAE3676C8</string>
+		</dict>
+		<key>E79364C0-4C6F-47C2-AFE3-BA7D71500176</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>E79364C0-4C6F-47C2-AFE3-BA7D71500176.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Compomus project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Compomus</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Compomus</string>
+			<key>timeStartedRecording</key>
+			<real>602856011.52403498</real>
+			<key>timeStoppedRecording</key>
+			<real>602856803.61613595</real>
+			<key>title</key>
+			<string>Debug Compomus</string>
+			<key>uniqueIdentifier</key>
+			<string>E79364C0-4C6F-47C2-AFE3-BA7D71500176</string>
+		</dict>
+		<key>E79FDB5F-E1D4-4122-A235-3D7C8667212E</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>E79FDB5F-E1D4-4122-A235-3D7C8667212E.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Compomus project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Compomus</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Compomus</string>
+			<key>timeStartedRecording</key>
+			<real>602850183.624174</real>
+			<key>timeStoppedRecording</key>
+			<real>602854687.08856702</real>
+			<key>title</key>
+			<string>Debug Compomus</string>
+			<key>uniqueIdentifier</key>
+			<string>E79FDB5F-E1D4-4122-A235-3D7C8667212E</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

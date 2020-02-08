@@ -1,0 +1,15 @@
+dependencies: \
+  /Users/mauroamazonas/Documents/Compomus/node_modules/react-native/ReactCommon/turbomodule/core/TurboModuleUtils.cpp \
+  /Users/mauroamazonas/Documents/Compomus/ios/Pods/Target\ Support\ Files/ReactCommon/ReactCommon-prefix.pch \
+  /Users/mauroamazonas/Documents/Compomus/node_modules/react-native/ReactCommon/turbomodule/core/TurboModuleUtils.h \
+  /Users/mauroamazonas/Documents/Compomus/ios/Pods/Folly/folly/Optional.h \
+  /Users/mauroamazonas/Documents/Compomus/ios/Pods/Folly/folly/Portability.h \
+  /Users/mauroamazonas/Documents/Compomus/ios/Pods/Folly/folly/portability/Config.h \
+  /Users/mauroamazonas/Documents/Compomus/ios/Pods/Folly/folly/CPortability.h \
+  /Users/mauroamazonas/Documents/Compomus/ios/Pods/Folly/folly/Traits.h \
+  /Users/mauroamazonas/Documents/Compomus/ios/Pods/Folly/folly/Utility.h \
+  /Users/mauroamazonas/Documents/Compomus/ios/Pods/Folly/folly/lang/Exception.h \
+  /Users/mauroamazonas/Documents/Compomus/ios/Pods/Folly/folly/CppAttributes.h \
+  /Users/mauroamazonas/Documents/Compomus/ios/Pods/Headers/Public/React-jsi/jsi/jsi.h \
+  /Users/mauroamazonas/Documents/Compomus/ios/Pods/Headers/Public/React-jsi/jsi/jsi-inl.h \
+  /Users/mauroamazonas/Documents/Compomus/node_modules/react-native/ReactCommon/jscallinvoker/ReactCommon/JSCallInvoker.h

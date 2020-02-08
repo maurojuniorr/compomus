@@ -1,5 +1,13 @@
 {
-    "eslint.format.enable": true,
     "cSpell.enabled": false,
-    "eslint.enable": true
+    "eslint.enable": true,
+    "git.ignoreLimitWarning": true,
+    "prettier.jsxBracketSameLine": true,
+    "prettier.jsxSingleQuote": true,
+    "prettier.packageManager": "yarn",
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "es5",
+    "prettier.useTabs": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.packageManager": "yarn"
 }

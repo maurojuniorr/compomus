@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>0D030756-20B5-4775-A8B0-31E89D38D858</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>0D030756-20B5-4775-A8B0-31E89D38D858.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Compomus project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Compomus</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Clean Compomus</string>
+			<key>timeStartedRecording</key>
+			<real>602840966.70862699</real>
+			<key>timeStoppedRecording</key>
+			<real>602840969.65858901</real>
+			<key>title</key>
+			<string>Clean Compomus</string>
+			<key>uniqueIdentifier</key>
+			<string>0D030756-20B5-4775-A8B0-31E89D38D858</string>
+		</dict>
+		<key>0DBEF478-4814-4610-B547-4AD41F43EE3D</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>0DBEF478-4814-4610-B547-4AD41F43EE3D.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Compomus project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Compomus</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Compomus</string>
+			<key>timeStartedRecording</key>
+			<real>602839062.98646605</real>
+			<key>timeStoppedRecording</key>
+			<real>602839195.39267194</real>
+			<key>title</key>
+			<string>Build Compomus</string>
+			<key>uniqueIdentifier</key>
+			<string>0DBEF478-4814-4610-B547-4AD41F43EE3D</string>
+		</dict>
+		<key>2BE727F3-A9BE-47D1-9E27-0ABCDFDA244D</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>2BE727F3-A9BE-47D1-9E27-0ABCDFDA244D.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Compomus project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Compomus</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Compomus</string>
+			<key>timeStartedRecording</key>
+			<real>602818789.48879802</real>
+			<key>timeStoppedRecording</key>
+			<real>602818808.68140805</real>
+			<key>title</key>
+			<string>Build Compomus</string>
+			<key>uniqueIdentifier</key>
+			<string>2BE727F3-A9BE-47D1-9E27-0ABCDFDA244D</string>
+		</dict>
+		<key>324F1321-83B6-403C-937C-832279D29086</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>324F1321-83B6-403C-937C-832279D29086.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Compomus project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Compomus</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Compomus</string>
+			<key>timeStartedRecording</key>
+			<real>602817767.654966</real>
+			<key>timeStoppedRecording</key>
+			<real>602817804.94620895</real>
+			<key>title</key>
+			<string>Build Compomus</string>
+			<key>uniqueIdentifier</key>
+			<string>324F1321-83B6-403C-937C-832279D29086</string>
+		</dict>
+		<key>3E8B1A7D-89FA-428B-842A-5C07F4D753BC</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>3E8B1A7D-89FA-428B-842A-5C07F4D753BC.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Compomus project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Compomus</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Compomus</string>
+			<key>timeStartedRecording</key>
+			<real>602857493.42198002</real>
+			<key>timeStoppedRecording</key>
+			<real>602857542.01778698</real>
+			<key>title</key>
+			<string>Build Compomus</string>
+			<key>uniqueIdentifier</key>
+			<string>3E8B1A7D-89FA-428B-842A-5C07F4D753BC</string>
+		</dict>
+		<key>B7686C7A-2B23-4DFA-A877-423B83190F63</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>B7686C7A-2B23-4DFA-A877-423B83190F63.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Compomus project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Compomus</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Compomus</string>
+			<key>timeStartedRecording</key>
+			<real>602855964.07794499</real>
+			<key>timeStoppedRecording</key>
+			<real>602856011.46015298</real>
+			<key>title</key>
+			<string>Build Compomus</string>
+			<key>uniqueIdentifier</key>
+			<string>B7686C7A-2B23-4DFA-A877-423B83190F63</string>
+		</dict>
+		<key>DC01B38D-F7CD-4860-9062-4DF1EB134952</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>DC01B38D-F7CD-4860-9062-4DF1EB134952.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Compomus project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Compomus</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Compomus</string>
+			<key>timeStartedRecording</key>
+			<real>602836911.43330598</real>
+			<key>timeStoppedRecording</key>
+			<real>602837260.28497505</real>
+			<key>title</key>
+			<string>Build Compomus</string>
+			<key>uniqueIdentifier</key>
+			<string>DC01B38D-F7CD-4860-9062-4DF1EB134952</string>
+		</dict>
+		<key>E53127CA-355E-4977-B6B1-0A530BAAD25E</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E53127CA-355E-4977-B6B1-0A530BAAD25E.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Compomus project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Compomus</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Compomus</string>
+			<key>timeStartedRecording</key>
+			<real>602849838.78308904</real>
+			<key>timeStoppedRecording</key>
+			<real>602850183.49815905</real>
+			<key>title</key>
+			<string>Build Compomus</string>
+			<key>uniqueIdentifier</key>
+			<string>E53127CA-355E-4977-B6B1-0A530BAAD25E</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

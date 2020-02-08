@@ -1,0 +1,12 @@
+module SwiftOSC {
+  umbrella header "SwiftOSC-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+
+module SwiftOSC.Swift {
+  header "/Users/mauroamazonas/Documents/Compomus/ios/DerivedData/Compomus/Build/Products/Debug-iphoneos/SwiftOSC/Swift Compatibility Header/SwiftOSC-Swift.h"
+  requires objc
+}

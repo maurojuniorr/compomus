@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -26,6 +26,7 @@ export default class Signup extends Component {
     soundRaw: '',
     soundName: '0',
   };
+
   componentDidMount() {
     const unsubscribe = NetInfo.addEventListener(state => {
       console.log('Connection type', state.type);
@@ -67,15 +68,15 @@ export default class Signup extends Component {
   }
 
   CheckTextInput = () => {
-    //Handler for the Submit onPress
+    // Handler for the Submit onPress
     if (this.state.name !== '') {
-      //Check for the Name TextInput
+      // Check for the Name TextInput
       if (this.state.email !== '') {
-        //Check for the Email TextInput
+        // Check for the Email TextInput
         if (this.state.pass !== '') {
-          //Check for the Email TextInput
+          // Check for the Email TextInput
           this.checkIfOnline();
-          //this.verifyData();
+          // this.verifyData();
         } else {
           Alert.alert('Digite uma senha');
         }
@@ -87,10 +88,8 @@ export default class Signup extends Component {
     }
   };
 
-
-
   verifyData = async () => {
-    let formData = new FormData();
+    const formData = new FormData();
     formData.append('email', this.state.email);
     formData.append('pass', this.state.pass);
     fetch(`${global.rawSource}/index.php/validateUser`, {
@@ -99,10 +98,10 @@ export default class Signup extends Component {
     })
       .then(response => response.json())
       .then(responseJson => {
-        //console.log('Success', formData);
-        const {email} = responseJson;
-        const {pass} = responseJson;
-        //console.log(formData);
+        // console.log('Success', formData);
+        const { email } = responseJson;
+        const { pass } = responseJson;
+        // console.log(formData);
         if (pass === this.state.pass && email === this.state.email) {
           Alert.alert('Compomus', 'Email já utilizado!');
           console.log('Email available for use');
@@ -117,7 +116,7 @@ export default class Signup extends Component {
   };
 
   postData = async () => {
-    let formData = new FormData();
+    const formData = new FormData();
     formData.append('name', this.state.name);
     formData.append('email', this.state.email);
     formData.append('pass', this.state.pass);
@@ -134,7 +133,7 @@ export default class Signup extends Component {
   };
 
   getIn = async () => {
-    let formData = new FormData();
+    const formData = new FormData();
     formData.append('email', this.state.email);
     formData.append('pass', this.state.pass);
     fetch(`${global.rawSource}/index.php/validateUser`, {
@@ -143,16 +142,16 @@ export default class Signup extends Component {
     })
       .then(response => response.json())
       .then(responseJson => {
-        //console.log('Success', formData);
-        const {email} = responseJson;
-        const {pass} = responseJson;
-        const {soundName} = responseJson;
-        const {id} = responseJson;
+        // console.log('Success', formData);
+        const { email } = responseJson;
+        const { pass } = responseJson;
+        const { soundName } = responseJson;
+        const { id } = responseJson;
         this.setState({
-          soundName: soundName,
+          soundName,
           userId: id,
         });
-        //console.log(pass);
+        // console.log(pass);
         if (pass === this.state.pass && email === this.state.email) {
           if (soundName < 1) {
             this.props.navigation.navigate('SoundChooser', {
@@ -163,7 +162,7 @@ export default class Signup extends Component {
             this.props.navigation.navigate('SoundChooser');
           }
         }
-        //console.log('Success', responseJson);
+        // console.log('Success', responseJson);
       })
       .catch(error => {
         console.error(error);
@@ -202,32 +201,33 @@ export default class Signup extends Component {
             <TextInput
               style={styles.input}
               onChangeText={text => this.updateValue(text, 'name')}
-              placeholder={'Digite seu Nome'}
-              placeholderTextColor={'#b3b3b3'}
+              placeholder="Digite seu Nome"
+              placeholderTextColor="#b3b3b3"
             />
 
             <TextInput
               style={styles.input}
-              keyboardType={'email-address'}
-              autoCapitalize={'none'}
+              keyboardType="email-address"
+              autoCapitalize="none"
               onChangeText={text => this.updateValue(text, 'email')}
-              placeholder={'Digite seu Email'}
-              placeholderTextColor={'#b3b3b3'}
+              placeholder="Digite seu Email"
+              placeholderTextColor="#b3b3b3"
             />
             <TextInput
-              secureTextEntry={true}
+              secureTextEntry
               style={styles.input}
-              autoCapitalize={'none'}
+              autoCapitalize="none"
               onChangeText={text => this.updateValue(text, 'pass')}
-              placeholder={'Digite uma Senha'}
-              placeholderTextColor={'#b3b3b3'}
+              placeholder="Digite uma Senha"
+              placeholderTextColor="#b3b3b3"
             />
             <TouchableOpacity
               onPress={this.CheckTextInput}
               // onPress={() => {
               //   this.props.navigation.navigate('SoundChooser');
               // }}
-              style={styles.button}>
+              style={styles.button}
+            >
               <Text style={styles.buttonText}>Registrar</Text>
             </TouchableOpacity>
             <View style={styles.contentRegister}>
@@ -236,7 +236,8 @@ export default class Signup extends Component {
                 onPress={() => {
                   this.props.navigation.navigate('Login');
                 }}
-                style={styles.buttonRegister}>
+                style={styles.buttonRegister}
+              >
                 <Text style={styles.buttonTextRegister}>Entrar</Text>
               </TouchableOpacity>
             </View>
@@ -259,8 +260,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-    //justifyContent: 'center',
-    //marginTop: '15%',
+    // justifyContent: 'center',
+    // marginTop: '15%',
     width: 150,
     height: 150,
     borderRadius: 10,
@@ -274,7 +275,7 @@ const styles = StyleSheet.create({
   },
   inputer: {
     flex: 3,
-    //marginTop: '10%',
+    // marginTop: '10%',
     justifyContent: 'flex-start',
     alignItems: 'center',
     // backgroundColor: '#ddd',
