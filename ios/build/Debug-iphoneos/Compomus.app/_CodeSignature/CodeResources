@@ -107,7 +107,7 @@
 		</data>
 		<key>PlugIns/CompomusTests.xctest/CompomusTests</key>
 		<data>
-		kAZp1ZLR+p0z/v/zf2v66WOoYfw=
+		6vKGBrZyfog3EaeaIDPHmVzM2QA=
 		</data>
 		<key>PlugIns/CompomusTests.xctest/Frameworks/libswiftCore.dylib</key>
 		<data>
@@ -185,6 +185,10 @@
 		<data>
 		maR9jYUVHq6Twv/GJsBNRwiiXso=
 		</data>
+		<key>assets/src/assets/soundPlaying2.gif</key>
+		<data>
+		Aa3E6XZrNHWV2iZUev4ySCINdoY=
+		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
 		nM8zDAmX9bWLRkRvcCXmRUcjlDA=
@@ -195,7 +199,7 @@
 		</data>
 		<key>main.jsbundle</key>
 		<data>
-		Q/kGuxdYvPwbx9nc2lGppPB9w7w=
+		TVWyg465Hg+6Xzv2Bf9OHQwSj14=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -448,11 +452,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kAZp1ZLR+p0z/v/zf2v66WOoYfw=
+			6vKGBrZyfog3EaeaIDPHmVzM2QA=
 			</data>
 			<key>hash2</key>
 			<data>
-			WeBtcwiMj7n6fJK4XE3XVHE35YzoOlF/mY0dkO/PDbk=
+			Irge4kNwfT6C2BeiOmHvTTFQMGsFWh/YLbfM+kvW2+Y=
 			</data>
 		</dict>
 		<key>PlugIns/CompomusTests.xctest/Frameworks/libswiftCore.dylib</key>
@@ -664,6 +668,17 @@
 			x3rMxtT+BEV306iqADLb+0j7WMR4ex+AHlf4N4ZBS5U=
 			</data>
 		</dict>
+		<key>assets/src/assets/soundPlaying2.gif</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Aa3E6XZrNHWV2iZUev4ySCINdoY=
+			</data>
+			<key>hash2</key>
+			<data>
+			5qHLmOUY64A6od4Yk8JYnqbD9QWuIb8AjqORvoRpPw8=
+			</data>
+		</dict>
 		<key>embedded.mobileprovision</key>
 		<dict>
 			<key>hash</key>
@@ -690,11 +705,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Q/kGuxdYvPwbx9nc2lGppPB9w7w=
+			TVWyg465Hg+6Xzv2Bf9OHQwSj14=
 			</data>
 			<key>hash2</key>
 			<data>
-			rnS3f+/RZa4woL1uq4++INUv1ahJLCxBrGPDFf/uw0A=
+			Hs57GTEwlkzt2SphA/epIOHVccgkm2WxNk8kpzjql0g=
 			</data>
 		</dict>
 	</dict>
