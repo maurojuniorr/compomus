@@ -1,0 +1,6 @@
+module SwiftOSC {
+  umbrella header "SwiftOSC-umbrella.h"
+
+  export *
+  module * { export * }
+}
