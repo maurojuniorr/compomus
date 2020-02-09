@@ -57,13 +57,13 @@ export default class Signup extends Component {
           this.verifyData();
           console.log('Server connection way: localhost');
         } else if (response.status !== 200) {
-          Alert.alert('Compomus', 'Você está fora do alcance do Compomus!');
+          Alert.alert('Compomus', 'Você está fora da rede do Compomus!');
           console.log('error');
         }
       })
       .catch(error => {
         console.log('Server connection way: out of range');
-        Alert.alert('Compomus', 'Você está fora do alcance do Compomus!');
+        Alert.alert('Compomus', 'Você está fora da rede do Compomus!');
       });
   }
 

@@ -29,6 +29,7 @@ import Lottie  from "lottie-react-native";
 import  alert from "../assets/alert.json";
 import playing from "../assets/macaco.json";
 import farAway from "../assets/farAway.json";
+import lost from "../assets/pinLocation.json";
 
 const { MyNativeModule } = NativeModules;
 const CounterEvents = new NativeEventEmitter(NativeModules.MyNativeModule);
@@ -244,7 +245,7 @@ export default class Compose extends Component {
       this.setState({ screenColor: "grey" });      
 
     } else if (this.state.locationStatus === "unknown") {
-      this.setState({ screenColor: "grey" });      
+      this.setState({ screenColor: "pink" });      
     }
 
   }
@@ -261,11 +262,11 @@ displayAnimation(){
       
 
     } else if (this.state.locationStatus === "far") {
-      return <Lottie source={farAway} autoPlay loop resizeMode="contain" autoSize /> ;
+      return <Lottie source={lost} autoPlay loop resizeMode="contain" autoSize /> ;
       
 
     } else if (this.state.locationStatus === "unknown") {
-      return <Lottie source={lost} autoPlay loop resizeMode="contain" autoSize /> ;
+      return <Lottie source={farAway} autoPlay loop resizeMode="contain" autoSize /> ;
       
     }
 }
