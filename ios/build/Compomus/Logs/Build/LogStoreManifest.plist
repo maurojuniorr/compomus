@@ -40,40 +40,6 @@
 			<key>uniqueIdentifier</key>
 			<string>6EF8E1C5-BEEC-47FE-9C32-52B780D86F87</string>
 		</dict>
-		<key>DFBFCD4E-1F50-4ED2-B17A-50EDC26AFB8D</key>
-		<dict>
-			<key>className</key>
-			<string>IDECommandLineBuildLog</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>DFBFCD4E-1F50-4ED2-B17A-50EDC26AFB8D.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>schemeIdentifier-containerName</key>
-			<string>Compomus project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>Compomus</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Building workspace Compomus with scheme Compomus and configuration Debug</string>
-			<key>timeStartedRecording</key>
-			<real>602861899.55655301</real>
-			<key>timeStoppedRecording</key>
-			<real>602861912.49946594</real>
-			<key>title</key>
-			<string>Building workspace Compomus with scheme Compomus and configuration Debug</string>
-			<key>uniqueIdentifier</key>
-			<string>DFBFCD4E-1F50-4ED2-B17A-50EDC26AFB8D</string>
-		</dict>
 	</dict>
 </dict>
 </plist>

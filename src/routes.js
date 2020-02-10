@@ -7,24 +7,67 @@ import Compose from './pages/compose';
 
 const RootStack = createStackNavigator(
     {
-      Login: Login,
-      Signup,
-      SoundChooser,
-      Compose,
+      Login: {
+        screen: Login,
+        navigationOptions: {
+          headerStyle: {
+            backgroundColor: '#4DAE4C',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }
+      },
+      Signup: {
+        screen: Signup,
+        navigationOptions: {
+          headerStyle: {
+            backgroundColor: '#4DAE4C',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }
+      },
+      SoundChooser: {
+        screen: SoundChooser,
+        navigationOptions: {
+          headerTitle: 'Escolher Som',
+          headerStyle: {
+            backgroundColor: '#4DAE4C',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          headerLeft: () => null,
+        }
+      },
+      Compose: {
+        screen: Compose,
+        navigationOptions: {
+          headerTitle: "Reproduzindo...",
+          headerStyle: {
+            backgroundColor: '#4DAE4C',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          headerLeft: () => null,
+        }
+      },
+
+      
+      
     },
     {
       initialRouteName: 'Login',
-      defaultNavigationOptions: {
-        headerStyle: {
-          backgroundColor: '#4DAE4C',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
-      },
+      
     }
 );
 
-const AppContainer = createAppContainer(RootStack);
-export default AppContainer;
+
+export default createAppContainer(RootStack);

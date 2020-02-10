@@ -1,19 +1,5 @@
-// import React from 'react';
-//import {WebView} from 'react-native-webview';
-
-// const Compose = ({navigation}) => (
-//   <WebView source={{uri: navigation.state.params.compose.url}} />
-// );
-
-// Compose.navigationOptions = ({navigation}) => ({
-//   title: navigation.state.params.compose.name,
-// });
-// export default Compose;
-
 import SoundPlayer from "react-native-sound-player";
 import React, { Component } from "react";
-//import api from '../services/api';
-//import songList from '../data/songList';
 import {
   View,
   Text,
@@ -23,23 +9,33 @@ import {
   NativeModules,
   NativeEventEmitter,
   AppState,
+  TouchableOpacity,
   Image
 } from "react-native";
 import Lottie  from "lottie-react-native";
-import  alert from "../assets/alert.json";
-import playing from "../assets/macaco.json";
+import alert from "../assets/alert.json";
+import macaco from "../assets/macaco.json";
+import playing from "../assets/playing.json";
+import playing2 from "../assets/playing2.json";
 import farAway from "../assets/farAway.json";
-import lost from "../assets/pinLocation.json";
+import goExplore from "../assets/goExplore.json";
+import unknownLocation from "../assets/unknownLocation.json";
+import unknownLocation2 from "../assets/unknownLocation2.json";
+import speakers from "../assets/speakers.json";
+import loading from "../assets/loading.json";
+import pinLocation from "../assets/pinLocation.json";
+
 
 const { MyNativeModule } = NativeModules;
 const CounterEvents = new NativeEventEmitter(NativeModules.MyNativeModule);
 
 export default class Compose extends Component {
-  static navigationOptions = ({ navigation }) => ({
-    title: navigation.getParam("nameFileReal"),
-    // headerLeft: null,
-    headerTitleStyle: { textAlign: "center", alignSelf: "center" }
-  });
+  // static navigationOptions = ({ navigation }) => ({
+  //   title: navigation.getParam("nameFileReal"),
+  //  // header: null,
+    
+  //   headerTitleStyle: { textAlign: "center", alignSelf: "center" }
+  // });
   state = {
     dataSource: [],
     isLoading: true,
@@ -55,12 +51,14 @@ export default class Compose extends Component {
     usersoundRaw: "",
     userSoundId: "",
     choosenSound: "",
-    beaconRange: 0.311,
-    major: 123,
-    minor: 456,
+    beaconRange: 0,
+    major: 0,
+    minor: 0,
     screenColor: "",
-    iden: "iBeacon",
-    UUID: "8303AF6C-EC3C-4DA8-8696-A609807EC5A5",
+    iden: "",
+    UUID: "",
+    serverIp: "",
+    serverPort: 0,
     locationStatus: ""
   };
 
@@ -118,13 +116,81 @@ export default class Compose extends Component {
 
   // IOS
   setupNative() {
-    MyNativeModule.setBeacon(
-      this.state.UUID,
-      this.state.iden,
-      this.state.major,
-      this.state.minor,
-      this.state.beaconRange
-    );
+
+    let formData = new FormData();
+
+    formData.append("beaconOrder", "1");
+
+    fetch(`${global.rawSource}/index.php/getThisBeacon`, {
+      method: "POST",
+      body: formData
+    })
+      .then(response => response.json())
+      .then(responseJson2 => {
+    
+        const { uuid } = responseJson2;
+        const { identifier } = responseJson2;
+        const { major } = responseJson2;
+        const { minor } = responseJson2;
+        const { beaconRange } = responseJson2;
+        const {data} = responseJson2;
+        this.setState({
+          UUID: uuid,
+          iden: identifier,
+          major: parseInt(major),
+          minor: parseInt(minor) ,
+          beaconRange: parseFloat(beaconRange),
+        });
+        if (responseJson2 !== false) {
+  
+          MyNativeModule.setBeacon(
+            this.state.UUID,
+            this.state.iden,
+            this.state.major,
+            this.state.minor,
+            this.state.beaconRange
+          );
+      
+
+          console.log(
+            "Beacon set ", this.state.UUID+ ' ' + this.state.iden+ ' ' + this.state.major+ ' ' + this.state.minor+ ' ' + this.state.beaconRange
+          );
+
+          // Alert.alert('Compomus', 'Usuario achado com sucesso!');
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+      //Configurando ip e porta do servidor
+      fetch(`${global.rawSource}/index.php/soundServer`)
+      .then(response => response.json())
+      .then(responseJson => {
+        // console.log('Success', formData);
+        const { ip } = responseJson;
+        const { port } = responseJson;
+        console.log(responseJson)
+        this.setState({ 
+          serverIp: ip,
+          serverPort: parseInt(port), 
+        });
+        if (responseJson !== false) {
+  
+          MyNativeModule.soundServer(
+            this.state.serverIp,
+            this.state.serverPort
+          );
+          console.log(
+            "Sound Server set ", this.state.serverIp+ ' ' + this.state.serverPort
+          );
+        }
+        // console.log(data);
+      }).catch(error => {
+        console.error(error);
+      });
+      
+    
 
     // MyNativeModule.userInfo(this.state.userId, this.state.userSoundId);
   }
@@ -236,39 +302,54 @@ export default class Compose extends Component {
 
 
     if (this.state.locationStatus === "immediate") {
-      this.setState({ screenColor: "white" });      
+      this.setState({ screenColor: "aliceblue" });      
 
     } else if (this.state.locationStatus === "near") {
-      this.setState({ screenColor: "orange" });      
+      this.setState({ screenColor: "white" });      
 
     } else if (this.state.locationStatus === "far") {
-      this.setState({ screenColor: "grey" });      
+      this.setState({ screenColor: "white" });      
 
     } else if (this.state.locationStatus === "unknown") {
-      this.setState({ screenColor: "pink" });      
+      this.setState({ screenColor: "white" });      
     }
 
   }
 
-displayAnimation(){
+displayAnimation1(){
 
 
     if (this.state.locationStatus === "immediate") {
-      return <Lottie source={playing} autoPlay loop resizeMode="contain" autoSize /> ;
+      return <Lottie source={macaco} autoPlay loop resizeMode="contain"   /> ;
       
 
     } else if (this.state.locationStatus === "near") {
-      return <Lottie source={alert} autoPlay loop resizeMode="contain" autoSize /> ;
+      return <Lottie source={alert} autoPlay loop resizeMode="contain" /> ;
       
 
     } else if (this.state.locationStatus === "far") {
-      return <Lottie source={lost} autoPlay loop resizeMode="contain" autoSize /> ;
+      return <Lottie source={pinLocation} autoPlay loop resizeMode="contain" /> ;
       
 
     } else if (this.state.locationStatus === "unknown") {
-      return <Lottie source={farAway} autoPlay loop resizeMode="contain" autoSize /> ;
+      return <Lottie source={unknownLocation2} autoPlay loop resizeMode="contain"  /> ;
       
     }
+}
+
+displayAnimation2(){
+
+
+  if (this.state.locationStatus === "immediate") {
+    return <Lottie source={speakers} autoPlay loop resizeMode="contain" /> ;
+    
+
+  } 
+}
+escolherSom(){
+  this.props.navigation.navigate('SoundChooser', {
+    userId: this.state.userId,
+  });
 }
 
 
@@ -293,18 +374,32 @@ displayAnimation(){
       <>
         <StatusBar barStyle="light-content" />
         <View style={[styles.container, { backgroundColor: color }]}>
-          <View style={styles.imageCenter}>
+          <View style={styles.textContainer}>
+            <Text style={styles.songName}> {navigation.getParam("nameFileReal")}</Text>
+          </View>
+          <View style={styles.speakers}>
+            
+            {this.displayAnimation2()}
+            <View style={styles.animation1}>
           
-            {this.displayAnimation()}
-            {/* <Image
-              style={styles.image}
-              source={require("../assets/soundPlaying2.gif")}
-            /> */}
+              {this.displayAnimation1()}
+        
+            </View>
+             
           </View>
-          <View>
-            <Text>Som Tocando: {navigation.getParam("nameFileReal")}</Text>
-            <Text>userId: {navigation.getParam("userId")}</Text>
+          <View style={styles.trocarSomContainer}>
+            <TouchableOpacity
+              onPress={()=> {this.props.navigation.navigate('SoundChooser', {
+                userId: this.state.userId,
+              })}}
+              style={styles.button}>
+              <Text style={styles.buttonText}>Escolher Som</Text>
+            </TouchableOpacity>
           </View>
+          
+            {/* <Text>Som Tocando: {navigation.getParam("nameFileReal")}</Text>
+            <Text>userId: {navigation.getParam("userId")}</Text> */}
+         
         </View>
         
       </>
@@ -317,55 +412,54 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#ddd",
     alignItems: "center",
+   // justifyContent: "center"
+  },
+  textContainer: {
+    flex: 1,
+    alignSelf: "center",
     justifyContent: "center"
   },
-  list: {
-    padding: 20
+  songName: {
+    justifyContent: "center",
+    alignItems: "center",
+    color: '#4DAE4C', 
+    fontSize: 30,
   },
-  imageCenter: {
+  animation1: {
     flex: 2,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  image: {
+    //position: "absolute",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    marginTop: 80,
     width: 320,
-    height: 320
+    height: 220
   },
-  productContainer: {
-    padding: 20,
-    backgroundColor: "#fff",
-    marginBottom: 20,
-    borderWidth: 1,
-    borderRadius: 8,
-    borderColor: "#ddd"
+  speakers: {
+    flex: 2,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    //marginTop: 100,
+    width: 220,
+    height: 220
   },
-  productTitle: {
-    color: "#333",
-    fontSize: 14,
-    fontWeight: "bold"
-  },
-  buttonContent: {
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  productButton: {
+  button: {
     width: 300,
     height: 45,
-    marginTop: 30,
+    //marginTop: 40,
     borderRadius: 4,
-    backgroundColor: "#4DAE4C",
-    justifyContent: "center",
-    alignItems: "center"
+    backgroundColor: '#4DAE4C',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  productButtonText: {
+  buttonText: {
+    color: '#fff',
     fontSize: 16,
-    color: "#fff",
-    fontWeight: "bold"
+    fontWeight: 'bold'
   },
-  productDescription: {
-    color: "#999",
-    marginTop: 5,
-    fontSize: 12,
-    fontWeight: "bold"
-  }
+  trocarSomContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  
 });

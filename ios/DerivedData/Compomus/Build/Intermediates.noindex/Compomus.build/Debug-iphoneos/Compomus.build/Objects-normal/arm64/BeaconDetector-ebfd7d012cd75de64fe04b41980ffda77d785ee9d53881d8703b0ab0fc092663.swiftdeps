@@ -10,6 +10,7 @@ provides-dynamic-lookup:
 - "requiresMainQueueSetup"
 - "screenStatus"
 - "setBeacon"
+- "soundServer"
 - "startObserving"
 - "stopObserving"
 - "supportedEvents"
@@ -36,9 +37,9 @@ depends-top-level:
 - "CLProximity"
 - "DarwinBoolean"
 - "Double"
-- "FloatLiteralType"
+- !private "FloatLiteralType"
 - !private "Int"
-- "IntegerLiteralType"
+- !private "IntegerLiteralType"
 - "MyNativeModule"
 - "NSNumber"
 - !private "OSCAddressPattern"
@@ -46,9 +47,10 @@ depends-top-level:
 - !private "OSCMessage"
 - "RCTEventEmitter"
 - "String"
-- "StringLiteralType"
+- !private "StringLiteralType"
 - "UInt16"
 - !private "UUID"
+- !private "UnicodeScalarType"
 - !private "cos"
 - !private "print"
 - !private "round"
@@ -82,7 +84,7 @@ depends-member:
 - !private ["So25CLLocationManagerDelegateP", "Double"]
 - !private ["So25CLLocationManagerDelegateP", "Int"]
 - !private ["So25CLLocationManagerDelegateP", "OSCAddressPattern"]
-- ["So25CLLocationManagerDelegateP", "OSCClient"]
+- !private ["So25CLLocationManagerDelegateP", "OSCClient"]
 - !private ["So25CLLocationManagerDelegateP", "OSCMessage"]
 - !private ["So25CLLocationManagerDelegateP", "UInt16"]
 - !private ["So25CLLocationManagerDelegateP", "UUID"]
@@ -111,6 +113,8 @@ depends-member:
 - !private ["So25CLLocationManagerDelegateP", "sendEvent"]
 - !private ["So25CLLocationManagerDelegateP", "sendOffOSC"]
 - !private ["So25CLLocationManagerDelegateP", "sendOnOSC"]
+- !private ["So25CLLocationManagerDelegateP", "serverIp"]
+- !private ["So25CLLocationManagerDelegateP", "serverPort"]
 - !private ["So25CLLocationManagerDelegateP", "sin"]
 - !private ["So25CLLocationManagerDelegateP", "soundUser"]
 - !private ["So25CLLocationManagerDelegateP", "startScanning"]
@@ -129,7 +133,7 @@ depends-member:
 - !private ["s7CVarArgP", "Double"]
 - !private ["s7CVarArgP", "Int"]
 - !private ["s7CVarArgP", "OSCAddressPattern"]
-- ["s7CVarArgP", "OSCClient"]
+- !private ["s7CVarArgP", "OSCClient"]
 - !private ["s7CVarArgP", "OSCMessage"]
 - !private ["s7CVarArgP", "UInt16"]
 - !private ["s7CVarArgP", "UUID"]
@@ -146,7 +150,7 @@ depends-member:
 - !private ["s7CVarArgP", "hasListeners"]
 - !private ["s7CVarArgP", "heading"]
 - !private ["s7CVarArgP", "identifier"]
-- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "inside"]
 - !private ["s7CVarArgP", "isMonitoringAvailable"]
 - !private ["s7CVarArgP", "isRangingAvailable"]
@@ -168,6 +172,8 @@ depends-member:
 - !private ["s7CVarArgP", "sendEvent"]
 - !private ["s7CVarArgP", "sendOffOSC"]
 - !private ["s7CVarArgP", "sendOnOSC"]
+- !private ["s7CVarArgP", "serverIp"]
+- !private ["s7CVarArgP", "serverPort"]
 - !private ["s7CVarArgP", "sin"]
 - !private ["s7CVarArgP", "soundUser"]
 - !private ["s7CVarArgP", "startMonitoring"]
@@ -189,7 +195,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "Double"]
 - !private ["s28CustomDebugStringConvertibleP", "Int"]
 - !private ["s28CustomDebugStringConvertibleP", "OSCAddressPattern"]
-- ["s28CustomDebugStringConvertibleP", "OSCClient"]
+- !private ["s28CustomDebugStringConvertibleP", "OSCClient"]
 - !private ["s28CustomDebugStringConvertibleP", "OSCMessage"]
 - !private ["s28CustomDebugStringConvertibleP", "UInt16"]
 - !private ["s28CustomDebugStringConvertibleP", "UUID"]
@@ -206,7 +212,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "hasListeners"]
 - !private ["s28CustomDebugStringConvertibleP", "heading"]
 - !private ["s28CustomDebugStringConvertibleP", "identifier"]
-- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "inside"]
 - !private ["s28CustomDebugStringConvertibleP", "isMonitoringAvailable"]
 - !private ["s28CustomDebugStringConvertibleP", "isRangingAvailable"]
@@ -228,6 +234,8 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "sendEvent"]
 - !private ["s28CustomDebugStringConvertibleP", "sendOffOSC"]
 - !private ["s28CustomDebugStringConvertibleP", "sendOnOSC"]
+- !private ["s28CustomDebugStringConvertibleP", "serverIp"]
+- !private ["s28CustomDebugStringConvertibleP", "serverPort"]
 - !private ["s28CustomDebugStringConvertibleP", "sin"]
 - !private ["s28CustomDebugStringConvertibleP", "soundUser"]
 - !private ["s28CustomDebugStringConvertibleP", "startMonitoring"]
@@ -248,7 +256,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "Double"]
 - !private ["s23CustomStringConvertibleP", "Int"]
 - !private ["s23CustomStringConvertibleP", "OSCAddressPattern"]
-- ["s23CustomStringConvertibleP", "OSCClient"]
+- !private ["s23CustomStringConvertibleP", "OSCClient"]
 - !private ["s23CustomStringConvertibleP", "OSCMessage"]
 - !private ["s23CustomStringConvertibleP", "UInt16"]
 - !private ["s23CustomStringConvertibleP", "UUID"]
@@ -265,7 +273,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "hasListeners"]
 - !private ["s23CustomStringConvertibleP", "heading"]
 - !private ["s23CustomStringConvertibleP", "identifier"]
-- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "inside"]
 - !private ["s23CustomStringConvertibleP", "isMonitoringAvailable"]
 - !private ["s23CustomStringConvertibleP", "isRangingAvailable"]
@@ -287,6 +295,8 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "sendEvent"]
 - !private ["s23CustomStringConvertibleP", "sendOffOSC"]
 - !private ["s23CustomStringConvertibleP", "sendOnOSC"]
+- !private ["s23CustomStringConvertibleP", "serverIp"]
+- !private ["s23CustomStringConvertibleP", "serverPort"]
 - !private ["s23CustomStringConvertibleP", "sin"]
 - !private ["s23CustomStringConvertibleP", "soundUser"]
 - !private ["s23CustomStringConvertibleP", "startMonitoring"]
@@ -313,7 +323,7 @@ depends-member:
 - !private ["SQ", "Double"]
 - !private ["SQ", "Int"]
 - !private ["SQ", "OSCAddressPattern"]
-- ["SQ", "OSCClient"]
+- !private ["SQ", "OSCClient"]
 - !private ["SQ", "OSCMessage"]
 - !private ["SQ", "UInt16"]
 - !private ["SQ", "UUID"]
@@ -333,7 +343,7 @@ depends-member:
 - !private ["SQ", "heading"]
 - !private ["SQ", "identifier"]
 - !private ["SQ", "immediate"]
-- ["SQ", "init"]
+- !private ["SQ", "init"]
 - !private ["SQ", "inside"]
 - !private ["SQ", "isMonitoringAvailable"]
 - !private ["SQ", "isRangingAvailable"]
@@ -356,6 +366,8 @@ depends-member:
 - !private ["SQ", "sendEvent"]
 - !private ["SQ", "sendOffOSC"]
 - !private ["SQ", "sendOnOSC"]
+- !private ["SQ", "serverIp"]
+- !private ["SQ", "serverPort"]
 - !private ["SQ", "sin"]
 - !private ["SQ", "soundUser"]
 - !private ["SQ", "startMonitoring"]
@@ -382,7 +394,7 @@ depends-member:
 - !private ["SH", "Double"]
 - !private ["SH", "Int"]
 - !private ["SH", "OSCAddressPattern"]
-- ["SH", "OSCClient"]
+- !private ["SH", "OSCClient"]
 - !private ["SH", "OSCMessage"]
 - !private ["SH", "UInt16"]
 - !private ["SH", "UUID"]
@@ -402,7 +414,7 @@ depends-member:
 - !private ["SH", "heading"]
 - !private ["SH", "identifier"]
 - !private ["SH", "immediate"]
-- ["SH", "init"]
+- !private ["SH", "init"]
 - !private ["SH", "inside"]
 - !private ["SH", "isMonitoringAvailable"]
 - !private ["SH", "isRangingAvailable"]
@@ -425,6 +437,8 @@ depends-member:
 - !private ["SH", "sendEvent"]
 - !private ["SH", "sendOffOSC"]
 - !private ["SH", "sendOnOSC"]
+- !private ["SH", "serverIp"]
+- !private ["SH", "serverPort"]
 - !private ["SH", "sin"]
 - !private ["SH", "soundUser"]
 - !private ["SH", "startMonitoring"]
@@ -489,8 +503,11 @@ depends-member:
 - !private ["8Compomus14MyNativeModuleC", "sendEvent"]
 - ["8Compomus14MyNativeModuleC", "sendOffOSC"]
 - ["8Compomus14MyNativeModuleC", "sendOnOSC"]
+- !private ["8Compomus14MyNativeModuleC", "serverIp"]
+- !private ["8Compomus14MyNativeModuleC", "serverPort"]
 - ["8Compomus14MyNativeModuleC", "setBeacon"]
 - !private ["8Compomus14MyNativeModuleC", "sin"]
+- ["8Compomus14MyNativeModuleC", "soundServer"]
 - !private ["8Compomus14MyNativeModuleC", "soundUser"]
 - ["8Compomus14MyNativeModuleC", "startObserving"]
 - ["8Compomus14MyNativeModuleC", "startScanning"]
@@ -561,8 +578,11 @@ depends-member:
 - !private ["So8NSObjectC", "sendEvent"]
 - ["So8NSObjectC", "sendOffOSC"]
 - ["So8NSObjectC", "sendOnOSC"]
+- ["So8NSObjectC", "serverIp"]
+- ["So8NSObjectC", "serverPort"]
 - ["So8NSObjectC", "setBeacon"]
 - !private ["So8NSObjectC", "sin"]
+- ["So8NSObjectC", "soundServer"]
 - ["So8NSObjectC", "soundUser"]
 - !private ["So8NSObjectC", "startMonitoring"]
 - ["So8NSObjectC", "startObserving"]
@@ -583,7 +603,7 @@ depends-member:
 - !private ["So8NSObjectP", "Double"]
 - !private ["So8NSObjectP", "Int"]
 - !private ["So8NSObjectP", "OSCAddressPattern"]
-- ["So8NSObjectP", "OSCClient"]
+- !private ["So8NSObjectP", "OSCClient"]
 - !private ["So8NSObjectP", "OSCMessage"]
 - !private ["So8NSObjectP", "UInt16"]
 - !private ["So8NSObjectP", "UUID"]
@@ -599,7 +619,7 @@ depends-member:
 - !private ["So8NSObjectP", "hasListeners"]
 - !private ["So8NSObjectP", "heading"]
 - !private ["So8NSObjectP", "identifier"]
-- ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "init"]
 - !private ["So8NSObjectP", "inside"]
 - !private ["So8NSObjectP", "isMonitoringAvailable"]
 - !private ["So8NSObjectP", "isRangingAvailable"]
@@ -620,6 +640,8 @@ depends-member:
 - !private ["So8NSObjectP", "sendEvent"]
 - !private ["So8NSObjectP", "sendOffOSC"]
 - !private ["So8NSObjectP", "sendOnOSC"]
+- !private ["So8NSObjectP", "serverIp"]
+- !private ["So8NSObjectP", "serverPort"]
 - !private ["So8NSObjectP", "sin"]
 - !private ["So8NSObjectP", "soundUser"]
 - !private ["So8NSObjectP", "startMonitoring"]
@@ -637,7 +659,7 @@ depends-member:
 - !private ["Sj", "init"]
 - !private ["Sj", "pi"]
 - !private ["8SwiftOSC17OSCAddressPatternV", "init"]
-- ["8SwiftOSC9OSCClientC", "init"]
+- !private ["8SwiftOSC9OSCClientC", "init"]
 - !private ["8SwiftOSC9OSCClientC", "send"]
 - !private ["8SwiftOSC10OSCElementP", "init"]
 - !private ["8SwiftOSC10OSCMessageC", "init"]
@@ -650,7 +672,7 @@ depends-member:
 - !private ["So15RCTBridgeModuleP", "Double"]
 - !private ["So15RCTBridgeModuleP", "Int"]
 - !private ["So15RCTBridgeModuleP", "OSCAddressPattern"]
-- ["So15RCTBridgeModuleP", "OSCClient"]
+- !private ["So15RCTBridgeModuleP", "OSCClient"]
 - !private ["So15RCTBridgeModuleP", "OSCMessage"]
 - !private ["So15RCTBridgeModuleP", "UInt16"]
 - !private ["So15RCTBridgeModuleP", "UUID"]
@@ -680,6 +702,8 @@ depends-member:
 - !private ["So15RCTBridgeModuleP", "sendEvent"]
 - !private ["So15RCTBridgeModuleP", "sendOffOSC"]
 - !private ["So15RCTBridgeModuleP", "sendOnOSC"]
+- !private ["So15RCTBridgeModuleP", "serverIp"]
+- !private ["So15RCTBridgeModuleP", "serverPort"]
 - !private ["So15RCTBridgeModuleP", "sin"]
 - !private ["So15RCTBridgeModuleP", "soundUser"]
 - !private ["So15RCTBridgeModuleP", "startScanning"]
@@ -733,8 +757,11 @@ depends-member:
 - !private ["So15RCTEventEmitterC", "sendEvent"]
 - ["So15RCTEventEmitterC", "sendOffOSC"]
 - ["So15RCTEventEmitterC", "sendOnOSC"]
+- ["So15RCTEventEmitterC", "serverIp"]
+- ["So15RCTEventEmitterC", "serverPort"]
 - ["So15RCTEventEmitterC", "setBeacon"]
 - !private ["So15RCTEventEmitterC", "sin"]
+- ["So15RCTEventEmitterC", "soundServer"]
 - ["So15RCTEventEmitterC", "soundUser"]
 - ["So15RCTEventEmitterC", "startObserving"]
 - ["So15RCTEventEmitterC", "startScanning"]
@@ -788,7 +815,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Double"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Int"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "OSCAddressPattern"]
-- ["10Foundation27_KeyValueCodingAndObservingP", "OSCClient"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "OSCClient"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "OSCMessage"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UInt16"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UUID"]
@@ -804,7 +831,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "hasListeners"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "heading"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "identifier"]
-- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "inside"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "isMonitoringAvailable"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "isRangingAvailable"]
@@ -825,6 +852,8 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "sendEvent"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "sendOffOSC"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "sendOnOSC"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "serverIp"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "serverPort"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "sin"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "soundUser"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "startMonitoring"]
@@ -842,7 +871,7 @@ depends-member:
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "Double"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "Int"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "OSCAddressPattern"]
-- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "OSCClient"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "OSCClient"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "OSCMessage"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "UInt16"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "UUID"]
@@ -858,7 +887,7 @@ depends-member:
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "hasListeners"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "heading"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "identifier"]
-- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "init"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "init"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "inside"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "isMonitoringAvailable"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "isRangingAvailable"]
@@ -879,6 +908,8 @@ depends-member:
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "sendEvent"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "sendOffOSC"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "sendOnOSC"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "serverIp"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "serverPort"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "sin"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "soundUser"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "startMonitoring"]
@@ -939,7 +970,7 @@ depends-nominal:
 - !private "So14NSSecureCodingP"
 - !private "Sj"
 - !private "8SwiftOSC17OSCAddressPatternV"
-- "8SwiftOSC9OSCClientC"
+- !private "8SwiftOSC9OSCClientC"
 - !private "8SwiftOSC10OSCElementP"
 - !private "8SwiftOSC10OSCMessageC"
 - !private "8SwiftOSC7OSCTypeP"
@@ -993,6 +1024,7 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Dispatch.swiftmodule/arm64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Metal.swiftmodule/arm64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Darwin.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreLocation.swiftmodule/arm64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Foundation.swiftmodule/arm64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreFoundation.swiftmodule/arm64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreGraphics.swiftmodule/arm64.swiftmodule"
@@ -2192,4 +2224,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "c91869852b60c8b7c59d8473aace8b53"
+interface-hash: "08d06a9472871caf3b38292557c922f8"

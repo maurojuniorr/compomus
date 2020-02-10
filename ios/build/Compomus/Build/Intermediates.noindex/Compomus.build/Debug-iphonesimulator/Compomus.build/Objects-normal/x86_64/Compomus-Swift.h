@@ -211,6 +211,7 @@ SWIFT_CLASS_NAMED("MyNativeModule") SWIFT_AVAILABILITY(ios,introduced=13.0)
 @interface MyNativeModule : RCTEventEmitter <CLLocationManagerDelegate>
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (void)setBeacon:(NSString * _Nonnull)uuid ident:(NSString * _Nonnull)ident ma:(NSNumber * _Nonnull)ma mi:(NSNumber * _Nonnull)mi beaconRange:(NSNumber * _Nonnull)beaconRange;
+- (void)soundServer:(NSString * _Nonnull)ip port:(NSNumber * _Nonnull)port;
 - (void)userInfo:(NSNumber * _Nonnull)userID sound:(NSString * _Nonnull)sound;
 - (void)locationManager:(CLLocationManager * _Nonnull)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status;
 - (void)locationManager:(CLLocationManager * _Nonnull)manager didRangeBeacons:(NSArray<CLBeacon *> * _Nonnull)beacons satisfyingConstraint:(CLBeaconIdentityConstraint * _Nonnull)beaconConstraint;

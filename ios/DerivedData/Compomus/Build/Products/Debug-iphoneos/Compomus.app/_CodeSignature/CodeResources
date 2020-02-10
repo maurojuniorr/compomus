@@ -115,11 +115,11 @@
 		</data>
 		<key>PlugIns/CompomusTests.xctest.dSYM/Contents/Resources/DWARF/CompomusTests</key>
 		<data>
-		D4TN0iW3BWFq1ik3ZMYf3cwYxzA=
+		RTjGSxUbYD/0u+62+VJDHEI/oX0=
 		</data>
 		<key>PlugIns/CompomusTests.xctest/CompomusTests</key>
 		<data>
-		+T0Da+hg6iPKK+ym+Irh28SyHfc=
+		BikP3+N7VkltB6cduqBqazRrVlQ=
 		</data>
 		<key>PlugIns/CompomusTests.xctest/Frameworks/libswiftCore.dylib</key>
 		<data>
@@ -181,6 +181,10 @@
 		<data>
 		wq4Nz8ZaGAMW/SE7k/MmnhfOlq4=
 		</data>
+		<key>assets/src/assets/farAway.json</key>
+		<data>
+		6mb5kxrn1C7mSOqS9xezQ+3cbv4=
+		</data>
 		<key>assets/src/assets/icon_round.png</key>
 		<data>
 		maR9jYUVHq6Twv/GJsBNRwiiXso=
@@ -207,7 +211,7 @@
 		</data>
 		<key>main.jsbundle</key>
 		<data>
-		qcDe8Qcea0gR7d6Kd5w+3Cf7VVI=
+		EzkIm8M3SE8DUOCJL+vc0i+Qiwk=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -482,22 +486,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			D4TN0iW3BWFq1ik3ZMYf3cwYxzA=
+			RTjGSxUbYD/0u+62+VJDHEI/oX0=
 			</data>
 			<key>hash2</key>
 			<data>
-			HBgXp2nnsKQAipGDE8tIFNdjsmHt6K1l1q4HK1rOhNA=
+			8dD0xh1/H7qIjODveMspXsDd0EL1ofeag5qkx0lHy1E=
 			</data>
 		</dict>
 		<key>PlugIns/CompomusTests.xctest/CompomusTests</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+T0Da+hg6iPKK+ym+Irh28SyHfc=
+			BikP3+N7VkltB6cduqBqazRrVlQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZdO7u3rSlS7crUC3I+dsgQuNxKSIOy6Y8hvzU0ChSK8=
+			mym1j1gIvDxOpcD341/wxTsD49/fzeL/fNOAhvEzlSY=
 			</data>
 		</dict>
 		<key>PlugIns/CompomusTests.xctest/Frameworks/libswiftCore.dylib</key>
@@ -665,6 +669,17 @@
 			IXJiLdP4M6ay77rdVhEusVX107BXReiYyx17tq2IG/k=
 			</data>
 		</dict>
+		<key>assets/src/assets/farAway.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			6mb5kxrn1C7mSOqS9xezQ+3cbv4=
+			</data>
+			<key>hash2</key>
+			<data>
+			T+Pgu7XKIbf9+FGJBhWIyyHjz6oCeUVA65FVsm25VWw=
+			</data>
+		</dict>
 		<key>assets/src/assets/icon_round.png</key>
 		<dict>
 			<key>hash</key>
@@ -735,11 +750,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qcDe8Qcea0gR7d6Kd5w+3Cf7VVI=
+			EzkIm8M3SE8DUOCJL+vc0i+Qiwk=
 			</data>
 			<key>hash2</key>
 			<data>
-			K40GYHW6K5iDpRJewUkuvrJ04gkrSslFevUZRlrkpQE=
+			YfyL2rVC7Kt7NxoAOpQFH8gHwL1WKcghDA/ufIvqpyc=
 			</data>
 		</dict>
 	</dict>

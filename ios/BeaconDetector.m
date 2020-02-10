@@ -22,6 +22,9 @@ RCT_EXTERN_METHOD(screenStatus:(NSString *)screen)
 
 //Função recebe os dados de usuário e som atuais
 RCT_EXTERN_METHOD(userInfo:(nonnull NSNumber *) userID sound:( NSString *) sound)
+
+//Função recebe os dados de usuário e som atuais
+RCT_EXTERN_METHOD(soundServer:(NSString *) ip port:(nonnull NSNumber *) port)
 @end
 
 //RCT_EXTERN_METHOD(sendOnOSC:(nonnull NSNumber *) userID sound:(nonnull NSNumber *) sound)

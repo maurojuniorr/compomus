@@ -1,10 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable react/sort-comp */
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable class-methods-use-this */
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable no-use-before-define */
 import React, { Component } from "react";
 
 import SoundPlayer from "react-native-sound-player";
@@ -26,11 +19,6 @@ const { MyNativeModule } = NativeModules;
 export default class SoundChooser extends Component {
   _onFinishedLoadingFileSubscription = null;
 
-  static navigationOptions = {
-    title: "Escolher Som",
-    headerBackTitle: "Voltar"
-    // headerLeft: null,
-  };
 
   state = {
     data: [],
@@ -39,30 +27,27 @@ export default class SoundChooser extends Component {
 
   componentDidMount() {
     this.makeRemoteRequest();
-    this._onFinishedLoadingFileSubscription = SoundPlayer.addEventListener(
-      "FinishedLoadingFile",
-      ({ success, name, type }) => {
-        console.log("finished loading file with success", success, name, type);
-      }
-    );
-  }
 
-  playSong(song) {
-    console.log("Esse é o som play the song file", song);
-    try {
-      SoundPlayer.loadUrl(`${global.rawSource}/raw/${song}.mp3`);
-      SoundPlayer.play();
-      // SoundPlayer.playSoundFile(`${song}`, 'mp3');
-    } catch (e) {
-      Alert.alert("Esse som não pode ser reproduzido");
-      console.log("cannot play the song file", song);
-    }
+    this._onFinishedPlayingSubscription = SoundPlayer.addEventListener('FinishedPlaying', ({ success }) => {
+      console.log('Reprodução terminada: ', success)
+    })
   }
 
   componentWillUnmount() {
     SoundPlayer.stop();
+    this._onFinishedPlayingSubscription.remove()
+    //this._onFinishedLoadingFileSubscription.remove();
+  }
 
-    this._onFinishedLoadingFileSubscription.remove();
+  playSong(song, nameSong) {
+    
+    try {
+      SoundPlayer.playUrl(`${global.rawSource}/raw/${song}.mp3`);
+      console.log("Esse é o som reproduzido: ", nameSong);
+    } catch (e) {
+      Alert.alert("Esse som não pode ser reproduzido");
+      console.log("Esse som não pode ser reproduzido: ", nameSong);
+    }
   }
 
   makeRemoteRequest() {
@@ -94,7 +79,7 @@ export default class SoundChooser extends Component {
       <View style={styles.buttonContent}>
         <TouchableOpacity
           style={styles.playButton}
-          onPress={text => this.playSong(item.nameFile)}
+          onPress={text => this.playSong(item.nameFile, item.name)}
         >
           <Text style={styles.soundButtonText}>Tocar</Text>
         </TouchableOpacity>

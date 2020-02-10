@@ -14,8 +14,7 @@ import SwiftOSC
 @available(iOS 13.0, *)
 @objc(MyNativeModule)
 class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
-  var client = OSCClient(address: "192.168.86.1", port: 8000)
-
+  
   var locationManager: CLLocationManager?
   var lastDistance = CLProximity.unknown
   var locationAccuracy: CLLocationAccuracy?
@@ -33,21 +32,26 @@ class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
   private var userId: NSNumber
   private var soundUser: String
   private var screenStatus: String
+  private var serverIp: String
+   private var serverPort: NSNumber
+  var client:OSCClient?
   override init() {
     heading = 0
     inside = false
     ready = false
     alive = false
     alive2 = "dead"
-    UUID2 = "8303AF6C-EC3C-4DA8-8696-A609807EC5A5"
-    major = 123
-    minor = 456
-    identifier = "iBeacon"
+    UUID2 = " "
+    major = 0
+    minor = 0
+    identifier = " "
     beaconDistance = 0
     userId = 0
     soundUser = "pitiznaider"
     screenStatus = "active"
     hasListeners = false
+    serverIp = " "
+    serverPort = 0
   super.init()
     locationManager = CLLocationManager()
     locationManager?.delegate = self
@@ -61,7 +65,9 @@ class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
   func setBeacon(_ uuid: String, ident: String, ma: NSNumber, mi: NSNumber, beaconRange: NSNumber) {
         print(uuid)
         print(ma)
+        print(mi)
         print(ident)
+        print(beaconRange)
 
         UUID2 = uuid
         major = UInt16(truncating: ma)
@@ -70,9 +76,18 @@ class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
         beaconDistance = Double(truncating: beaconRange)
         
     if ready == true {
+      client = OSCClient(address: serverIp, port: Int(truncating: serverPort))
       startScanning()
     }
         
+  }
+  
+  @objc
+  func soundServer(_ ip: String , port: NSNumber) {
+    serverIp = ip
+    serverPort = port
+    print(serverIp)
+    print(serverPort)
   }
   
   
@@ -193,7 +208,7 @@ class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
           user
       )
      // print("Distance is \(proximity2)")
-    client.send(message)
+    client?.send(message)
   }
   
   //Mensagem pra adicionar usuário
@@ -206,7 +221,7 @@ class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
           user
       )
      // print("Distance is \(proximity2)")
-    client.send(message)
+    client?.send(message)
   }
   
   //Mensagem pra remover usuário
@@ -217,7 +232,7 @@ class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
           user
       )
      // print("Distance is \(proximity2)")
-    client.send(message)
+    client?.send(message)
   }
   
   //Verifica se o app está em primeiro plano

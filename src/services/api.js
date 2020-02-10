@@ -1,11 +1,8 @@
-import axios from 'axios';
-// const rawSource = 'http://192.168.86.1/compomusServer';
-// const rawSource = 'http://compomus.funtechshow.com/api';
-// global.rawSource = rawSource;
+//import axios from 'axios';
 
-const api = axios.create({
-  // baseURL: 'https://rocketseat-node.herokuapp.com/api',
-  baseURL: `${global.rawSource}/index.php`,
-});
+global.localhost = 'http://192.168.86.1/compomusServer';
+global.online = 'http://compomus.funtechshow.com/api'
+
+const api =  "teste"
 
 export default api;

@@ -9,8 +9,11 @@ import {
   StatusBar,
   Alert,
   TouchableOpacity,
+  Platform,
+  KeyboardAvoidingView,
+  SafeAreaView
 } from 'react-native';
-import SoundPlayer from 'react-native-sound-player';
+//import SoundPlayer from 'react-native-sound-player';
 import NetInfo from '@react-native-community/netinfo';
 const unsubscribe = NetInfo.addEventListener(state => {
   console.log('Connection type', state.type);
@@ -19,9 +22,9 @@ const unsubscribe = NetInfo.addEventListener(state => {
 
 export default class Login extends Component {
   static navigationOptions = {
-    //header: null,
-    headerBackTitle: null,
-    title: 'Compomus Login',
+    headerShown: false,
+    //headerBackTitle: null,
+    //title: 'Compomus Login',
   };
 
   state = {
@@ -32,22 +35,41 @@ export default class Login extends Component {
   };
 
   componentDidMount() {
-    this._onFinishedLoadingFileSubscription = SoundPlayer.addEventListener(
-      'FinishedLoadingFile',
-      ({success, name, type}) => {
-        console.log('finished loading file with success', success, name, type);
-      },
-    );
 
-    //this.defineApi();
+  }
+
+  componentWillUnmount() {
+    unsubscribe.remove;
   }
 
   checkIfOnline() {
     NetInfo.fetch().then(state => {
       console.log('Connection type', state.type);
       console.log('Have Internet?', state.isInternetReachable);
-      if (state.isInternetReachable) {
-        global.rawSource = 'http://compomus.funtechshow.com/api';
+      if (state.isInternetReachable && state.type === "wifi") {
+        fetch(`${global.localhost}/index.php`)
+        .then(response => {
+          if (response.status === 200) {
+            global.rawSource = global.localhost;
+            this.postData();
+            console.log('Server connection way: localhost');
+            console.log('Confirm connetion', state.isInternetReachable);
+          } else if (response.status !== 200) {
+            global.rawSource = global.online;
+            this.postData();
+            console.log('Server connection way: online');
+            console.log('Confirm connetion', state.isInternetReachable);
+          }
+        })
+        .catch(error => {
+          console.log('Server connection way: out of range ');
+          global.rawSource = global.online;
+          this.postData();
+          //Alert.alert('Compomus', 'Você está fora da rede do Compomus!');
+        });
+        
+      } else if (state.isInternetReachable && state.type === "cellular") {
+        global.rawSource = global.online;
         this.postData();
         console.log('Server connection way: online');
         console.log('Confirm connetion', state.isInternetReachable);
@@ -58,10 +80,10 @@ export default class Login extends Component {
   }
 
   checkIfDisconnected() {
-    fetch('http://192.168.86.1/compomusServer/index.php')
+    fetch(`${global.localhost}/index.php`)
       .then(response => {
         if (response.status === 200) {
-          global.rawSource = 'http://192.168.86.1/compomusServer';
+          global.rawSource = global.localhost;
           this.postData();
           console.log('Server connection way: localhost');
         } else if (response.status !== 200) {
@@ -177,27 +199,28 @@ export default class Login extends Component {
     }
   };
 
-  componentWillUnmount() {
-    SoundPlayer.stop();
-    unsubscribe.remove;
-
-    this._onFinishedLoadingFileSubscription.remove();
-  }
-
   render() {
     return (
       <>
         <StatusBar barStyle="dark-content" />
-        <View style={styles.container}>
+        {/* <View style={styles.container}> */}
+        <KeyboardAvoidingView
+              style={styles.container}
+              behavior={Platform.select({
+                  ios: 'padding',
+                  android: null,
+              })}
+          >
           <View style={styles.logoContent}>
             <Image
               style={styles.logo}
               source={require('../assets/icon_round.png')}
             />
           </View>
+         
           <View style={styles.inputer}>
             <Text style={styles.welcome}>Bem Vindo(a) ao Compomus!</Text>
-
+            
             <TextInput
               style={styles.input}
               keyboardType={'email-address'}
@@ -205,21 +228,30 @@ export default class Login extends Component {
               //textContentType={'emailAdress'}
               placeholder={'Digite seu Email'}
               placeholderTextColor={'#b3b3b3'}
+              returnKeyType={'next'}
+              onSubmitEditing={() => this.field2.focus()}
               onChangeText={text => this.updateValue(text, 'email')}
             />
             <TextInput
               secureTextEntry={true}
               style={styles.input}
               autoCapitalize={'none'}
+              returnKeyType={'done'}
+              ref={input => { this.field2 = input }}
               placeholder={'Digite sua Senha'}
               placeholderTextColor={'#b3b3b3'}
               onChangeText={text => this.updateValue(text, 'pass')}
             />
-            <TouchableOpacity
+           
+          </View>
+          <View>
+          <TouchableOpacity
               onPress={this.CheckTextInput}
               style={styles.button}>
               <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
+          </View>
+          
             <View style={styles.contentRegister}>
               <Text style={styles.textRegister}>Não tem conta ainda? </Text>
               <TouchableOpacity
@@ -230,8 +262,11 @@ export default class Login extends Component {
                 <Text style={styles.buttonTextRegister}>Registrar-se</Text>
               </TouchableOpacity>
             </View>
-          </View>
-        </View>
+          </KeyboardAvoidingView>
+        
+            
+          
+        {/* </View> */}
       </>
     );
   }
@@ -244,8 +279,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#ddd',
   },
   logoContent: {
-    flex: 2,
-    justifyContent: 'center',
+    flex: 3,
+    justifyContent: "center",
     alignItems: 'center',
   },
   logo: {
@@ -264,14 +299,14 @@ const styles = StyleSheet.create({
     color: '#4DAE4C',
   },
   inputer: {
-    flex: 3,
+    //flex: 3,
     //marginTop: '10%',
     justifyContent: 'flex-start',
     alignItems: 'center',
     // backgroundColor: '#ddd',
   },
   input: {
-    marginTop: 10,
+    marginTop: 20,
     padding: 10,
     width: 300,
     height: 50,
@@ -284,8 +319,8 @@ const styles = StyleSheet.create({
   button: {
     width: 300,
     height: 45,
-    marginTop: 30,
     borderRadius: 4,
+    marginTop:40,
     backgroundColor: '#4DAE4C',
     justifyContent: 'center',
     alignItems: 'center',
@@ -296,8 +331,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   contentRegister: {
-    flex: 2,
-    justifyContent: 'flex-start',
+    flex: 1,
+    justifyContent: 'flex-end',
     alignItems: 'center',
     flexDirection: 'row',
   },
