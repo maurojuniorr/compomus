@@ -1,349 +1,344 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import '../services/api';
 import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TextInput,
-  StatusBar,
-  Alert,
-  TouchableOpacity,
-  Platform,
-  KeyboardAvoidingView,
-  SafeAreaView
+	View,
+	Text,
+	StyleSheet,
+	Image,
+	TextInput,
+	StatusBar,
+	Alert,
+	TouchableOpacity,
+	Platform,
+	KeyboardAvoidingView,
+	SafeAreaView,
 } from 'react-native';
 //import SoundPlayer from 'react-native-sound-player';
 import NetInfo from '@react-native-community/netinfo';
 const unsubscribe = NetInfo.addEventListener(state => {
-  console.log('Connection type', state.type);
-  console.log('Look for Internet!', state.isInternetReachable);
+	console.log('Connection type', state.type);
+	console.log('Look for Internet!', state.isInternetReachable);
 });
 
 export default class Login extends Component {
-  static navigationOptions = {
-    headerShown: false,
-    //headerBackTitle: null,
-    //title: 'Compomus Login',
-  };
+	static navigationOptions = {
+		headerShown: false,
+		//headerBackTitle: null,
+		//title: 'Compomus Login',
+	};
 
-  state = {
-    userId: '', 
-    soundName: '',
-    email: '',
-    pass: '',
-  };
+	state = {
+		userId: '',
+		soundName: '',
+		email: '',
+		pass: '',
+	};
 
-  componentDidMount() {
+	componentDidMount() {}
 
-  }
+	componentWillUnmount() {
+		unsubscribe.remove;
+	}
 
-  componentWillUnmount() {
-    unsubscribe.remove;
-  }
+	checkIfOnline() {
+		NetInfo.fetch().then(state => {
+			console.log('Connection type', state.type);
+			console.log('Have Internet?', state.isInternetReachable);
+			if (state.isInternetReachable && state.type === 'wifi') {
+				fetch(`${global.localhost}/index.php`)
+					.then(response => {
+						if (response.status === 200) {
+							global.rawSource = global.localhost;
+							this.postData();
+							console.log('Server connection way: localhost');
+							console.log('Confirm connetion', state.isInternetReachable);
+						} else if (response.status !== 200) {
+							global.rawSource = global.online;
+							this.postData();
+							console.log('Server connection way: online');
+							console.log('Confirm connetion', state.isInternetReachable);
+						}
+					})
+					.catch(error => {
+						console.log('Server connection way: out of range ');
+						global.rawSource = global.online;
+						this.postData();
+						//Alert.alert('Compomus', 'Você está fora da rede do Compomus!');
+					});
+			} else if (state.isInternetReachable && state.type === 'cellular') {
+				global.rawSource = global.online;
+				this.postData();
+				console.log('Server connection way: online');
+				console.log('Confirm connetion', state.isInternetReachable);
+			} else {
+				this.checkIfDisconnected();
+			}
+		});
+	}
 
-  checkIfOnline() {
-    NetInfo.fetch().then(state => {
-      console.log('Connection type', state.type);
-      console.log('Have Internet?', state.isInternetReachable);
-      if (state.isInternetReachable && state.type === "wifi") {
-        fetch(`${global.localhost}/index.php`)
-        .then(response => {
-          if (response.status === 200) {
-            global.rawSource = global.localhost;
-            this.postData();
-            console.log('Server connection way: localhost');
-            console.log('Confirm connetion', state.isInternetReachable);
-          } else if (response.status !== 200) {
-            global.rawSource = global.online;
-            this.postData();
-            console.log('Server connection way: online');
-            console.log('Confirm connetion', state.isInternetReachable);
-          }
-        })
-        .catch(error => {
-          console.log('Server connection way: out of range ');
-          global.rawSource = global.online;
-          this.postData();
-          //Alert.alert('Compomus', 'Você está fora da rede do Compomus!');
-        });
-        
-      } else if (state.isInternetReachable && state.type === "cellular") {
-        global.rawSource = global.online;
-        this.postData();
-        console.log('Server connection way: online');
-        console.log('Confirm connetion', state.isInternetReachable);
-      } else {
-        this.checkIfDisconnected();
-      }
-    });
-  }
+	checkIfDisconnected() {
+		fetch(`${global.localhost}/index.php`)
+			.then(response => {
+				if (response.status === 200) {
+					global.rawSource = global.localhost;
+					this.postData();
+					console.log('Server connection way: localhost');
+				} else if (response.status !== 200) {
+					Alert.alert('Compomus', 'Você está fora da rede do Compomus!');
+					console.log('error');
+				}
+			})
+			.catch(error => {
+				console.log('Server connection way: out of range');
+				Alert.alert('Compomus', 'Você está fora da rede do Compomus!');
+			});
+	}
 
-  checkIfDisconnected() {
-    fetch(`${global.localhost}/index.php`)
-      .then(response => {
-        if (response.status === 200) {
-          global.rawSource = global.localhost;
-          this.postData();
-          console.log('Server connection way: localhost');
-        } else if (response.status !== 200) {
-          Alert.alert('Compomus', 'Você está fora da rede do Compomus!');
-          console.log('error');
-        }
-      })
-      .catch(error => {
-        console.log('Server connection way: out of range');
-        Alert.alert('Compomus', 'Você está fora da rede do Compomus!');
-      });
-  }
+	postData = async () => {
+		let formData = new FormData();
+		formData.append('email', this.state.email);
+		formData.append('pass', this.state.pass);
+		fetch(`${global.rawSource}/index.php/validateUser`, {
+			method: 'POST',
+			body: formData,
+		})
+			.then(response => response.json())
+			.then(responseJson => {
+				//console.log('Success', formData);
+				const { email } = responseJson;
+				const { pass } = responseJson;
+				const { soundName } = responseJson;
+				const { id } = responseJson;
+				this.setState({
+					soundName: soundName,
+					userId: id,
+				});
+				if (pass === this.state.pass && email === this.state.email) {
+					if (soundName < 1) {
+						this.props.navigation.navigate('SoundChooser', {
+							userId: this.state.userId,
+						});
+					} else {
+						this.props.navigation.navigate('SoundChooser', {
+							userId: this.state.userId,
+						});
+						//this.getIn();
+					}
+				} else if (responseJson === false) {
+					Alert.alert('Compomus', 'Email ou senha incorretos!');
+				}
+			})
+			.catch(error => {
+				console.error(error);
+			});
+	};
 
-  postData = async () => {
-    let formData = new FormData();
-    formData.append('email', this.state.email);
-    formData.append('pass', this.state.pass);
-    fetch(`${global.rawSource}/index.php/validateUser`, {
-      method: 'POST',
-      body: formData,
-    })
-      .then(response => response.json())
-      .then(responseJson => {
-        //console.log('Success', formData);
-        const {email} = responseJson;
-        const {pass} = responseJson;
-        const {soundName} = responseJson;
-        const {id} = responseJson;
-        this.setState({
-          soundName: soundName,
-          userId: id,
-        });
-        if (pass === this.state.pass && email === this.state.email) {
-          if (soundName < 1) {
-            this.props.navigation.navigate('SoundChooser', {
-              userId: this.state.userId,
-            });
-          } else {
-            this.props.navigation.navigate('SoundChooser', {
-              userId: this.state.userId,
-            });
-            //this.getIn();
-          }
-        } else if (responseJson === false) {
-          Alert.alert('Compomus', 'Email ou senha incorretos!');
-        }
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
+	getIn() {
+		let formData = new FormData();
+		formData.append('nameFile', this.state.soundName);
+		fetch(`${global.rawSource}/index.php/getThisSound`, {
+			method: 'POST',
+			body: formData,
+		})
+			.then(response => response.json())
+			.then(responseJson => {
+				const { name } = responseJson;
+				const { nameFile } = responseJson;
 
-  getIn() {
-    let formData = new FormData();
-    formData.append('nameFile', this.state.soundName);
-    fetch(`${global.rawSource}/index.php/getThisSound`, {
-      method: 'POST',
-      body: formData,
-    })
-      .then(response => response.json())
-      .then(responseJson => {
-        const {name} = responseJson;
-        const {nameFile} = responseJson;
+				if (responseJson !== false) {
+					this.props.navigation.navigate('Compose', {
+						nameFile: nameFile,
+					});
+					this.props.navigation.navigate('Compose', {
+						nameFileReal: name,
+					});
+					this.props.navigation.navigate('Compose', {
+						userId: this.state.userId,
+					});
+				}
+				//console.log('Success', responseJson);
+			})
+			.catch(error => {
+				console.error(error);
+			});
+	}
 
-        if (responseJson !== false) {
-          this.props.navigation.navigate('Compose', {
-            nameFile: nameFile,
-          });
-          this.props.navigation.navigate('Compose', {
-            nameFileReal: name,
-          });
-          this.props.navigation.navigate('Compose', {
-            userId: this.state.userId,
-          });
-        }
-        //console.log('Success', responseJson);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }
+	updateValue(text, field) {
+		if (field === 'email') {
+			this.setState({
+				email: text,
+			});
+		} else if (field === 'pass') {
+			this.setState({
+				pass: text,
+			});
+		}
+	}
 
-  updateValue(text, field) {
-    if (field === 'email') {
-      this.setState({
-        email: text,
-      });
-    } else if (field === 'pass') {
-      this.setState({
-        pass: text,
-      });
-    }
-  }
+	CheckTextInput = () => {
+		//Handler for the Submit onPress
+		if (this.state.name !== '') {
+			//Check for the Name TextInput
+			if (this.state.email !== '') {
+				//Check for the Email TextInput
+				if (this.state.pass !== '') {
+					//Check for the Email TextInput
+					this.checkIfOnline();
+					// this.postData();
+				} else {
+					Alert.alert('Digite uma senha');
+				}
+			} else {
+				Alert.alert('Digite um email');
+			}
+		} else {
+			Alert.alert('Digite seu nome');
+		}
+	};
 
-  CheckTextInput = () => {
-    //Handler for the Submit onPress
-    if (this.state.name !== '') {
-      //Check for the Name TextInput
-      if (this.state.email !== '') {
-        //Check for the Email TextInput
-        if (this.state.pass !== '') {
-          //Check for the Email TextInput
-          this.checkIfOnline();
-          // this.postData();
-        } else {
-          Alert.alert('Digite uma senha');
-        }
-      } else {
-        Alert.alert('Digite um email');
-      }
-    } else {
-      Alert.alert('Digite seu nome');
-    }
-  };
+	render() {
+		return (
+			<>
+				<StatusBar barStyle='dark-content' />
+				{/* <View style={styles.container}> */}
+				<KeyboardAvoidingView
+					style={styles.container}
+					behavior={Platform.select({
+						ios: 'padding',
+						android: null,
+					})}>
+					<View style={styles.logoContent}>
+						<Image
+							style={styles.logo}
+							source={require('../assets/icon_round.png')}
+						/>
+					</View>
 
-  render() {
-    return (
-      <>
-        <StatusBar barStyle="dark-content" />
-        {/* <View style={styles.container}> */}
-        <KeyboardAvoidingView
-              style={styles.container}
-              behavior={Platform.select({
-                  ios: 'padding',
-                  android: null,
-              })}
-          >
-          <View style={styles.logoContent}>
-            <Image
-              style={styles.logo}
-              source={require('../assets/icon_round.png')}
-            />
-          </View>
-         
-          <View style={styles.inputer}>
-            <Text style={styles.welcome}>Bem Vindo(a) ao Compomus!</Text>
-            
-            <TextInput
-              style={styles.input}
-              keyboardType={'email-address'}
-              autoCapitalize={'none'}
-              //textContentType={'emailAdress'}
-              placeholder={'Digite seu Email'}
-              placeholderTextColor={'#b3b3b3'}
-              returnKeyType={'next'}
-              onSubmitEditing={() => this.field2.focus()}
-              onChangeText={text => this.updateValue(text, 'email')}
-            />
-            <TextInput
-              secureTextEntry={true}
-              style={styles.input}
-              autoCapitalize={'none'}
-              returnKeyType={'done'}
-              ref={input => { this.field2 = input }}
-              placeholder={'Digite sua Senha'}
-              placeholderTextColor={'#b3b3b3'}
-              onChangeText={text => this.updateValue(text, 'pass')}
-            />
-           
-          </View>
-          <View>
-          <TouchableOpacity
-              onPress={this.CheckTextInput}
-              style={styles.button}>
-              <Text style={styles.buttonText}>Login</Text>
-            </TouchableOpacity>
-          </View>
-          
-            <View style={styles.contentRegister}>
-              <Text style={styles.textRegister}>Não tem conta ainda? </Text>
-              <TouchableOpacity
-                onPress={() => {
-                  this.props.navigation.navigate('Signup');
-                }}
-                style={styles.buttonRegister}>
-                <Text style={styles.buttonTextRegister}>Registrar-se</Text>
-              </TouchableOpacity>
-            </View>
-          </KeyboardAvoidingView>
-        
-            
-          
-        {/* </View> */}
-      </>
-    );
-  }
+					<View style={styles.inputer}>
+						<Text style={styles.welcome}>Bem Vindo(a) ao Compomus!</Text>
+
+						<TextInput
+							style={styles.input}
+							keyboardType={'email-address'}
+							autoCapitalize={'none'}
+							//textContentType={'emailAdress'}
+							placeholder={'Digite seu Email'}
+							placeholderTextColor={'#b3b3b3'}
+							returnKeyType={'next'}
+							onSubmitEditing={() => this.field2.focus()}
+							onChangeText={text => this.updateValue(text, 'email')}
+						/>
+						<TextInput
+							secureTextEntry={true}
+							style={styles.input}
+							autoCapitalize={'none'}
+							returnKeyType={'done'}
+							ref={input => {
+								this.field2 = input;
+							}}
+							placeholder={'Digite sua Senha'}
+							placeholderTextColor={'#b3b3b3'}
+							onChangeText={text => this.updateValue(text, 'pass')}
+						/>
+					</View>
+					<View>
+						<TouchableOpacity
+							onPress={this.CheckTextInput}
+							style={styles.button}>
+							<Text style={styles.buttonText}>Login</Text>
+						</TouchableOpacity>
+					</View>
+
+					<View style={styles.contentRegister}>
+						<Text style={styles.textRegister}>Não tem conta ainda? </Text>
+						<TouchableOpacity
+							onPress={() => {
+								this.props.navigation.navigate('Signup');
+							}}
+							style={styles.buttonRegister}>
+							<Text style={styles.buttonTextRegister}>Registrar-se</Text>
+						</TouchableOpacity>
+					</View>
+				</KeyboardAvoidingView>
+
+				{/* </View> */}
+			</>
+		);
+	}
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: '#ddd',
-  },
-  logoContent: {
-    flex: 3,
-    justifyContent: "center",
-    alignItems: 'center',
-  },
-  logo: {
-    //justifyContent: 'center',
-    //marginTop: '5%',
-    width: 150,
-    height: 150,
-    borderRadius: 10,
-  },
-  welcome: {
-    marginTop: '5%',
-    marginBottom: '8%',
-    padding: 10,
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#4DAE4C',
-  },
-  inputer: {
-    //flex: 3,
-    //marginTop: '10%',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    // backgroundColor: '#ddd',
-  },
-  input: {
-    marginTop: 20,
-    padding: 10,
-    width: 300,
-    height: 50,
-    backgroundColor: '#fff',
-    fontSize: 16,
-    color: '#000',
-    fontWeight: 'bold',
-    borderRadius: 4,
-  },
-  button: {
-    width: 300,
-    height: 45,
-    borderRadius: 4,
-    marginTop:40,
-    backgroundColor: '#4DAE4C',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  contentRegister: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
-  textRegister: {
-    color: '#4DAE4C',
-    fontSize: 16,
-    fontWeight: 'normal',
-  },
-  buttonTextRegister: {
-    color: '#4DAE4C',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
+	container: {
+		flex: 1,
+		alignItems: 'center',
+		backgroundColor: '#ddd',
+	},
+	logoContent: {
+		flex: 3,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	logo: {
+		//justifyContent: 'center',
+		//marginTop: '5%',
+		width: 150,
+		height: 150,
+		borderRadius: 10,
+	},
+	welcome: {
+		marginTop: '5%',
+		marginBottom: '8%',
+		padding: 10,
+		fontSize: 18,
+		fontWeight: 'bold',
+		color: '#4DAE4C',
+	},
+	inputer: {
+		//flex: 3,
+		//marginTop: '10%',
+		justifyContent: 'flex-start',
+		alignItems: 'center',
+		// backgroundColor: '#ddd',
+	},
+	input: {
+		marginTop: 20,
+		padding: 10,
+		width: 300,
+		height: 50,
+		backgroundColor: '#fff',
+		fontSize: 16,
+		color: '#000',
+		fontWeight: 'bold',
+		borderRadius: 4,
+	},
+	button: {
+		width: 300,
+		height: 45,
+		borderRadius: 4,
+		marginTop: 40,
+		backgroundColor: '#4DAE4C',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	buttonText: {
+		color: '#fff',
+		fontSize: 16,
+		fontWeight: 'bold',
+	},
+	contentRegister: {
+		flex: 1,
+		justifyContent: 'flex-end',
+		alignItems: 'center',
+		flexDirection: 'row',
+	},
+	textRegister: {
+		color: '#4DAE4C',
+		fontSize: 16,
+		fontWeight: 'normal',
+	},
+	buttonTextRegister: {
+		color: '#4DAE4C',
+		fontSize: 18,
+		fontWeight: 'bold',
+	},
 });
