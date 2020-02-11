@@ -232,12 +232,13 @@ export default class Login extends Component {
 							secureTextEntry={true}
 							style={styles.input}
 							autoCapitalize={'none'}
-							returnKeyType={'done'}
+							returnKeyType={'go'}
 							ref={input => {
 								this.field2 = input;
 							}}
 							placeholder={'Digite sua Senha'}
 							placeholderTextColor={'#b3b3b3'}
+							onSubmitEditing={this.CheckTextInput}
 							onChangeText={text => this.updateValue(text, 'pass')}
 						/>
 					</View>

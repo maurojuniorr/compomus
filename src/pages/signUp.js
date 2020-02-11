@@ -251,13 +251,14 @@ export default class Signup extends Component {
 							secureTextEntry
 							style={styles.input}
 							autoCapitalize='none'
-							returnKeyType={'done'}
+							returnKeyType={'go'}
 							ref={input => {
 								this.field3 = input;
 							}}
 							onChangeText={text => this.updateValue(text, 'pass')}
 							placeholder='Digite uma Senha'
 							placeholderTextColor='#b3b3b3'
+							onSubmitEditing={this.CheckTextInput}
 						/>
 					</View>
 					<View>
