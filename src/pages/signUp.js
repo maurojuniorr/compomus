@@ -12,6 +12,7 @@ import {
 	KeyboardAvoidingView,
 } from 'react-native';
 import NetInfo from '@react-native-community/netinfo';
+import AsyncStorage from '@react-native-community/async-storage';
 const unsubscribe = NetInfo.addEventListener(state => {
 	console.log('Connection type', state.type);
 	console.log('Look for Internet!', state.isInternetReachable);
@@ -24,15 +25,162 @@ export default class Signup extends Component {
 	};
 
 	state = {
-		userId: '',
 		name: '',
 		email: '',
 		pass: '',
-		soundRaw: '',
+		soundRaw: '0',
 		soundName: '0',
+		userPass: '',
+		userEmail: '',
+		userName: '',
+		userId: 0,
 	};
 
 	componentDidMount() {}
+
+	storeData = async () => {
+		let userInfo = {
+			userId: this.state.userId,
+			userName: this.state.userName,
+			userEmail: this.state.userEmail,
+			userPass: this.state.userPass,
+			soundName: this.state.soundName,
+			soundRaw: this.state.soundRaw,
+		};
+		try {
+			await AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
+			console.log(userInfo);
+		} catch (e) {
+			// saving error
+		}
+	};
+
+	updateValue(text, field) {
+		if (field === 'name') {
+			this.setState({
+				name: text,
+			});
+		} else if (field === 'email') {
+			this.setState({
+				email: text,
+			});
+		} else if (field === 'pass') {
+			this.setState({
+				pass: text,
+			});
+		}
+	}
+
+	getIn = async () => {
+		const formData = new FormData();
+		formData.append('email', this.state.email);
+		formData.append('pass', this.state.pass);
+		fetch(`${global.rawSource}/index.php/validateUser`, {
+			method: 'POST',
+			body: formData,
+		})
+			.then(response => response.json())
+			.then(responseJson => {
+				const { soundName } = responseJson;
+				const { soundRaw } = responseJson;
+				const { pass } = responseJson;
+				const { email } = responseJson;
+				const { name } = responseJson;
+				const { id } = responseJson;
+
+				this.setState({
+					soundName: soundName,
+					soundRaw: soundRaw,
+					userPass: pass,
+					userEmail: email,
+					userName: name,
+					userId: id,
+				});
+				this.storeData();
+				// console.log(pass);
+
+				if (pass === this.state.pass && email === this.state.email) {
+					if (soundRaw < 1) {
+						this.props.navigation.navigate('RootDrawerNavigator', {
+							userId: this.state.userId,
+						});
+						Alert.alert('Usuário Criado com Sucesso!');
+						console.log('User created succesfully');
+					} else {
+						this.props.navigation.navigate('RootDrawerNavigator');
+						Alert.alert('Usuário Criado com Sucesso!');
+						console.log('User created succesfully');
+					}
+				}
+				// console.log('Success', responseJson);
+			})
+			.catch(error => {
+				console.error(error);
+			});
+	};
+
+	postData = async () => {
+		const formData = new FormData();
+		formData.append('name', this.state.name);
+		formData.append('email', this.state.email);
+		formData.append('pass', this.state.pass);
+		formData.append('soundRaw', this.state.soundRaw);
+		formData.append('soundName', this.state.soundName);
+
+		fetch(`${global.rawSource}/index.php/createUser`, {
+			method: 'POST',
+			body: formData,
+		}).catch(error => {
+			console.error(error);
+		});
+		this.getIn();
+	};
+
+	verifyData = async () => {
+		const formData = new FormData();
+		formData.append('email', this.state.email);
+		formData.append('pass', this.state.pass);
+		fetch(`${global.rawSource}/index.php/validateUser`, {
+			method: 'POST',
+			body: formData,
+		})
+			.then(response => response.json())
+			.then(responseJson => {
+				// console.log('Success', formData);
+
+				const { email } = responseJson;
+				const { pass } = responseJson;
+				// console.log(formData);
+				if (pass === this.state.pass && email === this.state.email) {
+					Alert.alert('Compomus', 'Email já utilizado!');
+					console.log('Email available for use');
+				} else {
+					this.postData();
+					console.log('Email unavailable for use');
+				}
+			})
+			.catch(error => {
+				console.error(error);
+			});
+	};
+
+	checkIfDisconnected() {
+		fetch(`${global.localhost}/index.php`)
+			.then(response => {
+				if (response.status === 200) {
+					global.rawSource = global.localhost;
+					this.verifyData();
+					console.log('Server connection way: localhost');
+				} else if (response.status !== 200) {
+					Alert.alert('Compomus', 'Você está fora da rede do Compomus!');
+					console.log('error');
+				}
+			})
+			.catch(error => {
+				console.log('Server connection way: out of range');
+				Alert.alert('Compomus', 'Você está fora da rede do Compomus!');
+			});
+	}
 
 	checkIfOnline() {
 		NetInfo.fetch().then(state => {
@@ -57,7 +205,7 @@ export default class Signup extends Component {
 					.catch(error => {
 						console.log('Server connection way: out of range');
 						global.rawSource = global.online;
-						this.postData();
+						this.verifyData();
 						//Alert.alert('Compomus', 'Você está fora da rede do Compomus!');
 					});
 			} else if (state.isInternetReachable && state.type === 'cellular') {
@@ -69,24 +217,6 @@ export default class Signup extends Component {
 				this.checkIfDisconnected();
 			}
 		});
-	}
-
-	checkIfDisconnected() {
-		fetch(`${global.localhost}/index.php`)
-			.then(response => {
-				if (response.status === 200) {
-					global.rawSource = global.localhost;
-					this.verifyData();
-					console.log('Server connection way: localhost');
-				} else if (response.status !== 200) {
-					Alert.alert('Compomus', 'Você está fora da rede do Compomus!');
-					console.log('error');
-				}
-			})
-			.catch(error => {
-				console.log('Server connection way: out of range');
-				Alert.alert('Compomus', 'Você está fora da rede do Compomus!');
-			});
 	}
 
 	CheckTextInput = () => {
@@ -109,103 +239,6 @@ export default class Signup extends Component {
 			Alert.alert('Digite seu nome');
 		}
 	};
-
-	verifyData = async () => {
-		const formData = new FormData();
-		formData.append('email', this.state.email);
-		formData.append('pass', this.state.pass);
-		fetch(`${global.rawSource}/index.php/validateUser`, {
-			method: 'POST',
-			body: formData,
-		})
-			.then(response => response.json())
-			.then(responseJson => {
-				// console.log('Success', formData);
-				const { email } = responseJson;
-				const { pass } = responseJson;
-				// console.log(formData);
-				if (pass === this.state.pass && email === this.state.email) {
-					Alert.alert('Compomus', 'Email já utilizado!');
-					console.log('Email available for use');
-				} else {
-					this.postData();
-					console.log('Email unavailable for use');
-				}
-			})
-			.catch(error => {
-				console.error(error);
-			});
-	};
-
-	postData = async () => {
-		const formData = new FormData();
-		formData.append('name', this.state.name);
-		formData.append('email', this.state.email);
-		formData.append('pass', this.state.pass);
-		formData.append('soundRaw', this.state.soundRaw);
-		formData.append('soundName', this.state.soundName);
-
-		fetch(`${global.rawSource}/index.php/createUser`, {
-			method: 'POST',
-			body: formData,
-		}).catch(error => {
-			console.error(error);
-		});
-		this.getIn();
-	};
-
-	getIn = async () => {
-		const formData = new FormData();
-		formData.append('email', this.state.email);
-		formData.append('pass', this.state.pass);
-		fetch(`${global.rawSource}/index.php/validateUser`, {
-			method: 'POST',
-			body: formData,
-		})
-			.then(response => response.json())
-			.then(responseJson => {
-				// console.log('Success', formData);
-				const { email } = responseJson;
-				const { pass } = responseJson;
-				const { soundName } = responseJson;
-				const { id } = responseJson;
-				this.setState({
-					soundName,
-					userId: id,
-				});
-				// console.log(pass);
-				if (pass === this.state.pass && email === this.state.email) {
-					if (soundName < 1) {
-						this.props.navigation.navigate('SoundChooser', {
-							userId: this.state.userId,
-						});
-						console.log('User created succesfully');
-					} else {
-						this.props.navigation.navigate('SoundChooser');
-					}
-				}
-				// console.log('Success', responseJson);
-			})
-			.catch(error => {
-				console.error(error);
-			});
-	};
-
-	updateValue(text, field) {
-		if (field === 'name') {
-			this.setState({
-				name: text,
-			});
-		} else if (field === 'email') {
-			this.setState({
-				email: text,
-			});
-		} else if (field === 'pass') {
-			this.setState({
-				pass: text,
-			});
-		}
-	}
 
 	render() {
 		return (

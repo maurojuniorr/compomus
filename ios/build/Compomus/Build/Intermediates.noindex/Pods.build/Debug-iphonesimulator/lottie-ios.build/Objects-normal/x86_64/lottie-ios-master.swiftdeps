@@ -1,6 +1,6 @@
 version: "Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
 options: "c6826765b392c0f52626827e9e97de7d"
-build_time: [1581154402, 995626000]
+build_time: [1581508122, 439742000]
 inputs:
   "/Users/mauroamazonas/Documents/Compomus/node_modules/lottie-ios/lottie-swift/src/Public/iOS/AnimatedButton.swift": [1581154271, 454000000]
   "/Users/mauroamazonas/Documents/Compomus/node_modules/lottie-ios/lottie-swift/src/Public/iOS/AnimatedControl.swift": [1581154271, 454000000]

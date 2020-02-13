@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>6EF8E1C5-BEEC-47FE-9C32-52B780D86F87</key>
+		<key>08EC3DA8-83E2-4C82-A4D1-7C4841C0A523</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>6EF8E1C5-BEEC-47FE-9C32-52B780D86F87.xcactivitylog</string>
+			<string>08EC3DA8-83E2-4C82-A4D1-7C4841C0A523.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -32,13 +32,47 @@
 			<key>signature</key>
 			<string>Building workspace Compomus with scheme Compomus and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>602925218.62388897</real>
+			<real>603214157.667871</real>
 			<key>timeStoppedRecording</key>
-			<real>602925221.35998201</real>
+			<real>603214170.42602098</real>
 			<key>title</key>
 			<string>Building workspace Compomus with scheme Compomus and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>6EF8E1C5-BEEC-47FE-9C32-52B780D86F87</string>
+			<string>08EC3DA8-83E2-4C82-A4D1-7C4841C0A523</string>
+		</dict>
+		<key>5460B7FA-79D9-41C3-9CD2-A6E1A7FD7BDD</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>5460B7FA-79D9-41C3-9CD2-A6E1A7FD7BDD.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Compomus project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Compomus</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building workspace Compomus with scheme Compomus and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>603267974.79838204</real>
+			<key>timeStoppedRecording</key>
+			<real>603267976.567191</real>
+			<key>title</key>
+			<string>Building workspace Compomus with scheme Compomus and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>5460B7FA-79D9-41C3-9CD2-A6E1A7FD7BDD</string>
 		</dict>
 	</dict>
 </dict>

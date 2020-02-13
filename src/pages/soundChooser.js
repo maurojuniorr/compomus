@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import SoundPlayer from 'react-native-sound-player';
-
+import AsyncStorage from '@react-native-community/async-storage';
 // import songList from '../data/songList';
 import {
 	View,
@@ -22,6 +22,11 @@ export default class SoundChooser extends Component {
 	state = {
 		data: [],
 		userId: 0,
+		userName: '',
+		userEmail: '',
+		userPass: '',
+		soundRaw: '',
+		soundName: '',
 	};
 
 	componentDidMount() {
@@ -60,16 +65,78 @@ export default class SoundChooser extends Component {
 				this.setState({ data });
 				// console.log(data);
 			});
-		this.getUser();
+		//this.getMyValue();
 	}
 
-	getUser() {
-		const { navigation } = this.props;
-		const id = navigation.getParam('userId');
-		this.setState({
-			userId: id,
-		});
-		// console.log('User id', this.state.userId);
+	updateData = async (soundName, soundRaw) => {
+		try {
+			const value = await AsyncStorage.getItem('userInfo');
+			let parsed = JSON.parse(value);
+			if (value !== null) {
+				// value previously stored
+
+				this.setState({
+					userId: parseInt(parsed.userId),
+					userName: parsed.userName,
+					userEmail: parsed.userEmail,
+					userPass: parsed.userPass,
+					soundName: parsed.soundName,
+					soundRaw: parsed.soundRaw,
+				});
+				this.updateSound(soundName, soundRaw);
+				console.log(value);
+				MyNativeModule.userInfo(parseInt(parsed.userId), soundName, soundRaw);
+				let userInfo = {
+					userId: parsed.userId,
+					userName: parsed.userName,
+					userEmail: parsed.userEmail,
+					userPass: parsed.userPass,
+					soundName: soundName,
+					soundRaw: soundRaw,
+				};
+				try {
+					await AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
+
+					this.props.navigation.navigate('Compose', {
+						soundRaw: soundRaw,
+					});
+
+					console.log('Data up to date');
+				} catch (e) {
+					// saving error
+				}
+
+				//console.log(value);
+			}
+		} catch (e) {
+			// error reading value
+		}
+	};
+
+	updateSound(soundName, soundRaw) {
+		let formData = new FormData();
+
+		formData.append('id', this.state.userId);
+		formData.append('name', this.state.userName);
+		formData.append('email', this.state.userEmail);
+		formData.append('pass', this.state.userPass);
+		formData.append('soundRaw', soundRaw);
+		formData.append('soundName', soundName);
+
+		fetch(`${global.rawSource}/index.php/updateUser`, {
+			method: 'POST',
+			body: formData,
+		})
+			.then(responseJson => {
+				if (responseJson !== false) {
+					console.log('Mudança gravada no banco com sucesso!');
+					// Alert.alert('Compomus', 'Som escolhido com sucesso!');
+				}
+			})
+			.catch(error => {
+				console.error(error);
+			});
+		//console.log(formData);
 	}
 
 	renderItem = ({ item, index }) => (
@@ -86,19 +153,9 @@ export default class SoundChooser extends Component {
 				<TouchableOpacity
 					style={styles.chooseButton}
 					onPress={() => {
-						this.props.navigation.navigate('Compose', {
-							nameFile: item.nameFile,
-						});
-						this.props.navigation.navigate('Compose', {
-							nameFileReal: item.name,
-						});
-						this.props.navigation.navigate('Compose', {
-							userId: this.state.userId,
-						});
-						MyNativeModule.userInfo(
-							parseInt(this.state.userId, 10),
-							item.nameFile
-						);
+						this.updateData(item.name, item.nameFile);
+
+						//this.playSong(item.nameFile, item.name);
 					}}>
 					<Text style={styles.soundButtonText}>Escolher</Text>
 				</TouchableOpacity>

@@ -30,7 +30,8 @@ class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
   private var identifier: String
   private var beaconDistance: Double
   private var userId: NSNumber
-  private var soundUser: String
+  private var soundRaw: String
+  private var soundName: String
   private var screenStatus: String
   private var serverIp: String
    private var serverPort: NSNumber
@@ -47,7 +48,8 @@ class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
     identifier = " "
     beaconDistance = 0
     userId = 0
-    soundUser = "pitiznaider"
+    soundRaw = "pitiznaider"
+    soundName = "pitiznaider"
     screenStatus = "active"
     hasListeners = false
     serverIp = " "
@@ -93,9 +95,10 @@ class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
   
   //Recebe os dados atuais do usuário
   @objc
-  func userInfo(_ userID: NSNumber, sound: String) {
+  func userInfo(_ userID: NSNumber, sound: String, sound2: String) {
     userId = userID
-    soundUser = sound
+    soundRaw = sound2
+    soundName = sound
   }
   
   //Verifica se está tudo ok para procurar os beacons incluindo autorização
@@ -170,30 +173,30 @@ class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
       alive = true
       alive2 = "alive"
       
-      if userId != 0 && soundUser != "pitiznaider" {
-        sendOnOSC(userId, sound: soundUser)
+      if userId != 0 && soundRaw != "pitiznaider" {
+        sendOnOSC(userId, sound: soundRaw)
       }
       
-    }else if  inside == false && userId != 0 && soundUser != "pitiznaider"{
+    }else if  inside == false && userId != 0 && soundRaw != "pitiznaider"{
       if alive == true {
         alive = false
         alive2 = "dead"
         
         sendOffOSC(userId)
       }
-    }else if inside == true && alive == true && screenStatus == "inactive" && userId != 0 && soundUser != "pitiznaider"{
+    }else if inside == true && alive == true && screenStatus == "inactive" && userId != 0 && soundRaw != "pitiznaider"{
       alive = false
       alive2 = "dead"
       
       sendOffOSC(userId)
     }
      
-    if alive == true && screenStatus == "active" && inside == true && userId != 0 && soundUser != "pitiznaider"{
+    if alive == true && screenStatus == "active" && inside == true && userId != 0 && soundRaw != "pitiznaider"{
      updateLocation( x: x, y: y)
     }
     
     if hasListeners == true{
-      sendEvent(withName: "onChange", body: ["distance": distance, "proximity": proximity2, "degrees":degrees, "alive":alive2])
+      sendEvent(withName: "onChange", body: ["distance": distance, "proximity": proximity2, "degrees":degrees, "alive":alive2, "userId": userId, "soundName": soundName, "soundRaw": soundRaw])
     }
   }//Fim Update
   

@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>AntDesign.ttf</key>
+		<data>
+		TneGhDkoD7Q01Gl8e5EScUBsgfM=
+		</data>
 		<key>AppIcon20x20@2x.png</key>
 		<data>
 		E+1Urj4eI6vXDMlLWkwIMVp/Uxs=
@@ -36,17 +40,41 @@
 		<data>
 		PdVQ6ZjEsXsYbm84B3rFqoj8ZM0=
 		</data>
-		<key>Assets.car</key>
+		<key>Entypo.ttf</key>
 		<data>
-		OyM/yxEnEW6wXydgHMAQQrFfTOQ=
+		R4cKZ91Qhxdl95nKqX2ochnuR8U=
 		</data>
-		<key>Base.lproj/LaunchScreen.nib/objects-13.0+.nib</key>
+		<key>EvilIcons.ttf</key>
 		<data>
-		OG72B3qD5fHxk1+KQazCAl/Yej0=
+		kdN36jz0dJCyVsLtCBcEp9q9rgw=
 		</data>
-		<key>Base.lproj/LaunchScreen.nib/runtime.nib</key>
+		<key>Feather.ttf</key>
 		<data>
-		nv5DmOYwHbadqfSzsWYEJr9sYug=
+		PrIrzr9ebr1AiD5LkhMjKMXWvkI=
+		</data>
+		<key>FontAwesome.ttf</key>
+		<data>
+		E7HqtlqYPHpzvHmXxHnWaUP3xss=
+		</data>
+		<key>FontAwesome5_Brands.ttf</key>
+		<data>
+		abc988iZKpOFkkYGWiZ6Bb/Yz1Y=
+		</data>
+		<key>FontAwesome5_Regular.ttf</key>
+		<data>
+		lwZFPD6ptz58CLO+HnxxbWVc+RY=
+		</data>
+		<key>FontAwesome5_Solid.ttf</key>
+		<data>
+		P3YEFmOPZFmt5yUbgP17wn1q0cY=
+		</data>
+		<key>Fontisto.ttf</key>
+		<data>
+		wJCj7Jaj8bubYVwvPyBM4Nzc28M=
+		</data>
+		<key>Foundation.ttf</key>
+		<data>
+		SyvObHkkk6SlcWtv7C2+/olJLD8=
 		</data>
 		<key>Frameworks/XCTAutomationSupport.framework/Info.plist</key>
 		<data>
@@ -54,7 +82,7 @@
 		</data>
 		<key>Frameworks/XCTAutomationSupport.framework/XCTAutomationSupport</key>
 		<data>
-		QjpdqVTAoF6T55F4PvBGeGk6EMQ=
+		VM0DmDJFVhZInGeU3RPkkXv58sE=
 		</data>
 		<key>Frameworks/XCTAutomationSupport.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -70,7 +98,7 @@
 		</data>
 		<key>Frameworks/XCTest.framework/XCTest</key>
 		<data>
-		dBm18d7QxmawkyJ3/oB254EWQks=
+		LACOAKIYcuM9SEDfvhI111Lg+h0=
 		</data>
 		<key>Frameworks/XCTest.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -91,11 +119,11 @@
 		</data>
 		<key>Frameworks/libXCTestBundleInject.dylib</key>
 		<data>
-		2tE8IALcAIE7MPWuLI0A/dwSEcQ=
+		VZTsq4AS9O9UaL+dH280I0SlTDU=
 		</data>
 		<key>Frameworks/libXCTestSwiftSupport.dylib</key>
 		<data>
-		NISfoTtF7zrOgr4O/C3kmeCOzbU=
+		QLwfgSqpwyzKMWGlZZMXg4CXGm0=
 		</data>
 		<key>Frameworks/libswiftCore.dylib</key>
 		<data>
@@ -139,7 +167,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		PZ17R5yq3KDq4QmNbWed/xPpuWs=
+		25ifCKDN5G7tWGIRciOTEDnLYQw=
+		</data>
+		<key>Ionicons.ttf</key>
+		<data>
+		mRu3+slwnNWNo3kBdw79RwPFQu0=
+		</data>
+		<key>MaterialCommunityIcons.ttf</key>
+		<data>
+		9G+WBPkJGz6eeDUmlnNpZ2Lh6Hw=
+		</data>
+		<key>MaterialIcons.ttf</key>
+		<data>
+		/AXeMSNOAJD33cKM4bI69AJssdo=
+		</data>
+		<key>Octicons.ttf</key>
+		<data>
+		KIdYdEE1A7zAgQ6ipE3BuDEsZlo=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -151,11 +195,11 @@
 		</data>
 		<key>PlugIns/CompomusTests.xctest.dSYM/Contents/Resources/DWARF/CompomusTests</key>
 		<data>
-		CTn3arYpD6tMOh1CFnztGSaxhts=
+		rDfAdNHGk7rkt271OolTEmjWjKs=
 		</data>
 		<key>PlugIns/CompomusTests.xctest/CompomusTests</key>
 		<data>
-		Cazu9c7Zi49aUQU5gMizWf4gJ3s=
+		0jW2rhmE5mxQ55gbBLxUZxG+0pk=
 		</data>
 		<key>PlugIns/CompomusTests.xctest/Frameworks/libswiftCore.dylib</key>
 		<data>
@@ -187,15 +231,95 @@
 		</data>
 		<key>PlugIns/CompomusTests.xctest/Info.plist</key>
 		<data>
-		MhdSstFARQwMgrolXmFMoqkzCuY=
+		yjsGzKWa1nMUjOE+F1LgpCGViW0=
 		</data>
 		<key>PlugIns/CompomusTests.xctest/_CodeSignature/CodeResources</key>
 		<data>
-		kg+pVz0wnmSW/sKk2ogEMhXracE=
+		1jUVbUf8FWSYQ+v5ly5LtrL4oIs=
+		</data>
+		<key>SimpleLineIcons.ttf</key>
+		<data>
+		n/uBpaEREuKS8swyPphIa61ZdZk=
+		</data>
+		<key>Zocial.ttf</key>
+		<data>
+		C9pZx7zT05J94EfgkYdaRCi/0as=
 		</data>
 		<key>assets/app.json</key>
 		<data>
 		9wiYmH9H3iGOP2zugk1JDjFw0gU=
+		</data>
+		<key>assets/node_modules/react-native-ratings/src/images/airbnb-star-selected.png</key>
+		<data>
+		hmf3UuKfPUS+rQV3VCRSlOincJU=
+		</data>
+		<key>assets/node_modules/react-native-ratings/src/images/airbnb-star.png</key>
+		<data>
+		6+SZFOypfbZrRIyeiqg37A1ERt4=
+		</data>
+		<key>assets/node_modules/react-native-ratings/src/images/bell.png</key>
+		<data>
+		mRk2D6wOdyusOvkEInbyL3K/E6k=
+		</data>
+		<key>assets/node_modules/react-native-ratings/src/images/heart.png</key>
+		<data>
+		rhZVvqRdTKoU0IrsdqQezFd0zb8=
+		</data>
+		<key>assets/node_modules/react-native-ratings/src/images/rocket.png</key>
+		<data>
+		mqOYKD+48iI8i2r6/LHKVlm0RGw=
+		</data>
+		<key>assets/node_modules/react-native-ratings/src/images/star.png</key>
+		<data>
+		XPFaCu1j/HeeE7zoK38ulP635qc=
+		</data>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/AntDesign.json</key>
+		<data>
+		PoJveci96zTSptK+VgCJdZJER5A=
+		</data>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/Entypo.json</key>
+		<data>
+		vP+/QMl+LCeJCh5NxZt7W2fRTkk=
+		</data>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/EvilIcons.json</key>
+		<data>
+		ljsW3QZD8lzjigA6/o4zfFZagqM=
+		</data>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/Feather.json</key>
+		<data>
+		W9QszURVQH6IKvd50dIGg9lqPb4=
+		</data>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/FontAwesome.json</key>
+		<data>
+		ZcNOPzPLU5pQFhW2jx8wZYjmNpI=
+		</data>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/Foundation.json</key>
+		<data>
+		Ai42gALv1dnRb0630jFu/ei9k7Y=
+		</data>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/Ionicons.json</key>
+		<data>
+		TzdRRE/o7/qzeMrvaAGlvWck8tQ=
+		</data>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/MaterialCommunityIcons.json</key>
+		<data>
+		7GZjRAlEKRJcgG1RQjTqnOkxkSA=
+		</data>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/MaterialIcons.json</key>
+		<data>
+		yFhKUBCKLjN9SnvsnwB9BhLtwvA=
+		</data>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/Octicons.json</key>
+		<data>
+		HEfQl9CbtMlZqIFlOOz1nf+IM5A=
+		</data>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/SimpleLineIcons.json</key>
+		<data>
+		In54DUZJuzMm9BD6rbP2iYXyRcc=
+		</data>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/Zocial.json</key>
+		<data>
+		C5nCU3RLmwBBTeqKR7SngR16ro0=
 		</data>
 		<key>assets/node_modules/react-navigation-stack/lib/module/vendor/views/assets/back-icon-mask.png</key>
 		<data>
@@ -221,9 +345,17 @@
 		<data>
 		6mb5kxrn1C7mSOqS9xezQ+3cbv4=
 		</data>
+		<key>assets/src/assets/goExplore.json</key>
+		<data>
+		zNznv3XXa4pQKWo2yGHlNpn34lk=
+		</data>
 		<key>assets/src/assets/icon_round.png</key>
 		<data>
 		maR9jYUVHq6Twv/GJsBNRwiiXso=
+		</data>
+		<key>assets/src/assets/loading.json</key>
+		<data>
+		NHmV+C0O+aXBavvj+OUFi2OvN8Y=
 		</data>
 		<key>assets/src/assets/macaco.json</key>
 		<data>
@@ -233,6 +365,10 @@
 		<data>
 		XWVY3C4Xuuj4dO9ucIv2e6NxcHA=
 		</data>
+		<key>assets/src/assets/playing.json</key>
+		<data>
+		72YvprxgYqNVi/a8AC5hiJuPTAo=
+		</data>
 		<key>assets/src/assets/playing2.json</key>
 		<data>
 		9cAH4hjJ2Alu4V+kjPDm3aaWMuo=
@@ -241,13 +377,17 @@
 		<data>
 		ivcW30Xh1yxW21nwgry2WCToVkw=
 		</data>
+		<key>assets/src/assets/unknownLocation.json</key>
+		<data>
+		MTqVkZ7C9uUUNe3clAQGASUop38=
+		</data>
 		<key>assets/src/assets/unknownLocation2.json</key>
 		<data>
 		ZT1G6ACViu70H0zVyt0AJT/581A=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		nM8zDAmX9bWLRkRvcCXmRUcjlDA=
+		1lcjJo2675ROgREJ/ceTewE+9q8=
 		</data>
 		<key>ip.txt</key>
 		<data>
@@ -255,11 +395,22 @@
 		</data>
 		<key>main.jsbundle</key>
 		<data>
-		bi7UlqATp7knPS+Nyoe6OYECAn0=
+		BNlTjBtjfmjpldLHThAfa7ieQpw=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>AntDesign.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			TneGhDkoD7Q01Gl8e5EScUBsgfM=
+			</data>
+			<key>hash2</key>
+			<data>
+			eVXKFBJ7MEEsEU6xPP1wK12rJl/rGIDRaV1zyqgkzeE=
+			</data>
+		</dict>
 		<key>AppIcon20x20@2x.png</key>
 		<dict>
 			<key>hash</key>
@@ -348,37 +499,103 @@
 			UI6xK1NVdFdgBUcZ0sPheHHi6zFoPVHXPgiHfbgaimQ=
 			</data>
 		</dict>
-		<key>Assets.car</key>
+		<key>Entypo.ttf</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OyM/yxEnEW6wXydgHMAQQrFfTOQ=
+			R4cKZ91Qhxdl95nKqX2ochnuR8U=
 			</data>
 			<key>hash2</key>
 			<data>
-			Lf+kKGkSqjET3kDSVF4AdV0nMkY7C13bcH7ah+fT6Ic=
+			3QhJoVkfiNp5N7I/kiQYpc7FTgdeCePMyo/rYgFvqoI=
 			</data>
 		</dict>
-		<key>Base.lproj/LaunchScreen.nib/objects-13.0+.nib</key>
+		<key>EvilIcons.ttf</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OG72B3qD5fHxk1+KQazCAl/Yej0=
+			kdN36jz0dJCyVsLtCBcEp9q9rgw=
 			</data>
 			<key>hash2</key>
 			<data>
-			KTAHAurrI47Rh2sI2B8c/atelibZhLN4Afivq1V13+I=
+			pcrrTTlcXjLx1aMKyzgq68Zk8brf0UkxmQfyIV5OPiY=
 			</data>
 		</dict>
-		<key>Base.lproj/LaunchScreen.nib/runtime.nib</key>
+		<key>Feather.ttf</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			nv5DmOYwHbadqfSzsWYEJr9sYug=
+			PrIrzr9ebr1AiD5LkhMjKMXWvkI=
 			</data>
 			<key>hash2</key>
 			<data>
-			LbFOb2+Uy2rl0BwUyM/B+Z7SeV+LW6/x6/kZDosHSOg=
+			nRKAiLj3fyyRdNATa3y4YZ8IhSWcv3KpiFbLxsaZXzg=
+			</data>
+		</dict>
+		<key>FontAwesome.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			E7HqtlqYPHpzvHmXxHnWaUP3xss=
+			</data>
+			<key>hash2</key>
+			<data>
+			qljzPyOaD7AvXHpsRcBD16msmgkzNYBmlOzW1O3A1qg=
+			</data>
+		</dict>
+		<key>FontAwesome5_Brands.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			abc988iZKpOFkkYGWiZ6Bb/Yz1Y=
+			</data>
+			<key>hash2</key>
+			<data>
+			NSPzVRWd/5tqRoE4vIyPzdWSGMAXP+6lG+TYw0iNyhA=
+			</data>
+		</dict>
+		<key>FontAwesome5_Regular.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			lwZFPD6ptz58CLO+HnxxbWVc+RY=
+			</data>
+			<key>hash2</key>
+			<data>
+			dHHOyKGia7DwFCbUgQeGkTt3cHnS+WaoU/X5dvIusqo=
+			</data>
+		</dict>
+		<key>FontAwesome5_Solid.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			P3YEFmOPZFmt5yUbgP17wn1q0cY=
+			</data>
+			<key>hash2</key>
+			<data>
+			lHqsFqptKzsKT6IOILje+kYC6bQvj9n6KxlTi0xajqk=
+			</data>
+		</dict>
+		<key>Fontisto.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			wJCj7Jaj8bubYVwvPyBM4Nzc28M=
+			</data>
+			<key>hash2</key>
+			<data>
+			lNq58dWxPqB2nRJKLaDQJDPzuZ1t6loHwERqdxWBAMA=
+			</data>
+		</dict>
+		<key>Foundation.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			SyvObHkkk6SlcWtv7C2+/olJLD8=
+			</data>
+			<key>hash2</key>
+			<data>
+			fh3QPdTOkLZYBSVUzXRZ3xZxZxc4mlUvpMbVal+JM+Y=
 			</data>
 		</dict>
 		<key>Frameworks/XCTAutomationSupport.framework/Info.plist</key>
@@ -396,11 +613,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QjpdqVTAoF6T55F4PvBGeGk6EMQ=
+			VM0DmDJFVhZInGeU3RPkkXv58sE=
 			</data>
 			<key>hash2</key>
 			<data>
-			2SJsVvuTTqDyV2XJYOFEn5JTXh2rGES7pi0BJFWu/vI=
+			nvWuNs02pPx7Cikal8gbaxYZebC2yoqBpRZW4z4ArkM=
 			</data>
 		</dict>
 		<key>Frameworks/XCTAutomationSupport.framework/_CodeSignature/CodeResources</key>
@@ -440,11 +657,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dBm18d7QxmawkyJ3/oB254EWQks=
+			LACOAKIYcuM9SEDfvhI111Lg+h0=
 			</data>
 			<key>hash2</key>
 			<data>
-			GaZv5q6ev9aMLfk6rgph+XYgA1FTm64jrpMYLASjOFc=
+			lFM7k/irs3iD1g4Zpl1Kvm5AnDtqAPToTBtq/GZODhM=
 			</data>
 		</dict>
 		<key>Frameworks/XCTest.framework/_CodeSignature/CodeResources</key>
@@ -486,22 +703,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2tE8IALcAIE7MPWuLI0A/dwSEcQ=
+			VZTsq4AS9O9UaL+dH280I0SlTDU=
 			</data>
 			<key>hash2</key>
 			<data>
-			J2nwIif9jJEhYKtXxHiwed2a2npjv3W9xLXJW3JL6BY=
+			mfBhuOyfJkdqg/Cov3z1v+tI7W6jvaT/nJ9Z/yz0F50=
 			</data>
 		</dict>
 		<key>Frameworks/libXCTestSwiftSupport.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NISfoTtF7zrOgr4O/C3kmeCOzbU=
+			QLwfgSqpwyzKMWGlZZMXg4CXGm0=
 			</data>
 			<key>hash2</key>
 			<data>
-			B5tILwfxOoFcJw38uH2rZtmJhq0ePE5nntogkZoaYGg=
+			LkAk5uSgRVXUXCa+zrWPEd1iFgMN5xLd4GT8rD7l7a4=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftCore.dylib</key>
@@ -614,6 +831,50 @@
 			/Yti0AVCQcbzPn20ZVqZw4NiBRrGVWQvMQQ7ID73KYc=
 			</data>
 		</dict>
+		<key>Ionicons.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mRu3+slwnNWNo3kBdw79RwPFQu0=
+			</data>
+			<key>hash2</key>
+			<data>
+			INFzvLYFHQlzvgymqi+08npbKQ2AEGyyxWfI/cdyxxE=
+			</data>
+		</dict>
+		<key>MaterialCommunityIcons.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9G+WBPkJGz6eeDUmlnNpZ2Lh6Hw=
+			</data>
+			<key>hash2</key>
+			<data>
+			vEyn5uskUqB2CZMyWblwAKWfMw2Qo010U5Uqyo4GkhA=
+			</data>
+		</dict>
+		<key>MaterialIcons.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/AXeMSNOAJD33cKM4bI69AJssdo=
+			</data>
+			<key>hash2</key>
+			<data>
+			t/Sjq1YgSPKN0fppFgG8QzY6YdD4dtFtgxbFLk8y1pY=
+			</data>
+		</dict>
+		<key>Octicons.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			KIdYdEE1A7zAgQ6ipE3BuDEsZlo=
+			</data>
+			<key>hash2</key>
+			<data>
+			ua3cE7d8ZyDNSM0Y8PSoyuWJsbkQNjDCSd5gq3Lf1r4=
+			</data>
+		</dict>
 		<key>PlugIns/CompomusTests.xctest.dSYM/Contents/Info.plist</key>
 		<dict>
 			<key>hash</key>
@@ -629,22 +890,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			CTn3arYpD6tMOh1CFnztGSaxhts=
+			rDfAdNHGk7rkt271OolTEmjWjKs=
 			</data>
 			<key>hash2</key>
 			<data>
-			0yrPqIH48/sbr5fY0fOKf/W7KQNcjWPmBsRZv0UkpZM=
+			PiqFJUZVLPryeF3ezelcZEA6kQ/y3WZOPo/Bhg42zOA=
 			</data>
 		</dict>
 		<key>PlugIns/CompomusTests.xctest/CompomusTests</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Cazu9c7Zi49aUQU5gMizWf4gJ3s=
+			0jW2rhmE5mxQ55gbBLxUZxG+0pk=
 			</data>
 			<key>hash2</key>
 			<data>
-			VwO0fD03xzWygKJmFj6VE4McnqRh+KFuN/EXmn8csew=
+			mLLzYcZ+7JqGBJG+U8MoCrsAYdH9HiBweLERaQUICLs=
 			</data>
 		</dict>
 		<key>PlugIns/CompomusTests.xctest/Frameworks/libswiftCore.dylib</key>
@@ -728,22 +989,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MhdSstFARQwMgrolXmFMoqkzCuY=
+			yjsGzKWa1nMUjOE+F1LgpCGViW0=
 			</data>
 			<key>hash2</key>
 			<data>
-			ulm0DS3044ijSCM48+3fljYvmyGCVVkPcWUNbEsTn1U=
+			gCioACUfwmIuaCOt7UEWBRcAQzSmv0Y2qoe86k79lGk=
 			</data>
 		</dict>
 		<key>PlugIns/CompomusTests.xctest/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			kg+pVz0wnmSW/sKk2ogEMhXracE=
+			1jUVbUf8FWSYQ+v5ly5LtrL4oIs=
 			</data>
 			<key>hash2</key>
 			<data>
-			MSCroJJLpCKv3jpK0vW5O6US6ykzawhXUS/DdFw1Ge0=
+			6NafDjvcFgRWI4mzRu85VoH4vt00xHEDypFVQw4gvig=
+			</data>
+		</dict>
+		<key>SimpleLineIcons.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			n/uBpaEREuKS8swyPphIa61ZdZk=
+			</data>
+			<key>hash2</key>
+			<data>
+			P1Ad2wXHCCm7tRz+nKn/9X854GBFfCV7PM8l33Z/CHA=
+			</data>
+		</dict>
+		<key>Zocial.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			C9pZx7zT05J94EfgkYdaRCi/0as=
+			</data>
+			<key>hash2</key>
+			<data>
+			17EKHr4YMOWi8I9JA7moDiwZEsDdL3O5P88r+DIhZgI=
 			</data>
 		</dict>
 		<key>assets/app.json</key>
@@ -755,6 +1038,204 @@
 			<key>hash2</key>
 			<data>
 			UZn9PJTOz10PGoZmKDNVG8RHmBX9SKKRIS9H+v/Hwjs=
+			</data>
+		</dict>
+		<key>assets/node_modules/react-native-ratings/src/images/airbnb-star-selected.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			hmf3UuKfPUS+rQV3VCRSlOincJU=
+			</data>
+			<key>hash2</key>
+			<data>
+			0uhqbkGIEMvafcWJq5WIN7foj1Rcpj1I+kGPldGZk+M=
+			</data>
+		</dict>
+		<key>assets/node_modules/react-native-ratings/src/images/airbnb-star.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			6+SZFOypfbZrRIyeiqg37A1ERt4=
+			</data>
+			<key>hash2</key>
+			<data>
+			oVsAeqR/oxXBOFSgLKve75iROK54H/Jn3f51b4ADsMg=
+			</data>
+		</dict>
+		<key>assets/node_modules/react-native-ratings/src/images/bell.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mRk2D6wOdyusOvkEInbyL3K/E6k=
+			</data>
+			<key>hash2</key>
+			<data>
+			MVdJITYj1tDwle06K+p8IFp8haF5kBT3gxuzDfc9AYg=
+			</data>
+		</dict>
+		<key>assets/node_modules/react-native-ratings/src/images/heart.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			rhZVvqRdTKoU0IrsdqQezFd0zb8=
+			</data>
+			<key>hash2</key>
+			<data>
+			v2rfzDt3/cDiJKjdhP8ejuEJZF2q6bsySGtwzOb8AxY=
+			</data>
+		</dict>
+		<key>assets/node_modules/react-native-ratings/src/images/rocket.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mqOYKD+48iI8i2r6/LHKVlm0RGw=
+			</data>
+			<key>hash2</key>
+			<data>
+			ICOGuBMxnevPKkpTB/Aa5C5FHGGdwlrVPfiIpgRfeqk=
+			</data>
+		</dict>
+		<key>assets/node_modules/react-native-ratings/src/images/star.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XPFaCu1j/HeeE7zoK38ulP635qc=
+			</data>
+			<key>hash2</key>
+			<data>
+			QomdN3rBYNJR6hzK8VcKZmuxkf8KClRArNMi+Fxau5U=
+			</data>
+		</dict>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/AntDesign.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PoJveci96zTSptK+VgCJdZJER5A=
+			</data>
+			<key>hash2</key>
+			<data>
+			/K4o5ABMKk56TLGP9qpNDgFn1mwlGCKdioUTnutStos=
+			</data>
+		</dict>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/Entypo.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vP+/QMl+LCeJCh5NxZt7W2fRTkk=
+			</data>
+			<key>hash2</key>
+			<data>
+			9WMXSgpVzwfQ+b7WCRnX3lyo619xEE06qE3gfFk2v4A=
+			</data>
+		</dict>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/EvilIcons.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ljsW3QZD8lzjigA6/o4zfFZagqM=
+			</data>
+			<key>hash2</key>
+			<data>
+			QS0QTL6magSjGJDdBXEYhSM0jhhJbKJTY1TRMTKLnB8=
+			</data>
+		</dict>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/Feather.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			W9QszURVQH6IKvd50dIGg9lqPb4=
+			</data>
+			<key>hash2</key>
+			<data>
+			0bm+bQkKIutx1xVvpuVsyUqZy5HsjUjFWR+kvy8wxcg=
+			</data>
+		</dict>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/FontAwesome.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ZcNOPzPLU5pQFhW2jx8wZYjmNpI=
+			</data>
+			<key>hash2</key>
+			<data>
+			l8SY1ctoXtJ8rk57TurG259sjQSsHZWLcPxtvBdp6i8=
+			</data>
+		</dict>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/Foundation.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Ai42gALv1dnRb0630jFu/ei9k7Y=
+			</data>
+			<key>hash2</key>
+			<data>
+			vsMuPq7HtNBlCb3u3/SWs6r2nkJhr07ifMXgnjLctUs=
+			</data>
+		</dict>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/Ionicons.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			TzdRRE/o7/qzeMrvaAGlvWck8tQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			3Lfye9Jqh5Sb6RTH2EHvbbSSxGcl/KFPZ3c+ibagwP0=
+			</data>
+		</dict>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/MaterialCommunityIcons.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			7GZjRAlEKRJcgG1RQjTqnOkxkSA=
+			</data>
+			<key>hash2</key>
+			<data>
+			DYCu4E/rjVcZ7bgBQkcoaC/fbN5g0C6riPxPWUQ3fk8=
+			</data>
+		</dict>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/MaterialIcons.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yFhKUBCKLjN9SnvsnwB9BhLtwvA=
+			</data>
+			<key>hash2</key>
+			<data>
+			r+3IDXWmsRJzfbbCfUkqQjzWC4QbKueEUFtlJdak/k8=
+			</data>
+		</dict>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/Octicons.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			HEfQl9CbtMlZqIFlOOz1nf+IM5A=
+			</data>
+			<key>hash2</key>
+			<data>
+			k1Tfyb9RtPyq/hM/bijGjh+0yn771WQ6XjQSZEsGMwg=
+			</data>
+		</dict>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/SimpleLineIcons.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			In54DUZJuzMm9BD6rbP2iYXyRcc=
+			</data>
+			<key>hash2</key>
+			<data>
+			NNgXY0eexBvoQ9JgEuHvBnMbMfbp7TcfBU91KUJRqGc=
+			</data>
+		</dict>
+		<key>assets/node_modules/react-native-vector-icons/glyphmaps/Zocial.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			C5nCU3RLmwBBTeqKR7SngR16ro0=
+			</data>
+			<key>hash2</key>
+			<data>
+			MzE2mK2LBPdazLJY9iVDcGOy6FOU17HltkCa3IV7OdY=
 			</data>
 		</dict>
 		<key>assets/node_modules/react-navigation-stack/lib/module/vendor/views/assets/back-icon-mask.png</key>
@@ -823,6 +1304,17 @@
 			T+Pgu7XKIbf9+FGJBhWIyyHjz6oCeUVA65FVsm25VWw=
 			</data>
 		</dict>
+		<key>assets/src/assets/goExplore.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			zNznv3XXa4pQKWo2yGHlNpn34lk=
+			</data>
+			<key>hash2</key>
+			<data>
+			zPHPZjIk0igYqVuD0xyGT3gXtgPVME268JaYC7TbwG8=
+			</data>
+		</dict>
 		<key>assets/src/assets/icon_round.png</key>
 		<dict>
 			<key>hash</key>
@@ -832,6 +1324,17 @@
 			<key>hash2</key>
 			<data>
 			x3rMxtT+BEV306iqADLb+0j7WMR4ex+AHlf4N4ZBS5U=
+			</data>
+		</dict>
+		<key>assets/src/assets/loading.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NHmV+C0O+aXBavvj+OUFi2OvN8Y=
+			</data>
+			<key>hash2</key>
+			<data>
+			p1RWorM0MRPPrWK2HZ9MyZNhhw7RCloyvyeU3Kc5fyw=
 			</data>
 		</dict>
 		<key>assets/src/assets/macaco.json</key>
@@ -856,6 +1359,17 @@
 			WOqPtedT8TodgcxUV9N1J+eTt7xUMyREDYQzuqihjtg=
 			</data>
 		</dict>
+		<key>assets/src/assets/playing.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			72YvprxgYqNVi/a8AC5hiJuPTAo=
+			</data>
+			<key>hash2</key>
+			<data>
+			OHMwLOEh3A5B1aNNcINvpYdCNPm5uw0jx1Wi4N60/Fs=
+			</data>
+		</dict>
 		<key>assets/src/assets/playing2.json</key>
 		<dict>
 			<key>hash</key>
@@ -878,6 +1392,17 @@
 			QphoiBmz7wm8KwdAwWnAUawNHx0IfjSTjBMOrRrkuRU=
 			</data>
 		</dict>
+		<key>assets/src/assets/unknownLocation.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			MTqVkZ7C9uUUNe3clAQGASUop38=
+			</data>
+			<key>hash2</key>
+			<data>
+			YjWDvgvw7Ucyrcna7qY1NuRXUEURsb1bLrshXK1slVE=
+			</data>
+		</dict>
 		<key>assets/src/assets/unknownLocation2.json</key>
 		<dict>
 			<key>hash</key>
@@ -893,11 +1418,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nM8zDAmX9bWLRkRvcCXmRUcjlDA=
+			1lcjJo2675ROgREJ/ceTewE+9q8=
 			</data>
 			<key>hash2</key>
 			<data>
-			LLh2iDeMa7O1wfPOavG44UcdepeB5FjUqaTufmRcyQU=
+			Gq0ZBApyYcBU9U4Fx98s3jSlJ/2vP4Wxexc23J654+w=
 			</data>
 		</dict>
 		<key>ip.txt</key>
@@ -915,11 +1440,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			bi7UlqATp7knPS+Nyoe6OYECAn0=
+			BNlTjBtjfmjpldLHThAfa7ieQpw=
 			</data>
 			<key>hash2</key>
 			<data>
-			qSKqbDOPUyGiO1Sze2ODv7H85UQmg2yuAPKRU//5o4Y=
+			iXWNutLeRBfkz4RURGjDeo6JqxqWBnogqOdOoNRVNqs=
 			</data>
 		</dict>
 	</dict>

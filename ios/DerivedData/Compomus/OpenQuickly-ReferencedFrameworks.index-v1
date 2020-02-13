@@ -17,8 +17,8 @@
 	<string>RCTRequired</string>
 	<string>CoreTelephony</string>
 	<string>FBLazyVector</string>
-	<string>libkern</string>
 	<string>RCTTypeSafety</string>
+	<string>libkern</string>
 	<string>CoreText</string>
 	<string>WebKit</string>
 	<string>XCTest</string>
@@ -35,10 +35,10 @@
 	<string>folly</string>
 	<string>yoga</string>
 	<string>CoreGraphics</string>
+	<string>SwiftOSCiOS</string>
 	<string>SystemConfiguration</string>
-	<string>jsi</string>
 	<string>React</string>
 	<string>UIKit</string>
-	<string>SwiftOSCiOS</string>
+	<string>jsi</string>
 </array>
 </plist>

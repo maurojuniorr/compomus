@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>7C5E4098-CB1B-41DF-A62D-CA4BEDBF483B</key>
+		<key>8BDBCA24-C92E-4DAF-9BE7-6D7423EF5A45</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>7C5E4098-CB1B-41DF-A62D-CA4BEDBF483B.xcactivitylog</string>
+			<string>8BDBCA24-C92E-4DAF-9BE7-6D7423EF5A45.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -32,13 +32,13 @@
 			<key>signature</key>
 			<string>Build Compomus</string>
 			<key>timeStartedRecording</key>
-			<real>603028513.13648701</real>
+			<real>603274520.40435696</real>
 			<key>timeStoppedRecording</key>
-			<real>603028693.20890701</real>
+			<real>603274572.02620804</real>
 			<key>title</key>
 			<string>Build Compomus</string>
 			<key>uniqueIdentifier</key>
-			<string>7C5E4098-CB1B-41DF-A62D-CA4BEDBF483B</string>
+			<string>8BDBCA24-C92E-4DAF-9BE7-6D7423EF5A45</string>
 		</dict>
 	</dict>
 </dict>

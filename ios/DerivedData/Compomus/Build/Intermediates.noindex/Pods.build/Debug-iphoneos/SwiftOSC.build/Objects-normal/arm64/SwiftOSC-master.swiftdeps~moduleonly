@@ -1,6 +1,6 @@
 version: "Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
 options: "1de128304fc3fa9ca727eb6d8a486548"
-build_time: [1581335803, 711929000]
+build_time: [1581512867, 712025000]
 inputs:
   "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Types/Blob.swift": [1580972466, 536233679]
   "/Users/mauroamazonas/Documents/Compomus/ios/Pods/SwiftOSC/Framework/SwiftOSC/Types/Bool.swift": [1580972466, 539128873]

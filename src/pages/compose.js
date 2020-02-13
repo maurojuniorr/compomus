@@ -24,6 +24,7 @@ import unknownLocation2 from '../assets/unknownLocation2.json';
 import speakers from '../assets/speakers.json';
 import loading from '../assets/loading.json';
 import pinLocation from '../assets/pinLocation.json';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const { MyNativeModule } = NativeModules;
 const CounterEvents = new NativeEventEmitter(NativeModules.MyNativeModule);
@@ -47,8 +48,8 @@ export default class Compose extends Component {
 		userName: '',
 		userEmail: '',
 		userPass: '',
-		usersoundRaw: '',
-		userSoundId: '',
+		soundName: '',
+		soundRaw: '',
 		choosenSound: '',
 		beaconRange: 0,
 		major: 0,
@@ -66,7 +67,6 @@ export default class Compose extends Component {
 		AppState.addEventListener('change', this._handleAppStateChange);
 		CounterEvents.addListener('onChange', this._eventSubscription);
 		this.playSong();
-		this.getUser();
 	}
 
 	componentWillUnmount() {
@@ -81,7 +81,7 @@ export default class Compose extends Component {
 
 	playSong() {
 		const { navigation } = this.props;
-		let song = navigation.getParam('nameFile');
+		let song = navigation.getParam('soundRaw');
 		try {
 			SoundPlayer.loadUrl(`${global.rawSource}/raw/${song}.mp3`);
 			SoundPlayer.play();
@@ -89,7 +89,9 @@ export default class Compose extends Component {
 			Alert.alert('Esse som não pode ser reproduzido');
 			console.log('cannot play the song file', e);
 		}
-		// MyNativeModule.userInfo(this.state.userId, this.state.userSoundId);
+		//this.getData();
+		//console.log('puxei data');
+		// MyNativeModule.userInfo(this.state.userId, this.state.soundRaw);
 	}
 
 	_eventSubscription = result => {
@@ -98,7 +100,11 @@ export default class Compose extends Component {
 			proximity: result.proximity,
 			degrees: result.degrees,
 			lifeStatus: result.alive,
+			userId: result.userId,
+			soundName: result.soundName,
+			soundRaw: result.soundRaw,
 		});
+
 		this.screenColor();
 		this.screenActivity();
 	};
@@ -194,8 +200,6 @@ export default class Compose extends Component {
 			.catch(error => {
 				console.error(error);
 			});
-
-		// MyNativeModule.userInfo(this.state.userId, this.state.userSoundId);
 	}
 
 	//Common
@@ -208,83 +212,93 @@ export default class Compose extends Component {
 			MyNativeModule.screenStatus('active');
 		}
 	}
-
+	// getData = async () => {
+	// 	try {
+	// 		const value = await AsyncStorage.getItem('userInfo');
+	// 		let parsed = JSON.parse(value);
+	// 		if (value !== null) {
+	// 			// value previously stored
+	// 			this.setState({
+	// 				userId: parseInt(parsed.userId),
+	// 				userName: parsed.userName,
+	// 				userEmail: parsed.userEmail,
+	// 				userPass: parsed.userPass,
+	// 				soundName: parsed.soundName,
+	// 				soundRaw: parsed.soundRaw,
+	// 			});
+	// 			//this.getUser();
+	// 		}
+	// 	} catch (e) {
+	// 		// error reading value
+	// 	}
+	// };
 	//Common
-	getUser() {
-		const { navigation } = this.props;
-		const userId = navigation.getParam('userId');
+	// getUser() {
+	// 	const { navigation } = this.props;
+	// 	const userId = navigation.getParam('userId');
 
-		let formData = new FormData();
+	// 	let formData = new FormData();
 
-		formData.append('id', userId);
+	// 	formData.append('id', userId);
 
-		fetch(`${global.rawSource}/index.php/getThisUser`, {
-			method: 'POST',
-			body: formData,
-		})
-			.then(response => response.json())
-			.then(responseJson => {
-				//console.log('Success', formData);
-				const { id } = responseJson;
-				const { name } = responseJson;
-				const { email } = responseJson;
-				const { pass } = responseJson;
-				const { soundRaw } = responseJson;
-				const { soundName } = responseJson;
-				//console.log(responseJson);
-				this.setState({
-					userId: Number(id),
-					userName: name,
-					userEmail: email,
-					userPass: pass,
-					usersoundRaw: soundRaw,
-					userSoundId: soundName,
-				});
-				if (responseJson !== false) {
-					this.updateSound();
+	// 	fetch(`${global.rawSource}/index.php/getThisUser`, {
+	// 		method: 'POST',
+	// 		body: formData,
+	// 	})
+	// 		.then(response => response.json())
+	// 		.then(responseJson => {
+	// 			//console.log('Success', formData);
+	// 			const { id } = responseJson;
+	// 			const { name } = responseJson;
+	// 			const { email } = responseJson;
+	// 			const { pass } = responseJson;
+	// 			const { soundRaw } = responseJson;
+	// 			const { soundName } = responseJson;
+	// 			//console.log(responseJson);
+	// 			this.setState({
+	// 				userId: parseInt(id),
+	// 				userName: name,
+	// 				userEmail: email,
+	// 				userPass: pass,
+	// 				soundName: soundRaw,
+	// 				soundRaw: soundName,
+	// 			});
+	// 			if (responseJson !== false) {
+	// 				this.updateSound();
 
-					console.log(
-						'Status user ',
-						this.state.userId + ' User Sound ' + this.state.choosenSound
-					);
+	// 				console.log(
+	// 					'Status user ',
+	// 					this.state.userId + ' User Sound ' + this.state.choosenSound
+	// 				);
 
-					// Alert.alert('Compomus', 'Usuario achado com sucesso!');
-				}
-			})
-			.catch(error => {
-				console.error(error);
-			});
-	}
+	// 				// Alert.alert('Compomus', 'Usuario achado com sucesso!');
+	// 			}
+	// 		})
+	// 		.catch(error => {
+	// 			console.error(error);
+	// 		});
+	// }
+	// updateData = async () => {
+	// 	let userInfo = {
+	// 		userId: this.state.userId,
+	// 		userName: this.state.userName,
+	// 		userEmail: this.state.email,
+	// 		userPass: this.state.pass,
+	// 		soundName: this.state.soundName,
+	// 		soundRaw: this.state.soundRaw,
+	// 	};
+	// 	try {
+	// 		await AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
 
-	updateSound() {
-		const { navigation } = this.props;
-		const nameFile = navigation.getParam('nameFile');
-		this.setState({ choosenSound: nameFile });
+	// 		this.props.navigation.navigate('Compose', {});
+	// 		this.props.navigation.navigate('Compose', {});
+	// 		this.props.navigation.navigate('Compose', {});
 
-		let formData = new FormData();
-
-		formData.append('id', this.state.userId);
-		formData.append('name', this.state.userName);
-		formData.append('email', this.state.userEmail);
-		formData.append('pass', this.state.userPass);
-		formData.append('soundRaw', this.state.usersoundRaw);
-		formData.append('soundName', this.state.choosenSound);
-
-		fetch(`${global.rawSource}/index.php/updateUser`, {
-			method: 'POST',
-			body: formData,
-		})
-			.then(responseJson => {
-				if (responseJson !== false) {
-					// Alert.alert('Compomus', 'Som escolhido com sucesso!');
-				}
-			})
-			.catch(error => {
-				console.error(error);
-			});
-		//console.log(formData);
-	}
-
+	// 		console.log('update data');
+	// 	} catch (e) {
+	// 		// saving error
+	// 	}
+	// };
 	screenColor() {
 		if (this.state.lifeStatus === 'alive') {
 			this.setState({ locationStatus: 'immediate' });
@@ -331,11 +345,6 @@ export default class Compose extends Component {
 			return <Lottie source={speakers} autoPlay loop resizeMode='contain' />;
 		}
 	}
-	escolherSom() {
-		this.props.navigation.navigate('SoundChooser', {
-			userId: this.state.userId,
-		});
-	}
 
 	render() {
 		console.log(
@@ -348,7 +357,13 @@ export default class Compose extends Component {
 				' ' +
 				this.state.lifeStatus +
 				' ' +
-				this.state.locationStatus
+				this.state.locationStatus +
+				' ' +
+				this.state.userId +
+				' ' +
+				this.state.soundName +
+				' ' +
+				this.state.soundRaw
 		);
 
 		const { navigation } = this.props;
@@ -359,10 +374,7 @@ export default class Compose extends Component {
 				<StatusBar barStyle='light-content' />
 				<View style={[styles.container, { backgroundColor: color }]}>
 					<View style={styles.textContainer}>
-						<Text style={styles.songName}>
-							{' '}
-							{navigation.getParam('nameFileReal')}
-						</Text>
+						<Text style={styles.songName}>{this.state.soundName}</Text>
 					</View>
 					<View style={styles.speakers}>
 						{this.displayAnimation2()}
@@ -371,9 +383,7 @@ export default class Compose extends Component {
 					<View style={styles.trocarSomContainer}>
 						<TouchableOpacity
 							onPress={() => {
-								this.props.navigation.navigate('SoundChooser', {
-									userId: this.state.userId,
-								});
+								this.props.navigation.navigate('ChoiceStack');
 							}}
 							style={styles.button}>
 							<Text style={styles.buttonText}>Escolher Som</Text>

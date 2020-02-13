@@ -15,6 +15,8 @@ import {
 } from 'react-native';
 //import SoundPlayer from 'react-native-sound-player';
 import NetInfo from '@react-native-community/netinfo';
+import AsyncStorage from '@react-native-community/async-storage';
+
 const unsubscribe = NetInfo.addEventListener(state => {
 	console.log('Connection type', state.type);
 	console.log('Look for Internet!', state.isInternetReachable);
@@ -32,6 +34,8 @@ export default class Login extends Component {
 		soundName: '',
 		email: '',
 		pass: '',
+		userName: '',
+		soundRaw: '',
 	};
 
 	componentDidMount() {}
@@ -94,6 +98,22 @@ export default class Login extends Component {
 			});
 	}
 
+	storeData = async () => {
+		let userInfo = {
+			userId: this.state.userId,
+			userName: this.state.userName,
+			userEmail: this.state.email,
+			userPass: this.state.pass,
+			soundName: this.state.soundName,
+			soundRaw: this.state.soundRaw,
+		};
+		try {
+			await AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
+		} catch (e) {
+			// saving error
+		}
+	};
+
 	postData = async () => {
 		let formData = new FormData();
 		formData.append('email', this.state.email);
@@ -105,21 +125,28 @@ export default class Login extends Component {
 			.then(response => response.json())
 			.then(responseJson => {
 				//console.log('Success', formData);
-				const { email } = responseJson;
-				const { pass } = responseJson;
 				const { soundName } = responseJson;
+				const { soundRaw } = responseJson;
+				const { pass } = responseJson;
+				const { email } = responseJson;
+				const { name } = responseJson;
 				const { id } = responseJson;
 				this.setState({
+					soundRaw: soundRaw,
 					soundName: soundName,
+					userName: name,
 					userId: id,
 				});
+
+				this.storeData();
+
 				if (pass === this.state.pass && email === this.state.email) {
 					if (soundName < 1) {
-						this.props.navigation.navigate('SoundChooser', {
+						this.props.navigation.navigate('RootDrawerNavigator', {
 							userId: this.state.userId,
 						});
 					} else {
-						this.props.navigation.navigate('SoundChooser', {
+						this.props.navigation.navigate('RootDrawerNavigator', {
 							userId: this.state.userId,
 						});
 						//this.getIn();
@@ -177,22 +204,18 @@ export default class Login extends Component {
 
 	CheckTextInput = () => {
 		//Handler for the Submit onPress
-		if (this.state.name !== '') {
-			//Check for the Name TextInput
-			if (this.state.email !== '') {
+
+		if (this.state.email !== '') {
+			//Check for the Email TextInput
+			if (this.state.pass !== '') {
 				//Check for the Email TextInput
-				if (this.state.pass !== '') {
-					//Check for the Email TextInput
-					this.checkIfOnline();
-					// this.postData();
-				} else {
-					Alert.alert('Digite uma senha');
-				}
+				this.checkIfOnline();
+				// this.postData();
 			} else {
-				Alert.alert('Digite um email');
+				Alert.alert('Digite uma senha');
 			}
 		} else {
-			Alert.alert('Digite seu nome');
+			Alert.alert('Digite um email');
 		}
 	};
 
