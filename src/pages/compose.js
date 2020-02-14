@@ -386,7 +386,7 @@ export default class Compose extends Component {
 								this.props.navigation.navigate('ChoiceStack');
 							}}
 							style={styles.button}>
-							<Text style={styles.buttonText}>Escolher Som</Text>
+							<Text style={styles.buttonText}>Trocar Som</Text>
 						</TouchableOpacity>
 					</View>
 
@@ -401,7 +401,7 @@ export default class Compose extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#ddd',
+		backgroundColor: '#f1f1f1',
 		alignItems: 'center',
 		// justifyContent: "center"
 	},
@@ -437,7 +437,7 @@ const styles = StyleSheet.create({
 		width: 300,
 		height: 45,
 		//marginTop: 40,
-		borderRadius: 4,
+		borderRadius: 14,
 		backgroundColor: '#4DAE4C',
 		justifyContent: 'center',
 		alignItems: 'center',

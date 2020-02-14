@@ -7,7 +7,7 @@ const screens = {
 		screen: Home,
 		navigationOptions: ({ navigation }) => {
 			return {
-				headerTitle: () => <Header navigation={navigation} title='Compomus' />,
+				headerTitle: () => <Header navigation={navigation} title='Home' />,
 			};
 		},
 	},
@@ -15,8 +15,8 @@ const screens = {
 
 const HomeStack = createStackNavigator(screens, {
 	defaultNavigationOptions: {
-		headerBackTitle: null,
-		headerBackTitleVisible: false,
+		// headerBackTitle: null,
+		// headerBackTitleVisible: false,
 		headerStyle: {
 			backgroundColor: '#4DAE4C',
 		},

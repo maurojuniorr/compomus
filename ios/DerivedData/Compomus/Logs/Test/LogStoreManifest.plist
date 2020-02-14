@@ -5,6 +5,50 @@
 	<key>logFormatVersion</key>
 	<integer>10</integer>
 	<key>logs</key>
-	<dict/>
+	<dict>
+		<key>773D2293-8B25-4FB7-B7A9-A857EA7A8192</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>A37ABBEC-AC4E-4548-8F8F-3EE29DDF3287</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.unit.cocoaUnitTest</string>
+			<key>fileName</key>
+			<string>Test-Compomus-2020.02.14_01-38-17--0400.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Compomus project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Compomus</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Test Compomus</string>
+			<key>timeStartedRecording</key>
+			<real>603351497.41454005</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Test Compomus</string>
+			<key>uniqueIdentifier</key>
+			<string>773D2293-8B25-4FB7-B7A9-A857EA7A8192</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

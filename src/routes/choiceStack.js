@@ -18,6 +18,7 @@ const screens = {
 		screen: Compose,
 		navigationOptions: {
 			headerBackTitle: 'Voltar',
+			//headerLeft: () => null,
 			//headerBackTitleVisible: false,
 			title: 'Compose',
 		},

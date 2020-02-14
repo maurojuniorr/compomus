@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>08EC3DA8-83E2-4C82-A4D1-7C4841C0A523</key>
+		<key>51772F75-72EE-4572-9B09-275C191BEA2C</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>08EC3DA8-83E2-4C82-A4D1-7C4841C0A523.xcactivitylog</string>
+			<string>51772F75-72EE-4572-9B09-275C191BEA2C.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -32,15 +32,15 @@
 			<key>signature</key>
 			<string>Building workspace Compomus with scheme Compomus and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>603214157.667871</real>
+			<real>603305348.01016796</real>
 			<key>timeStoppedRecording</key>
-			<real>603214170.42602098</real>
+			<real>603305350.89465904</real>
 			<key>title</key>
 			<string>Building workspace Compomus with scheme Compomus and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>08EC3DA8-83E2-4C82-A4D1-7C4841C0A523</string>
+			<string>51772F75-72EE-4572-9B09-275C191BEA2C</string>
 		</dict>
-		<key>5460B7FA-79D9-41C3-9CD2-A6E1A7FD7BDD</key>
+		<key>97B84049-5E83-47A6-AAEF-D7611EA3A4A1</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -49,7 +49,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>5460B7FA-79D9-41C3-9CD2-A6E1A7FD7BDD.xcactivitylog</string>
+			<string>97B84049-5E83-47A6-AAEF-D7611EA3A4A1.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -66,13 +66,13 @@
 			<key>signature</key>
 			<string>Building workspace Compomus with scheme Compomus and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>603267974.79838204</real>
+			<real>603302904.863662</real>
 			<key>timeStoppedRecording</key>
-			<real>603267976.567191</real>
+			<real>603302908.03024304</real>
 			<key>title</key>
 			<string>Building workspace Compomus with scheme Compomus and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>5460B7FA-79D9-41C3-9CD2-A6E1A7FD7BDD</string>
+			<string>97B84049-5E83-47A6-AAEF-D7611EA3A4A1</string>
 		</dict>
 	</dict>
 </dict>

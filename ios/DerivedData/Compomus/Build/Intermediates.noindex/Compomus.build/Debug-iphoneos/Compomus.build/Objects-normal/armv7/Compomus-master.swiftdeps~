@@ -1,5 +1,0 @@
-version: "Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
-options: "82a782a47e67537d998388fb35929ff3"
-build_time: [1581502158, 500947000]
-inputs:
-  "/Users/mauroamazonas/Documents/Compomus/ios/BeaconDetector.swift": [1581313030, 885516227]

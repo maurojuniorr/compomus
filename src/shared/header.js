@@ -6,25 +6,23 @@ export default function Header({ navigation, title }) {
 		navigation.openDrawer();
 	};
 	return (
-		<>
-			<View style={styles.header}>
-				<View style={styles.icon}>
-					<Icon
-						name='align-justify'
-						size={31}
-						type='feather'
-						color='white'
-						onPress={openMenu}
-						reverseColor='white'
-						//activeOpacity={0.0}
-						underlayColor={'#4DAE4C'}
-					/>
-				</View>
-				<View style={styles.textContent}>
-					<Text style={styles.headerText}>{title}</Text>
-				</View>
+		<View style={styles.header}>
+			<View style={styles.icon}>
+				<Icon
+					name='align-justify'
+					size={31}
+					type='feather'
+					color='white'
+					onPress={openMenu}
+					reverseColor='white'
+					//activeOpacity={0.0}
+					underlayColor={'#4DAE4C'}
+				/>
 			</View>
-		</>
+			<View style={styles.textContent}>
+				<Text style={styles.headerText}>{title}</Text>
+			</View>
+		</View>
 	);
 }
 
@@ -38,17 +36,27 @@ const styles = StyleSheet.create({
 	},
 	textContent: {
 		//justifyContent: 'center',
-		alignItems: 'stretch',
+		// alignItems: 'stretch',
 	},
 	headerText: {
 		fontWeight: 'bold',
 		fontSize: 18,
 		color: '#ffffff',
 		letterSpacing: 1,
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.2,
+		// shadowRadius: 1,
+		elevation: 0,
 	},
 	icon: {
-		//position: 'absolute',
+		position: 'absolute',
 		left: 7,
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.2,
+		// shadowRadius: 1,
+		elevation: 0,
 		// justifyContent: 'center',
 		//alignItems: 'center',
 	},

@@ -5,6 +5,8 @@ import {
 	StyleSheet,
 	TouchableOpacity,
 	Alert,
+	StatusBar,
+	Image,
 	NativeModules,
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -16,8 +18,20 @@ export default class HomeScreen extends Component {
 		soundName: '',
 		userName: '',
 		soundRaw: '',
+		bodyText: '',
+		titleText: '',
 	};
-	componentDidMount() {}
+	componentDidMount() {
+		this.setText();
+	}
+
+	setText() {
+		this.setState({
+			titleText: 'Aqui todos participam! ',
+			bodyText:
+				'A composição colaborativa mediada por tecnologia surgiu em uma parceria da Faculdade de Artes e Instituto de Computação da Universidade Federal do Amazonas. \n\nO Compomus tomou forma durante a pesquisa do doutorando Mauro Amazonas na época mestrando juntamente com a participação do aluno de graduação Victor Vasconcelos',
+		});
+	}
 
 	getData = async () => {
 		try {
@@ -30,7 +44,7 @@ export default class HomeScreen extends Component {
 					parsed.soundName,
 					parsed.soundRaw
 				);
-				if (parsed.soundName === '0' && parsed.soundRaw === '0') {
+				if (parsed.soundName === '0' || parsed.soundRaw === '0') {
 					Alert.alert('Escolha um Som Primeiro!');
 					this.props.navigation.navigate('ChoiceStack');
 				} else {
@@ -47,7 +61,44 @@ export default class HomeScreen extends Component {
 	render() {
 		return (
 			<>
-				<View style={[styles.container]}>
+				<StatusBar barStyle='light-content' />
+				<View style={styles.container}>
+					<View style={styles.bannerContainer}>
+						<Image
+							style={styles.banner}
+							source={require('../assets/cel_lanterna.png')}
+						/>
+						<Image
+							style={styles.bannerLogo}
+							source={require('../assets/logoFuntech.png')}
+						/>
+					</View>
+					<View style={styles.imageContainer}>
+						<Image
+							style={styles.image}
+							source={require('../assets/figura1.png')}
+						/>
+					</View>
+					<View style={styles.textContainer}>
+						<Text style={styles.baseText}>
+							<Text style={styles.titleText} onPress={() => {}}>
+								{'\n' + this.state.titleText + '\n\n'}
+							</Text>
+							<Text numberOfLines={15}>{this.state.bodyText}</Text>
+						</Text>
+					</View>
+
+					<View style={styles.trocarSomContainer}>
+						<TouchableOpacity
+							onPress={() => {
+								this.getData();
+							}}
+							style={styles.button}>
+							<Text style={styles.buttonText}>Experimente Agora</Text>
+						</TouchableOpacity>
+					</View>
+				</View>
+				{/* <View style={[styles.container]}>
 					<View>
 						<Text></Text>
 					</View>
@@ -60,7 +111,7 @@ export default class HomeScreen extends Component {
 							<Text style={styles.buttonText}>Compose</Text>
 						</TouchableOpacity>
 					</View>
-				</View>
+				</View> */}
 			</>
 		);
 	}
@@ -69,18 +120,118 @@ export default class HomeScreen extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#ddd',
-		alignItems: 'center',
-		// justifyContent: "center"
+		backgroundColor: '#f1f1f1',
+	},
+	list: {
+		padding: 20,
+	},
+	imageContainer: {
+		marginTop: '-15%',
+		flex: 1,
+		//alignContent: 'stretch',
+		// padding: 100,
+		width: '95%',
+		height: '100%',
+		backgroundColor: '#fff',
+		//marginBottom: 10,
+		marginLeft: 10,
+		marginRight: 10,
+		shadowColor: '#000',
+		shadowOpacity: 0.1,
+	},
+	image: {
+		//justifyContent: 'center',
+		//marginTop: '5%',
+		width: '100%',
+		height: '100%',
+		borderRadius: 5,
+	},
+	banner: {
+		//flex: 1,
+		// justifyContent: 'center',
+		// alignItems: 'center',
+		//marginTop: '5%',
+		//resizeMode: 'contain',
+		width: '100%',
+		height: '60%',
+		borderRadius: 5,
+	},
+	bannerLogo: {
+		//flex: 1,
+		// justifyContent: 'center',
+		// alignItems: 'center',
+		//marginTop: '5%',
+		position: 'absolute',
+		resizeMode: 'contain',
+		width: '100%',
+		height: '60%',
+	},
+	bannerContainer: {
+		marginTop: -5,
+		flex: 1,
+
+		//alignContent: 'stretch',
+		// padding: 100,
+		borderRadius: 5,
+		//backgroundColor: '#000',
+		marginBottom: 20,
+		marginLeft: 10,
+		marginRight: 10,
+		// shadowColor: '#000',
+		// shadowOffset: { width: 0, height: 0 },
+		// shadowOpacity: 0.1,
+		// // shadowRadius: 1,
+		// elevation: 0,
+	},
+	baseText: {
+		fontFamily: 'arial',
+		textAlign: 'justify',
+		fontSize: 15,
+		color: '#4a4a4a',
+		paddingRight: 20,
+		paddingLeft: 20,
+	},
+	titleText: {
+		//marginTop: 20,
+		fontSize: 20,
+		fontFamily: 'arial',
+		fontWeight: 'bold',
+		textAlign: 'center',
+		color: '#00A4DC',
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.1,
+		// shadowRadius: 1,
+		elevation: 0,
+	},
+	textContainer: {
+		marginTop: '12%',
+		flex: 2,
+		// padding: 100,
+		backgroundColor: '#fff',
+		borderRadius: 5,
+		//marginBottom: 10,
+		marginLeft: 10,
+		marginRight: 10,
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.1,
+		// shadowRadius: 1,
+		elevation: 0,
 	},
 	button: {
 		width: 300,
 		height: 45,
 		//marginTop: 40,
-		borderRadius: 4,
+		borderRadius: 14,
 		backgroundColor: '#4DAE4C',
 		justifyContent: 'center',
 		alignItems: 'center',
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.1,
+		// shadowRadius: 1,
+		elevation: 0,
 	},
 	buttonText: {
 		color: '#fff',

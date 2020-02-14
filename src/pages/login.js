@@ -23,11 +23,11 @@ const unsubscribe = NetInfo.addEventListener(state => {
 });
 
 export default class Login extends Component {
-	static navigationOptions = {
-		headerShown: false,
-		//headerBackTitle: null,
-		//title: 'Compomus Login',
-	};
+	// static navigationOptions = {
+	// 	//headerShown: false,
+	// 	//headerBackTitle: null,
+	// 	//title: 'Compomus Login',
+	// };
 
 	state = {
 		userId: '',
@@ -64,7 +64,7 @@ export default class Login extends Component {
 						}
 					})
 					.catch(error => {
-						console.log('Server connection way: out of range ');
+						console.log('Server connection way: only online wifi ');
 						global.rawSource = global.online;
 						this.postData();
 						//Alert.alert('Compomus', 'Você está fora da rede do Compomus!');
@@ -72,7 +72,7 @@ export default class Login extends Component {
 			} else if (state.isInternetReachable && state.type === 'cellular') {
 				global.rawSource = global.online;
 				this.postData();
-				console.log('Server connection way: online');
+				console.log('Server connection way: only online cellular');
 				console.log('Confirm connetion', state.isInternetReachable);
 			} else {
 				this.checkIfDisconnected();
@@ -295,7 +295,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		alignItems: 'center',
-		backgroundColor: '#ddd',
+		backgroundColor: '#f1f1f1',
 	},
 	logoContent: {
 		flex: 3,
@@ -308,6 +308,10 @@ const styles = StyleSheet.create({
 		width: 150,
 		height: 150,
 		borderRadius: 10,
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.1,
+		// shadowRadius: 1,
 	},
 	welcome: {
 		marginTop: '5%',
@@ -331,18 +335,28 @@ const styles = StyleSheet.create({
 		height: 50,
 		backgroundColor: '#fff',
 		fontSize: 16,
-		color: '#000',
+		color: '#4a4a4a',
 		fontWeight: 'bold',
-		borderRadius: 4,
+		borderRadius: 14,
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.1,
+		// shadowRadius: 1,
+		elevation: 0,
 	},
 	button: {
 		width: 300,
 		height: 45,
-		borderRadius: 4,
+		borderRadius: 14,
 		marginTop: 40,
 		backgroundColor: '#4DAE4C',
 		justifyContent: 'center',
 		alignItems: 'center',
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.1,
+		// shadowRadius: 1,
+		elevation: 0,
 	},
 	buttonText: {
 		color: '#fff',

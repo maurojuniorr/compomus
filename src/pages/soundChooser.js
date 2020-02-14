@@ -185,7 +185,7 @@ export default class SoundChooser extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#ddd',
+		backgroundColor: '#f1f1f1',
 	},
 	list: {
 		padding: 20,
@@ -197,6 +197,11 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderRadius: 8,
 		borderColor: '#ddd',
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.1,
+		// shadowRadius: 1,
+		elevation: 0,
 	},
 	soundName: {
 		color: '#333',
@@ -216,6 +221,11 @@ const styles = StyleSheet.create({
 		backgroundColor: '#00A4DC',
 		justifyContent: 'center',
 		alignItems: 'center',
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.1,
+		// shadowRadius: 1,
+		elevation: 0,
 	},
 	chooseButton: {
 		width: 130,
@@ -225,6 +235,11 @@ const styles = StyleSheet.create({
 		backgroundColor: '#4DAE4C',
 		justifyContent: 'center',
 		alignItems: 'center',
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.1,
+		// shadowRadius: 1,
+		elevation: 0,
 	},
 	soundButtonText: {
 		fontSize: 16,

@@ -8,8 +8,8 @@
 	<string>CoreLocation</string>
 	<string>ImageIO</string>
 	<string>cxxreact</string>
-	<string>objc</string>
 	<string>AudioToolbox</string>
+	<string>objc</string>
 	<string>ReactCommon</string>
 	<string>Accelerate</string>
 	<string>MobileCoreServices</string>
@@ -17,8 +17,8 @@
 	<string>RCTRequired</string>
 	<string>CoreTelephony</string>
 	<string>FBLazyVector</string>
-	<string>RCTTypeSafety</string>
 	<string>libkern</string>
+	<string>RCTTypeSafety</string>
 	<string>CoreText</string>
 	<string>WebKit</string>
 	<string>XCTest</string>
@@ -27,18 +27,18 @@
 	<string>mach</string>
 	<string>QuartzCore</string>
 	<string>Security</string>
-	<string>AppKit</string>
 	<string>Lottie</string>
+	<string>AppKit</string>
 	<string>Combine</string>
 	<string>FBReactNativeSpec</string>
 	<string>netinet</string>
 	<string>folly</string>
 	<string>yoga</string>
 	<string>CoreGraphics</string>
-	<string>SwiftOSCiOS</string>
 	<string>SystemConfiguration</string>
+	<string>jsi</string>
 	<string>React</string>
 	<string>UIKit</string>
-	<string>jsi</string>
+	<string>SwiftOSCiOS</string>
 </array>
 </plist>

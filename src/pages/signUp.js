@@ -18,11 +18,11 @@ const unsubscribe = NetInfo.addEventListener(state => {
 	console.log('Look for Internet!', state.isInternetReachable);
 });
 export default class Signup extends Component {
-	static navigationOptions = {
-		headerShown: false,
+	// static navigationOptions = {
+	// 	headerShown: false,
 
-		title: 'Compomus Signup',
-	};
+	// 	title: 'Compomus Signup',
+	// };
 
 	state = {
 		name: '',
@@ -49,7 +49,7 @@ export default class Signup extends Component {
 		};
 		try {
 			await AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
-			console.log(userInfo);
+			//console.log(userInfo);
 		} catch (e) {
 			// saving error
 		}
@@ -284,14 +284,14 @@ export default class Signup extends Component {
 							secureTextEntry
 							style={styles.input}
 							autoCapitalize='none'
-							returnKeyType={'go'}
+							returnKeyType={'done'}
 							ref={input => {
 								this.field3 = input;
 							}}
 							onChangeText={text => this.updateValue(text, 'pass')}
 							placeholder='Digite uma Senha'
 							placeholderTextColor='#b3b3b3'
-							onSubmitEditing={this.CheckTextInput}
+							//onSubmitEditing={this.CheckTextInput}
 						/>
 					</View>
 					<View>
@@ -322,7 +322,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		alignItems: 'center',
-		backgroundColor: '#ddd',
+		backgroundColor: '#f1f1f1',
 	},
 	logoContent: {
 		flex: 3,
@@ -335,6 +335,10 @@ const styles = StyleSheet.create({
 		width: 150,
 		height: 150,
 		borderRadius: 10,
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.3,
+		// shadowRadius: 1,
 	},
 	welcome: {
 		marginTop: '19%',
@@ -342,6 +346,11 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		fontWeight: 'bold',
 		color: '#4DAE4C',
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.0,
+		// shadowRadius: 1,
+		elevation: 0,
 	},
 	inputer: {
 		//flex: 3,
@@ -355,20 +364,30 @@ const styles = StyleSheet.create({
 		padding: 10,
 		width: 300,
 		height: 50,
-		color: '#000',
+		color: '#4a4a4a',
 		backgroundColor: '#fff',
 		fontSize: 16,
 		fontWeight: 'bold',
-		borderRadius: 4,
+		borderRadius: 14,
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.2,
+		// shadowRadius: 1,
+		elevation: 0,
 	},
 	button: {
 		width: 300,
 		height: 45,
 		marginTop: 40,
-		borderRadius: 4,
+		borderRadius: 14,
 		backgroundColor: '#4DAE4C',
 		justifyContent: 'center',
 		alignItems: 'center',
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.2,
+		// shadowRadius: 1,
+		elevation: 0,
 	},
 	buttonText: {
 		color: '#fff',
@@ -385,10 +404,20 @@ const styles = StyleSheet.create({
 		color: '#4DAE4C',
 		fontSize: 16,
 		fontWeight: 'normal',
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.0,
+		// shadowRadius: 1,
+		elevation: 0,
 	},
 	buttonTextRegister: {
 		color: '#4DAE4C',
 		fontSize: 18,
 		fontWeight: 'bold',
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.0,
+		// shadowRadius: 1,
+		elevation: 0,
 	},
 });
