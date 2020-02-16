@@ -17,9 +17,6 @@ const screens = {
 	Compose: {
 		screen: Compose,
 		navigationOptions: {
-			headerBackTitle: 'Voltar',
-			//headerLeft: () => null,
-			//headerBackTitleVisible: false,
 			title: 'Compose',
 		},
 	},
@@ -31,6 +28,7 @@ const ChoiceStack = createStackNavigator(screens, {
 			backgroundColor: '#4DAE4C',
 		},
 		headerTintColor: '#fff',
+		headerBackTitle: 'Voltar',
 		headerTitleStyle: {
 			fontWeight: 'bold',
 			fontSize: 18,

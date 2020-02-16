@@ -322,6 +322,7 @@ export default class Login extends Component {
 	};
 
 	render() {
+		console.disableYellowBox = true;
 		return (
 			<>
 				<StatusBar barStyle='dark-content' />
