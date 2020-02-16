@@ -12,13 +12,12 @@ import {
 	TouchableOpacity,
 	Image,
 } from 'react-native';
-import Lottie from 'lottie-react-native';
+import LottieView from 'lottie-react-native';
 import alert from '../assets/alert.json';
 import macaco from '../assets/macaco.json';
 import playing from '../assets/playing.json';
 import playing2 from '../assets/playing2.json';
 import farAway from '../assets/farAway.json';
-import goExplore from '../assets/goExplore.json';
 import unknownLocation from '../assets/unknownLocation.json';
 import unknownLocation2 from '../assets/unknownLocation2.json';
 import speakers from '../assets/speakers.json';
@@ -60,6 +59,17 @@ export default class Compose extends Component {
 		serverIp: '',
 		serverPort: 0,
 		locationStatus: '',
+		animationId: '',
+		animation1: '',
+		animation2: '',
+		animation3: '',
+		animation4: '',
+		animation5: '',
+		activateAnimation1: '',
+		activateAnimation2: '',
+		statusMesage: '',
+		statusRodape: '',
+		colorHolder: '',
 	};
 
 	componentDidMount() {
@@ -67,6 +77,7 @@ export default class Compose extends Component {
 		AppState.addEventListener('change', this._handleAppStateChange);
 		CounterEvents.addListener('onChange', this._eventSubscription);
 		this.playSong();
+		this.getAnimationData();
 	}
 
 	componentWillUnmount() {
@@ -78,6 +89,30 @@ export default class Compose extends Component {
 			MyNativeModule.screenStatus('inactive')
 		);
 	}
+
+	getAnimationData = async () => {
+		try {
+			const value = await AsyncStorage.getItem('animationData');
+			let parsed = JSON.parse(value);
+			if (value !== null) {
+				// value previously stored
+
+				this.setState({
+					animationId: parsed.id,
+					animation1: parsed.animation1,
+					animation2: parsed.animation2,
+					animation3: parsed.animation3,
+					animation4: parsed.animation4,
+					animation5: parsed.animation5,
+					activateAnimation1: parsed.activateAnimation1,
+					activateAnimation2: parsed.activateAnimation2,
+				});
+				console.log(parsed);
+			}
+		} catch (e) {
+			// error reading value
+		}
+	};
 
 	playSong() {
 		const { navigation } = this.props;
@@ -212,94 +247,17 @@ export default class Compose extends Component {
 			MyNativeModule.screenStatus('active');
 		}
 	}
-	// getData = async () => {
-	// 	try {
-	// 		const value = await AsyncStorage.getItem('userInfo');
-	// 		let parsed = JSON.parse(value);
-	// 		if (value !== null) {
-	// 			// value previously stored
-	// 			this.setState({
-	// 				userId: parseInt(parsed.userId),
-	// 				userName: parsed.userName,
-	// 				userEmail: parsed.userEmail,
-	// 				userPass: parsed.userPass,
-	// 				soundName: parsed.soundName,
-	// 				soundRaw: parsed.soundRaw,
-	// 			});
-	// 			//this.getUser();
-	// 		}
-	// 	} catch (e) {
-	// 		// error reading value
-	// 	}
-	// };
-	//Common
-	// getUser() {
-	// 	const { navigation } = this.props;
-	// 	const userId = navigation.getParam('userId');
 
-	// 	let formData = new FormData();
-
-	// 	formData.append('id', userId);
-
-	// 	fetch(`${global.rawSource}/index.php/getThisUser`, {
-	// 		method: 'POST',
-	// 		body: formData,
-	// 	})
-	// 		.then(response => response.json())
-	// 		.then(responseJson => {
-	// 			//console.log('Success', formData);
-	// 			const { id } = responseJson;
-	// 			const { name } = responseJson;
-	// 			const { email } = responseJson;
-	// 			const { pass } = responseJson;
-	// 			const { soundRaw } = responseJson;
-	// 			const { soundName } = responseJson;
-	// 			//console.log(responseJson);
-	// 			this.setState({
-	// 				userId: parseInt(id),
-	// 				userName: name,
-	// 				userEmail: email,
-	// 				userPass: pass,
-	// 				soundName: soundRaw,
-	// 				soundRaw: soundName,
-	// 			});
-	// 			if (responseJson !== false) {
-	// 				this.updateSound();
-
-	// 				console.log(
-	// 					'Status user ',
-	// 					this.state.userId + ' User Sound ' + this.state.choosenSound
-	// 				);
-
-	// 				// Alert.alert('Compomus', 'Usuario achado com sucesso!');
-	// 			}
-	// 		})
-	// 		.catch(error => {
-	// 			console.error(error);
-	// 		});
-	// }
-	// updateData = async () => {
-	// 	let userInfo = {
-	// 		userId: this.state.userId,
-	// 		userName: this.state.userName,
-	// 		userEmail: this.state.email,
-	// 		userPass: this.state.pass,
-	// 		soundName: this.state.soundName,
-	// 		soundRaw: this.state.soundRaw,
-	// 	};
-	// 	try {
-	// 		await AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
-
-	// 		this.props.navigation.navigate('Compose', {});
-	// 		this.props.navigation.navigate('Compose', {});
-	// 		this.props.navigation.navigate('Compose', {});
-
-	// 		console.log('update data');
-	// 	} catch (e) {
-	// 		// saving error
-	// 	}
-	// };
 	screenColor() {
+		var ColorCode =
+			'rgb(' +
+			Math.floor(Math.random() * 256) +
+			',' +
+			Math.floor(Math.random() * 256) +
+			',' +
+			Math.floor(Math.random() * 256) +
+			')';
+
 		if (this.state.lifeStatus === 'alive') {
 			this.setState({ locationStatus: 'immediate' });
 		} else if (
@@ -316,35 +274,131 @@ export default class Compose extends Component {
 		}
 
 		if (this.state.locationStatus === 'immediate') {
-			this.setState({ screenColor: 'aliceblue' });
+			this.setState({
+				screenColor: 'aliceblue',
+				colorHolder: ColorCode,
+			});
 		} else if (this.state.locationStatus === 'near') {
-			this.setState({ screenColor: 'white' });
+			this.setState({
+				screenColor: '#ddd',
+				statusMesage: 'Você Saiu do Alcance!',
+				statusRodape: 'Aproxime-se Mais!',
+			});
 		} else if (this.state.locationStatus === 'far') {
-			this.setState({ screenColor: 'white' });
+			if (this.state.animation4 === 'pinLocation') {
+				this.setState({
+					screenColor: 'white',
+					statusMesage: 'Localização Desconhecida!',
+					statusRodape: 'Você está muito longe!',
+				});
+			} else if (this.state.animation4 === 'farAway') {
+				this.setState({
+					screenColor: '#72717e',
+					statusMesage: 'Pra onde você vai?!',
+					statusRodape: 'Até entrou em órbita!',
+				});
+			}
 		} else if (this.state.locationStatus === 'unknown') {
-			this.setState({ screenColor: 'white' });
+			this.setState({
+				screenColor: 'white',
+				statusMesage: 'Instalação do Compomus \n não Detectada!',
+				statusRodape:
+					'Para Interagir Você Precisa estar em uma Instalação do Compomus',
+			});
 		}
 	}
 
 	displayAnimation1() {
 		if (this.state.locationStatus === 'immediate') {
-			return <Lottie source={macaco} autoPlay loop resizeMode='contain' />;
-		} else if (this.state.locationStatus === 'near') {
-			return <Lottie source={alert} autoPlay loop resizeMode='contain' />;
-		} else if (this.state.locationStatus === 'far') {
-			return <Lottie source={pinLocation} autoPlay loop resizeMode='contain' />;
-		} else if (this.state.locationStatus === 'unknown') {
-			return (
-				<Lottie source={unknownLocation2} autoPlay loop resizeMode='contain' />
-			);
+			if (this.state.animation1 === 'macaco') {
+				return (
+					<LottieView
+						source={require('../assets/macaco.json')}
+						autoPlay
+						loop
+						resizeMode='contain'
+					/>
+				);
+			} else if (this.state.animation1 === 'false') {
+			}
 		}
 	}
 
 	displayAnimation2() {
 		if (this.state.locationStatus === 'immediate') {
-			return <Lottie source={speakers} autoPlay loop resizeMode='contain' />;
+			if (this.state.animation2 === 'speakers') {
+				return (
+					<LottieView
+						source={require('../assets/speakers.json')}
+						autoPlay
+						loop
+						resizeMode='contain'
+					/>
+				);
+			} else if (this.state.animation2 === 'playing2') {
+				return (
+					<LottieView
+						source={require('../assets/playing2.json')}
+						autoPlay
+						loop
+						resizeMode='contain'
+					/>
+				);
+			}
+
+			//return <Lottie source={speakers} autoPlay loop resizeMode='contain' />;
+		} else if (this.state.locationStatus === 'near') {
+			return (
+				<LottieView
+					source={require('../assets/alert.json')}
+					autoPlay
+					loop
+					resizeMode='contain'
+				/>
+			);
+			//return <Lottie source={alert} autoPlay loop resizeMode='contain' />;
+		} else if (this.state.locationStatus === 'far') {
+			if (this.state.animation4 === 'pinLocation') {
+				return (
+					<LottieView
+						source={require('../assets/pinLocation.json')}
+						autoPlay
+						loop
+						resizeMode='contain'
+					/>
+				);
+			} else if (this.state.animation4 === 'farAway') {
+				return (
+					<LottieView
+						source={require('../assets/farAway.json')}
+						autoPlay
+						loop
+						resizeMode='contain'
+					/>
+				);
+			}
+
+			//return <Lottie source={pinLocation} autoPlay loop resizeMode='contain' />;
+		} else if (this.state.locationStatus === 'unknown') {
+			return (
+				<LottieView
+					source={require('../assets/unknownLocation2.json')}
+					autoPlay
+					loop
+					resizeMode='contain'
+				/>
+			);
+			// return (
+			// 	<Lottie source={unknownLocation2} autoPlay loop resizeMode='contain' />
+			// );
 		}
 	}
+
+	ChangeColorFunction = () => {
+		this.setState({
+			colorHolder: ColorCode,
+		});
+	};
 
 	render() {
 		console.log(
@@ -368,30 +422,63 @@ export default class Compose extends Component {
 
 		const { navigation } = this.props;
 		const color = this.state.screenColor;
+		const colorSong = this.state.colorHolder;
 
 		return (
 			<>
 				<StatusBar barStyle='light-content' />
 				<View style={[styles.container, { backgroundColor: color }]}>
 					<View style={styles.textContainer}>
-						<Text style={styles.songName}>{this.state.soundName}</Text>
+						{this.state.locationStatus === 'immediate' ? (
+							<View>
+								<Text style={[styles.songName2, { color: colorSong }]}>
+									{'Reproduzindo...'}
+								</Text>
+								<Text style={styles.songName}>{this.state.soundName}</Text>
+							</View>
+						) : null}
+						{this.state.locationStatus === 'near' ? (
+							<Text style={styles.statusMesage}>{this.state.statusMesage}</Text>
+						) : null}
+						{this.state.locationStatus === 'far' ? (
+							<Text style={styles.statusMesageFar}>
+								{this.state.statusMesage}
+							</Text>
+						) : null}
+						{this.state.locationStatus === 'unknown' ? (
+							<Text style={styles.statusMesageUnknown}>
+								{this.state.statusMesage}
+							</Text>
+						) : null}
 					</View>
-					<View style={styles.speakers}>
-						{this.displayAnimation2()}
+					<View style={styles.animationContainer}>
+						<View style={styles.animation2}>{this.displayAnimation2()}</View>
 						<View style={styles.animation1}>{this.displayAnimation1()}</View>
 					</View>
 					<View style={styles.trocarSomContainer}>
-						<TouchableOpacity
-							onPress={() => {
-								this.props.navigation.navigate('ChoiceStack');
-							}}
-							style={styles.button}>
-							<Text style={styles.buttonText}>Trocar Som</Text>
-						</TouchableOpacity>
+						{this.state.locationStatus === 'immediate' ? (
+							<TouchableOpacity
+								onPress={() => {
+									this.props.navigation.navigate('ChoiceStack');
+								}}
+								style={styles.button}>
+								<Text style={styles.buttonText}>Trocar Som</Text>
+							</TouchableOpacity>
+						) : null}
+						{this.state.locationStatus === 'near' ? (
+							<Text style={styles.statusMesage}>{this.state.statusRodape}</Text>
+						) : null}
+						{this.state.locationStatus === 'far' ? (
+							<Text style={styles.statusMesageFar}>
+								{this.state.statusRodape}
+							</Text>
+						) : null}
+						{this.state.locationStatus === 'unknown' ? (
+							<Text style={styles.statusMesageUnknown}>
+								{this.state.statusRodape}
+							</Text>
+						) : null}
 					</View>
-
-					{/* <Text>Som Tocando: {navigation.getParam("nameFileReal")}</Text>
-            <Text>userId: {navigation.getParam("userId")}</Text> */}
 				</View>
 			</>
 		);
@@ -408,30 +495,76 @@ const styles = StyleSheet.create({
 	textContainer: {
 		flex: 1,
 		alignSelf: 'center',
+		justifyContent: 'flex-start',
+		marginTop: '8%',
+	},
+	animationContainer: {
+		flex: 1,
+		alignSelf: 'center',
 		justifyContent: 'center',
+	},
+	trocarSomContainer: {
+		flex: 1,
+		marginBottom: '8%',
+		justifyContent: 'flex-end',
+		alignItems: 'center',
 	},
 	songName: {
 		justifyContent: 'center',
 		alignItems: 'center',
-		color: '#4DAE4C',
-		fontSize: 30,
+		color: '#00A4DC',
+		fontWeight: 'bold',
+		textAlign: 'center',
+		fontSize: 25,
 	},
-	animation1: {
-		flex: 2,
-		//position: "absolute",
-		justifyContent: 'flex-start',
+	songName2: {
+		justifyContent: 'center',
 		alignItems: 'center',
-		marginTop: 80,
+		color: '#00A4DC',
+		fontWeight: 'bold',
+		textAlign: 'center',
+		fontSize: 25,
+	},
+	statusMesage: {
+		justifyContent: 'center',
+		alignItems: 'center',
+		color: 'red',
+		fontWeight: 'bold',
+		fontSize: 25,
+	},
+	statusMesageFar: {
+		justifyContent: 'center',
+		alignItems: 'center',
+		color: '#4DAE4C',
+		fontWeight: 'bold',
+		fontSize: 25,
+	},
+	statusMesageUnknown: {
+		justifyContent: 'center',
+		alignItems: 'center',
+		color: '#4DAE4C',
+		fontWeight: 'bold',
+		textAlign: 'center',
+		fontSize: 20,
+	},
+
+	animation1: {
+		//flex: 2,
+		//position: 'absolute',
+		//justifyContent: 'flex-start',
+		//alignItems: 'flex-end',
+		marginTop: '-35%',
 		width: 320,
 		height: 220,
 	},
-	speakers: {
-		flex: 2,
-		justifyContent: 'flex-start',
-		alignItems: 'center',
-		//marginTop: 100,
-		width: 220,
-		height: 220,
+	animation2: {
+		//flex: 2,
+		//justifyContent: 'flex-start',
+
+		//alignItems: 'center',
+		//marginTop: '20%',
+		width: 320,
+		height: 320,
 	},
 	button: {
 		width: 300,
@@ -446,10 +579,5 @@ const styles = StyleSheet.create({
 		color: '#fff',
 		fontSize: 16,
 		fontWeight: 'bold',
-	},
-	trocarSomContainer: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
 	},
 });

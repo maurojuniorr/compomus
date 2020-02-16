@@ -10,7 +10,7 @@ import {
 	NativeModules,
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-
+import { NavigationEvents } from 'react-navigation';
 const { MyNativeModule } = NativeModules;
 export default class HomeScreen extends Component {
 	state = {
@@ -20,18 +20,28 @@ export default class HomeScreen extends Component {
 		soundRaw: '',
 		bodyText: '',
 		titleText: '',
+		imageURL: '',
 	};
-	componentDidMount() {
-		this.setText();
-	}
+	componentDidMount() {}
+	componentWillUnmount() {}
+	getAppData = async () => {
+		try {
+			const value = await AsyncStorage.getItem('appData');
+			let parsed = JSON.parse(value);
+			if (value !== null) {
+				// value previously stored
 
-	setText() {
-		this.setState({
-			titleText: 'Aqui todos participam! ',
-			bodyText:
-				'A composição colaborativa mediada por tecnologia surgiu em uma parceria da Faculdade de Artes e Instituto de Computação da Universidade Federal do Amazonas. \n\nO Compomus tomou forma durante a pesquisa do doutorando Mauro Amazonas na época mestrando juntamente com a participação do aluno de graduação Victor Vasconcelos',
-		});
-	}
+				this.setState({
+					titleText: parsed.titleText,
+					bodyText: parsed.bodyText,
+					imageURL: parsed.imageURL,
+				});
+				console.log(value);
+			}
+		} catch (e) {
+			// error reading value
+		}
+	};
 
 	getData = async () => {
 		try {
@@ -59,29 +69,28 @@ export default class HomeScreen extends Component {
 	};
 
 	render() {
+		const image = this.state.imageURL;
+
 		return (
 			<>
 				<StatusBar barStyle='light-content' />
 				<View style={styles.container}>
-					<View style={styles.bannerContainer}>
+					<NavigationEvents onDidFocus={() => this.getAppData()} />
+					<View style={styles.imageContainer}>
 						<Image
-							style={styles.banner}
-							source={require('../assets/cel_lanterna.png')}
+							style={styles.image}
+							source={{
+								uri: `${global.rawSource}/assets/images/${image}`,
+							}}
 						/>
 						<Image
 							style={styles.bannerLogo}
 							source={require('../assets/logoFuntech.png')}
 						/>
 					</View>
-					<View style={styles.imageContainer}>
-						<Image
-							style={styles.image}
-							source={require('../assets/figura1.png')}
-						/>
-					</View>
 					<View style={styles.textContainer}>
 						<Text style={styles.baseText}>
-							<Text style={styles.titleText} onPress={() => {}}>
+							<Text style={styles.titleText}>
 								{'\n' + this.state.titleText + '\n\n'}
 							</Text>
 							<Text numberOfLines={15}>{this.state.bodyText}</Text>
@@ -122,17 +131,16 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: '#f1f1f1',
 	},
-	list: {
-		padding: 20,
-	},
+
 	imageContainer: {
-		marginTop: '-15%',
-		flex: 1,
-		//alignContent: 'stretch',
+		marginTop: '2%',
+		flex: 2,
+
+		alignContent: 'stretch',
 		// padding: 100,
-		width: '95%',
-		height: '100%',
-		backgroundColor: '#fff',
+		// width: '95%',
+		// height: '100%',
+		backgroundColor: '#0000',
 		//marginBottom: 10,
 		marginLeft: 10,
 		marginRight: 10,
@@ -140,10 +148,10 @@ const styles = StyleSheet.create({
 		shadowOpacity: 0.1,
 	},
 	image: {
-		//justifyContent: 'center',
+		justifyContent: 'center',
 		//marginTop: '5%',
 		width: '100%',
-		height: '100%',
+		height: '102%',
 		borderRadius: 5,
 	},
 	banner: {
@@ -164,7 +172,7 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 		resizeMode: 'contain',
 		width: '100%',
-		height: '60%',
+		height: '25%',
 	},
 	bannerContainer: {
 		marginTop: -5,
@@ -205,7 +213,7 @@ const styles = StyleSheet.create({
 		elevation: 0,
 	},
 	textContainer: {
-		marginTop: '12%',
+		marginTop: '2%',
 		flex: 2,
 		// padding: 100,
 		backgroundColor: '#fff',

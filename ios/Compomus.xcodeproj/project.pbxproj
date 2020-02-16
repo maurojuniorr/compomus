@@ -17,6 +17,8 @@
 		6B12BFDB1D429BE90DE22872 /* libPods-Compomus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F7622D86F0C02D482E6FFF /* libPods-Compomus.a */; };
 		9FB8937173297033CD3AA471 /* libPods-Compomus-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A924B5D6C0C6A222B352BB54 /* libPods-Compomus-tvOS.a */; };
 		AD01DFE27F8E2AC0BA1B5C23 /* libPods-Compomus-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 049643A9929ED1F157F17F4B /* libPods-Compomus-tvOSTests.a */; };
+		FA06424B23F950050085000E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		FA06424C23F9501B0085000E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		FA4B4FA923EBF02B00F721EA /* BeaconDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4B4FA823EBF02B00F721EA /* BeaconDetector.swift */; };
 		FA4B4FAB23EBF04700F721EA /* BeaconDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4B4FAA23EBF04700F721EA /* BeaconDetector.m */; };
 		FB7BAAF47F5F1813D817D52A /* libPods-CompomusTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B29E447BC95D78138FE7182 /* libPods-CompomusTests.a */; };
@@ -387,6 +389,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA06424C23F9501B0085000E /* LaunchScreen.xib in Resources */,
+				FA06424B23F950050085000E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

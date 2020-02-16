@@ -203,7 +203,7 @@ export default class Profile extends Component {
 											onPress: () => console.log('Cancel Pressed'),
 											style: 'cancel',
 										},
-										{ text: 'OK', onPress: () => this.storeData() },
+										{ text: 'Confirmar', onPress: () => this.storeData() },
 									],
 									{ cancelable: false }
 								);
@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
 	logoContent: {
 		flex: 1,
 		justifyContent: 'center',
-		alignItems: 'flex-start',
+		alignItems: 'center',
 		width: '100%',
 		height: '100%',
 		marginTop: '-12%',
@@ -250,11 +250,11 @@ const styles = StyleSheet.create({
 	animation: {
 		flex: 1,
 		//position: 'absolute',
-		//justifyContent: 'flex-start',
-		//alignItems: 'center',
+		// justifyContent: 'center',
+		// alignItems: 'center',
 
-		width: '100%',
-		height: '100%',
+		width: '50%',
+		height: '50%',
 		// shadowColor: '#000',
 		// shadowOffset: { width: 0, height: 0 },
 		// shadowOpacity: 0.2,

@@ -36,12 +36,112 @@ export default class Login extends Component {
 		pass: '',
 		userName: '',
 		soundRaw: '',
+		appId: '',
+		titleText: '',
+		bodyText: '',
+		imageURL: '',
+		animationId: '',
+		animation1: '',
+		animation2: '',
+		animation3: '',
+		animation4: '',
+		animation5: '',
+		activateAnimation1: '',
+		activateAnimation2: '',
 	};
 
 	componentDidMount() {}
 
 	componentWillUnmount() {
 		unsubscribe.remove;
+	}
+	storeAnimationData = async () => {
+		let animationData = {
+			animationId: this.state.animationId,
+			animation1: this.state.animation1,
+			animation2: this.state.animation2,
+			animation3: this.state.animation3,
+			animation4: this.state.animation4,
+			animation5: this.state.animation5,
+			activateAnimation1: this.state.activateAnimation1,
+			activateAnimation2: this.state.activateAnimation2,
+		};
+
+		try {
+			await AsyncStorage.setItem(
+				'animationData',
+				JSON.stringify(animationData)
+			);
+			console.log(animationData);
+		} catch (e) {
+			// saving error
+		}
+	};
+
+	animationData() {
+		fetch(`${global.rawSource}/index.php/animations`)
+			.then(response => response.json())
+			.then(responseJson => {
+				// console.log('Success', formData);
+				const { id } = responseJson;
+				const { animation1 } = responseJson;
+				const { animation2 } = responseJson;
+				const { animation3 } = responseJson;
+				const { animation4 } = responseJson;
+				const { animation5 } = responseJson;
+				const { activateAnimation1 } = responseJson;
+				const { activateAnimation2 } = responseJson;
+
+				// console.log(data);
+				this.setState({
+					animationId: id,
+					animation1: animation1,
+					animation2: animation2,
+					animation3: animation3,
+					animation4: animation4,
+					animation5: animation5,
+					activateAnimation1: activateAnimation1,
+					activateAnimation2: activateAnimation2,
+				});
+				this.storeAnimationData();
+			});
+	}
+
+	storeAppData = async () => {
+		let appData = {
+			appId: this.state.appId,
+			titleText: this.state.titleText,
+			bodyText: this.state.bodyText,
+			imageURL: this.state.imageURL,
+		};
+
+		try {
+			await AsyncStorage.setItem('appData', JSON.stringify(appData));
+			console.log(appData);
+		} catch (e) {
+			// saving error
+		}
+	};
+
+	appData() {
+		fetch(`${global.rawSource}/index.php/appData`)
+			.then(response => response.json())
+			.then(responseJson => {
+				// console.log('Success', formData);
+				const { id } = responseJson;
+				const { titleText } = responseJson;
+				const { bodyText } = responseJson;
+				const { imageURL } = responseJson;
+
+				// console.log(data);
+				this.setState({
+					appId: id,
+					titleText: titleText,
+					bodyText: bodyText,
+					imageURL: imageURL,
+				});
+				this.storeAppData();
+			});
 	}
 
 	checkIfOnline() {
@@ -139,6 +239,8 @@ export default class Login extends Component {
 				});
 
 				this.storeData();
+				this.appData();
+				this.animationData();
 
 				if (pass === this.state.pass && email === this.state.email) {
 					if (soundName < 1) {
@@ -305,9 +407,9 @@ const styles = StyleSheet.create({
 	logo: {
 		//justifyContent: 'center',
 		//marginTop: '5%',
-		width: 150,
-		height: 150,
-		borderRadius: 10,
+		width: 170,
+		height: 170,
+		borderRadius: 50,
 		shadowColor: '#000',
 		shadowOffset: { width: 0, height: 0 },
 		shadowOpacity: 0.1,
