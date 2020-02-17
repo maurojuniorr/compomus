@@ -18,7 +18,7 @@
 RCT_EXTERN_METHOD(setBeacon:(NSString *) uuid ident:(NSString *) ident ma:(nonnull NSNumber *)ma mi:(nonnull NSNumber *)mi beaconRange:(nonnull NSNumber *)beaconRange)
 
 //Função recebe os dados de usuário e som atuais
-RCT_EXTERN_METHOD(soundServer:(NSString *) ip port:(nonnull NSNumber *) port)
+RCT_EXTERN_METHOD(soundServer:(NSString *)ip port:(nonnull NSNumber *) port)
 
 //Função recebe os dados de ativo, inativo ou background da tela
 RCT_EXTERN_METHOD(screenStatus:(NSString *)screen)

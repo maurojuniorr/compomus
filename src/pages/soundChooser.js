@@ -56,17 +56,23 @@ export default class SoundChooser extends Component {
 		}
 	}
 
-	makeRemoteRequest() {
-		fetch(`${global.rawSource}/index.php/sound`)
-			.then(response => response.json())
-			.then(responseJson => {
-				// console.log('Success', formData);
+	makeRemoteRequest = async () => {
+		try {
+			const response = await fetch(`${global.rawSource}/index.php/sound`);
+			if (response.status === 200) {
+				const responseJson = await response.json();
 				const data = responseJson;
 				this.setState({ data });
-				// console.log(data);
-			});
-		//this.getMyValue();
-	}
+			} else {
+				Alert.alert(
+					'Compomus',
+					'Houve um erro na solicitação\n Por favor tente novamente!'
+				);
+			}
+		} catch (error) {
+			Alert.alert('Compomus', 'Erro de comunicação com o servidor');
+		}
+	};
 
 	updateData = async (soundName, soundRaw) => {
 		try {
@@ -113,7 +119,7 @@ export default class SoundChooser extends Component {
 		}
 	};
 
-	updateSound(soundName, soundRaw) {
+	updateSound = async (soundName, soundRaw) => {
 		let formData = new FormData();
 
 		formData.append('id', this.state.userId);
@@ -122,22 +128,24 @@ export default class SoundChooser extends Component {
 		formData.append('pass', this.state.userPass);
 		formData.append('soundRaw', soundRaw);
 		formData.append('soundName', soundName);
-
-		fetch(`${global.rawSource}/index.php/updateUser`, {
-			method: 'POST',
-			body: formData,
-		})
-			.then(responseJson => {
-				if (responseJson !== false) {
-					console.log('Mudança gravada no banco com sucesso!');
-					// Alert.alert('Compomus', 'Som escolhido com sucesso!');
-				}
-			})
-			.catch(error => {
-				console.error(error);
+		try {
+			const response = await fetch(`${global.rawSource}/index.php/updateUser`, {
+				method: 'POST',
+				body: formData,
 			});
+			if (response.status === 200) {
+				//const responseJson = await response.json();
+				console.log('Mudança gravada no banco com sucesso!');
+				// Alert.alert('Compomus', 'Som escolhido com sucesso!');
+			} else {
+				Alert.alert('Compomus', 'Erro ao definir som');
+			}
+		} catch (error) {
+			Alert.alert('Compomus', 'Sem resposta do servidor');
+		}
+
 		//console.log(formData);
-	}
+	};
 
 	renderItem = ({ item, index }) => (
 		<View style={styles.soundContainer}>

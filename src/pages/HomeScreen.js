@@ -107,20 +107,6 @@ export default class HomeScreen extends Component {
 						</TouchableOpacity>
 					</View>
 				</View>
-				{/* <View style={[styles.container]}>
-					<View>
-						<Text></Text>
-					</View>
-					<View style={styles.trocarSomContainer}>
-						<TouchableOpacity
-							onPress={() => {
-								this.getData();
-							}}
-							style={styles.button}>
-							<Text style={styles.buttonText}>Compose</Text>
-						</TouchableOpacity>
-					</View>
-				</View> */}
 			</>
 		);
 	}

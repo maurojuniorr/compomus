@@ -9,6 +9,7 @@ import {
 	Alert,
 	TextInput,
 } from 'react-native';
+import { NavigationEvents } from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
 // import Lottie from 'lottie-react-native';
 // import iconProfile from '../assets/iconProfile.json';
@@ -21,9 +22,7 @@ export default class Profile extends Component {
 		soundName: '',
 		soundRaw: '',
 	};
-	componentDidMount() {
-		this.getData();
-	}
+	componentDidMount() {}
 	clearAll = async () => {
 		try {
 			await AsyncStorage.clear();
@@ -34,7 +33,7 @@ export default class Profile extends Component {
 		console.log('Done.');
 	};
 
-	updateSound() {
+	updateSound = async () => {
 		let formData = new FormData();
 
 		formData.append('id', this.state.userId);
@@ -43,22 +42,72 @@ export default class Profile extends Component {
 		formData.append('pass', this.state.userPass);
 		formData.append('soundRaw', this.state.soundRaw);
 		formData.append('soundName', this.state.soundName);
-
-		fetch(`${global.rawSource}/index.php/updateUser`, {
-			method: 'POST',
-			body: formData,
-		})
-			.then(responseJson => {
-				if (responseJson !== false) {
-					console.log('Mudança gravada no banco com sucesso!');
-					Alert.alert('Compomus', 'Mudanças efetuadas  com sucesso!');
-				}
-			})
-			.catch(error => {
-				console.error(error);
+		try {
+			const response = await fetch(`${global.rawSource}/index.php/updateUser`, {
+				method: 'POST',
+				body: formData,
 			});
+
+			if (response.status === 200) {
+				Alert.alert('Compomus', 'Mudanças efetuadas  com sucesso!');
+				console.log('Mudança gravada no banco com sucesso!');
+				this.storeData();
+			} else {
+				Alert.alert(
+					'Mudança não realizada',
+					'Erro de comunicação com o servidor!'
+				);
+				console.log('Erro de comunicação com o servidor');
+			}
+		} catch (error) {
+			Alert.alert('Servidor não responde', 'Por favor avise o suporte');
+		}
+
 		//console.log(formData);
-	}
+	};
+
+	verifyData = async () => {
+		const formData = new FormData();
+		formData.append('email', this.state.userEmail);
+		formData.append('pass', this.state.userPass);
+
+		try {
+			const response = await fetch(
+				`${global.rawSource}/index.php/validateUser`,
+				{
+					method: 'POST',
+					body: formData,
+				}
+			);
+			if (response.status === 200) {
+				const responseJson = await response.json();
+				const { email } = responseJson;
+				const { pass } = responseJson;
+				// console.log(formData);
+				if (email === this.state.userEmail) {
+					Alert.alert(
+						'Atenção!',
+						'Email já foi utilizado!\nPor favor tente usar outro'
+					);
+					console.log('Email unavailable for use');
+				} else {
+					this.updateSound();
+					console.log('Email unavailable for use');
+				}
+			} else {
+				Alert.alert(
+					'Compomus',
+					'Houve um erro na solicitação\n Por favor tente novamente!'
+				);
+			}
+		} catch (error) {
+			console.log(err.message);
+			Alert.alert(
+				'Erro ao criar usuário',
+				'Houve um erro em sua solicitação \n Por favor tente novamente'
+			);
+		}
+	};
 
 	storeData = async () => {
 		const { navigation } = this.props;
@@ -70,7 +119,7 @@ export default class Profile extends Component {
 			soundName: this.state.soundName,
 			soundRaw: this.state.soundRaw,
 		};
-		this.updateSound();
+
 		try {
 			await AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
 			console.log(JSON.stringify(userInfo));
@@ -129,6 +178,7 @@ export default class Profile extends Component {
 						ios: 'padding',
 						android: null,
 					})}>
+					<NavigationEvents onDidFocus={() => this.getData()} />
 					<View style={styles.logoContent}></View>
 					<View style={styles.inputer}>
 						<View style={styles.logoContent}>
@@ -158,7 +208,7 @@ export default class Profile extends Component {
 								//textContentType={'emailAdress'}
 								placeholder={this.state.userName}
 								placeholderTextColor={'#4a4a4a'}
-								returnKeyType={'next'}
+								returnKeyType={'done'}
 								//onSubmitEditing={() => this.field2.focus()}
 								onChangeText={text => this.updateValue(text, 'name')}
 							/>
@@ -170,7 +220,7 @@ export default class Profile extends Component {
 								//textContentType={'emailAdress'}
 								placeholder={this.state.userEmail}
 								placeholderTextColor={'#4a4a4a'}
-								returnKeyType={'next'}
+								returnKeyType={'done'}
 								//onSubmitEditing={() => this.field2.focus()}
 								onChangeText={text => this.updateValue(text, 'email')}
 							/>
@@ -180,7 +230,7 @@ export default class Profile extends Component {
 								secureTextEntry={true}
 								style={styles.input}
 								autoCapitalize={'none'}
-								returnKeyType={'go'}
+								returnKeyType={'done'}
 								ref={input => {
 									this.field2 = input;
 								}}
@@ -203,7 +253,7 @@ export default class Profile extends Component {
 											onPress: () => console.log('Cancel Pressed'),
 											style: 'cancel',
 										},
-										{ text: 'Confirmar', onPress: () => this.storeData() },
+										{ text: 'Confirmar', onPress: () => this.verifyData() },
 									],
 									{ cancelable: false }
 								);

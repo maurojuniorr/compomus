@@ -155,17 +155,22 @@ export default class Compose extends Component {
 	};
 
 	// IOS
-	setupNative() {
+	setupNative = async () => {
 		let formData = new FormData();
 
 		formData.append('beaconOrder', '1');
 
-		fetch(`${global.rawSource}/index.php/getThisBeacon`, {
-			method: 'POST',
-			body: formData,
-		})
-			.then(response => response.json())
-			.then(responseJson2 => {
+		try {
+			const response = await fetch(
+				`${global.rawSource}/index.php/getThisBeacon`,
+				{
+					method: 'POST',
+					body: formData,
+				}
+			);
+			if (response.status === 200) {
+				const responseJson2 = await response.json();
+
 				const { uuid } = responseJson2;
 				const { identifier } = responseJson2;
 				const { major } = responseJson2;
@@ -179,39 +184,33 @@ export default class Compose extends Component {
 					minor: parseInt(minor),
 					beaconRange: parseFloat(beaconRange),
 				});
-				if (responseJson2 !== false) {
-					MyNativeModule.setBeacon(
-						this.state.UUID,
-						this.state.iden,
-						this.state.major,
-						this.state.minor,
+
+				MyNativeModule.setBeacon(
+					this.state.UUID,
+					this.state.iden,
+					this.state.major,
+					this.state.minor,
+					this.state.beaconRange
+				);
+
+				console.log(
+					'Beacon set ',
+					this.state.UUID +
+						' ' +
+						this.state.iden +
+						' ' +
+						this.state.major +
+						' ' +
+						this.state.minor +
+						' ' +
 						this.state.beaconRange
-					);
-
-					console.log(
-						'Beacon set ',
-						this.state.UUID +
-							' ' +
-							this.state.iden +
-							' ' +
-							this.state.major +
-							' ' +
-							this.state.minor +
-							' ' +
-							this.state.beaconRange
-					);
-
-					// Alert.alert('Compomus', 'Usuario achado com sucesso!');
-				}
-			})
-			.catch(error => {
-				console.error(error);
-			});
-
-		//Configurando ip e porta do servidor
-		fetch(`${global.rawSource}/index.php/soundServer`)
-			.then(response => response.json())
-			.then(responseJson => {
+				);
+			}
+		} catch (error) {}
+		try {
+			const response = await fetch(`${global.rawSource}/index.php/soundServer`);
+			if (response.status === 200) {
+				const responseJson = await response.json();
 				// console.log('Success', formData);
 				const { ip } = responseJson;
 				const { port } = responseJson;
@@ -220,22 +219,14 @@ export default class Compose extends Component {
 					serverIp: ip,
 					serverPort: parseInt(port),
 				});
-				if (responseJson !== false) {
-					MyNativeModule.soundServer(
-						this.state.serverIp,
-						this.state.serverPort
-					);
-					console.log(
-						'Sound Server set ',
-						this.state.serverIp + ' ' + this.state.serverPort
-					);
-				}
-				// console.log(data);
-			})
-			.catch(error => {
-				console.error(error);
-			});
-	}
+				MyNativeModule.soundServer(this.state.serverIp, this.state.serverPort);
+				console.log(
+					'Sound Server set ',
+					this.state.serverIp + ' ' + this.state.serverPort
+				);
+			}
+		} catch (error) {}
+	};
 
 	//Common
 	screenActivity() {

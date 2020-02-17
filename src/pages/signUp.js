@@ -18,12 +18,6 @@ const unsubscribe = NetInfo.addEventListener(state => {
 	console.log('Look for Internet!', state.isInternetReachable);
 });
 export default class Signup extends Component {
-	// static navigationOptions = {
-	// 	headerShown: false,
-
-	// 	title: 'Compomus Signup',
-	// };
-
 	state = {
 		name: '',
 		email: '',
@@ -73,10 +67,11 @@ export default class Signup extends Component {
 		}
 	};
 
-	animationData() {
-		fetch(`${global.rawSource}/index.php/animations`)
-			.then(response => response.json())
-			.then(responseJson => {
+	animationData = async () => {
+		try {
+			const response = await fetch(`${global.rawSource}/index.php/animations`);
+			if (response.status === 200) {
+				const responseJson = await response.json();
 				// console.log('Success', formData);
 				const { id } = responseJson;
 				const { animation1 } = responseJson;
@@ -99,8 +94,9 @@ export default class Signup extends Component {
 					activateAnimation2: activateAnimation2,
 				});
 				this.storeAnimationData();
-			});
-	}
+			}
+		} catch (error) {}
+	};
 
 	storeAppData = async () => {
 		let appData = {
@@ -118,11 +114,11 @@ export default class Signup extends Component {
 		}
 	};
 
-	appData() {
-		fetch(`${global.rawSource}/index.php/appData`)
-			.then(response => response.json())
-			.then(responseJson => {
-				// console.log('Success', formData);
+	appData = async () => {
+		try {
+			const response = await fetch(`${global.rawSource}/index.php/appData`);
+			if (response.status === 200) {
+				const responseJson = await response.json();
 				const { id } = responseJson;
 				const { titleText } = responseJson;
 				const { bodyText } = responseJson;
@@ -136,8 +132,9 @@ export default class Signup extends Component {
 					imageURL: imageURL,
 				});
 				this.storeAppData();
-			});
-	}
+			}
+		} catch (error) {}
+	};
 
 	storeData = async () => {
 		let userInfo = {
@@ -176,12 +173,16 @@ export default class Signup extends Component {
 		const formData = new FormData();
 		formData.append('email', this.state.email);
 		formData.append('pass', this.state.pass);
-		fetch(`${global.rawSource}/index.php/validateUser`, {
-			method: 'POST',
-			body: formData,
-		})
-			.then(response => response.json())
-			.then(responseJson => {
+		try {
+			const response = await fetch(
+				`${global.rawSource}/index.php/validateUser`,
+				{
+					method: 'POST',
+					body: formData,
+				}
+			);
+			if (response.status === 200) {
+				const responseJson = await response.json();
 				const { soundName } = responseJson;
 				const { soundRaw } = responseJson;
 				const { pass } = responseJson;
@@ -206,19 +207,17 @@ export default class Signup extends Component {
 						this.props.navigation.navigate('RootDrawerNavigator', {
 							userId: this.state.userId,
 						});
-						Alert.alert('Usuário Criado com Sucesso!');
+
 						console.log('User created succesfully');
 					} else {
 						this.props.navigation.navigate('RootDrawerNavigator');
-						Alert.alert('Usuário Criado com Sucesso!');
 						console.log('User created succesfully');
 					}
 				}
 				// console.log('Success', responseJson);
-			})
-			.catch(error => {
-				console.error(error);
-			});
+			} else {
+			}
+		} catch (error) {}
 	};
 
 	postData = async () => {
@@ -228,98 +227,165 @@ export default class Signup extends Component {
 		formData.append('pass', this.state.pass);
 		formData.append('soundRaw', this.state.soundRaw);
 		formData.append('soundName', this.state.soundName);
+		try {
+			const response = await fetch(`${global.rawSource}/index.php/createUser`, {
+				method: 'POST',
+				body: formData,
+			});
+			if (response.status === 200) {
+				Alert.alert('Compomus', 'Usuário Criado com Sucesso!');
 
-		fetch(`${global.rawSource}/index.php/createUser`, {
-			method: 'POST',
-			body: formData,
-		}).catch(error => {
-			console.error(error);
-		});
-		this.getIn();
+				this.getIn();
+			} else {
+				Alert.alert(
+					'Erro ao criar usuário',
+					'Houve um erro em sua solicitação \n Por favor tente novamente'
+				);
+				console.log(err.message);
+			}
+		} catch (error) {
+			Alert.alert(
+				'Erro ao criar usuário',
+				'Houve um erro em sua solicitação \n Por favor tente novamente'
+			);
+			console.log(err.message);
+		}
 	};
 
 	verifyData = async () => {
 		const formData = new FormData();
 		formData.append('email', this.state.email);
 		formData.append('pass', this.state.pass);
-		fetch(`${global.rawSource}/index.php/validateUser`, {
-			method: 'POST',
-			body: formData,
-		})
-			.then(response => response.json())
-			.then(responseJson => {
-				// console.log('Success', formData);
 
+		try {
+			const response = await fetch(
+				`${global.rawSource}/index.php/validateUser`,
+				{
+					method: 'POST',
+					body: formData,
+				}
+			);
+			if (response.status === 200) {
+				const responseJson = await response.json();
 				const { email } = responseJson;
 				const { pass } = responseJson;
 				// console.log(formData);
 				if (pass === this.state.pass && email === this.state.email) {
-					Alert.alert('Compomus', 'Email já utilizado!');
-					console.log('Email available for use');
+					Alert.alert(
+						'Atenção!',
+						'Email já foi utilizado!\nPor favor tente usar outro'
+					);
+					console.log('Email unavailable for use');
 				} else {
 					this.postData();
 					console.log('Email unavailable for use');
 				}
-			})
-			.catch(error => {
-				console.error(error);
-			});
+			} else {
+				Alert.alert(
+					'Compomus',
+					'Houve um erro na solicitação\n Por favor tente novamente!'
+				);
+			}
+		} catch (error) {
+			console.log(err.message);
+			Alert.alert(
+				'Erro ao criar usuário',
+				'Houve um erro em sua solicitação \n Por favor tente novamente'
+			);
+		}
 	};
 
-	checkIfDisconnected() {
-		fetch(`${global.localhost}/index.php`)
-			.then(response => {
-				if (response.status === 200) {
-					global.rawSource = global.localhost;
-					this.verifyData();
-					console.log('Server connection way: localhost');
-				} else if (response.status !== 200) {
-					Alert.alert('Compomus', 'Você está fora da rede do Compomus!');
-					console.log('error');
-				}
-			})
-			.catch(error => {
-				console.log('Server connection way: out of range');
-				Alert.alert('Compomus', 'Você está fora da rede do Compomus!');
-			});
-	}
-
-	checkIfOnline() {
-		NetInfo.fetch().then(state => {
-			console.log('Connection type', state.type);
+	checkIfOnline = async () => {
+		try {
+			const state = await NetInfo.fetch();
+			console.log('Connection type:', state.type);
 			console.log('Have Internet?', state.isInternetReachable);
 
 			if (state.isInternetReachable && state.type === 'wifi') {
-				fetch(`${global.localhost}/index.php`)
-					.then(response => {
-						if (response.status === 200) {
-							global.rawSource = global.localhost;
-							this.verifyData();
-							console.log('Server connection way: localhost');
-							console.log('Confirm connetion', state.isInternetReachable);
-						} else if (response.status !== 200) {
-							global.rawSource = global.online;
-							this.verifyData();
-							console.log('Server connection way: online');
-							console.log('Confirm connetion', state.isInternetReachable);
-						}
-					})
-					.catch(error => {
-						console.log('Server connection way: out of range');
+				try {
+					const response = await fetch(`${global.localhost}/index.php`);
+
+					if (response.status === 200) {
+						global.rawSource = global.localhost;
+						this.verifyData();
+						console.log(
+							'Server connection way: For performance using localhost'
+						);
+						console.log('Confirm connetion', state.isInternetReachable);
+					} else {
 						global.rawSource = global.online;
 						this.verifyData();
-						//Alert.alert('Compomus', 'Você está fora da rede do Compomus!');
-					});
+						console.log('Server connection way: online');
+						console.log('Confirm connetion', state.isInternetReachable);
+					}
+				} catch (error) {
+					global.rawSource = global.online;
+					this.verifyData();
+					console.log(
+						'Server connection way: localhost offline,  using online server!'
+					);
+					console.log('Confirm connetion', state.isInternetReachable);
+				}
 			} else if (state.isInternetReachable && state.type === 'cellular') {
-				global.rawSource = global.online;
-				this.verifyData();
-				console.log('Server connection way: online');
-				console.log('Confirm connetion', state.isInternetReachable);
+				try {
+					const response = await fetch(`${global.rawSource}/index.php`);
+					if (response.status === 200) {
+						global.rawSource = global.online;
+						this.verifyData();
+						console.log('Server connection way: only online cellular');
+						console.log('Confirm connetion', state.isInternetReachable);
+					} else {
+						Alert.alert(
+							'Compomus',
+							'Erro interno de comunicação\n Tente novamente mais tarde'
+						);
+					}
+				} catch (error) {
+					Alert.alert('Compomus', 'Erro de resposta do servidor');
+				}
+			} else if (!state.isInternetReachable && state.type === 'wifi') {
+				try {
+					const response = await fetch(`${global.localhost}/index.php`);
+					if (response.status === 200) {
+						global.rawSource = global.localhost;
+						this.verifyData();
+						console.log(
+							'Server connection way: online server offline, using localhost'
+						);
+						console.log('Confirm connetion', state.isInternetReachable);
+					} else {
+						Alert.alert(
+							'Compomus',
+							'Erro interno de comunicação\n Tente novamente mais tarde'
+						);
+					}
+				} catch (error) {
+					Alert.alert('Compomus', 'Sem resposta do servidor');
+				}
+
+				//this.checkIfDisconnected();
+			} else if (!state.isInternetReachable && state.type === 'cellular') {
+				Alert.alert(
+					'Erro de comunicação',
+					'É necessária uma conexão com a internet ou com a rede Commpomus'
+				);
+
+				//this.checkIfDisconnected();
 			} else {
-				this.checkIfDisconnected();
+				Alert.alert(
+					'Erro de comunicação',
+					'É necessária uma conexão com a internet ou com a rede Commpomus'
+				);
 			}
-		});
-	}
+		} catch (error) {
+			Alert.alert(
+				'Erro de comunicação',
+				'É necessária uma conexão com a internet ou com a rede Commpomus'
+			);
+			// global.rawSource = global.online;
+			// this.postData();
+		}
+	};
 
 	CheckTextInput = () => {
 		// Handler for the Submit onPress
@@ -332,13 +398,13 @@ export default class Signup extends Component {
 					this.checkIfOnline();
 					// this.verifyData();
 				} else {
-					Alert.alert('Digite uma senha');
+					Alert.alert('Compomus', 'Digite uma senha');
 				}
 			} else {
-				Alert.alert('Digite um email');
+				Alert.alert('Compomus', 'Digite um email');
 			}
 		} else {
-			Alert.alert('Digite seu nome');
+			Alert.alert('Compomus', 'Digite seu nome');
 		}
 	};
 
