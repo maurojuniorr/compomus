@@ -422,7 +422,11 @@ export default class Compose extends Component {
 		return (
 			<>
 				<StatusBar barStyle='light-content' />
-				<View style={[styles.container, { backgroundColor: color }]}>
+				<Animated.View
+					style={[
+						styles.container,
+						{ backgroundColor: this.state.screenColor },
+					]}>
 					{this.state.isLoading ? (
 						<View style={styles.loadingAnimation}>
 							<LottieView
@@ -499,7 +503,7 @@ export default class Compose extends Component {
 							</View>
 						</View>
 					)}
-				</View>
+				</Animated.View>
 			</>
 		);
 	}

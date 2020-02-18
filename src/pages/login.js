@@ -362,7 +362,7 @@ export default class Login extends Component {
 					<View style={styles.inputer}>
 						{this.state.isLoading ? (
 							// <ActivityIndicator/>
-							<Text style={styles.welcome}>Fazendo login...</Text>
+							<Text style={styles.welcome}>Fazendo login aguarde...</Text>
 						) : (
 							<Text style={styles.welcome}>Bem Vindo(a) ao Compomus!</Text>
 						)}

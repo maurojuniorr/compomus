@@ -21,9 +21,13 @@ export default class Profile extends Component {
 		userPass: '',
 		soundName: '',
 		soundRaw: '',
+		statusRequest: false,
 		isLoading: false,
 	};
 	componentDidMount() {}
+	setRequest() {
+		this.setState({ statusRequest: false });
+	}
 	clearAll = async () => {
 		try {
 			await AsyncStorage.clear();
@@ -50,10 +54,13 @@ export default class Profile extends Component {
 			});
 
 			if (response.status === 200) {
-				Alert.alert('Compomus', 'Mudanças efetuadas  com sucesso!');
+				//Alert.alert('Compomus', 'Mudanças efetuadas  com sucesso!');
 				console.log('Mudança gravada no banco com sucesso!');
 				this.storeData();
-				this.setState({ isLoading: false });
+				this.setState({ isLoading: false, statusRequest: true });
+				setTimeout(() => {
+					this.setState({ statusRequest: false });
+				}, 3000);
 			} else {
 				Alert.alert(
 					'Mudança não realizada',
@@ -71,23 +78,25 @@ export default class Profile extends Component {
 	verifyData = async () => {
 		const formData = new FormData();
 		formData.append('email', this.state.userEmail);
-		formData.append('pass', this.state.userPass);
-		this.setState({ isLoading: true });
+		//formData.append('pass', this.state.userPass);
+		this.setState({ isLoading: true, statusRequest: false });
 
 		try {
 			const response = await fetch(
-				`${global.rawSource}/index.php/validateUser`,
+				`${global.rawSource}/index.php/getThisUser`,
 				{
 					method: 'POST',
 					body: formData,
 				}
 			);
+
 			if (response.status === 200) {
 				const responseJson = await response.json();
-				const { email } = responseJson;
-				const { pass } = responseJson;
+				//const { email } = responseJson;
+				const { id } = responseJson;
+				console.log(responseJson);
 				// console.log(formData);
-				if (email === this.state.userEmail) {
+				if (id !== this.state.userId && responseJson !== false) {
 					Alert.alert(
 						'Atenção!',
 						'Email já foi utilizado!\nPor favor tente usar outro'
@@ -208,6 +217,10 @@ export default class Profile extends Component {
 						{this.state.isLoading ? (
 							// <ActivityIndicator/>
 							<Text style={styles.welcome}>Processando Aguarde...</Text>
+						) : this.state.statusRequest ? (
+							<Text style={styles.welcome}>
+								Mudanças efetuadas com sucesso!
+							</Text>
 						) : (
 							<Text style={[styles.welcome, { color: '#0000' }]}>33</Text>
 						)}
