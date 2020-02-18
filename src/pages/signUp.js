@@ -40,6 +40,7 @@ export default class Signup extends Component {
 		animation5: '',
 		activateAnimation1: '',
 		activateAnimation2: '',
+		isLoading: false,
 	};
 
 	componentDidMount() {}
@@ -234,7 +235,7 @@ export default class Signup extends Component {
 			});
 			if (response.status === 200) {
 				Alert.alert('Compomus', 'Usuário Criado com Sucesso!');
-
+				this.setState({ isLoading: false });
 				this.getIn();
 			} else {
 				Alert.alert(
@@ -256,7 +257,7 @@ export default class Signup extends Component {
 		const formData = new FormData();
 		formData.append('email', this.state.email);
 		formData.append('pass', this.state.pass);
-
+		this.setState({ isLoading: true });
 		try {
 			const response = await fetch(
 				`${global.rawSource}/index.php/validateUser`,
@@ -425,7 +426,12 @@ export default class Signup extends Component {
 						/>
 					</View>
 					<View style={styles.inputer}>
-						<Text style={styles.welcome}>Bem Vindo(a) ao Compomus!</Text>
+						{this.state.isLoading ? (
+							// <ActivityIndicator/>
+							<Text style={styles.welcome}>Fazendo cadastro, Aguarde...</Text>
+						) : (
+							<Text style={styles.welcome}>Bem Vindo(a) ao Compomus!</Text>
+						)}
 						<TextInput
 							style={styles.input}
 							onChangeText={text => this.updateValue(text, 'name')}

@@ -11,18 +11,20 @@ import {
 	AppState,
 	TouchableOpacity,
 	Image,
+	Animated,
+	ActivityIndicator,
 } from 'react-native';
 import LottieView from 'lottie-react-native';
-import alert from '../assets/alert.json';
-import macaco from '../assets/macaco.json';
-import playing from '../assets/playing.json';
-import playing2 from '../assets/playing2.json';
-import farAway from '../assets/farAway.json';
-import unknownLocation from '../assets/unknownLocation.json';
-import unknownLocation2 from '../assets/unknownLocation2.json';
-import speakers from '../assets/speakers.json';
-import loading from '../assets/loading.json';
-import pinLocation from '../assets/pinLocation.json';
+// import alert from '../assets/alert.json';
+// import macaco from '../assets/macaco.json';
+// import playing from '../assets/playing.json';
+// import playing2 from '../assets/playing2.json';
+// import farAway from '../assets/farAway.json';
+// import unknownLocation from '../assets/unknownLocation.json';
+// import unknownLocation2 from '../assets/unknownLocation2.json';
+// import speakers from '../assets/speakers.json';
+// import loading from '../assets/loading.json';
+// import pinLocation from '../assets/pinLocation.json';
 import AsyncStorage from '@react-native-community/async-storage';
 
 const { MyNativeModule } = NativeModules;
@@ -70,6 +72,7 @@ export default class Compose extends Component {
 		statusMesage: '',
 		statusRodape: '',
 		colorHolder: '',
+		isLoading: false,
 	};
 
 	componentDidMount() {
@@ -156,6 +159,7 @@ export default class Compose extends Component {
 
 	// IOS
 	setupNative = async () => {
+		this.setState({ isLoading: true });
 		let formData = new FormData();
 
 		formData.append('beaconOrder', '1');
@@ -169,6 +173,7 @@ export default class Compose extends Component {
 				}
 			);
 			if (response.status === 200) {
+				this.setState({ isLoading: false });
 				const responseJson2 = await response.json();
 
 				const { uuid } = responseJson2;
@@ -413,63 +418,87 @@ export default class Compose extends Component {
 
 		const { navigation } = this.props;
 		const color = this.state.screenColor;
-		const colorSong = this.state.colorHolder;
 
 		return (
 			<>
 				<StatusBar barStyle='light-content' />
 				<View style={[styles.container, { backgroundColor: color }]}>
-					<View style={styles.textContainer}>
-						{this.state.locationStatus === 'immediate' ? (
-							<View>
-								<Text style={[styles.songName2, { color: colorSong }]}>
-									{'Reproduzindo...'}
-								</Text>
-								<Text style={styles.songName}>{this.state.soundName}</Text>
+					{this.state.isLoading ? (
+						<View style={styles.loadingAnimation}>
+							<LottieView
+								source={require('../assets/loading.json')}
+								autoPlay
+								loop
+								resizeMode='contain'
+							/>
+						</View>
+					) : (
+						<View>
+							<View style={styles.textContainer}>
+								{this.state.locationStatus === 'immediate' ? (
+									<View>
+										<Animated.Text
+											style={[
+												styles.songName2,
+												{ color: this.state.colorHolder },
+											]}>
+											{'Reproduzindo...'}
+										</Animated.Text>
+										<Text style={styles.songName}>{this.state.soundName}</Text>
+									</View>
+								) : null}
+								{this.state.locationStatus === 'near' ? (
+									<Text style={styles.statusMesage}>
+										{this.state.statusMesage}
+									</Text>
+								) : null}
+								{this.state.locationStatus === 'far' ? (
+									<Text style={styles.statusMesageFar}>
+										{this.state.statusMesage}
+									</Text>
+								) : null}
+								{this.state.locationStatus === 'unknown' ? (
+									<Text style={styles.statusMesageUnknown}>
+										{this.state.statusMesage}
+									</Text>
+								) : null}
 							</View>
-						) : null}
-						{this.state.locationStatus === 'near' ? (
-							<Text style={styles.statusMesage}>{this.state.statusMesage}</Text>
-						) : null}
-						{this.state.locationStatus === 'far' ? (
-							<Text style={styles.statusMesageFar}>
-								{this.state.statusMesage}
-							</Text>
-						) : null}
-						{this.state.locationStatus === 'unknown' ? (
-							<Text style={styles.statusMesageUnknown}>
-								{this.state.statusMesage}
-							</Text>
-						) : null}
-					</View>
-					<View style={styles.animationContainer}>
-						<View style={styles.animation2}>{this.displayAnimation2()}</View>
-						<View style={styles.animation1}>{this.displayAnimation1()}</View>
-					</View>
-					<View style={styles.trocarSomContainer}>
-						{this.state.locationStatus === 'immediate' ? (
-							<TouchableOpacity
-								onPress={() => {
-									this.props.navigation.navigate('ChoiceStack');
-								}}
-								style={styles.button}>
-								<Text style={styles.buttonText}>Trocar Som</Text>
-							</TouchableOpacity>
-						) : null}
-						{this.state.locationStatus === 'near' ? (
-							<Text style={styles.statusMesage}>{this.state.statusRodape}</Text>
-						) : null}
-						{this.state.locationStatus === 'far' ? (
-							<Text style={styles.statusMesageFar}>
-								{this.state.statusRodape}
-							</Text>
-						) : null}
-						{this.state.locationStatus === 'unknown' ? (
-							<Text style={styles.statusMesageUnknown}>
-								{this.state.statusRodape}
-							</Text>
-						) : null}
-					</View>
+							<View style={styles.animationContainer}>
+								<View style={styles.animation2}>
+									{this.displayAnimation2()}
+								</View>
+								<View style={styles.animation1}>
+									{this.displayAnimation1()}
+								</View>
+							</View>
+							<View style={styles.trocarSomContainer}>
+								{this.state.locationStatus === 'immediate' ? (
+									<TouchableOpacity
+										onPress={() => {
+											this.props.navigation.navigate('ChoiceStack');
+										}}
+										style={styles.button}>
+										<Text style={styles.buttonText}>Trocar Som</Text>
+									</TouchableOpacity>
+								) : null}
+								{this.state.locationStatus === 'near' ? (
+									<Text style={styles.statusMesage}>
+										{this.state.statusRodape}
+									</Text>
+								) : null}
+								{this.state.locationStatus === 'far' ? (
+									<Text style={styles.statusMesageFar}>
+										{this.state.statusRodape}
+									</Text>
+								) : null}
+								{this.state.locationStatus === 'unknown' ? (
+									<Text style={styles.statusMesageUnknown}>
+										{this.state.statusRodape}
+									</Text>
+								) : null}
+							</View>
+						</View>
+					)}
 				</View>
 			</>
 		);
@@ -481,7 +510,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: '#f1f1f1',
 		alignItems: 'center',
-		// justifyContent: "center"
+		justifyContent: 'center',
 	},
 	textContainer: {
 		flex: 1,
@@ -556,6 +585,15 @@ const styles = StyleSheet.create({
 		//marginTop: '20%',
 		width: 320,
 		height: 320,
+	},
+	loadingAnimation: {
+		//flex: 2,
+		//justifyContent: 'flex-start',
+
+		//alignItems: 'center',
+		//marginTop: '20%',
+		width: 220,
+		height: 220,
 	},
 	button: {
 		width: 300,

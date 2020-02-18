@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import SoundPlayer from 'react-native-sound-player';
 import AsyncStorage from '@react-native-community/async-storage';
+import LottieView from 'lottie-react-native';
+
 // import songList from '../data/songList';
 import {
 	View,
@@ -12,6 +14,7 @@ import {
 	StatusBar,
 	TouchableOpacity,
 	NativeModules,
+	ActivityIndicator,
 } from 'react-native';
 
 const { MyNativeModule } = NativeModules;
@@ -27,6 +30,7 @@ export default class SoundChooser extends Component {
 		userPass: '',
 		soundRaw: '',
 		soundName: '',
+		isLoading: false,
 	};
 
 	componentDidMount() {
@@ -57,9 +61,12 @@ export default class SoundChooser extends Component {
 	}
 
 	makeRemoteRequest = async () => {
+		this.setState({ isLoading: true });
 		try {
 			const response = await fetch(`${global.rawSource}/index.php/sound`);
 			if (response.status === 200) {
+				this.setState({ isLoading: false });
+
 				const responseJson = await response.json();
 				const data = responseJson;
 				this.setState({ data });
@@ -141,7 +148,10 @@ export default class SoundChooser extends Component {
 				Alert.alert('Compomus', 'Erro ao definir som');
 			}
 		} catch (error) {
-			Alert.alert('Compomus', 'Sem resposta do servidor');
+			Alert.alert(
+				'Compomus',
+				'Sem resposta do servidor\n Por Favor tente novamente'
+			);
 		}
 
 		//console.log(formData);
@@ -175,15 +185,28 @@ export default class SoundChooser extends Component {
 		return (
 			<>
 				<StatusBar barStyle='light-content' />
+
 				<View style={styles.container}>
-					<FlatList
-						contentContainerStyle={styles.list}
-						data={this.state.data}
-						keyExtractor={item => item.id}
-						renderItem={({ index, item }) => {
-							return <this.renderItem item={item} index={index} />;
-						}}
-					/>
+					{this.state.isLoading ? (
+						<LottieView
+							style={styles.loadingAnimation}
+							source={require('../assets/loading.json')}
+							autoPlay
+							loop
+							resizeMode='contain'
+						/>
+					) : (
+						// <ActivityIndicator size='large' color='#4DAE4C' />
+
+						<FlatList
+							contentContainerStyle={styles.list}
+							data={this.state.data}
+							keyExtractor={item => item.id}
+							renderItem={({ index, item }) => {
+								return <this.renderItem item={item} index={index} />;
+							}}
+						/>
+					)}
 				</View>
 			</>
 		);
@@ -193,12 +216,22 @@ export default class SoundChooser extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		justifyContent: 'center',
+		//alignItems: 'stretch',
 		backgroundColor: '#f1f1f1',
 	},
 	list: {
 		padding: 20,
 	},
+	loadingAnimation: {
+		justifyContent: 'center',
+		alignItems: 'stretch',
+		marginLeft: '10%',
+		width: 220,
+		height: 220,
+	},
 	soundContainer: {
+		alignItems: 'stretch',
 		padding: 20,
 		backgroundColor: '#fff',
 		marginBottom: 20,

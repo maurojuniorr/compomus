@@ -21,6 +21,7 @@ export default class Profile extends Component {
 		userPass: '',
 		soundName: '',
 		soundRaw: '',
+		isLoading: false,
 	};
 	componentDidMount() {}
 	clearAll = async () => {
@@ -52,6 +53,7 @@ export default class Profile extends Component {
 				Alert.alert('Compomus', 'Mudanças efetuadas  com sucesso!');
 				console.log('Mudança gravada no banco com sucesso!');
 				this.storeData();
+				this.setState({ isLoading: false });
 			} else {
 				Alert.alert(
 					'Mudança não realizada',
@@ -70,6 +72,7 @@ export default class Profile extends Component {
 		const formData = new FormData();
 		formData.append('email', this.state.userEmail);
 		formData.append('pass', this.state.userPass);
+		this.setState({ isLoading: true });
 
 		try {
 			const response = await fetch(
@@ -90,6 +93,7 @@ export default class Profile extends Component {
 						'Email já foi utilizado!\nPor favor tente usar outro'
 					);
 					console.log('Email unavailable for use');
+					this.setState({ isLoading: false });
 				} else {
 					this.updateSound();
 					console.log('Email unavailable for use');
@@ -99,6 +103,7 @@ export default class Profile extends Component {
 					'Compomus',
 					'Houve um erro na solicitação\n Por favor tente novamente!'
 				);
+				this.setState({ isLoading: false });
 			}
 		} catch (error) {
 			console.log(err.message);
@@ -106,6 +111,7 @@ export default class Profile extends Component {
 				'Erro ao criar usuário',
 				'Houve um erro em sua solicitação \n Por favor tente novamente'
 			);
+			this.setState({ isLoading: false });
 		}
 	};
 
@@ -199,6 +205,12 @@ export default class Profile extends Component {
 								autoSize={true}
 							/>
 						} */}
+						{this.state.isLoading ? (
+							// <ActivityIndicator/>
+							<Text style={styles.welcome}>Processando Aguarde...</Text>
+						) : (
+							<Text style={[styles.welcome, { color: '#0000' }]}>33</Text>
+						)}
 						<View style={styles.labelContent}>
 							<Text style={styles.label}>Nome</Text>
 							<TextInput
@@ -282,6 +294,14 @@ const styles = StyleSheet.create({
 		marginBottom: 5,
 		left: 5,
 		letterSpacing: 1,
+	},
+	welcome: {
+		// marginTop: '5%',
+		marginBottom: '2%',
+		//padding: 10,
+		fontSize: 18,
+		fontWeight: 'bold',
+		color: '#4DAE4C',
 	},
 	labelContent: {
 		//flex: 6,

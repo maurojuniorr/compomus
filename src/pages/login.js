@@ -12,6 +12,7 @@ import {
 	Platform,
 	KeyboardAvoidingView,
 	SafeAreaView,
+	ActivityIndicator,
 } from 'react-native';
 //import SoundPlayer from 'react-native-sound-player';
 import NetInfo from '@react-native-community/netinfo';
@@ -42,6 +43,7 @@ export default class Login extends Component {
 		animation5: '',
 		activateAnimation1: '',
 		activateAnimation2: '',
+		isLoading: false,
 	};
 
 	componentDidMount() {}
@@ -253,6 +255,7 @@ export default class Login extends Component {
 		let formData = new FormData();
 		formData.append('email', this.state.email);
 		formData.append('pass', this.state.pass);
+		this.setState({ isLoading: true });
 		try {
 			const response = await fetch(
 				`${global.rawSource}/index.php/validateUser`,
@@ -262,6 +265,7 @@ export default class Login extends Component {
 				}
 			);
 			if (response.status === 200) {
+				this.setState({ isLoading: false });
 				const responseJson = await response.json();
 
 				//console.log('Success', formData);
@@ -356,7 +360,12 @@ export default class Login extends Component {
 					</View>
 
 					<View style={styles.inputer}>
-						<Text style={styles.welcome}>Bem Vindo(a) ao Compomus!</Text>
+						{this.state.isLoading ? (
+							// <ActivityIndicator/>
+							<Text style={styles.welcome}>Fazendo login...</Text>
+						) : (
+							<Text style={styles.welcome}>Bem Vindo(a) ao Compomus!</Text>
+						)}
 
 						<TextInput
 							style={styles.input}
