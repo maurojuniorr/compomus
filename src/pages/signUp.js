@@ -422,7 +422,7 @@ export default class Signup extends Component {
 					<View style={styles.logoContent}>
 						<Image
 							style={styles.logo}
-							source={require('../assets/icon_round.png')}
+							source={require('../assets/icon_round2.png')}
 						/>
 					</View>
 					<View style={styles.inputer}>
@@ -468,23 +468,24 @@ export default class Signup extends Component {
 							//onSubmitEditing={this.CheckTextInput}
 						/>
 					</View>
-					<View>
+					<View style={styles.contentButton}>
 						<TouchableOpacity
 							onPress={this.CheckTextInput}
 							style={styles.button}>
 							<Text style={styles.buttonText}>Registrar</Text>
 						</TouchableOpacity>
-					</View>
-
-					<View style={styles.contentRegister}>
-						<Text style={styles.textRegister}>Já possui uma conta? </Text>
-						<TouchableOpacity
-							onPress={() => {
-								this.props.navigation.navigate('Login');
-							}}
-							style={styles.buttonRegister}>
-							<Text style={styles.buttonTextRegister}>Entrar</Text>
-						</TouchableOpacity>
+						<View style={styles.contentButtonRegister}>
+							<View style={styles.contentRegister}>
+								<Text style={styles.textRegister}>Já possui uma conta? </Text>
+								<TouchableOpacity
+									onPress={() => {
+										this.props.navigation.navigate('Login');
+									}}
+									style={styles.buttonRegister}>
+									<Text style={styles.buttonTextRegister}>Entrar</Text>
+								</TouchableOpacity>
+							</View>
+						</View>
 					</View>
 				</KeyboardAvoidingView>
 			</>
@@ -499,43 +500,41 @@ const styles = StyleSheet.create({
 		backgroundColor: '#f1f1f1',
 	},
 	logoContent: {
-		flex: 3,
+		flex: 1,
 		justifyContent: 'center',
-		alignItems: 'center',
+		alignSelf: 'stretch',
+		marginTop: '12%',
 	},
 	logo: {
 		// justifyContent: 'center',
-		marginTop: '15%',
-		width: 170,
-		height: 170,
-		borderRadius: 50,
+		resizeMode: 'contain',
+		alignItems: 'center',
+		width: '100%',
+
+		height: '60%',
+		borderRadius: 980,
 		shadowColor: '#000',
 		shadowOffset: { width: 0, height: 0 },
 		shadowOpacity: 0.3,
 		// shadowRadius: 1,
 	},
 	welcome: {
-		marginTop: '19%',
+		marginBottom: '10%',
 		//marginBottom: '3%',
 		fontSize: 18,
 		fontWeight: 'bold',
 		color: '#4DAE4C',
-		shadowColor: '#000',
-		shadowOffset: { width: 0, height: 0 },
-		shadowOpacity: 0.0,
-		// shadowRadius: 1,
-		elevation: 0,
 	},
 	inputer: {
 		//flex: 3,
 		// marginTop: '10%',
-		justifyContent: 'center',
+		justifyContent: 'flex-start',
 		alignItems: 'center',
 		// backgroundColor: '#ddd',
 	},
 	input: {
-		marginTop: 20,
-		padding: 10,
+		marginBottom: '6%',
+		padding: '2%',
 		width: 300,
 		height: 50,
 		color: '#4a4a4a',
@@ -552,7 +551,7 @@ const styles = StyleSheet.create({
 	button: {
 		width: 300,
 		height: 45,
-		marginTop: 40,
+		// marginTop: 40,
 		borderRadius: 14,
 		backgroundColor: '#4DAE4C',
 		justifyContent: 'center',
@@ -569,29 +568,33 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 	},
 	contentRegister: {
-		flex: 1,
-		justifyContent: 'flex-start',
-		alignItems: 'center',
+		// flex: 1,
+		// justifyContent: 'flex-start',
+		alignItems: 'baseline',
 		flexDirection: 'row',
 	},
 	textRegister: {
 		color: '#4DAE4C',
 		fontSize: 16,
 		fontWeight: 'normal',
-		shadowColor: '#000',
-		shadowOffset: { width: 0, height: 0 },
-		shadowOpacity: 0.0,
-		// shadowRadius: 1,
-		elevation: 0,
 	},
 	buttonTextRegister: {
 		color: '#4DAE4C',
 		fontSize: 18,
 		fontWeight: 'bold',
-		shadowColor: '#000',
-		shadowOffset: { width: 0, height: 0 },
-		shadowOpacity: 0.0,
-		// shadowRadius: 1,
-		elevation: 0,
+	},
+	contentButtonRegister: {
+		// flex: 1,
+		marginTop: '8%',
+		// justifyContent: 'flex-end',
+		// alignItems: 'center',
+		// marginBottom: '6%',
+	},
+	contentButton: {
+		// flex: 1,
+		marginTop: '18%',
+		justifyContent: 'flex-end',
+		alignItems: 'center',
+		marginBottom: '-4%',
 	},
 });

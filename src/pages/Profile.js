@@ -24,7 +24,9 @@ export default class Profile extends Component {
 		statusRequest: false,
 		isLoading: false,
 	};
-	componentDidMount() {}
+	componentDidMount() {
+		this.getData();
+	}
 	setRequest() {
 		this.setState({ statusRequest: false });
 	}
@@ -194,26 +196,15 @@ export default class Profile extends Component {
 						android: null,
 					})}>
 					<NavigationEvents onDidFocus={() => this.getData()} />
-					<View style={styles.logoContent}></View>
+					<View style={styles.logoContent}>
+						<Image
+							//autoSize={true}
+							// resizeMode='center'
+							style={styles.logo}
+							source={require('../assets/profileIcon.jpg')}
+						/>
+					</View>
 					<View style={styles.inputer}>
-						<View style={styles.logoContent}>
-							<Image
-								//autoSize={true}
-								resizeMode='center'
-								style={styles.animation}
-								source={require('../assets/profileIcon.jpg')}
-							/>
-						</View>
-						{/* {
-							<Lottie
-								style={styles.animation}
-								source={iconProfile}
-								autoPlay
-								loop
-								resizeMode='center'
-								autoSize={true}
-							/>
-						} */}
 						{this.state.isLoading ? (
 							// <ActivityIndicator/>
 							<Text style={styles.welcome}>Processando Aguarde...</Text>
@@ -297,8 +288,26 @@ export default class Profile extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		//alignItems: 'center',
+		//alignItems: 'stretch',
+		alignItems: 'center',
 		backgroundColor: '#f1f1f1',
+	},
+	logoContent: {
+		flex: 1,
+		alignSelf: 'stretch',
+		justifyContent: 'center',
+
+		marginTop: '2%',
+	},
+	logo: {
+		//justifyContent: 'center',
+		alignItems: 'center',
+		resizeMode: 'contain',
+		//alignSelf: 'stretch',
+		//marginTop: '5%',
+		marginBottom: '-5%',
+		width: '100%',
+		height: '70%',
 	},
 	label: {
 		color: '#4DAE4C',
@@ -309,51 +318,31 @@ const styles = StyleSheet.create({
 		letterSpacing: 1,
 	},
 	welcome: {
-		// marginTop: '5%',
-		marginBottom: '2%',
+		// marginTop: '2%',
+		marginBottom: '4%',
 		//padding: 10,
 		fontSize: 18,
 		fontWeight: 'bold',
 		color: '#4DAE4C',
 	},
 	labelContent: {
-		//flex: 6,
-		justifyContent: 'flex-start',
+		//flex: 1,
+		// justifyContent: 'flex-start',
 		//alignItems: 'center',
 		//marginBottom: 280,
 	},
-	logoContent: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
-		width: '100%',
-		height: '100%',
-		marginTop: '-12%',
-	},
-	animation: {
-		flex: 1,
-		//position: 'absolute',
-		// justifyContent: 'center',
-		// alignItems: 'center',
 
-		width: '50%',
-		height: '50%',
-		// shadowColor: '#000',
-		// shadowOffset: { width: 0, height: 0 },
-		// shadowOpacity: 0.2,
-		// // shadowRadius: 1,
-		// elevation: 0,
-	},
 	inputer: {
-		flex: 4,
-		//marginTop: '10%',
-		justifyContent: 'flex-end',
+		//flex: 2,
+		// marginTop: '10%',
+		justifyContent: 'flex-start',
 		alignItems: 'center',
+		//alignSelf: 'stretch',
 		// backgroundColor: '#ddd',
 	},
 	input: {
 		marginBottom: 10,
-		padding: 10,
+		padding: '2%',
 		width: 300,
 		height: 50,
 		backgroundColor: '#fff',
@@ -387,9 +376,10 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 	},
 	contentButton: {
-		flex: 1,
-		marginTop: 40,
-		justifyContent: 'flex-start',
+		//	flex: 1,
+		marginTop: '22%',
+		justifyContent: 'flex-end',
 		alignItems: 'center',
+		marginBottom: '6%',
 	},
 });

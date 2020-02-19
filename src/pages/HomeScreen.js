@@ -22,7 +22,9 @@ export default class HomeScreen extends Component {
 		titleText: '',
 		imageURL: '',
 	};
-	componentDidMount() {}
+	componentDidMount() {
+		this.getAppData();
+	}
 	componentWillUnmount() {}
 	getAppData = async () => {
 		try {
@@ -93,7 +95,7 @@ export default class HomeScreen extends Component {
 							<Text style={styles.titleText}>
 								{'\n' + this.state.titleText + '\n\n'}
 							</Text>
-							<Text numberOfLines={15}>{this.state.bodyText}</Text>
+							<Text numberOfLines={20}>{this.state.bodyText}</Text>
 						</Text>
 					</View>
 
@@ -116,38 +118,56 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: '#f1f1f1',
+		alignItems: 'stretch',
 	},
 
 	imageContainer: {
 		marginTop: '2%',
-		flex: 2,
+		flex: 1,
 
-		alignContent: 'stretch',
+		alignSelf: 'stretch',
+		alignItems: 'center',
 		// padding: 100,
 		// width: '95%',
-		// height: '100%',
+		//height: '30%',
 		backgroundColor: '#0000',
 		//marginBottom: 10,
-		marginLeft: 10,
-		marginRight: 10,
+		marginLeft: '2%',
+		marginRight: '2%',
 		shadowColor: '#000',
 		shadowOpacity: 0.1,
 	},
+	textContainer: {
+		marginTop: '2%',
+		//flex: 1,
+		alignSelf: 'flex-end',
+
+		// width: '95%',
+		// height: '60%',
+		// padding: 100,
+		backgroundColor: '#fff',
+		borderRadius: 5,
+		//marginBottom: 10,
+		marginLeft: '2%',
+		marginRight: '2%',
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 0 },
+		shadowOpacity: 0.1,
+		// shadowRadius: 1,
+		elevation: 0,
+	},
+	trocarSomContainer: {
+		//flex: 1,
+		marginTop: '10%',
+		alignSelf: 'center',
+		marginBottom: '10%',
+	},
+
 	image: {
 		justifyContent: 'center',
 		//marginTop: '5%',
 		width: '100%',
-		height: '102%',
-		borderRadius: 5,
-	},
-	banner: {
-		//flex: 1,
-		// justifyContent: 'center',
-		// alignItems: 'center',
-		//marginTop: '5%',
-		//resizeMode: 'contain',
-		width: '100%',
-		height: '60%',
+		height: '100%',
 		borderRadius: 5,
 	},
 	bannerLogo: {
@@ -157,37 +177,22 @@ const styles = StyleSheet.create({
 		//marginTop: '5%',
 		position: 'absolute',
 		resizeMode: 'contain',
-		width: '100%',
-		height: '25%',
+		width: '80%',
+		height: '35%',
 	},
-	bannerContainer: {
-		marginTop: -5,
-		flex: 1,
 
-		//alignContent: 'stretch',
-		// padding: 100,
-		borderRadius: 5,
-		//backgroundColor: '#000',
-		marginBottom: 20,
-		marginLeft: 10,
-		marginRight: 10,
-		// shadowColor: '#000',
-		// shadowOffset: { width: 0, height: 0 },
-		// shadowOpacity: 0.1,
-		// // shadowRadius: 1,
-		// elevation: 0,
-	},
 	baseText: {
 		fontFamily: 'arial',
 		textAlign: 'justify',
-		fontSize: 15,
+		fontSize: 17,
 		color: '#4a4a4a',
-		paddingRight: 20,
-		paddingLeft: 20,
+		paddingRight: '5%',
+		paddingLeft: '5%',
+		paddingBottom: '5%',
 	},
 	titleText: {
 		//marginTop: 20,
-		fontSize: 20,
+		fontSize: 19,
 		fontFamily: 'arial',
 		fontWeight: 'bold',
 		textAlign: 'center',
@@ -198,21 +203,7 @@ const styles = StyleSheet.create({
 		// shadowRadius: 1,
 		elevation: 0,
 	},
-	textContainer: {
-		marginTop: '2%',
-		flex: 2,
-		// padding: 100,
-		backgroundColor: '#fff',
-		borderRadius: 5,
-		//marginBottom: 10,
-		marginLeft: 10,
-		marginRight: 10,
-		shadowColor: '#000',
-		shadowOffset: { width: 0, height: 0 },
-		shadowOpacity: 0.1,
-		// shadowRadius: 1,
-		elevation: 0,
-	},
+
 	button: {
 		width: 300,
 		height: 45,
@@ -231,10 +222,5 @@ const styles = StyleSheet.create({
 		color: '#fff',
 		fontSize: 16,
 		fontWeight: 'bold',
-	},
-	trocarSomContainer: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
 	},
 });

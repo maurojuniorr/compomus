@@ -33,7 +33,7 @@ const customNavigator = (props, navigation) => (
 				justifyContent: 'center',
 			}}>
 			<Image
-				style={{ height: 100, width: 100, borderRadius: 25 }}
+				style={{ height: 100, width: 100, borderRadius: 30 }}
 				source={require('../assets/icon_round.png')}
 			/>
 		</View>
