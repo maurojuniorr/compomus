@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0E1CF7F2BAE7CAE683F6F7FC19DCE4B9"
-               BuildableName = "libPods-Compomus-tvOS.a"
-               BlueprintName = "Pods-Compomus-tvOS"
+               BlueprintIdentifier = "C01F1FB08D9EAC52C011919B3292B090"
+               BuildableName = "libreact-native-ping.a"
+               BlueprintName = "react-native-ping"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

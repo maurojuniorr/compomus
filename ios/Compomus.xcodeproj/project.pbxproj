@@ -14,6 +14,7 @@
 		FA06424C23F9501B0085000E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		FA4B4FA923EBF02B00F721EA /* BeaconDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4B4FA823EBF02B00F721EA /* BeaconDetector.swift */; };
 		FA4B4FAB23EBF04700F721EA /* BeaconDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4B4FAA23EBF04700F721EA /* BeaconDetector.m */; };
+		FAA6A24923FEAC9C00D5D5EA /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA6A24823FEAC9C00D5D5EA /* NetworkExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,9 @@
 		FA4B4FA723EBF02A00F721EA /* Compomus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Compomus-Bridging-Header.h"; sourceTree = "<group>"; };
 		FA4B4FA823EBF02B00F721EA /* BeaconDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconDetector.swift; sourceTree = "<group>"; };
 		FA4B4FAA23EBF04700F721EA /* BeaconDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconDetector.m; sourceTree = "<group>"; };
+		FA571B9B23FEA72800D7A90B /* CompomusDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = CompomusDebug.entitlements; path = Compomus/CompomusDebug.entitlements; sourceTree = "<group>"; };
+		FA571B9C23FEA79500D7A90B /* CompomusRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = CompomusRelease.entitlements; path = Compomus/CompomusRelease.entitlements; sourceTree = "<group>"; };
+		FAA6A24823FEAC9C00D5D5EA /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B12BFDB1D429BE90DE22872 /* libPods-Compomus.a in Frameworks */,
+				FAA6A24923FEAC9C00D5D5EA /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +99,8 @@
 		13B07FAE1A68108700A75B9A /* Compomus */ = {
 			isa = PBXGroup;
 			children = (
+				FA571B9C23FEA79500D7A90B /* CompomusRelease.entitlements */,
+				FA571B9B23FEA72800D7A90B /* CompomusDebug.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -111,6 +118,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAA6A24823FEAC9C00D5D5EA /* NetworkExtension.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				37F7622D86F0C02D482E6FFF /* libPods-Compomus.a */,
@@ -399,9 +407,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Compomus/CompomusDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 7;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = LTGT69V8BD;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -432,9 +441,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Compomus/CompomusRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = LTGT69V8BD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

@@ -14,16 +14,21 @@ import {
 	SafeAreaView,
 	ActivityIndicator,
 } from 'react-native';
+// import 'whatwg-fetch';
+import Ping from 'react-native-ping';
 //import SoundPlayer from 'react-native-sound-player';
 import NetInfo from '@react-native-community/netinfo';
 import AsyncStorage from '@react-native-community/async-storage';
-
-const unsubscribe = NetInfo.addEventListener(state => {
-	console.log('Connection type:', state.type);
-	console.log('Look for Internet!', state.isInternetReachable);
-});
-
+import { NavigationEvents } from 'react-navigation';
+// const unsubscribe = NetInfo.addEventListener(state => {
+// 	console.log('Connection type', state.type);
+// 	console.log('Look for Internet!', state.isInternetReachable);
+// });
 export default class Login extends Component {
+	constructor(props) {
+		super(props);
+		// unsubscribe = NetInfo.addEventListener(this.conection());
+	}
 	state = {
 		userId: '',
 		soundName: '',
@@ -44,13 +49,113 @@ export default class Login extends Component {
 		activateAnimation1: '',
 		activateAnimation2: '',
 		isLoading: false,
+		conectionStatus: '',
+		isInternetReachable: '',
+		type: '',
+		isConnected: '',
+
+		beaconRange: 0,
+		major: 0,
+		minor: 0,
+		identifier: '',
+		UUID: '',
+		serverIp: '192.168.86.1',
+		serverPort: 0,
 	};
 
-	componentDidMount() {}
+	componentDidMount() {
+		const unsubscribe = NetInfo.addEventListener(this.handleConnectivityChange);
+	}
+	handleConnectivityChange = isConnected => {
+		this.setState({
+			type: isConnected.type,
+			isInternetReachable: isConnected.isInternetReachable,
+		});
+		console.log(
+			'Connection type',
+			isConnected.type,
+			'isInternetReachable',
+			isConnected.isInternetReachable
+		);
+	};
 
 	componentWillUnmount() {
-		unsubscribe.remove;
+		// NetInfo.removeEventListener();
 	}
+	messageTimer() {
+		setTimeout(() => {
+			this.setState({ isLoading: false });
+		}, 5000);
+	}
+
+	storeBeaconData = async () => {
+		let beaconData = {
+			uuid: this.state.UUID,
+			identifier: this.state.identifier,
+			major: this.state.major,
+			minor: this.state.minor,
+			beaconRange: this.state.beaconRange,
+			serverIp: this.state.serverIp,
+			serverPort: this.state.serverPort,
+		};
+
+		try {
+			await AsyncStorage.setItem('beaconData', JSON.stringify(beaconData));
+			console.log(beaconData);
+		} catch (e) {
+			// saving error
+		}
+	};
+
+	beacondata = async () => {
+		let formData = new FormData();
+
+		formData.append('beaconOrder', '1');
+
+		try {
+			const response = await fetch(
+				`${global.rawSource}/index.php/getThisBeacon`,
+				{
+					method: 'POST',
+					body: formData,
+				}
+			);
+			if (response.status === 200) {
+				this.setState({ isLoading: false });
+				const responseJson2 = await response.json();
+
+				const { uuid } = responseJson2;
+				const { identifier } = responseJson2;
+				const { major } = responseJson2;
+				const { minor } = responseJson2;
+				const { beaconRange } = responseJson2;
+				const { data } = responseJson2;
+				this.setState({
+					UUID: uuid,
+					identifier: identifier,
+					major: parseInt(major),
+					minor: parseInt(minor),
+					beaconRange: parseFloat(beaconRange),
+				});
+			}
+		} catch (error) {}
+		try {
+			const response = await fetch(`${global.rawSource}/index.php/soundServer`);
+			if (response.status === 200) {
+				const responseJson = await response.json();
+				// console.log('Success', formData);
+				const { ip } = responseJson;
+				const { port } = responseJson;
+				// console.log(responseJson);
+				this.setState({
+					serverIp: ip,
+					serverPort: parseInt(port),
+				});
+			}
+		} catch (error) {}
+		this.storeBeaconData();
+	};
+
 	storeAnimationData = async () => {
 		let animationData = {
 			animationId: this.state.animationId,
@@ -144,94 +249,87 @@ export default class Login extends Component {
 	};
 
 	checkIfOnline = async () => {
-		try {
-			const state = await NetInfo.fetch();
-			console.log('Connection type:', state.type);
-			console.log('Have Internet?', state.isInternetReachable);
+		this.setState({ conectionStatus: 'Verficando conexão...' });
+		this.setState({ isLoading: true });
 
-			if (state.isInternetReachable && state.type === 'wifi') {
-				try {
-					const response = await fetch(`${global.localhost}/index.php`);
-
-					if (response.status === 200) {
-						global.rawSource = global.localhost;
-						this.postData();
-						console.log(
-							'Server connection way: For performance using localhost'
-						);
-						console.log('Confirm connetion', state.isInternetReachable);
-					} else {
-						global.rawSource = global.online;
-						this.postData();
-						console.log('Server connection way: online');
-						console.log('Confirm connetion', state.isInternetReachable);
-					}
-				} catch (error) {
-					global.rawSource = global.online;
-					this.postData();
-					console.log(
-						'Server connection way: localhost offline,  using online server!'
-					);
-					console.log('Confirm connetion', state.isInternetReachable);
-				}
-			} else if (state.isInternetReachable && state.type === 'cellular') {
-				try {
-					const response = await fetch(`${global.rawSource}/index.php`);
-					if (response.status === 200) {
-						global.rawSource = global.online;
-						this.postData();
-						console.log('Server connection way: only online cellular');
-						console.log('Confirm connetion', state.isInternetReachable);
-					} else {
-						Alert.alert(
-							'Compomus',
-							'Erro interno de comunicação\n Tente novamente mais tarde'
-						);
-					}
-				} catch (error) {
-					Alert.alert('Compomus', 'Erro de resposta do servidor');
-				}
-			} else if (!state.isInternetReachable && state.type === 'wifi') {
-				try {
-					const response = await fetch(`${global.localhost}/index.php`);
-					if (response.status === 200) {
-						global.rawSource = global.localhost;
-						this.postData();
-						console.log(
-							'Server connection way: online server offline, using localhost'
-						);
-						console.log('Confirm connetion', state.isInternetReachable);
-					} else {
-						Alert.alert(
-							'Compomus',
-							'Erro interno de comunicação\n Tente novamente mais tarde'
-						);
-					}
-				} catch (error) {
-					Alert.alert('Compomus', 'Sem resposta do servidor');
-				}
-
-				//this.checkIfDisconnected();
-			} else if (!state.isInternetReachable && state.type === 'cellular') {
-				Alert.alert(
-					'Erro de comunicação',
-					'É necessária uma conexão com a internet ou com a rede Commpomus'
-				);
-
-				//this.checkIfDisconnected();
-			} else {
-				Alert.alert(
-					'Erro de comunicação',
-					'É necessária uma conexão com a internet ou com a rede Commpomus'
-				);
+		if (this.state.isInternetReachable && this.state.type === 'wifi') {
+			try {
+				const ms = await Ping.start(this.state.serverIp, { timeout: 1000 });
+				this.setState({ conectionStatus: 'Fazendo login local...' });
+				console.log(ms);
+				global.rawSource = global.localhost;
+				this.postData();
+				console.log('Server connection way: For performance using localhost');
+				// Alert.alert('Compomus', 'chegueiaqui');
+				//console.log('Confirm internet', this.state.isInternetReachable);
+			} catch (error) {
+				console.log('special code', error.code, error.message);
+				fetch(`${global.online}/index.php`)
+					.then(response => {
+						if (response.status === 200) {
+							global.rawSource = global.online;
+							this.setState({ conectionStatus: 'Fazendo login online...' });
+							this.postData();
+							console.log('Server connection way: only online with wifi ');
+							//console.log('Confirm internet', this.state.isInternetReachable);
+						} else if (response.status !== 200) {
+							// Alert.alert('Compomus', 'Erro de resposta do servidor');
+							this.setState({
+								conectionStatus: 'Erro de resposta do servidor',
+							});
+							this.messageTimer();
+						}
+					})
+					.catch(err => {
+						// Alert.alert('Compomus', 'Servidor online não responde');
+						this.setState({ conectionStatus: 'Servidor online não responde' });
+						this.messageTimer();
+					});
 			}
-		} catch (error) {
-			Alert.alert(
-				'Erro de comunicação',
-				'É necessária uma conexão com a internet ou com a rede Commpomus'
-			);
-			// global.rawSource = global.online;
-			// this.postData();
+		} else if (
+			this.state.isInternetReachable &&
+			this.state.type === 'cellular'
+		) {
+			// Alert.alert('Compomus', 'tem internet e é celular');
+			fetch(`${global.online}/index.php`)
+				.then(response => {
+					if (response.status === 200) {
+						this.setState({ conectionStatus: 'Fazendo login online...' });
+						global.rawSource = global.online;
+						this.postData();
+						console.log('Server connection way: only online with wifi ');
+						//console.log('Confirm internet', this.state.isInternetReachable);
+					} else if (response.status !== 200) {
+						// Alert.alert('Compomus', 'Erro de resposta do servidor');
+						this.setState({ conectionStatus: 'Erro de resposta do servidor' });
+						this.messageTimer();
+					}
+				})
+				.catch(err => {
+					// Alert.alert('Compomus', 'Servidor online não responde');
+					this.setState({ conectionStatus: 'Servidor online não responde' });
+					this.messageTimer();
+				});
+		} else {
+			fetch(`${global.localhost}/index.php`)
+				.then(response => {
+					if (response.status === 200) {
+						global.rawSource = global.localhost;
+						this.postData();
+						console.log('Server connection way: only online with wifi ');
+						//console.log('Confirm internet', this.state.isInternetReachable);
+					} else if (response.status !== 200) {
+						// Alert.alert('Compomus', 'Erro de resposta do servidor');
+						this.setState({ conectionStatus: 'Erro de resposta do servidor' });
+						this.messageTimer();
+					}
+				})
+				.catch(err => {
+					this.setState({ conectionStatus: 'Servidor local não responde' });
+					this.messageTimer();
+					// Alert.alert('Compomus', 'Servidor local não responde');
+					// this.setState({ isLoading: false });
+				});
 		}
 	};
 
@@ -265,7 +363,7 @@ export default class Login extends Component {
 				}
 			);
 			if (response.status === 200) {
-				this.setState({ isLoading: false });
+				//this.setState({ isLoading: false });
 				const responseJson = await response.json();
 
 				//console.log('Success', formData);
@@ -282,11 +380,11 @@ export default class Login extends Component {
 					userId: id,
 				});
 
-				this.storeData();
-				this.appData();
-				this.animationData();
-
 				if (pass === this.state.pass && email === this.state.email) {
+					this.storeData();
+					this.appData();
+					this.animationData();
+					this.beacondata();
 					if (soundName < 1) {
 						this.props.navigation.navigate('RootDrawerNavigator', {
 							userId: this.state.userId,
@@ -298,16 +396,28 @@ export default class Login extends Component {
 						//this.getIn();
 					}
 				} else if (responseJson === false) {
-					Alert.alert('Compomus', 'Email ou senha incorretos!');
+					// Alert.alert('Compomus', 'Email ou senha incorretos!');
+					this.setState({
+						conectionStatus: 'Email ou senha incorretos!',
+					});
+					this.messageTimer();
 				}
 			} else {
-				Alert.alert(
-					'Compomus',
-					'Houve um erro na solicitação\n Por favor tente novamente!'
-				);
+				// Alert.alert(
+				// 	'Compomus',
+				// 	'Houve um erro na solicitação\n Por favor tente novamente!'
+				// );
+				this.setState({
+					conectionStatus:
+						'Houve um erro na solicitação\n Por favor tente novamente!',
+				});
+				this.messageTimer();
 			}
 		} catch (error) {
-			console.log(err.message);
+			console.log(error.message);
+			// Alert.alert('Compomus', 'Servidor local offline');
+			this.setState({ conectionStatus: 'Servidor local offline' });
+			this.messageTimer();
 		}
 	};
 
@@ -346,6 +456,7 @@ export default class Login extends Component {
 			<>
 				<StatusBar barStyle='dark-content' />
 				{/* <View style={styles.container}> */}
+				{/* <NavigationEvents onDidFocus={() => this.conection()} /> */}
 				<KeyboardAvoidingView
 					style={styles.container}
 					behavior={Platform.select({
@@ -362,7 +473,7 @@ export default class Login extends Component {
 					<View style={styles.inputer}>
 						{this.state.isLoading ? (
 							// <ActivityIndicator/>
-							<Text style={styles.welcome}>Fazendo login aguarde...</Text>
+							<Text style={styles.welcome}>{this.state.conectionStatus}</Text>
 						) : (
 							<Text style={styles.welcome}>Bem Vindo(a) ao Compomus!</Text>
 						)}

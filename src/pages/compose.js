@@ -15,28 +15,13 @@ import {
 	ActivityIndicator,
 } from 'react-native';
 import LottieView from 'lottie-react-native';
-// import alert from '../assets/alert.json';
-// import macaco from '../assets/macaco.json';
-// import playing from '../assets/playing.json';
-// import playing2 from '../assets/playing2.json';
-// import farAway from '../assets/farAway.json';
-// import unknownLocation from '../assets/unknownLocation.json';
-// import unknownLocation2 from '../assets/unknownLocation2.json';
-// import speakers from '../assets/speakers.json';
-// import loading from '../assets/loading.json';
-// import pinLocation from '../assets/pinLocation.json';
+
 import AsyncStorage from '@react-native-community/async-storage';
 
 const { MyNativeModule } = NativeModules;
 const CounterEvents = new NativeEventEmitter(NativeModules.MyNativeModule);
 
 export default class Compose extends Component {
-	// static navigationOptions = ({ navigation }) => ({
-	//   title: navigation.getParam("nameFileReal"),
-	//  // header: null,
-
-	//   headerTitleStyle: { textAlign: "center", alignSelf: "center" }
-	// });
 	state = {
 		dataSource: [],
 		isLoading: true,
@@ -52,14 +37,16 @@ export default class Compose extends Component {
 		soundName: '',
 		soundRaw: '',
 		choosenSound: '',
+
 		beaconRange: 0,
 		major: 0,
 		minor: 0,
 		screenColor: '',
-		iden: '',
+		identifier: '',
 		UUID: '',
 		serverIp: '',
 		serverPort: 0,
+
 		locationStatus: '',
 		animationId: '',
 		animation1: '',
@@ -76,11 +63,11 @@ export default class Compose extends Component {
 	};
 
 	componentDidMount() {
-		this.setupNative();
 		AppState.addEventListener('change', this._handleAppStateChange);
 		CounterEvents.addListener('onChange', this._eventSubscription);
 		this.playSong();
 		this.getAnimationData();
+		this.getBeaconData();
 	}
 
 	componentWillUnmount() {
@@ -92,6 +79,30 @@ export default class Compose extends Component {
 			MyNativeModule.screenStatus('inactive')
 		);
 	}
+	getBeaconData = async () => {
+		this.setState({ isLoading: true });
+		try {
+			const value = await AsyncStorage.getItem('beaconData');
+			let parsed = JSON.parse(value);
+			if (value !== null) {
+				// value previously stored
+				this.setState({ isLoading: false });
+				this.setState({
+					UUID: parsed.uuid,
+					identifier: parsed.identifier,
+					major: parsed.major,
+					minor: parsed.minor,
+					beaconRange: parsed.beaconRange,
+					serverIp: parsed.serverIp,
+					serverPort: parsed.serverPort,
+				});
+				console.log(parsed);
+				this.setupNative();
+			}
+		} catch (e) {
+			// error reading value
+		}
+	};
 
 	getAnimationData = async () => {
 		try {
@@ -159,78 +170,104 @@ export default class Compose extends Component {
 
 	// IOS
 	setupNative = async () => {
-		this.setState({ isLoading: true });
-		let formData = new FormData();
+		MyNativeModule.setBeacon(
+			this.state.UUID,
+			this.state.identifier,
+			this.state.major,
+			this.state.minor,
+			this.state.beaconRange
+		);
 
-		formData.append('beaconOrder', '1');
+		console.log(
+			'Beacon set ',
+			this.state.UUID +
+				' ' +
+				this.state.identifier +
+				' ' +
+				this.state.major +
+				' ' +
+				this.state.minor +
+				' ' +
+				this.state.beaconRange
+		);
 
-		try {
-			const response = await fetch(
-				`${global.rawSource}/index.php/getThisBeacon`,
-				{
-					method: 'POST',
-					body: formData,
-				}
-			);
-			if (response.status === 200) {
-				this.setState({ isLoading: false });
-				const responseJson2 = await response.json();
+		MyNativeModule.soundServer(this.state.serverIp, this.state.serverPort);
+		console.log(
+			'Sound Server set ',
+			this.state.serverIp + ' ' + this.state.serverPort
+		);
 
-				const { uuid } = responseJson2;
-				const { identifier } = responseJson2;
-				const { major } = responseJson2;
-				const { minor } = responseJson2;
-				const { beaconRange } = responseJson2;
-				const { data } = responseJson2;
-				this.setState({
-					UUID: uuid,
-					iden: identifier,
-					major: parseInt(major),
-					minor: parseInt(minor),
-					beaconRange: parseFloat(beaconRange),
-				});
+		// let formData = new FormData();
 
-				MyNativeModule.setBeacon(
-					this.state.UUID,
-					this.state.iden,
-					this.state.major,
-					this.state.minor,
-					this.state.beaconRange
-				);
+		// formData.append('beaconOrder', '1');
 
-				console.log(
-					'Beacon set ',
-					this.state.UUID +
-						' ' +
-						this.state.iden +
-						' ' +
-						this.state.major +
-						' ' +
-						this.state.minor +
-						' ' +
-						this.state.beaconRange
-				);
-			}
-		} catch (error) {}
-		try {
-			const response = await fetch(`${global.rawSource}/index.php/soundServer`);
-			if (response.status === 200) {
-				const responseJson = await response.json();
-				// console.log('Success', formData);
-				const { ip } = responseJson;
-				const { port } = responseJson;
-				console.log(responseJson);
-				this.setState({
-					serverIp: ip,
-					serverPort: parseInt(port),
-				});
-				MyNativeModule.soundServer(this.state.serverIp, this.state.serverPort);
-				console.log(
-					'Sound Server set ',
-					this.state.serverIp + ' ' + this.state.serverPort
-				);
-			}
-		} catch (error) {}
+		// try {
+		// 	const response = await fetch(
+		// 		`${global.rawSource}/index.php/getThisBeacon`,
+		// 		{
+		// 			method: 'POST',
+		// 			body: formData,
+		// 		}
+		// 	);
+		// 	if (response.status === 200) {
+		// 		this.setState({ isLoading: false });
+		// 		const responseJson2 = await response.json();
+
+		// 		const { uuid } = responseJson2;
+		// 		const { identifier } = responseJson2;
+		// 		const { major } = responseJson2;
+		// 		const { minor } = responseJson2;
+		// 		const { beaconRange } = responseJson2;
+		// 		const { data } = responseJson2;
+		// 		this.setState({
+		// 			UUID: uuid,
+		// 			iden: identifier,
+		// 			major: parseInt(major),
+		// 			minor: parseInt(minor),
+		// 			beaconRange: parseFloat(beaconRange),
+		// 		});
+
+		// 		MyNativeModule.setBeacon(
+		// 			this.state.UUID,
+		// 			this.state.iden,
+		// 			this.state.major,
+		// 			this.state.minor,
+		// 			this.state.beaconRange
+		// 		);
+
+		// 		console.log(
+		// 			'Beacon set ',
+		// 			this.state.UUID +
+		// 				' ' +
+		// 				this.state.iden +
+		// 				' ' +
+		// 				this.state.major +
+		// 				' ' +
+		// 				this.state.minor +
+		// 				' ' +
+		// 				this.state.beaconRange
+		// 		);
+		// 	}
+		// } catch (error) {}
+		// try {
+		// 	const response = await fetch(`${global.rawSource}/index.php/soundServer`);
+		// 	if (response.status === 200) {
+		// 		const responseJson = await response.json();
+		// 		// console.log('Success', formData);
+		// 		const { ip } = responseJson;
+		// 		const { port } = responseJson;
+		// 		console.log(responseJson);
+		// 		this.setState({
+		// 			serverIp: ip,
+		// 			serverPort: parseInt(port),
+		// 		});
+		// 		MyNativeModule.soundServer(this.state.serverIp, this.state.serverPort);
+		// 		console.log(
+		// 			'Sound Server set ',
+		// 			this.state.serverIp + ' ' + this.state.serverPort
+		// 		);
+		// 	}
+		// } catch (error) {}
 	};
 
 	//Common
