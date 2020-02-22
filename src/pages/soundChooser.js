@@ -19,8 +19,83 @@ import {
 
 const { MyNativeModule } = NativeModules;
 
+class MyListItem extends Component {
+	_onFinishedLoadingFileSubscription = null;
+	_onFinishedPlayingSubscription = null;
+
+	state = {
+		selected: true,
+		userId: 0,
+		userName: '',
+		userEmail: '',
+		userPass: '',
+		soundRaw: '',
+		soundName: '',
+		isLoading: false,
+		isPlaying: 'Play',
+	};
+
+	componentDidMount() {
+		this._onFinishedPlayingSubscription = SoundPlayer.addEventListener(
+			'FinishedPlaying',
+			({ success }) => {
+				console.log('finished playing', success);
+				this.setState({ isPlaying: 'Play' });
+			}
+		);
+	}
+
+	componentWillUnmount() {
+		SoundPlayer.stop();
+
+		this._onFinishedPlayingSubscription.remove(
+			this._onFinishedPlayingSubscription
+		);
+		//this._onFinishedLoadingFileSubscription.remove();
+	}
+
+	_onPress = () => {
+		this.setState({
+			selected: !this.state.selected,
+		});
+
+		this.playSong(this.props.nameFile, this.props.name);
+	};
+
+	playSong(song, nameSong) {
+		try {
+			SoundPlayer.loadUrl(`${global.rawSource}/raw/${song}.mp3`);
+			if (this.state.selected) {
+				SoundPlayer.play();
+				this.setState({ isPlaying: 'Stop' });
+			} else {
+				SoundPlayer.stop();
+				this.setState({ isPlaying: 'Play' });
+			}
+
+			console.log('Esse é o som reproduzido: ', nameSong);
+		} catch (e) {
+			Alert.alert('Esse som não pode ser reproduzido');
+			console.log('Esse som não pode ser reproduzido: ', nameSong);
+		}
+	}
+
+	render() {
+		const text = this.state.isPlaying;
+		return (
+			<View style={styles.buttonContent}>
+				<TouchableOpacity style={styles.playButton} onPress={this._onPress}>
+					{/* // onPress={text => this.playSong(item.nameFile, item.name)}> */}
+					<Text style={styles.soundButtonText}>{text}</Text>
+				</TouchableOpacity>
+			</View>
+		);
+	}
+}
+
 export default class SoundChooser extends Component {
 	_onFinishedLoadingFileSubscription = null;
+	_onFinishedPlayingSubscription = null;
 
 	state = {
 		data: [],
@@ -36,28 +111,18 @@ export default class SoundChooser extends Component {
 	componentDidMount() {
 		this.makeRemoteRequest();
 
-		this._onFinishedPlayingSubscription = SoundPlayer.addEventListener(
-			'FinishedPlaying',
-			({ success }) => {
-				console.log('Reprodução terminada: ', success);
-			}
-		);
+		// this._onFinishedPlayingSubscription = SoundPlayer.addEventListener(
+		// 	'FinishedPlaying',
+		// 	({ success }) => {
+		// 		console.log('Reprodução terminada: ', success);
+		// 	}
+		// );
 	}
 
 	componentWillUnmount() {
-		SoundPlayer.stop();
-		this._onFinishedPlayingSubscription.remove();
-		//this._onFinishedLoadingFileSubscription.remove();
-	}
-
-	playSong(song, nameSong) {
-		try {
-			SoundPlayer.playUrl(`${global.rawSource}/raw/${song}.mp3`);
-			console.log('Esse é o som reproduzido: ', nameSong);
-		} catch (e) {
-			Alert.alert('Esse som não pode ser reproduzido');
-			console.log('Esse som não pode ser reproduzido: ', nameSong);
-		}
+		// SoundPlayer.stop();
+		// this._onFinishedPlayingSubscription.remove();
+		// //this._onFinishedLoadingFileSubscription.remove();
 	}
 
 	makeRemoteRequest = async () => {
@@ -82,6 +147,7 @@ export default class SoundChooser extends Component {
 	};
 
 	updateData = async (soundName, soundRaw) => {
+		const { navigation } = this.props;
 		try {
 			const value = await AsyncStorage.getItem('userInfo');
 			let parsed = JSON.parse(value);
@@ -163,11 +229,12 @@ export default class SoundChooser extends Component {
 			<Text style={styles.soundDescription}>{item.description}</Text>
 
 			<View style={styles.buttonContent}>
-				<TouchableOpacity
-					style={styles.playButton}
-					onPress={text => this.playSong(item.nameFile, item.name)}>
-					<Text style={styles.soundButtonText}>Tocar</Text>
-				</TouchableOpacity>
+				<MyListItem
+					id={item}
+					name={item.name}
+					description={item.description}
+					nameFile={item.nameFile}
+				/>
 				<TouchableOpacity
 					style={styles.chooseButton}
 					onPress={() => {
@@ -179,6 +246,16 @@ export default class SoundChooser extends Component {
 				</TouchableOpacity>
 			</View>
 		</View>
+	);
+	_keyExtractor = (item, index) => item.id;
+
+	_renderItem = ({ item, index }) => (
+		<MyListItem
+			id={item}
+			name={item.name}
+			description={item.description}
+			nameFile={item.nameFile}
+		/>
 	);
 
 	render() {
@@ -201,7 +278,9 @@ export default class SoundChooser extends Component {
 						<FlatList
 							contentContainerStyle={styles.list}
 							data={this.state.data}
-							keyExtractor={item => item.id}
+							keyExtractor={this._keyExtractor}
+							// keyExtractor={item => item.id}
+							// renderItem={this._renderItem}
 							renderItem={({ index, item }) => {
 								return <this.renderItem item={item} index={index} />;
 							}}

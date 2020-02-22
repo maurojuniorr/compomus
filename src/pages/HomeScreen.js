@@ -91,11 +91,11 @@ export default class HomeScreen extends Component {
 						/>
 					</View>
 					<View style={styles.textContainer}>
-						<Text style={styles.baseText}>
-							<Text style={styles.titleText}>
-								{'\n' + this.state.titleText + '\n\n'}
-							</Text>
-							<Text numberOfLines={20}>{this.state.bodyText}</Text>
+						<Text style={styles.titleText}>
+							{'\n' + this.state.titleText + '\n'}
+						</Text>
+						<Text style={styles.baseText} numberOfLines={20}>
+							{this.state.bodyText}
 						</Text>
 					</View>
 
@@ -134,8 +134,8 @@ const styles = StyleSheet.create({
 		//marginBottom: 10,
 		marginLeft: '2%',
 		marginRight: '2%',
-		shadowColor: '#000',
-		shadowOpacity: 0.1,
+		// shadowColor: '#000',
+		// shadowOpacity: 0.1,
 	},
 	textContainer: {
 		marginTop: '2%',
@@ -150,17 +150,17 @@ const styles = StyleSheet.create({
 		//marginBottom: 10,
 		marginLeft: '2%',
 		marginRight: '2%',
-		shadowColor: '#000',
+		shadowColor: 'rgba(0, 0, 0, 0.22)',
 		shadowOffset: { width: 0, height: 0 },
-		shadowOpacity: 0.1,
+		shadowOpacity: 0.5,
 		// shadowRadius: 1,
 		elevation: 0,
 	},
 	trocarSomContainer: {
 		//flex: 1,
-		marginTop: '10%',
+		marginTop: '8%',
 		alignSelf: 'center',
-		marginBottom: '10%',
+		marginBottom: '8%',
 	},
 
 	image: {
@@ -197,11 +197,11 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		textAlign: 'center',
 		color: '#00A4DC',
-		shadowColor: '#000',
-		shadowOffset: { width: 0, height: 0 },
-		shadowOpacity: 0.1,
-		// shadowRadius: 1,
-		elevation: 0,
+		// shadowColor: '#000',
+		// shadowOffset: { width: 0, height: 0 },
+		// shadowOpacity: 0.1,
+		// // shadowRadius: 1,
+		// elevation: 0,
 	},
 
 	button: {
@@ -212,9 +212,9 @@ const styles = StyleSheet.create({
 		backgroundColor: '#4DAE4C',
 		justifyContent: 'center',
 		alignItems: 'center',
-		shadowColor: '#000',
+		shadowColor: 'rgba(0, 0, 0, 0.22)',
 		shadowOffset: { width: 0, height: 0 },
-		shadowOpacity: 0.1,
+		shadowOpacity: 1.0,
 		// shadowRadius: 1,
 		elevation: 0,
 	},

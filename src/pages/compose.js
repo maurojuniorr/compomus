@@ -58,7 +58,7 @@ export default class Compose extends Component {
 		activateAnimation2: '',
 		statusMesage: '',
 		statusRodape: '',
-		colorHolder: '',
+		colorHolder: '#00BCD4',
 		isLoading: false,
 	};
 
@@ -196,78 +196,6 @@ export default class Compose extends Component {
 			'Sound Server set ',
 			this.state.serverIp + ' ' + this.state.serverPort
 		);
-
-		// let formData = new FormData();
-
-		// formData.append('beaconOrder', '1');
-
-		// try {
-		// 	const response = await fetch(
-		// 		`${global.rawSource}/index.php/getThisBeacon`,
-		// 		{
-		// 			method: 'POST',
-		// 			body: formData,
-		// 		}
-		// 	);
-		// 	if (response.status === 200) {
-		// 		this.setState({ isLoading: false });
-		// 		const responseJson2 = await response.json();
-
-		// 		const { uuid } = responseJson2;
-		// 		const { identifier } = responseJson2;
-		// 		const { major } = responseJson2;
-		// 		const { minor } = responseJson2;
-		// 		const { beaconRange } = responseJson2;
-		// 		const { data } = responseJson2;
-		// 		this.setState({
-		// 			UUID: uuid,
-		// 			iden: identifier,
-		// 			major: parseInt(major),
-		// 			minor: parseInt(minor),
-		// 			beaconRange: parseFloat(beaconRange),
-		// 		});
-
-		// 		MyNativeModule.setBeacon(
-		// 			this.state.UUID,
-		// 			this.state.iden,
-		// 			this.state.major,
-		// 			this.state.minor,
-		// 			this.state.beaconRange
-		// 		);
-
-		// 		console.log(
-		// 			'Beacon set ',
-		// 			this.state.UUID +
-		// 				' ' +
-		// 				this.state.iden +
-		// 				' ' +
-		// 				this.state.major +
-		// 				' ' +
-		// 				this.state.minor +
-		// 				' ' +
-		// 				this.state.beaconRange
-		// 		);
-		// 	}
-		// } catch (error) {}
-		// try {
-		// 	const response = await fetch(`${global.rawSource}/index.php/soundServer`);
-		// 	if (response.status === 200) {
-		// 		const responseJson = await response.json();
-		// 		// console.log('Success', formData);
-		// 		const { ip } = responseJson;
-		// 		const { port } = responseJson;
-		// 		console.log(responseJson);
-		// 		this.setState({
-		// 			serverIp: ip,
-		// 			serverPort: parseInt(port),
-		// 		});
-		// 		MyNativeModule.soundServer(this.state.serverIp, this.state.serverPort);
-		// 		console.log(
-		// 			'Sound Server set ',
-		// 			this.state.serverIp + ' ' + this.state.serverPort
-		// 		);
-		// 	}
-		// } catch (error) {}
 	};
 
 	//Common
@@ -427,11 +355,11 @@ export default class Compose extends Component {
 		}
 	}
 
-	ChangeColorFunction = () => {
-		this.setState({
-			colorHolder: ColorCode,
-		});
-	};
+	// ChangeColorFunction = () => {
+	// 	this.setState({
+	// 		colorHolder: ColorCode,
+	// 	});
+	// };
 
 	render() {
 		console.log(
@@ -453,8 +381,8 @@ export default class Compose extends Component {
 				this.state.soundRaw
 		);
 
-		const { navigation } = this.props;
-		const color = this.state.screenColor;
+		// const { navigation } = this.props;
+		// const color = this.state.screenColor;
 
 		return (
 			<>
@@ -477,7 +405,7 @@ export default class Compose extends Component {
 						<View>
 							<View style={styles.textContainer}>
 								{this.state.locationStatus === 'immediate' ? (
-									<View>
+									<Animated.View>
 										<Animated.Text
 											style={[
 												styles.songName2,
@@ -486,7 +414,7 @@ export default class Compose extends Component {
 											{'Reproduzindo...'}
 										</Animated.Text>
 										<Text style={styles.songName}>{this.state.soundName}</Text>
-									</View>
+									</Animated.View>
 								) : null}
 								{this.state.locationStatus === 'near' ? (
 									<Text style={styles.statusMesage}>
@@ -581,7 +509,7 @@ const styles = StyleSheet.create({
 	songName2: {
 		justifyContent: 'center',
 		alignItems: 'center',
-		color: '#00A4DC',
+		// color: '#00A4DC',
 		fontWeight: 'bold',
 		textAlign: 'center',
 		fontSize: 25,
