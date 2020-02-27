@@ -8,6 +8,7 @@ import HomeStack from './homeStack';
 import ChoiceStack from './choiceStack';
 import AboutStack from './aboutStack';
 import Profile from './profileStack';
+import Tutorial from './TutorialStack';
 import React from 'react';
 import {
 	Text,
@@ -130,7 +131,19 @@ const RootDrawerNavigator = createDrawerNavigator(
 				),
 			},
 		},
-		'Sobre o Compomus': {
+		'Como Funciona?': {
+			screen: Tutorial,
+			navigationOptions: {
+				drawerIcon: () => (
+					<Icon
+						ios='ios-information-circle-outline'
+						android='md-information-circle-outline'
+						style={{ fontSize: 25, color: '#4DAE4C' }}
+					/>
+				),
+			},
+		},
+		'Sobre Nós': {
 			screen: AboutStack,
 			navigationOptions: {
 				drawerIcon: () => (
