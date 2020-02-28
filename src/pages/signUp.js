@@ -302,17 +302,17 @@ export default class Signup extends Component {
 
 				if (pass === this.state.pass && email === this.state.email) {
 					this.storeData();
-					this.appData();
+					// this.appData();
 					this.beacondata();
 					this.animationData();
 					if (soundRaw < 1) {
-						this.props.navigation.navigate('RootDrawerNavigator', {
+						this.props.navigation.navigate('Tutorial', {
 							userId: this.state.userId,
 						});
 
 						console.log('User created succesfully');
 					} else {
-						this.props.navigation.navigate('RootDrawerNavigator');
+						this.props.navigation.navigate('Tutorial');
 						console.log('User created succesfully');
 					}
 				}

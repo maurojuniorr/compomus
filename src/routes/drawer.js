@@ -100,7 +100,8 @@ const RootDrawerNavigator = createDrawerNavigator(
 			navigationOptions: {
 				drawerIcon: () => (
 					<Icon
-						name='ios-home'
+						ios='ios-home'
+						android='md-home'
 						//type="Ionicons"
 						style={{ fontSize: 25, color: '#4DAE4C' }}
 					/>
@@ -136,8 +137,8 @@ const RootDrawerNavigator = createDrawerNavigator(
 			navigationOptions: {
 				drawerIcon: () => (
 					<Icon
-						ios='ios-information-circle-outline'
-						android='md-information-circle-outline'
+						ios='ios-help-circle'
+						android='md-help-circle'
 						style={{ fontSize: 25, color: '#4DAE4C' }}
 					/>
 				),
@@ -148,8 +149,8 @@ const RootDrawerNavigator = createDrawerNavigator(
 			navigationOptions: {
 				drawerIcon: () => (
 					<Icon
-						ios='ios-information-circle-outline'
-						android='md-information-circle-outline'
+						ios='ios-people'
+						android='md-people'
 						style={{ fontSize: 25, color: '#4DAE4C' }}
 					/>
 				),

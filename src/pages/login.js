@@ -382,7 +382,7 @@ export default class Login extends Component {
 
 				if (pass === this.state.pass && email === this.state.email) {
 					this.storeData();
-					this.appData();
+					// this.appData();
 					this.animationData();
 					this.beacondata();
 					if (soundName < 1) {

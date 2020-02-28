@@ -135,7 +135,7 @@ export default class Tutorial extends Component {
 				<View style={styles.textContainer2}>
 					<Text style={styles.text3}>
 						Depois de escolher seu som, está tudo certo para interagir, mas para
-						isso, é necessário estar no espaço de interação destinado ao
+						isso, ainda é necessário estar no espaço de interação destinado ao
 						Compomus.
 					</Text>
 				</View>
@@ -179,7 +179,7 @@ export default class Tutorial extends Component {
 					<Text style={styles.text3}>
 						O ambiente possui um espaço virtualmente delimitado, e ao
 						adentrá-lo, o som que você escolheu é reproduzido automaticamente em
-						loop, ao deixá-lo o som para.
+						loop, ao deixá-lo o som para de tocar.
 					</Text>
 				</View>
 
@@ -221,7 +221,7 @@ export default class Tutorial extends Component {
 				<View style={styles.textContainer2}>
 					<Text style={styles.text3}>
 						O ambiente de interação do Compomus possui suporte à espacialização
-						sonora, para uma experiência imersiva em um campo sonoro similar a
+						sonora para uma experiência imersiva em um campo sonoro similar ao
 						do cinema.
 					</Text>
 				</View>
@@ -254,11 +254,7 @@ export default class Tutorial extends Component {
 				</Animatable.View>
 			</View>
 			<View style={styles.view1}>
-				<Animatable.View
-					// animation='bounceIn'
-					// useNativeDriver
-					// duration={2000}
-					style={styles.textContainer}>
+				<Animatable.View style={styles.textContainer}>
 					<Text style={styles.text1}>Compomus</Text>
 					<Text style={styles.text2}>Como Funciona?</Text>
 				</Animatable.View>

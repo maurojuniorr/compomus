@@ -7,10 +7,12 @@ import {
 	Alert,
 	StatusBar,
 	Image,
+	SafeAreaView,
 	NativeModules,
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { NavigationEvents } from 'react-navigation';
+import * as Animatable from 'react-native-animatable';
 const { MyNativeModule } = NativeModules;
 export default class HomeScreen extends Component {
 	state = {
@@ -76,27 +78,45 @@ export default class HomeScreen extends Component {
 		return (
 			<>
 				<StatusBar barStyle='light-content' />
-				<View style={styles.container}>
-					<NavigationEvents onDidFocus={() => this.getAppData()} />
-					<View style={styles.imageContainer}>
+				<SafeAreaView style={styles.container}>
+					<View style={styles.logoContent}>
 						<Image
-							style={styles.image}
-							source={{
-								uri: `${global.rawSource}/assets/images/${image}`,
-							}}
+							style={styles.logo}
+							source={require('../assets/icon_round2.png')}
 						/>
-						<Image
-							style={styles.bannerLogo}
-							source={require('../assets/logoFuntech.png')}
-						/>
+						<Text style={styles.text1}>COMPOMUS</Text>
 					</View>
 					<View style={styles.textContainer}>
-						<Text style={styles.titleText}>
-							{'\n' + this.state.titleText + '\n'}
+						<Text style={styles.text2}>Aqui todos participam!</Text>
+						<Text style={styles.text2}>
+							Experimente uma nova abordagem de interação com o som em espaços
+							artísticos usando seu Smartphone!
 						</Text>
-						<Text style={styles.baseText} numberOfLines={20}>
-							{this.state.bodyText}
-						</Text>
+					</View>
+
+					<View style={styles.imgParceirosContainer}>
+						<Text style={styles.text3}>PARCERIA:</Text>
+						<View style={styles.imgParceirosContent}>
+							<Image
+								style={styles.imgFuntech}
+								source={require('../assets/funtechGarantido.png')}
+							/>
+							<Image
+								style={styles.imgFaartes}
+								source={require('../assets/FAARTES.png')}
+							/>
+						</View>
+
+						<View style={styles.imgParceirosContent2}>
+							<Image
+								style={styles.imgIcomp}
+								source={require('../assets/icomp.png')}
+							/>
+							<Image
+								style={styles.imgUfam}
+								source={require('../assets/ufam.png')}
+							/>
+						</View>
 					</View>
 
 					<View style={styles.trocarSomContainer}>
@@ -108,7 +128,7 @@ export default class HomeScreen extends Component {
 							<Text style={styles.buttonText}>Experimente Agora</Text>
 						</TouchableOpacity>
 					</View>
-				</View>
+				</SafeAreaView>
 			</>
 		);
 	}
@@ -116,9 +136,121 @@ export default class HomeScreen extends Component {
 
 const styles = StyleSheet.create({
 	container: {
+		backgroundColor: '#fff',
 		flex: 1,
-		backgroundColor: '#f1f1f1',
-		alignItems: 'stretch',
+		// alignSelf: 'stretch',
+		alignItems: 'center',
+	},
+	imgParceirosContainer: {
+		flex: 1,
+		// marginLeft: '5%',
+		// marginRight: '5%',
+		// backgroundColor: '#fff',
+		// backgroundColor: 'red',
+		// alignItems: 'center',
+		// justifyContent: 'center',
+
+		// marginBottom: '5%',
+	},
+	imgParceirosContent: {
+		flex: 3,
+		flexDirection: 'row',
+		justifyContent: 'center',
+		// alignSelf: 'stretch',
+		alignItems: 'center',
+		// marginTop: '12%',
+
+		// width: '100%',
+	},
+	imgParceirosContent2: {
+		flex: 3,
+		flexDirection: 'row',
+		// justifyContent: 'center',
+		// alignSelf: 'stretch',
+		justifyContent: 'space-between',
+		// alignSelf: 'stretch',
+		alignItems: 'center',
+		// alignItems: 'center',
+		marginTop: '-4%',
+
+		// width: '100%',
+	},
+	imgFuntech: {
+		// backgroundColor: 'red',
+		resizeMode: 'contain',
+		width: '55%',
+		height: '60%',
+	},
+	imgFaartes: {
+		// backgroundColor: 'red',
+		resizeMode: 'contain',
+		width: '30%',
+		height: '30%',
+	},
+	imgIcomp: {
+		// backgroundColor: 'red',
+		resizeMode: 'contain',
+		width: '50%',
+		height: '70%',
+	},
+	imgUfam: {
+		// backgroundColor: 'red',
+		resizeMode: 'contain',
+		width: '35%',
+		height: '80%',
+	},
+	logoContent: {
+		flex: 2,
+		justifyContent: 'center',
+		// alignSelf: 'stretch',
+		alignItems: 'center',
+		marginTop: '12%',
+		// width: '100%',
+	},
+	logo: {
+		// justifyContent: 'center',
+		// marginBottom: '5%',
+		// alignItems: 'center',
+		resizeMode: 'contain',
+		width: 150,
+		height: 150,
+		//borderRadius: 50,
+		// shadowColor: '#000',
+		// shadowOffset: { width: 0, height: 0 },
+		// shadowOpacity: 0.9,
+		// shadowRadius: 1,
+	},
+	textContainer: {
+		flex: 1,
+		marginLeft: '5%',
+		marginRight: '5%',
+		// backgroundColor: '#fff',
+		alignItems: 'center',
+		justifyContent: 'center',
+
+		// marginBottom: '5%',
+	},
+	text1: {
+		textAlign: 'center',
+		marginTop: '5%',
+		color: '#4DAE4C',
+		fontSize: 30,
+		fontWeight: 'bold',
+	},
+	text2: {
+		textAlign: 'center',
+		marginBottom: '8%',
+		color: '#565656',
+		fontSize: 20,
+		fontWeight: 'bold',
+	},
+	text3: {
+		marginLeft: '8%',
+		// marginBottom: '-1%',
+		// padding: '2%',
+		color: '#565656',
+		fontSize: 14,
+		fontWeight: 'bold',
 	},
 
 	imageContainer: {
@@ -137,25 +269,7 @@ const styles = StyleSheet.create({
 		// shadowColor: '#000',
 		// shadowOpacity: 0.1,
 	},
-	textContainer: {
-		marginTop: '2%',
-		//flex: 1,
-		alignSelf: 'flex-end',
 
-		// width: '95%',
-		// height: '60%',
-		// padding: 100,
-		backgroundColor: '#fff',
-		borderRadius: 5,
-		//marginBottom: 10,
-		marginLeft: '2%',
-		marginRight: '2%',
-		shadowColor: 'rgba(0, 0, 0, 0.22)',
-		shadowOffset: { width: 0, height: 0 },
-		shadowOpacity: 0.5,
-		// shadowRadius: 1,
-		elevation: 0,
-	},
 	trocarSomContainer: {
 		//flex: 1,
 		marginTop: '8%',
