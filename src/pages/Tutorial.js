@@ -260,8 +260,8 @@ export default class Tutorial extends Component {
 				</Animatable.View>
 				<View style={styles.textContainer2}>
 					<Text style={styles.text3}>
-						Agora sim! voe pode clicar em ir para o App para podermos interagir
-						com o som e compor juntos!
+						Agora sim! você pode clicar em ir para o App para podermos interagir
+						com o som e compormos juntos!
 					</Text>
 					<Text style={styles.text3}>
 						A qualquer momento você pode voltar aqui abrindo o menu no canto

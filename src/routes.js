@@ -38,7 +38,7 @@ const RootStack = createStackNavigator(
 		},
 	},
 	{
-		initialRouteName: 'RootDrawerNavigator',
+		initialRouteName: 'Login',
 		headerMode: 'none',
 		//contentComponent: props => <Drawer {...props} />
 	}
