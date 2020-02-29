@@ -33,25 +33,22 @@ target 'Compomus' do
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
-  pod 'SwiftOSC'
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+ pod 'SwiftOSC'
 
-  pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
-
-  # target 'CompomusTests' do
-  #   inherit! :search_paths
-  #   # Pods for testing
-  # end
+  target 'CompomusTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
 
   use_native_modules!
 end
 
-# target 'Compomus-tvOS' do
-#   # Pods for Compomus-tvOS
+target 'Compomus-tvOS' do
+  # Pods for Compomus-tvOS
 
-#   target 'Compomus-tvOSTests' do
-#     inherit! :search_paths
-#     # Pods for testing
-#   end
+  target 'Compomus-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
 
-# end
+end

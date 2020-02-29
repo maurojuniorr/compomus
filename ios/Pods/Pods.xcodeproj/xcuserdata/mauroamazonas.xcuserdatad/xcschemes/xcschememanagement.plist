@@ -24,7 +24,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Compomus-tvOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Compomus-tvOSTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Compomus.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-CompomusTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

@@ -20,6 +20,8 @@ import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.reactnativecommunity.netinfo.NetInfoPackage;
 // lottie-react-native
 import com.airbnb.android.react.lottie.LottiePackage;
+// react-native-ping
+import com.reactlibrary.RNReactNativePingPackage;
 // react-native-reanimated
 import com.swmansion.reanimated.ReanimatedPackage;
 // react-native-screens
@@ -80,6 +82,7 @@ public class PackageList {
       new AsyncStoragePackage(),
       new NetInfoPackage(),
       new LottiePackage(),
+      new RNReactNativePingPackage(),
       new ReanimatedPackage(),
       new RNScreensPackage(),
       new VectorIconsPackage(),

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/mauroamazonas/Documents/Compomus/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pt-rPT/values-pt-rPT.xml",
+            "outputFile": "/Volumes/Storage/Documents/compomus/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pt-rPT/values-pt-rPT.xml",
             "map": [
                 {
                     "source": "/Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/dad0959ad68c41d351ed37a821386576/res/values-pt-rPT/values-pt-rPT.xml",

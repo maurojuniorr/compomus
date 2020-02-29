@@ -6,7 +6,7 @@
  */
 
 #import "AppDelegate.h"
-#import <AVFoundation/AVFoundation.h>
+
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -19,7 +19,7 @@
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"Compomus"
                                             initialProperties:nil];
-[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -27,9 +27,6 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
-  UIView* launchScreenView = [[[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:self options:nil] objectAtIndex:0];
-  launchScreenView.frame = self.window.bounds;
-  rootView.loadingView = launchScreenView;
   return YES;
 }
 
@@ -41,11 +38,5 @@
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
 }
-
-#if RCT_DEV
-- (BOOL)bridge:(RCTBridge *)bridge didNotFindModule:(NSString *)moduleName {
-  return YES;
-}
-#endif
 
 @end

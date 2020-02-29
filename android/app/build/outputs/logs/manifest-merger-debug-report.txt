@@ -1,23 +1,24 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:1:1-26:12
-MERGED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:1:1-26:12
-MERGED from [:react-native-vector-icons] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-community_async-storage] /Users/mauroamazonas/Documents/Compomus/node_modules/@react-native-community/async-storage/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
-MERGED from [:react-native-community_netinfo] /Users/mauroamazonas/Documents/Compomus/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-12:12
-MERGED from [:lottie-react-native] /Users/mauroamazonas/Documents/Compomus/node_modules/lottie-react-native/src/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-reanimated] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-screens] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-webview] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-23:12
-MERGED from [:react-native-gesture-handler] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-sound-player] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-sound-player/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [com.facebook.react:react-native:0.61.5] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/b9c4748fb32862539a3b276b4b66733f/AndroidManifest.xml:2:1-13:12
-MERGED from [org.webkit:android-jsc:r245459] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/73e227c78df28c192157b333a78770f2/AndroidManifest.xml:2:1-11:12
+ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:1:1-26:12
+MERGED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:1:1-26:12
+MERGED from [:react-native-community_async-storage] /Volumes/Storage/Documents/compomus/node_modules/@react-native-community/async-storage/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-community_netinfo] /Volumes/Storage/Documents/compomus/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-12:12
+MERGED from [:lottie-react-native] /Volumes/Storage/Documents/compomus/node_modules/lottie-react-native/src/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-ping] /Volumes/Storage/Documents/compomus/node_modules/react-native-ping/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-reanimated] /Volumes/Storage/Documents/compomus/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-screens] /Volumes/Storage/Documents/compomus/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-vector-icons] /Volumes/Storage/Documents/compomus/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-webview] /Volumes/Storage/Documents/compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-23:12
+MERGED from [:react-native-gesture-handler] /Volumes/Storage/Documents/compomus/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-sound-player] /Volumes/Storage/Documents/compomus/node_modules/react-native-sound-player/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/0e876695b5546010ceb9aad2c1522f80/AndroidManifest.xml:2:1-13:12
+MERGED from [org.webkit:android-jsc:r245459] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3cb50bb006af46f3c00272e3c99569ba/AndroidManifest.xml:2:1-11:12
 MERGED from [com.airbnb.android:lottie:3.0.7] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/011a46cfff5ed0f0a05bf25c44657b86/AndroidManifest.xml:2:1-11:12
-MERGED from [com.google.android.material:material:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/703107cbe3ab97a74b6af4fe913491d4/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.material:material:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/199a567ceefe75eb35c058618f52b3d5/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/dad0959ad68c41d351ed37a821386576/AndroidManifest.xml:17:1-24:12
 MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/c9c89f995b574a419d37053f7ad2dabb/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/a7f4fd2742e13ae9f04c60107ef51ebe/AndroidManifest.xml:2:1-9:12
@@ -27,76 +28,71 @@ MERGED from [com.facebook.fresco:imagepipeline:2.0.0] /Users/mauroamazonas/.grad
 MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/74b0c21c43fdf9d3ba15717619f48135/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/9121d5b0ce2e2bd4dcd1f7b5055818f1/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3071b0f5c38949f223c52a5ab9ed792b/AndroidManifest.xml:2:1-13:12
-MERGED from [androidx.transition:transition:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/4ab5d48a7b187ca87c0076caa66f8eab/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/e9f283fe160b6aedcc82403c8eb9ca6a/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/89e70d88ef1cc5461d43c3adda2dfb33/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3f3550f008f7833dfcd9b926ade97494/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.fragment:fragment:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/8144df152cf10dc2f288d8492f716cf8/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3d285ddc58583d168c9f6d972f0a5e71/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.2.1] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/1dffcb4bd11eed418ac4f7b170e67843/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/72de5116b7905e3c03619efeec483215/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3003f2ae783e9e81c5dd5d05f9341c19/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/bd492c6263a3b30e565df1b9bf967ee0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/f21f9dbf0b32e90c59fd1fad31ee0468/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/a8d5fa56ba1dab46e5bdd878b3e3da1a/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/786415396134b0933b7b90a811427cef/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.customview:customview:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/f06436cf4a624c87bb1cce54eaf209e4/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/07fa02bf23988f3e24b9100d4c9ebd76/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/c920f587b42d8a3c04247c8f17fff080/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.activity:activity:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/f16f4bec91124ccf303e604becb7d3ed/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/9d9f158b3b9811b62253627c11038f6d/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/52e5eb892c2c3898c397314d9a81a6e7/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/f06436cf4a624c87bb1cce54eaf209e4/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/81cfb675f915795edb8bbc302e511934/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/8fb8c62f65cb8571a721182bfbbf8bea/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/77e26bcbb055445fb75cfa8e2b832803/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3003f2ae783e9e81c5dd5d05f9341c19/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/bf5c0c1c7b94639cf4c96600c2436633/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.3.0-alpha01] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/a0acdbb643ab6f715f3adeef7f726868/AndroidManifest.xml:17:1-26:12
-MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/039526df2165f49e72ea2e5dc3b99f3a/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/ce65c5265a00c45b650cee918ead1580/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/6dc13e02f2d931e850e448438c37aec3/AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/db6fa9ecfeb6f358f91d5212ee10f0c0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.cardview:cardview:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/ac3af5a254c1a03e1e6ff64ee4c51648/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/6d6d4325c37c7b7aba6cf70ad4468c99/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/e99367b7ad8404dbfaaedf2561c85568/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/4273b1321bd745a0822daedc934011b4/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/e16c1aeccb978ca0de739bb2eec9f89c/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/c02321f5a1fba43631a8ea112bd802e2/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.print:print:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3b18b4df22eefb875757574fe188bdc4/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/c34f5b91de2dddc6d6e1bd8bc3f938b3/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/bf5a8cb7f6c914cc2b2fefded77fbb21/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/ac3af5a254c1a03e1e6ff64ee4c51648/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/f196b1d6a6228916394ebc8c7d4c47f2/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/35307d64a604227099a0cafcf6814299/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/fcf7592deea9cccae7c3bf442364460b/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/11f196c4db84a73a5bc5334040b3a071/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/db21fe136f072e77259539e5afd976c5/AndroidManifest.xml:17:1-22:12
-INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/debug/AndroidManifest.xml:2:1-8:12
-INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/debug/AndroidManifest.xml:2:1-8:12
-INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/debug/AndroidManifest.xml:2:1-8:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/4a1acb278b16e06de355b42c798bae29/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/45ca92b2cb88e5973e40d5126c63e2a7/AndroidManifest.xml:17:1-24:12
+INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/debug/AndroidManifest.xml:2:1-8:12
+INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/debug/AndroidManifest.xml:2:1-8:12
+INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/debug/AndroidManifest.xml:2:1-8:12
 	package
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:2:3-25
-		INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:2:3-25
-		INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/debug/AndroidManifest.xml
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:2:3-25
+		INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:2:3-25
+		INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/debug/AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:1:1-26:12
-		INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:1:1-26:12
+		INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/debug/AndroidManifest.xml
 	xmlns:tools
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/debug/AndroidManifest.xml:3:5-51
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/debug/AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:1:1-26:12
-		INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:1:1-26:12
+		INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:1:11-69
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:4:5-67
-MERGED from [:lottie-react-native] /Users/mauroamazonas/Documents/Compomus/node_modules/lottie-react-native/src/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-67
-MERGED from [:lottie-react-native] /Users/mauroamazonas/Documents/Compomus/node_modules/lottie-react-native/src/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-67
+ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:4:5-67
+MERGED from [:lottie-react-native] /Volumes/Storage/Documents/compomus/node_modules/lottie-react-native/src/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-67
+MERGED from [:lottie-react-native] /Volumes/Storage/Documents/compomus/node_modules/lottie-react-native/src/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-67
 	android:name
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:4:22-64
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:4:22-64
 application
-ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:6:5-24:19
-MERGED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:6:5-24:19
-MERGED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:6:5-24:19
-MERGED from [:react-native-webview] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-21:19
-MERGED from [:react-native-webview] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-21:19
-MERGED from [com.facebook.react:react-native:0.61.5] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/b9c4748fb32862539a3b276b4b66733f/AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.react:react-native:0.61.5] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/b9c4748fb32862539a3b276b4b66733f/AndroidManifest.xml:11:5-20
+ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:6:5-24:19
+MERGED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:6:5-24:19
+MERGED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:6:5-24:19
+MERGED from [:react-native-webview] /Volumes/Storage/Documents/compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-21:19
+MERGED from [:react-native-webview] /Volumes/Storage/Documents/compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-21:19
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/0e876695b5546010ceb9aad2c1522f80/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/0e876695b5546010ceb9aad2c1522f80/AndroidManifest.xml:11:5-20
 MERGED from [com.airbnb.android:lottie:3.0.7] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/011a46cfff5ed0f0a05bf25c44657b86/AndroidManifest.xml:9:5-20
 MERGED from [com.airbnb.android:lottie:3.0.7] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/011a46cfff5ed0f0a05bf25c44657b86/AndroidManifest.xml:9:5-20
-MERGED from [com.google.android.material:material:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/703107cbe3ab97a74b6af4fe913491d4/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.material:material:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/703107cbe3ab97a74b6af4fe913491d4/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/199a567ceefe75eb35c058618f52b3d5/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/199a567ceefe75eb35c058618f52b3d5/AndroidManifest.xml:22:5-20
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3071b0f5c38949f223c52a5ab9ed792b/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3071b0f5c38949f223c52a5ab9ed792b/AndroidManifest.xml:11:5-20
 MERGED from [androidx.core:core:1.3.0-alpha01] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/a0acdbb643ab6f715f3adeef7f726868/AndroidManifest.xml:24:5-89
@@ -106,83 +102,85 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/maur
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.3.0-alpha01] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/a0acdbb643ab6f715f3adeef7f726868/AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:8:7-39
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:8:7-39
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:8:7-39
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:8:7-39
 	tools:ignore
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/debug/AndroidManifest.xml:7:75-114
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/debug/AndroidManifest.xml:7:75-114
 	android:roundIcon
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:10:7-52
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:10:7-52
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:10:7-52
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:10:7-52
 	tools:targetApi
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/debug/AndroidManifest.xml:7:54-74
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/debug/AndroidManifest.xml:7:54-74
 	android:icon
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:9:7-41
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:9:7-41
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:9:7-41
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:9:7-41
 	android:allowBackup
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:11:7-34
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:11:7-34
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:11:7-34
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:11:7-34
 	android:theme
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:12:7-38
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:12:7-38
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:12:7-38
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:12:7-38
 	android:usesCleartextTraffic
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/debug/AndroidManifest.xml:7:18-53
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/debug/AndroidManifest.xml:7:18-53
 	android:name
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:7:7-38
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:7:7-38
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:7:7-38
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:7:7-38
 activity#com.compomus.MainActivity
-ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:13:7-22:18
+ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:13:7-22:18
 	android:label
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:15:9-41
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:15:9-41
 	android:windowSoftInputMode
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:17:9-51
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:17:9-51
 	android:configChanges
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:16:9-79
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:16:9-79
 	android:name
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:14:9-37
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:14:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:18:9-21:25
+ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:18:9-21:25
 action#android.intent.action.MAIN
-ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:19:13-65
+ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:19:13-65
 	android:name
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:19:21-62
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:19:21-62
 category#android.intent.category.LAUNCHER
-ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:20:13-73
+ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:20:13-73
 	android:name
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:20:23-70
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:20:23-70
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:23:7-84
+ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:23:7-84
 	android:name
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml:23:17-81
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml:23:17-81
 uses-sdk
-INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml
-INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml
-MERGED from [:react-native-vector-icons] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-vector-icons] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-community_async-storage] /Users/mauroamazonas/Documents/Compomus/node_modules/@react-native-community/async-storage/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-community_async-storage] /Users/mauroamazonas/Documents/Compomus/node_modules/@react-native-community/async-storage/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-community_netinfo] /Users/mauroamazonas/Documents/Compomus/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-community_netinfo] /Users/mauroamazonas/Documents/Compomus/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:lottie-react-native] /Users/mauroamazonas/Documents/Compomus/node_modules/lottie-react-native/src/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:lottie-react-native] /Users/mauroamazonas/Documents/Compomus/node_modules/lottie-react-native/src/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-reanimated] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-reanimated] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-screens] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-screens] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-webview] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-webview] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-gesture-handler] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-gesture-handler] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-sound-player] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-sound-player/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-sound-player] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-sound-player/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.61.5] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/b9c4748fb32862539a3b276b4b66733f/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.61.5] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/b9c4748fb32862539a3b276b4b66733f/AndroidManifest.xml:7:5-9:41
-MERGED from [org.webkit:android-jsc:r245459] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/73e227c78df28c192157b333a78770f2/AndroidManifest.xml:7:5-9:41
-MERGED from [org.webkit:android-jsc:r245459] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/73e227c78df28c192157b333a78770f2/AndroidManifest.xml:7:5-9:41
+INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml
+INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml
+MERGED from [:react-native-community_async-storage] /Volumes/Storage/Documents/compomus/node_modules/@react-native-community/async-storage/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_async-storage] /Volumes/Storage/Documents/compomus/node_modules/@react-native-community/async-storage/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_netinfo] /Volumes/Storage/Documents/compomus/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_netinfo] /Volumes/Storage/Documents/compomus/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:lottie-react-native] /Volumes/Storage/Documents/compomus/node_modules/lottie-react-native/src/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:lottie-react-native] /Volumes/Storage/Documents/compomus/node_modules/lottie-react-native/src/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-ping] /Volumes/Storage/Documents/compomus/node_modules/react-native-ping/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-ping] /Volumes/Storage/Documents/compomus/node_modules/react-native-ping/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] /Volumes/Storage/Documents/compomus/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] /Volumes/Storage/Documents/compomus/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-screens] /Volumes/Storage/Documents/compomus/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-screens] /Volumes/Storage/Documents/compomus/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /Volumes/Storage/Documents/compomus/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /Volumes/Storage/Documents/compomus/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-webview] /Volumes/Storage/Documents/compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-webview] /Volumes/Storage/Documents/compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] /Volumes/Storage/Documents/compomus/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] /Volumes/Storage/Documents/compomus/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-sound-player] /Volumes/Storage/Documents/compomus/node_modules/react-native-sound-player/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-sound-player] /Volumes/Storage/Documents/compomus/node_modules/react-native-sound-player/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/0e876695b5546010ceb9aad2c1522f80/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/0e876695b5546010ceb9aad2c1522f80/AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3cb50bb006af46f3c00272e3c99569ba/AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3cb50bb006af46f3c00272e3c99569ba/AndroidManifest.xml:7:5-9:41
 MERGED from [com.airbnb.android:lottie:3.0.7] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/011a46cfff5ed0f0a05bf25c44657b86/AndroidManifest.xml:5:5-7:41
 MERGED from [com.airbnb.android:lottie:3.0.7] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/011a46cfff5ed0f0a05bf25c44657b86/AndroidManifest.xml:5:5-7:41
-MERGED from [com.google.android.material:material:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/703107cbe3ab97a74b6af4fe913491d4/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.material:material:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/703107cbe3ab97a74b6af4fe913491d4/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/199a567ceefe75eb35c058618f52b3d5/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/199a567ceefe75eb35c058618f52b3d5/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/dad0959ad68c41d351ed37a821386576/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/dad0959ad68c41d351ed37a821386576/AndroidManifest.xml:20:5-22:41
 MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/c9c89f995b574a419d37053f7ad2dabb/AndroidManifest.xml:5:5-7:41
@@ -201,103 +199,93 @@ MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /Users/mauroamazonas/
 MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/9121d5b0ce2e2bd4dcd1f7b5055818f1/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3071b0f5c38949f223c52a5ab9ed792b/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3071b0f5c38949f223c52a5ab9ed792b/AndroidManifest.xml:7:5-9:41
-MERGED from [androidx.transition:transition:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/4ab5d48a7b187ca87c0076caa66f8eab/AndroidManifest.xml:20:5-44
-MERGED from [androidx.transition:transition:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/4ab5d48a7b187ca87c0076caa66f8eab/AndroidManifest.xml:20:5-44
-MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/e9f283fe160b6aedcc82403c8eb9ca6a/AndroidManifest.xml:20:5-44
-MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/e9f283fe160b6aedcc82403c8eb9ca6a/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/89e70d88ef1cc5461d43c3adda2dfb33/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/89e70d88ef1cc5461d43c3adda2dfb33/AndroidManifest.xml:20:5-44
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3f3550f008f7833dfcd9b926ade97494/AndroidManifest.xml:20:5-44
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3f3550f008f7833dfcd9b926ade97494/AndroidManifest.xml:20:5-44
-MERGED from [androidx.fragment:fragment:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/8144df152cf10dc2f288d8492f716cf8/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/8144df152cf10dc2f288d8492f716cf8/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3d285ddc58583d168c9f6d972f0a5e71/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3d285ddc58583d168c9f6d972f0a5e71/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.1] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/1dffcb4bd11eed418ac4f7b170e67843/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.1] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/1dffcb4bd11eed418ac4f7b170e67843/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/72de5116b7905e3c03619efeec483215/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/72de5116b7905e3c03619efeec483215/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3003f2ae783e9e81c5dd5d05f9341c19/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3003f2ae783e9e81c5dd5d05f9341c19/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/bd492c6263a3b30e565df1b9bf967ee0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/bd492c6263a3b30e565df1b9bf967ee0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/f21f9dbf0b32e90c59fd1fad31ee0468/AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/f21f9dbf0b32e90c59fd1fad31ee0468/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/a8d5fa56ba1dab46e5bdd878b3e3da1a/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/a8d5fa56ba1dab46e5bdd878b3e3da1a/AndroidManifest.xml:20:5-44
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/786415396134b0933b7b90a811427cef/AndroidManifest.xml:20:5-44
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/786415396134b0933b7b90a811427cef/AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/f06436cf4a624c87bb1cce54eaf209e4/AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/f06436cf4a624c87bb1cce54eaf209e4/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/07fa02bf23988f3e24b9100d4c9ebd76/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/07fa02bf23988f3e24b9100d4c9ebd76/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/c920f587b42d8a3c04247c8f17fff080/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/c920f587b42d8a3c04247c8f17fff080/AndroidManifest.xml:20:5-44
-MERGED from [androidx.activity:activity:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/f16f4bec91124ccf303e604becb7d3ed/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/f16f4bec91124ccf303e604becb7d3ed/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/9d9f158b3b9811b62253627c11038f6d/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/9d9f158b3b9811b62253627c11038f6d/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/52e5eb892c2c3898c397314d9a81a6e7/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/52e5eb892c2c3898c397314d9a81a6e7/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/f06436cf4a624c87bb1cce54eaf209e4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/f06436cf4a624c87bb1cce54eaf209e4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/81cfb675f915795edb8bbc302e511934/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/81cfb675f915795edb8bbc302e511934/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/8fb8c62f65cb8571a721182bfbbf8bea/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/8fb8c62f65cb8571a721182bfbbf8bea/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/77e26bcbb055445fb75cfa8e2b832803/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/77e26bcbb055445fb75cfa8e2b832803/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3003f2ae783e9e81c5dd5d05f9341c19/AndroidManifest.xml:20:5-44
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3003f2ae783e9e81c5dd5d05f9341c19/AndroidManifest.xml:20:5-44
-MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/bf5c0c1c7b94639cf4c96600c2436633/AndroidManifest.xml:20:5-44
-MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/bf5c0c1c7b94639cf4c96600c2436633/AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.3.0-alpha01] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/a0acdbb643ab6f715f3adeef7f726868/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.3.0-alpha01] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/a0acdbb643ab6f715f3adeef7f726868/AndroidManifest.xml:20:5-22:41
-MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/039526df2165f49e72ea2e5dc3b99f3a/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/039526df2165f49e72ea2e5dc3b99f3a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/ce65c5265a00c45b650cee918ead1580/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/ce65c5265a00c45b650cee918ead1580/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/6dc13e02f2d931e850e448438c37aec3/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/6dc13e02f2d931e850e448438c37aec3/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/db6fa9ecfeb6f358f91d5212ee10f0c0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/db6fa9ecfeb6f358f91d5212ee10f0c0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/ac3af5a254c1a03e1e6ff64ee4c51648/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/ac3af5a254c1a03e1e6ff64ee4c51648/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/6d6d4325c37c7b7aba6cf70ad4468c99/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/6d6d4325c37c7b7aba6cf70ad4468c99/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/e99367b7ad8404dbfaaedf2561c85568/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/e99367b7ad8404dbfaaedf2561c85568/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/4273b1321bd745a0822daedc934011b4/AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/4273b1321bd745a0822daedc934011b4/AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/e16c1aeccb978ca0de739bb2eec9f89c/AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/e16c1aeccb978ca0de739bb2eec9f89c/AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/c02321f5a1fba43631a8ea112bd802e2/AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/c02321f5a1fba43631a8ea112bd802e2/AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3b18b4df22eefb875757574fe188bdc4/AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/3b18b4df22eefb875757574fe188bdc4/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/c34f5b91de2dddc6d6e1bd8bc3f938b3/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/c34f5b91de2dddc6d6e1bd8bc3f938b3/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/bf5a8cb7f6c914cc2b2fefded77fbb21/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/bf5a8cb7f6c914cc2b2fefded77fbb21/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/ac3af5a254c1a03e1e6ff64ee4c51648/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/ac3af5a254c1a03e1e6ff64ee4c51648/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/f196b1d6a6228916394ebc8c7d4c47f2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/f196b1d6a6228916394ebc8c7d4c47f2/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/35307d64a604227099a0cafcf6814299/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/35307d64a604227099a0cafcf6814299/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/fcf7592deea9cccae7c3bf442364460b/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/fcf7592deea9cccae7c3bf442364460b/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/11f196c4db84a73a5bc5334040b3a071/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/11f196c4db84a73a5bc5334040b3a071/AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/db21fe136f072e77259539e5afd976c5/AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/db21fe136f072e77259539e5afd976c5/AndroidManifest.xml:20:5-44
-INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/debug/AndroidManifest.xml
-INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/debug/AndroidManifest.xml
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/4a1acb278b16e06de355b42c798bae29/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/4a1acb278b16e06de355b42c798bae29/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/45ca92b2cb88e5973e40d5126c63e2a7/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/mauroamazonas/.gradle/caches/transforms-2/files-2.1/45ca92b2cb88e5973e40d5126c63e2a7/AndroidManifest.xml:20:5-22:41
+INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/debug/AndroidManifest.xml
+INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/debug/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/debug/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/mauroamazonas/Documents/Compomus/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Volumes/Storage/Documents/compomus/android/app/src/debug/AndroidManifest.xml
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/debug/AndroidManifest.xml:5:5-77
+ADDED from /Volumes/Storage/Documents/compomus/android/app/src/debug/AndroidManifest.xml:5:5-77
 	android:name
-		ADDED from /Users/mauroamazonas/Documents/Compomus/android/app/src/debug/AndroidManifest.xml:5:22-75
+		ADDED from /Volumes/Storage/Documents/compomus/android/app/src/debug/AndroidManifest.xml:5:22-75
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [:react-native-community_netinfo] /Users/mauroamazonas/Documents/Compomus/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-79
+ADDED from [:react-native-community_netinfo] /Volumes/Storage/Documents/compomus/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-79
 	android:name
-		ADDED from [:react-native-community_netinfo] /Users/mauroamazonas/Documents/Compomus/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:22-76
+		ADDED from [:react-native-community_netinfo] /Volumes/Storage/Documents/compomus/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:22-76
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from [:react-native-community_netinfo] /Users/mauroamazonas/Documents/Compomus/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:10:5-76
+ADDED from [:react-native-community_netinfo] /Volumes/Storage/Documents/compomus/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:10:5-76
 	android:name
-		ADDED from [:react-native-community_netinfo] /Users/mauroamazonas/Documents/Compomus/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:10:22-73
+		ADDED from [:react-native-community_netinfo] /Volumes/Storage/Documents/compomus/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:10:22-73
 provider#com.reactnativecommunity.webview.RNCWebViewFileProvider
-ADDED from [:react-native-webview] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:9-20:20
+ADDED from [:react-native-webview] /Volumes/Storage/Documents/compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:9-20:20
 	android:grantUriPermissions
-		ADDED from [:react-native-webview] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:13-47
+		ADDED from [:react-native-webview] /Volumes/Storage/Documents/compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:13-47
 	android:authorities
-		ADDED from [:react-native-webview] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-64
+		ADDED from [:react-native-webview] /Volumes/Storage/Documents/compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-64
 	android:exported
-		ADDED from [:react-native-webview] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:13-37
+		ADDED from [:react-native-webview] /Volumes/Storage/Documents/compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:13-37
 	android:name
-		ADDED from [:react-native-webview] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-83
+		ADDED from [:react-native-webview] /Volumes/Storage/Documents/compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-83
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from [:react-native-webview] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:13-19:63
+ADDED from [:react-native-webview] /Volumes/Storage/Documents/compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:13-19:63
 	android:resource
-		ADDED from [:react-native-webview] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:17-60
+		ADDED from [:react-native-webview] /Volumes/Storage/Documents/compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:17-60
 	android:name
-		ADDED from [:react-native-webview] /Users/mauroamazonas/Documents/Compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:17-67
+		ADDED from [:react-native-webview] /Volumes/Storage/Documents/compomus/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:17-67

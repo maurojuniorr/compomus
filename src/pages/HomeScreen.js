@@ -13,6 +13,7 @@ import {
 import AsyncStorage from '@react-native-community/async-storage';
 import { NavigationEvents } from 'react-navigation';
 import * as Animatable from 'react-native-animatable';
+
 const { MyNativeModule } = NativeModules;
 export default class HomeScreen extends Component {
 	state = {
@@ -24,14 +25,17 @@ export default class HomeScreen extends Component {
 		titleText: '',
 		imageURL: '',
 	};
+
 	componentDidMount() {
 		this.getAppData();
 	}
+
 	componentWillUnmount() {}
+
 	getAppData = async () => {
 		try {
 			const value = await AsyncStorage.getItem('appData');
-			let parsed = JSON.parse(value);
+			const parsed = JSON.parse(value);
 			if (value !== null) {
 				// value previously stored
 
@@ -50,7 +54,7 @@ export default class HomeScreen extends Component {
 	getData = async () => {
 		try {
 			const value = await AsyncStorage.getItem('userInfo');
-			let parsed = JSON.parse(value);
+			const parsed = JSON.parse(value);
 			if (value !== null) {
 				// value previously stored
 				MyNativeModule.userInfo(
@@ -223,7 +227,7 @@ const styles = StyleSheet.create({
 		resizeMode: 'contain',
 		width: '100%',
 		height: '100%',
-		//borderRadius: 50,
+		// borderRadius: 50,
 		// shadowColor: '#000',
 		// shadowOffset: { width: 0, height: 0 },
 		// shadowOpacity: 0.9,
@@ -250,7 +254,7 @@ const styles = StyleSheet.create({
 		textAlign: 'justify',
 		marginBottom: '5%',
 		color: '#565656',
-		fontSize: 20,
+		fontSize: 18,
 		fontWeight: 'bold',
 	},
 	text3: {
@@ -270,9 +274,9 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		// padding: 100,
 		// width: '95%',
-		//height: '30%',
+		// height: '30%',
 		backgroundColor: '#0000',
-		//marginBottom: 10,
+		// marginBottom: 10,
 		marginLeft: '2%',
 		marginRight: '2%',
 		// shadowColor: '#000',
@@ -280,7 +284,7 @@ const styles = StyleSheet.create({
 	},
 
 	trocarSomContainer: {
-		//flex: 1,
+		// flex: 1,
 		marginTop: '0%',
 		alignSelf: 'center',
 		marginBottom: '8%',
@@ -288,16 +292,16 @@ const styles = StyleSheet.create({
 
 	image: {
 		justifyContent: 'center',
-		//marginTop: '5%',
+		// marginTop: '5%',
 		width: '100%',
 		height: '100%',
 		borderRadius: 5,
 	},
 	bannerLogo: {
-		//flex: 1,
+		// flex: 1,
 		// justifyContent: 'center',
 		// alignItems: 'center',
-		//marginTop: '5%',
+		// marginTop: '5%',
 		position: 'absolute',
 		resizeMode: 'contain',
 		width: '80%',
@@ -314,7 +318,7 @@ const styles = StyleSheet.create({
 		paddingBottom: '5%',
 	},
 	titleText: {
-		//marginTop: 20,
+		// marginTop: 20,
 		fontSize: 19,
 		fontFamily: 'arial',
 		fontWeight: 'bold',
@@ -330,7 +334,7 @@ const styles = StyleSheet.create({
 	button: {
 		width: 300,
 		height: 45,
-		//marginTop: 40,
+		// marginTop: 40,
 		borderRadius: 14,
 		backgroundColor: '#4DAE4C',
 		justifyContent: 'center',
