@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 // import 'whatwg-fetch';
 import Ping from 'react-native-ping';
-//import SoundPlayer from 'react-native-sound-player';
+// import SoundPlayer from 'react-native-sound-player';
 import NetInfo from '@react-native-community/netinfo';
 import AsyncStorage from '@react-native-community/async-storage';
 import { NavigationEvents } from 'react-navigation';
@@ -29,6 +29,7 @@ export default class Login extends Component {
 		super(props);
 		// unsubscribe = NetInfo.addEventListener(this.conection());
 	}
+
 	state = {
 		userId: '',
 		soundName: '',
@@ -66,6 +67,7 @@ export default class Login extends Component {
 	componentDidMount() {
 		const unsubscribe = NetInfo.addEventListener(this.handleConnectivityChange);
 	}
+
 	handleConnectivityChange = isConnected => {
 		this.setState({
 			type: isConnected.type,
@@ -82,6 +84,7 @@ export default class Login extends Component {
 	componentWillUnmount() {
 		// NetInfo.removeEventListener();
 	}
+
 	messageTimer() {
 		setTimeout(() => {
 			this.setState({ isLoading: false });
@@ -89,7 +92,7 @@ export default class Login extends Component {
 	}
 
 	storeBeaconData = async () => {
-		let beaconData = {
+		const beaconData = {
 			uuid: this.state.UUID,
 			identifier: this.state.identifier,
 			major: this.state.major,
@@ -108,7 +111,7 @@ export default class Login extends Component {
 	};
 
 	beacondata = async () => {
-		let formData = new FormData();
+		const formData = new FormData();
 
 		formData.append('beaconOrder', '1');
 
@@ -132,7 +135,7 @@ export default class Login extends Component {
 				const { data } = responseJson2;
 				this.setState({
 					UUID: uuid,
-					identifier: identifier,
+					identifier,
 					major: parseInt(major),
 					minor: parseInt(minor),
 					beaconRange: parseFloat(beaconRange),
@@ -157,7 +160,7 @@ export default class Login extends Component {
 	};
 
 	storeAnimationData = async () => {
-		let animationData = {
+		const animationData = {
 			animationId: this.state.animationId,
 			animation1: this.state.animation1,
 			animation2: this.state.animation2,
@@ -197,13 +200,13 @@ export default class Login extends Component {
 				// console.log(data);
 				this.setState({
 					animationId: id,
-					animation1: animation1,
-					animation2: animation2,
-					animation3: animation3,
-					animation4: animation4,
-					animation5: animation5,
-					activateAnimation1: activateAnimation1,
-					activateAnimation2: activateAnimation2,
+					animation1,
+					animation2,
+					animation3,
+					animation4,
+					animation5,
+					activateAnimation1,
+					activateAnimation2,
 				});
 				this.storeAnimationData();
 			}
@@ -211,7 +214,7 @@ export default class Login extends Component {
 	};
 
 	storeAppData = async () => {
-		let appData = {
+		const appData = {
 			appId: this.state.appId,
 			titleText: this.state.titleText,
 			bodyText: this.state.bodyText,
@@ -239,9 +242,9 @@ export default class Login extends Component {
 				// console.log(data);
 				this.setState({
 					appId: id,
-					titleText: titleText,
-					bodyText: bodyText,
-					imageURL: imageURL,
+					titleText,
+					bodyText,
+					imageURL,
 				});
 				this.storeAppData();
 			}
@@ -261,7 +264,7 @@ export default class Login extends Component {
 				this.postData();
 				console.log('Server connection way: For performance using localhost');
 				// Alert.alert('Compomus', 'chegueiaqui');
-				//console.log('Confirm internet', this.state.isInternetReachable);
+				// console.log('Confirm internet', this.state.isInternetReachable);
 			} catch (error) {
 				console.log('special code', error.code, error.message);
 				fetch(`${global.online}/index.php`)
@@ -271,7 +274,7 @@ export default class Login extends Component {
 							this.setState({ conectionStatus: 'Fazendo login online...' });
 							this.postData();
 							console.log('Server connection way: only online with wifi ');
-							//console.log('Confirm internet', this.state.isInternetReachable);
+							// console.log('Confirm internet', this.state.isInternetReachable);
 						} else if (response.status !== 200) {
 							// Alert.alert('Compomus', 'Erro de resposta do servidor');
 							this.setState({
@@ -298,7 +301,7 @@ export default class Login extends Component {
 						global.rawSource = global.online;
 						this.postData();
 						console.log('Server connection way: only online with wifi ');
-						//console.log('Confirm internet', this.state.isInternetReachable);
+						// console.log('Confirm internet', this.state.isInternetReachable);
 					} else if (response.status !== 200) {
 						// Alert.alert('Compomus', 'Erro de resposta do servidor');
 						this.setState({ conectionStatus: 'Erro de resposta do servidor' });
@@ -317,7 +320,7 @@ export default class Login extends Component {
 						global.rawSource = global.localhost;
 						this.postData();
 						console.log('Server connection way: only online with wifi ');
-						//console.log('Confirm internet', this.state.isInternetReachable);
+						// console.log('Confirm internet', this.state.isInternetReachable);
 					} else if (response.status !== 200) {
 						// Alert.alert('Compomus', 'Erro de resposta do servidor');
 						this.setState({ conectionStatus: 'Erro de resposta do servidor' });
@@ -334,7 +337,7 @@ export default class Login extends Component {
 	};
 
 	storeData = async () => {
-		let userInfo = {
+		const userInfo = {
 			userId: this.state.userId,
 			userName: this.state.userName,
 			userEmail: this.state.email,
@@ -350,7 +353,7 @@ export default class Login extends Component {
 	};
 
 	postData = async () => {
-		let formData = new FormData();
+		const formData = new FormData();
 		formData.append('email', this.state.email);
 		formData.append('pass', this.state.pass);
 		this.setState({ isLoading: true });
@@ -363,10 +366,10 @@ export default class Login extends Component {
 				}
 			);
 			if (response.status === 200) {
-				//this.setState({ isLoading: false });
+				// this.setState({ isLoading: false });
 				const responseJson = await response.json();
 
-				//console.log('Success', formData);
+				// console.log('Success', formData);
 				const { soundName } = responseJson;
 				const { soundRaw } = responseJson;
 				const { pass } = responseJson;
@@ -374,8 +377,8 @@ export default class Login extends Component {
 				const { name } = responseJson;
 				const { id } = responseJson;
 				this.setState({
-					soundRaw: soundRaw,
-					soundName: soundName,
+					soundRaw,
+					soundName,
 					userName: name,
 					userId: id,
 				});
@@ -393,7 +396,7 @@ export default class Login extends Component {
 						this.props.navigation.navigate('RootDrawerNavigator', {
 							userId: this.state.userId,
 						});
-						//this.getIn();
+						// this.getIn();
 					}
 				} else if (responseJson === false) {
 					// Alert.alert('Compomus', 'Email ou senha incorretos!');
@@ -434,12 +437,12 @@ export default class Login extends Component {
 	}
 
 	CheckTextInput = () => {
-		//Handler for the Submit onPress
+		// Handler for the Submit onPress
 
 		if (this.state.email !== '') {
-			//Check for the Email TextInput
+			// Check for the Email TextInput
 			if (this.state.pass !== '') {
-				//Check for the Email TextInput
+				// Check for the Email TextInput
 				this.checkIfOnline();
 				// this.postData();
 			} else {
@@ -480,25 +483,25 @@ export default class Login extends Component {
 
 						<TextInput
 							style={styles.input}
-							keyboardType={'email-address'}
-							autoCapitalize={'none'}
-							//textContentType={'emailAdress'}
-							placeholder={'Digite seu Email'}
-							placeholderTextColor={'#b3b3b3'}
-							returnKeyType={'next'}
+							keyboardType='email-address'
+							autoCapitalize='none'
+							// textContentType={'emailAdress'}
+							placeholder='Digite seu Email'
+							placeholderTextColor='#b3b3b3'
+							returnKeyType='next'
 							onSubmitEditing={() => this.field2.focus()}
 							onChangeText={text => this.updateValue(text, 'email')}
 						/>
 						<TextInput
-							secureTextEntry={true}
+							secureTextEntry
 							style={styles.input}
-							autoCapitalize={'none'}
-							returnKeyType={'go'}
+							autoCapitalize='none'
+							returnKeyType='go'
 							ref={input => {
 								this.field2 = input;
 							}}
-							placeholder={'Digite sua Senha'}
-							placeholderTextColor={'#b3b3b3'}
+							placeholder='Digite sua Senha'
+							placeholderTextColor='#b3b3b3'
 							onSubmitEditing={this.CheckTextInput}
 							onChangeText={text => this.updateValue(text, 'pass')}
 						/>
@@ -551,23 +554,23 @@ const styles = StyleSheet.create({
 		resizeMode: 'contain',
 		width: '100%',
 		height: '60%',
-		//borderRadius: 50,
+		// borderRadius: 50,
 		// shadowColor: '#000',
 		// shadowOffset: { width: 0, height: 0 },
 		// shadowOpacity: 0.9,
 		// shadowRadius: 1,
 	},
 	welcome: {
-		//marginTop: '5%',
+		// marginTop: '5%',
 		marginBottom: '10%',
-		//padding: 10,
+		// padding: 10,
 		fontSize: 18,
 		fontWeight: 'bold',
 		color: '#4DAE4C',
 	},
 	inputer: {
-		//flex: 3,
-		//marginTop: '10%',
+		// flex: 3,
+		// marginTop: '10%',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
 		// backgroundColor: '#ddd',
@@ -608,7 +611,7 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 	},
 	contentRegister: {
-		//flex: 1,
+		// flex: 1,
 		// justifyContent: 'flex-end',
 		alignItems: 'baseline',
 		flexDirection: 'row',
@@ -635,6 +638,6 @@ const styles = StyleSheet.create({
 		marginTop: '22%',
 		justifyContent: 'flex-end',
 		alignItems: 'center',
-		//marginBottom: '4%',
+		// marginBottom: '4%',
 	},
 });

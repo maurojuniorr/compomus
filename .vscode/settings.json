@@ -1,6 +1,6 @@
 {
     "cSpell.enabled": false,
-    "eslint.enable": true,
+    "eslint.enable": false,
     "git.ignoreLimitWarning": true,
     "prettier.jsxBracketSameLine": true,
     "prettier.jsxSingleQuote": true,
