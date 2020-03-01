@@ -21,7 +21,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 const { MyNativeModule } = NativeModules;
 const CounterEvents = new NativeEventEmitter(NativeModules.MyNativeModule);
 
-export default class Compose extends Component {
+export default class ComposeIOS extends Component {
 	state = {
 		dataSource: [],
 		isLoading: true,
@@ -274,7 +274,7 @@ export default class Compose extends Component {
 			if (this.state.animation1 === 'macaco') {
 				return (
 					<LottieView
-						source={require('../assets/macaco.json')}
+						source={require('../../assets/macaco.json')}
 						autoPlay
 						loop
 						resizeMode='contain'
@@ -290,7 +290,7 @@ export default class Compose extends Component {
 			if (this.state.animation2 === 'speakers') {
 				return (
 					<LottieView
-						source={require('../assets/speakers.json')}
+						source={require('../../assets/speakers.json')}
 						autoPlay
 						loop
 						resizeMode='contain'
@@ -299,7 +299,7 @@ export default class Compose extends Component {
 			} else if (this.state.animation2 === 'playing2') {
 				return (
 					<LottieView
-						source={require('../assets/playing2.json')}
+						source={require('../../assets/playing2.json')}
 						autoPlay
 						loop
 						resizeMode='contain'
@@ -311,7 +311,7 @@ export default class Compose extends Component {
 		} else if (this.state.locationStatus === 'near') {
 			return (
 				<LottieView
-					source={require('../assets/alert.json')}
+					source={require('../../assets/alert.json')}
 					autoPlay
 					loop
 					resizeMode='contain'
@@ -322,7 +322,7 @@ export default class Compose extends Component {
 			if (this.state.animation4 === 'pinLocation') {
 				return (
 					<LottieView
-						source={require('../assets/pinLocation.json')}
+						source={require('../../assets/pinLocation.json')}
 						autoPlay
 						loop
 						resizeMode='contain'
@@ -331,7 +331,7 @@ export default class Compose extends Component {
 			} else if (this.state.animation4 === 'farAway') {
 				return (
 					<LottieView
-						source={require('../assets/farAway.json')}
+						source={require('../../assets/farAway.json')}
 						autoPlay
 						loop
 						resizeMode='contain'
@@ -343,7 +343,7 @@ export default class Compose extends Component {
 		} else if (this.state.locationStatus === 'unknown') {
 			return (
 				<LottieView
-					source={require('../assets/unknownLocation2.json')}
+					source={require('../../assets/unknownLocation2.json')}
 					autoPlay
 					loop
 					resizeMode='contain'
@@ -395,7 +395,7 @@ export default class Compose extends Component {
 					{this.state.isLoading ? (
 						<View style={styles.loadingAnimation}>
 							<LottieView
-								source={require('../assets/loading.json')}
+								source={require('../../assets/loading.json')}
 								autoPlay
 								loop
 								resizeMode='contain'
