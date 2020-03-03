@@ -428,7 +428,7 @@ export default class Signup extends Component {
 			try {
 				const ms = await Ping.start(this.state.serverIp, { timeout: 1000 });
 				this.setState({ conectionStatus: 'Fazendo cadastro local...' });
-				console.log(ms);
+				console.log('Ping ms: ', ms);
 				global.rawSource = global.localhost;
 				this.verifyData();
 				console.log('Server connection way: For performance using localhost');

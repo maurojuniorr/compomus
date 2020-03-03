@@ -99,6 +99,10 @@ class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
     userId = userID
     soundRaw = sound2
     soundName = sound
+    
+    print( userId)
+    print(soundRaw)
+    print(soundName)
   }
   
   //Verifica se está tudo ok para procurar os beacons incluindo autorização

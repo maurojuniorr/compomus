@@ -235,7 +235,7 @@ PODS:
     - React
   - RNScreens (2.2.0):
     - React
-  - RNSoundPlayer (0.10.4):
+  - RNSoundPlayer (0.10.3):
     - React
   - RNVectorIcons (6.6.0):
     - React
@@ -398,7 +398,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: dde546180bf24af0b5f737c8ad04b6f3fa51609a
   RNReanimated: 031fe8d9ea93c2bd689a40f05320ef9d96f74d7f
   RNScreens: 812b79d384e2bea7eebc4ec981469160d4948fd5
-  RNSoundPlayer: b55bbb1b4cbf8b3f2c81db622d9db4b305407f5b
+  RNSoundPlayer: 36fe7b7390a62c81a7eb4deeca07420399699872
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   SwiftOSC: 4e22674bbd1139daf659024ab39636b8952b69f1
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b

@@ -53,11 +53,10 @@ export default function About({ props }) {
 				<View style={styles.logoContent}>
 					<Text style={styles.text1}>Sobre a Ação Tecnológica</Text>
 					<Text style={styles.text2}>
-						O ambiente Compomus faz parte da pesquisa de doutorado do Aluno
-						Mauro Amazonas integrante do grupo FunTech Show [IComp/UFAM] sob
-						orientação dos professores Bruno Gadelha e Thais Castro. Este estudo
-						teve origem à partir da parceria do grupo com a Falculdade de Artes
-						[FAARTES/UFAM] por meio do professor João Gustavo Kienem.
+						O app Compomus faz parte de uma pesquisa, envolvendo interação com
+						sons, desenvolvida pelo grupo FunTech Show, através de uma parceria
+						do Instituto de Computação (IComp) e Faculdade de Artes (FAARTES) da
+						UFAM.
 					</Text>
 				</View>
 
@@ -193,8 +192,8 @@ const styles = StyleSheet.create({
 	},
 	modalContainer: {
 		flex: 1,
-		marginLeft: '0.5%',
-		marginRight: '0.5%',
+		marginLeft: '0.1%',
+		marginRight: '0.1%',
 		marginTop: '9%',
 		marginBottom: '-5%',
 

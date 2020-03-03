@@ -1,6 +1,7 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import React from 'react';
-import Compose from '../pages/compose/Compose';
+import Compose from '../pages/Compose';
+
 import Header from '../shared/header';
 import ChoiceSound from '../pages/soundChooser';
 const screens = {

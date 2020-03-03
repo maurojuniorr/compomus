@@ -65,7 +65,7 @@ export default class Login extends Component {
 	};
 
 	componentDidMount() {
-		const unsubscribe = NetInfo.addEventListener(this.handleConnectivityChange);
+		NetInfo.addEventListener(this.handleConnectivityChange);
 	}
 
 	handleConnectivityChange = isConnected => {
@@ -82,13 +82,13 @@ export default class Login extends Component {
 	};
 
 	componentWillUnmount() {
-		// NetInfo.removeEventListener();
+		// unsubscribe.remove();
 	}
 
 	messageTimer() {
 		setTimeout(() => {
 			this.setState({ isLoading: false });
-		}, 5000);
+		}, 10000);
 	}
 
 	storeBeaconData = async () => {
@@ -259,7 +259,7 @@ export default class Login extends Component {
 			try {
 				const ms = await Ping.start(this.state.serverIp, { timeout: 1000 });
 				this.setState({ conectionStatus: 'Fazendo login local...' });
-				console.log(ms);
+				console.log('Ping ms: ', ms);
 				global.rawSource = global.localhost;
 				this.postData();
 				console.log('Server connection way: For performance using localhost');
@@ -267,9 +267,11 @@ export default class Login extends Component {
 				// console.log('Confirm internet', this.state.isInternetReachable);
 			} catch (error) {
 				console.log('special code', error.code, error.message);
+				console.log('cheguei aqui');
 				fetch(`${global.online}/index.php`)
 					.then(response => {
-						if (response.status === 200) {
+						console.log(response);
+						if (response.ok) {
 							global.rawSource = global.online;
 							this.setState({ conectionStatus: 'Fazendo login online...' });
 							this.postData();
@@ -300,7 +302,7 @@ export default class Login extends Component {
 						this.setState({ conectionStatus: 'Fazendo login online...' });
 						global.rawSource = global.online;
 						this.postData();
-						console.log('Server connection way: only online with wifi ');
+						console.log('Server connection way: only online with cellular ');
 						// console.log('Confirm internet', this.state.isInternetReachable);
 					} else if (response.status !== 200) {
 						// Alert.alert('Compomus', 'Erro de resposta do servidor');
@@ -318,8 +320,9 @@ export default class Login extends Component {
 				.then(response => {
 					if (response.status === 200) {
 						global.rawSource = global.localhost;
+						this.setState({ conectionStatus: 'Fazendo login Local...' });
 						this.postData();
-						console.log('Server connection way: only online with wifi ');
+						console.log('Server connection way: localhost unknown ');
 						// console.log('Confirm internet', this.state.isInternetReachable);
 					} else if (response.status !== 200) {
 						// Alert.alert('Compomus', 'Erro de resposta do servidor');
@@ -417,10 +420,80 @@ export default class Login extends Component {
 				this.messageTimer();
 			}
 		} catch (error) {
-			console.log(error.message);
-			// Alert.alert('Compomus', 'Servidor local offline');
-			this.setState({ conectionStatus: 'Servidor local offline' });
+			this.setState({
+				conectionStatus: 'Servidor local offline\ntentando online...',
+			});
 			this.messageTimer();
+			try {
+				const response = await fetch(
+					`${global.online}/index.php/validateUser`,
+					{
+						method: 'POST',
+						body: formData,
+					}
+				);
+				if (response.status === 200) {
+					// this.setState({ isLoading: false });
+					global.rawSource = global.online;
+					const responseJson = await response.json();
+					console.log('Server connection way: localhost fora usando online');
+					// console.log('Success', formData);
+					const { soundName } = responseJson;
+					const { soundRaw } = responseJson;
+					const { pass } = responseJson;
+					const { email } = responseJson;
+					const { name } = responseJson;
+					const { id } = responseJson;
+					this.setState({
+						soundRaw,
+						soundName,
+						userName: name,
+						userId: id,
+					});
+
+					if (pass === this.state.pass && email === this.state.email) {
+						this.storeData();
+						// this.appData();
+						this.animationData();
+						this.beacondata();
+						if (soundName < 1) {
+							this.props.navigation.navigate('RootDrawerNavigator', {
+								userId: this.state.userId,
+							});
+						} else {
+							this.props.navigation.navigate('RootDrawerNavigator', {
+								userId: this.state.userId,
+							});
+							// this.getIn();
+						}
+					} else if (responseJson === false) {
+						// Alert.alert('Compomus', 'Email ou senha incorretos!');
+						this.setState({
+							conectionStatus: 'Email ou senha incorretos!',
+						});
+						this.messageTimer();
+					}
+				} else {
+					// Alert.alert(
+					// 	'Compomus',
+					// 	'Houve um erro na solicitação\n Por favor tente novamente!'
+					// );
+					this.setState({
+						conectionStatus:
+							'Houve um erro na solicitação\n Por favor tente novamente!',
+					});
+					this.messageTimer();
+				}
+			} catch (error) {
+				console.log(error.message);
+				// Alert.alert('Compomus', 'Servidor local offline');
+				this.setState({ conectionStatus: 'Servidores offline' });
+				this.messageTimer();
+			}
+			// console.log(error.message);
+			// // Alert.alert('Compomus', 'Servidor local offline');
+			// this.setState({ conectionStatus: 'Servidor local offline' });
+			// this.messageTimer();
 		}
 	};
 

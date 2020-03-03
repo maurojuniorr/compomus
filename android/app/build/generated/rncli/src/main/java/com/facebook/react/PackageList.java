@@ -20,20 +20,20 @@ import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.reactnativecommunity.netinfo.NetInfoPackage;
 // lottie-react-native
 import com.airbnb.android.react.lottie.LottiePackage;
+// react-native-gesture-handler
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-ping
 import com.reactlibrary.RNReactNativePingPackage;
 // react-native-reanimated
 import com.swmansion.reanimated.ReanimatedPackage;
 // react-native-screens
 import com.swmansion.rnscreens.RNScreensPackage;
+// react-native-sound-player
+import com.johnsonsu.rnsoundplayer.RNSoundPlayerPackage;
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;
 // react-native-webview
 import com.reactnativecommunity.webview.RNCWebViewPackage;
-// react-native-gesture-handler
-import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
-// react-native-sound-player
-import com.johnsonsu.rnsoundplayer.RNSoundPlayerPackage;
 
 public class PackageList {
   private Application application;
@@ -82,13 +82,13 @@ public class PackageList {
       new AsyncStoragePackage(),
       new NetInfoPackage(),
       new LottiePackage(),
+      new RNGestureHandlerPackage(),
       new RNReactNativePingPackage(),
       new ReanimatedPackage(),
       new RNScreensPackage(),
+      new RNSoundPlayerPackage(),
       new VectorIconsPackage(),
-      new RNCWebViewPackage(),
-      new RNGestureHandlerPackage(),
-      new RNSoundPlayerPackage()
+      new RNCWebViewPackage()
     ));
   }
 }

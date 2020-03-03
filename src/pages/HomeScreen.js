@@ -56,12 +56,12 @@ export default class HomeScreen extends Component {
 			const value = await AsyncStorage.getItem('userInfo');
 			const parsed = JSON.parse(value);
 			if (value !== null) {
-				// value previously stored
-				MyNativeModule.userInfo(
-					parseInt(parsed.userId),
-					parsed.soundName,
-					parsed.soundRaw
-				);
+				// // value previously stored
+				// MyNativeModule.userInfo(
+				// 	parseInt(parsed.userId),
+				// 	parsed.soundName,
+				// 	parsed.soundRaw
+				// );
 				if (parsed.soundName === '0' || parsed.soundRaw === '0') {
 					Alert.alert('Escolha um Som Primeiro!');
 					this.props.navigation.navigate('ChoiceStack');
@@ -93,8 +93,8 @@ export default class HomeScreen extends Component {
 					<View style={styles.textContainer}>
 						<Text style={styles.text2}>Aqui todos participam!</Text>
 						<Text style={styles.text2}>
-							Experimente uma nova abordagem de interação com o som em espaços
-							artísticos usando seu Smartphone!
+							Experimente uma nova abordagem de interação com sons em espaços
+							artísticos usando seu celular!
 						</Text>
 					</View>
 

@@ -140,7 +140,7 @@
     <orderEntry type="module" module-name="react-native-reanimated" />
     <orderEntry type="module" module-name="react-native-screens" />
     <orderEntry type="module" module-name="react-native-vector-icons" />
-    <orderEntry type="module" module-name="react-native-webview" />
+    <orderEntry type="module" module-name="android-react-native-webview" />
     <orderEntry type="module" module-name="react-native-gesture-handler" />
     <orderEntry type="module" module-name="react-native-sound-player" />
   </component>
