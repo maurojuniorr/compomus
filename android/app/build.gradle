@@ -180,7 +180,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation "com.facebook.react:react-native:+"
+    implementation 'org.altbeacon:android-beacon-library:2+'
+    implementation files('libs/javaosc.jar')  // From node_modules
+    implementation 'com.android.support:localbroadcastmanager:28.0.0'
   
 
     if (enableHermes) {

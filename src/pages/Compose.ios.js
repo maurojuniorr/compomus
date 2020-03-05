@@ -19,7 +19,7 @@ import LottieView from 'lottie-react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
 const { MyNativeModule } = NativeModules;
-const CounterEvents = new NativeEventEmitter(NativeModules.MyNativeModule);
+const eventEmitter = new NativeEventEmitter(NativeModules.MyNativeModule);
 
 export default class ComposeIOS extends Component {
 	state = {
@@ -64,7 +64,7 @@ export default class ComposeIOS extends Component {
 
 	componentDidMount() {
 		AppState.addEventListener('change', this._handleAppStateChange);
-		CounterEvents.addListener('onChange', this._eventSubscription);
+		eventEmitter.addListener('onChange', this._eventSubscription);
 		this.playSong();
 
 		this.getBeaconData();
@@ -74,7 +74,7 @@ export default class ComposeIOS extends Component {
 	componentWillUnmount() {
 		SoundPlayer.stop();
 		AppState.removeEventListener('change', this._handleAppStateChange);
-		CounterEvents.removeAllListeners(
+		eventEmitter.removeAllListeners(
 			'onChange',
 			this._eventSubscription,
 			MyNativeModule.screenStatus('inactive')
@@ -152,7 +152,6 @@ export default class ComposeIOS extends Component {
 		});
 
 		this.screenColor();
-		this.screenActivity();
 	};
 
 	getBeaconData = async () => {
@@ -228,9 +227,9 @@ export default class ComposeIOS extends Component {
 			console.log('App has come to the foreground!');
 		}
 		this.setState({ appState: nextAppState });
+		this.screenActivity();
 	};
 
-	// IOS
 	setupNative = async () => {
 		MyNativeModule.setBeacon(
 			this.state.UUID,

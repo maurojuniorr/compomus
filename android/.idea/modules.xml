@@ -3,6 +3,14 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Compomus.iml" filepath="$PROJECT_DIR$/Compomus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/lottie-react-native/src/android/android-lottie-react-native.iml" filepath="$PROJECT_DIR$/../node_modules/lottie-react-native/src/android/android-lottie-react-native.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/@react-native-community/async-storage/android/android-react-native-community_async-storage.iml" filepath="$PROJECT_DIR$/../node_modules/@react-native-community/async-storage/android/android-react-native-community_async-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/@react-native-community/netinfo/android/android-react-native-community_netinfo.iml" filepath="$PROJECT_DIR$/../node_modules/@react-native-community/netinfo/android/android-react-native-community_netinfo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-gesture-handler/android/android-react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-gesture-handler/android/android-react-native-gesture-handler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-reanimated/android/android-react-native-reanimated.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-reanimated/android/android-react-native-reanimated.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-screens/android/android-react-native-screens.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-screens/android/android-react-native-screens.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-sound-player/android/android-react-native-sound-player.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-sound-player/android/android-react-native-sound-player.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-vector-icons/android/android-react-native-vector-icons.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-vector-icons/android/android-react-native-vector-icons.iml" />
       <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-webview/android/android-react-native-webview.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-webview/android/android-react-native-webview.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/../node_modules/lottie-react-native/src/android/lottie-react-native.iml" filepath="$PROJECT_DIR$/../node_modules/lottie-react-native/src/android/lottie-react-native.iml" />
@@ -15,6 +23,7 @@
       <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-sound-player/android/react-native-sound-player.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-sound-player/android/react-native-sound-player.iml" />
       <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-vector-icons/android/react-native-vector-icons.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-vector-icons/android/react-native-vector-icons.iml" />
       <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-webview/android/react-native-webview.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-webview/android/react-native-webview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-webview/android/react-native-webview-android-react-native-webview.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-webview/android/react-native-webview-android-react-native-webview.iml" />
     </modules>
   </component>
 </project>

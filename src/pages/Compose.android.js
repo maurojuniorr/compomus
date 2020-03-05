@@ -18,8 +18,8 @@ import LottieView from 'lottie-react-native';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
-// const { MyNativeModule } = NativeModules;
-// const CounterEvents = new NativeEventEmitter(NativeModules.MyNativeModule);
+const { MyNativeModule } = NativeModules;
+const eventEmitter = new NativeEventEmitter(NativeModules.MyNativeModule);
 
 export default class ComposeAndroid extends Component {
 	state = {
@@ -63,8 +63,8 @@ export default class ComposeAndroid extends Component {
 	};
 
 	componentDidMount() {
-		// AppState.addEventListener('change', this._handleAppStateChange);
-		// CounterEvents.addListener('onChange', this._eventSubscription);
+		AppState.addEventListener('change', this._handleAppStateChange);
+		eventEmitter.addListener('onChange', this._eventSubscription);
 		this.playSong();
 
 		this.getBeaconData();
@@ -73,12 +73,12 @@ export default class ComposeAndroid extends Component {
 
 	componentWillUnmount() {
 		SoundPlayer.stop();
-		// AppState.removeEventListener('change', this._handleAppStateChange);
-		// CounterEvents.removeAllListeners(
-		// 	'onChange',
-		// 	this._eventSubscription,
-		// 	MyNativeModule.screenStatus('inactive')
-		// );
+		AppState.removeEventListener('change', this._handleAppStateChange);
+		eventEmitter.removeAllListeners(
+			'onChange',
+			this._eventSubscription,
+			MyNativeModule.screenStatus('inactive')
+		);
 	}
 
 	updateSound = async (id, name, email, pass, nameSound, rawSound) => {
@@ -130,7 +130,7 @@ export default class ComposeAndroid extends Component {
 				this.updateSound(id, name, email, pass, nameSound, rawSound);
 
 				console.log('parsed', id, nameSound, rawSound);
-				// MyNativeModule.userInfo(id, nameSound, rawSound);
+				MyNativeModule.userInfo(id, nameSound, rawSound);
 
 				this.setupNative();
 				this.getAnimationData();
@@ -141,6 +141,7 @@ export default class ComposeAndroid extends Component {
 	};
 
 	_eventSubscription = result => {
+		console.log(result);
 		this.setState({
 			distance: parseFloat(result.distance),
 			proximity: result.proximity,
@@ -152,7 +153,6 @@ export default class ComposeAndroid extends Component {
 		});
 
 		this.screenColor();
-		this.screenActivity();
 	};
 
 	getBeaconData = async () => {
@@ -220,25 +220,25 @@ export default class ComposeAndroid extends Component {
 	}
 
 	//Common
-	// _handleAppStateChange = nextAppState => {
-	// 	if (
-	// 		this.state.appState.match(/inactive|background/) &&
-	// 		nextAppState === 'active'
-	// 	) {
-	// 		console.log('App has come to the foreground!');
-	// 	}
-	// 	this.setState({ appState: nextAppState });
-	// };
+	_handleAppStateChange = nextAppState => {
+		if (
+			this.state.appState.match(/inactive|background/) &&
+			nextAppState === 'active'
+		) {
+			console.log('App has come to the foreground!');
+		}
+		this.setState({ appState: nextAppState });
+		this.screenActivity();
+	};
 
-	// IOS
 	setupNative = async () => {
-		// MyNativeModule.setBeacon(
-		// 	this.state.UUID,
-		// 	this.state.identifier,
-		// 	this.state.major,
-		// 	this.state.minor,
-		// 	this.state.beaconRange
-		// );
+		MyNativeModule.setBeacon(
+			this.state.UUID,
+			this.state.identifier,
+			this.state.major,
+			this.state.minor,
+			this.state.beaconRange
+		);
 
 		console.log(
 			'Beacon set ',
@@ -253,23 +253,23 @@ export default class ComposeAndroid extends Component {
 				this.state.beaconRange
 		);
 		this.setState({ isLoading: false });
-		// MyNativeModule.soundServer(this.state.serverIp, this.state.serverPort);
-		// console.log(
-		// 	'Sound Server set ',
-		// 	this.state.serverIp + ' ' + this.state.serverPort
-		// );
+		MyNativeModule.soundServer(this.state.serverIp, this.state.serverPort);
+		console.log(
+			'Sound Server set ',
+			this.state.serverIp + ' ' + this.state.serverPort
+		);
 	};
 
 	//Common
-	// screenActivity() {
-	// 	if (this.state.appState === 'inactive') {
-	// 		MyNativeModule.screenStatus('inactive');
-	// 	} else if (this.state.appState === 'background') {
-	// 		MyNativeModule.screenStatus('background');
-	// 	} else if (this.state.appState === 'active') {
-	// 		MyNativeModule.screenStatus('active');
-	// 	}
-	// }
+	screenActivity() {
+		if (this.state.appState === 'inactive') {
+			MyNativeModule.screenStatus('inactive');
+		} else if (this.state.appState === 'background') {
+			MyNativeModule.screenStatus('background');
+		} else if (this.state.appState === 'active') {
+			MyNativeModule.screenStatus('active');
+		}
+	}
 
 	screenColor() {
 		var ColorCode =
