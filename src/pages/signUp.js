@@ -10,13 +10,21 @@ import {
 	Alert,
 	TouchableOpacity,
 	KeyboardAvoidingView,
+	Keyboard,
+	TouchableWithoutFeedback,
 } from 'react-native';
 import NetInfo from '@react-native-community/netinfo';
 import AsyncStorage from '@react-native-community/async-storage';
+import { SafeAreaView } from 'react-navigation';
 // const unsubscribe = NetInfo.addEventListener(state => {
 // 	console.log('Connection type', state.type);
 // 	console.log('Look for Internet!', state.isInternetReachable);
 // });
+const DismissKeyboard = ({ children }) => (
+	<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+		{children}
+	</TouchableWithoutFeedback>
+);
 export default class Signup extends Component {
 	state = {
 		name: '',
@@ -319,7 +327,84 @@ export default class Signup extends Component {
 				// console.log('Success', responseJson);
 			} else {
 			}
-		} catch (error) {}
+		} catch (error) {
+			this.setState({
+				conectionStatus: 'Servidor local offline\ntentando online...',
+			});
+			this.messageTimer();
+			try {
+				const response = await fetch(
+					`${global.online}/index.php/validateUser`,
+					{
+						method: 'POST',
+						body: formData,
+					}
+				);
+				if (response.status === 200) {
+					// this.setState({ isLoading: false });
+					global.rawSource = global.online;
+					const responseJson = await response.json();
+					console.log('Server connection way: localhost fora usando online');
+					// console.log('Success', formData);
+					const { soundName } = responseJson;
+					const { soundRaw } = responseJson;
+					const { pass } = responseJson;
+					const { email } = responseJson;
+					const { name } = responseJson;
+					const { id } = responseJson;
+					this.setState({
+						soundName: soundName,
+						soundRaw: soundRaw,
+						userPass: pass,
+						userEmail: email,
+						userName: name,
+						userId: id,
+					});
+
+					if (pass === this.state.pass && email === this.state.email) {
+						this.storeData();
+						// this.appData();
+						this.animationData();
+						this.beacondata();
+						if (soundName < 1) {
+							this.props.navigation.navigate('Tutorial', {
+								userId: this.state.userId,
+							});
+						} else {
+							this.props.navigation.navigate('Tutorial', {
+								userId: this.state.userId,
+							});
+							// this.getIn();
+						}
+					} else if (responseJson === false) {
+						// Alert.alert('Compomus', 'Email ou senha incorretos!');
+						this.setState({
+							conectionStatus: 'Email ou senha incorretos!',
+						});
+						this.messageTimer();
+					}
+				} else {
+					// Alert.alert(
+					// 	'Compomus',
+					// 	'Houve um erro na solicitação\n Por favor tente novamente!'
+					// );
+					this.setState({
+						conectionStatus:
+							'Houve um erro na solicitação\n Por favor tente novamente!',
+					});
+					this.messageTimer();
+				}
+			} catch (error) {
+				console.log(error.message);
+				// Alert.alert('Compomus', 'Servidor local offline');
+				this.setState({ conectionStatus: 'Servidores offline' });
+				this.messageTimer();
+			}
+			// console.log(error.message);
+			// // Alert.alert('Compomus', 'Servidor local offline');
+			// this.setState({ conectionStatus: 'Servidor local offline' });
+			// this.messageTimer();
+		}
 	};
 
 	postData = async () => {
@@ -529,70 +614,70 @@ export default class Signup extends Component {
 
 	render() {
 		return (
-			<>
-				<StatusBar barStyle='dark-content' />
-				<KeyboardAvoidingView
-					style={styles.container}
-					behavior={Platform.select({
-						ios: 'padding',
-						android: null,
-					})}>
-					<View style={styles.logoContent}>
-						<Image
-							style={styles.logo}
-							source={require('../assets/icon_round2.png')}
-						/>
-					</View>
-					<View style={styles.inputer}>
-						{this.state.isLoading ? (
-							// <ActivityIndicator/>
-							<Text style={styles.welcome}>{this.state.conectionStatus}</Text>
-						) : (
-							<Text style={styles.welcome}>Bem Vindo(a) ao Compomus!</Text>
-						)}
-						<TextInput
-							style={styles.input}
-							onChangeText={text => this.updateValue(text, 'name')}
-							returnKeyType={'next'}
-							onSubmitEditing={() => this.field2.focus()}
-							placeholder='Digite seu Nome'
-							placeholderTextColor='#b3b3b3'
-						/>
+			<DismissKeyboard>
+				<SafeAreaView style={styles.container}>
+					<StatusBar barStyle='dark-content' />
+					<KeyboardAvoidingView
+						behavior={Platform.select({
+							ios: 'height',
+							android: null,
+						})}
+						enabled>
+						<View style={styles.logoContent}>
+							<Image
+								style={styles.logo}
+								source={require('../assets/icon_round2.png')}
+							/>
+						</View>
+						<View style={styles.inputer}>
+							{this.state.isLoading ? (
+								// <ActivityIndicator/>
+								<Text style={styles.welcome}>{this.state.conectionStatus}</Text>
+							) : (
+								<Text style={styles.welcome}>Bem Vindo(a) ao Compomus!</Text>
+							)}
+							<TextInput
+								style={styles.input}
+								onChangeText={text => this.updateValue(text, 'name')}
+								returnKeyType={'next'}
+								onSubmitEditing={() => this.field2.focus()}
+								placeholder='Digite seu Nome'
+								placeholderTextColor='#b3b3b3'
+							/>
 
-						<TextInput
-							style={styles.input}
-							keyboardType='email-address'
-							autoCapitalize='none'
-							onChangeText={text => this.updateValue(text, 'email')}
-							returnKeyType={'next'}
-							ref={input => {
-								this.field2 = input;
-							}}
-							onSubmitEditing={() => this.field3.focus()}
-							placeholder='Digite seu Email'
-							placeholderTextColor='#b3b3b3'
-						/>
-						<TextInput
-							secureTextEntry
-							style={styles.input}
-							autoCapitalize='none'
-							returnKeyType={'done'}
-							ref={input => {
-								this.field3 = input;
-							}}
-							onChangeText={text => this.updateValue(text, 'pass')}
-							placeholder='Digite uma Senha'
-							placeholderTextColor='#b3b3b3'
-							//onSubmitEditing={this.CheckTextInput}
-						/>
-					</View>
-					<View style={styles.contentButton}>
-						<TouchableOpacity
-							onPress={this.CheckTextInput}
-							style={styles.button}>
-							<Text style={styles.buttonText}>Registrar</Text>
-						</TouchableOpacity>
-						<View style={styles.contentButtonRegister}>
+							<TextInput
+								style={styles.input}
+								keyboardType='email-address'
+								autoCapitalize='none'
+								onChangeText={text => this.updateValue(text, 'email')}
+								returnKeyType={'next'}
+								ref={input => {
+									this.field2 = input;
+								}}
+								onSubmitEditing={() => this.field3.focus()}
+								placeholder='Digite seu Email'
+								placeholderTextColor='#b3b3b3'
+							/>
+							<TextInput
+								secureTextEntry
+								style={styles.input}
+								autoCapitalize='none'
+								returnKeyType={'done'}
+								ref={input => {
+									this.field3 = input;
+								}}
+								onChangeText={text => this.updateValue(text, 'pass')}
+								placeholder='Digite uma Senha'
+								placeholderTextColor='#b3b3b3'
+								//onSubmitEditing={this.CheckTextInput}
+							/>
+							<TouchableOpacity
+								onPress={this.CheckTextInput}
+								style={styles.button}>
+								<Text style={styles.buttonText}>Registrar</Text>
+							</TouchableOpacity>
+						</View>
+						<View style={styles.contentButton}>
 							<View style={styles.contentRegister}>
 								<Text style={styles.textRegister}>Já possui uma conta? </Text>
 								<TouchableOpacity
@@ -604,9 +689,9 @@ export default class Signup extends Component {
 								</TouchableOpacity>
 							</View>
 						</View>
-					</View>
-				</KeyboardAvoidingView>
-			</>
+					</KeyboardAvoidingView>
+				</SafeAreaView>
+			</DismissKeyboard>
 		);
 	}
 }
@@ -621,37 +706,39 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignSelf: 'stretch',
-		marginTop: '12%',
+		// marginTop: '12%',
+		// backgroundColor: 'blue',
 	},
 	logo: {
 		// justifyContent: 'center',
 		resizeMode: 'contain',
-		alignItems: 'center',
+		// alignItems: 'center',
 		width: '100%',
 
-		height: '60%',
-		borderRadius: 980,
+		height: '55%',
+		// borderRadius: 980,
 		// shadowColor: '#000',
 		// shadowOffset: { width: 0, height: 0 },
 		// shadowOpacity: 0.5,
 		// shadowRadius: 1,
 	},
 	welcome: {
-		marginBottom: '10%',
-		//marginBottom: '3%',
+		textAlign: 'center',
+		marginBottom: '7%',
+		// padding: 10,
 		fontSize: 18,
 		fontWeight: 'bold',
 		color: '#4DAE4C',
 	},
 	inputer: {
-		//flex: 3,
-		// marginTop: '10%',
-		justifyContent: 'flex-start',
+		// flex: 2,
+		marginTop: '2%',
+		justifyContent: 'space-between',
 		alignItems: 'center',
-		// backgroundColor: '#ddd',
+		// backgroundColor: 'red',
 	},
 	input: {
-		marginBottom: '6%',
+		marginBottom: '7%',
 		padding: '2%',
 		width: 300,
 		height: 50,
@@ -664,7 +751,7 @@ const styles = StyleSheet.create({
 		shadowOffset: { width: 0, height: 0 },
 		shadowOpacity: 0.5,
 		// shadowRadius: 1,
-		elevation: 0,
+		elevation: 0.5,
 	},
 	button: {
 		width: 300,
@@ -674,23 +761,18 @@ const styles = StyleSheet.create({
 		backgroundColor: '#4DAE4C',
 		justifyContent: 'center',
 		alignItems: 'center',
-		shadowColor: 'rgba(0, 0, 0, 0.55)',
+		shadowColor: 'rgba(0, 0, 0, 0.22)',
 		shadowOffset: { width: 0, height: 0 },
 		shadowOpacity: 0.5,
 		// shadowRadius: 1,
-		elevation: 0,
+		elevation: 0.5,
 	},
 	buttonText: {
 		color: '#fff',
 		fontSize: 16,
 		fontWeight: 'bold',
 	},
-	contentRegister: {
-		// flex: 1,
-		// justifyContent: 'flex-start',
-		alignItems: 'baseline',
-		flexDirection: 'row',
-	},
+
 	textRegister: {
 		color: '#4DAE4C',
 		fontSize: 16,
@@ -701,18 +783,20 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		fontWeight: 'bold',
 	},
-	contentButtonRegister: {
-		// flex: 1,
-		marginTop: '8%',
-		// justifyContent: 'flex-end',
-		// alignItems: 'center',
-		// marginBottom: '6%',
+	contentRegister: {
+		flex: 1,
+		// justifyContent: 'flex-start',
+		alignItems: 'center',
+		flexDirection: 'row',
 	},
 	contentButton: {
 		// flex: 1,
-		marginTop: '18%',
-		justifyContent: 'flex-end',
-		alignItems: 'center',
-		marginBottom: '-4%',
+		marginTop: '2%',
+		width: '100%',
+		height: '15%',
+		justifyContent: 'center',
+		alignSelf: 'center',
+		// marginBottom: '2%',
+		// backgroundColor: 'green',
 	},
 });

@@ -1,4 +1,4 @@
-#Thu Mar 05 11:12:57 AMT 2020
+#Thu Mar 05 18:53:06 AMT 2020
 base.0=/Volumes/Storage/Documents/compomus/android/app/build/intermediates/transforms/dexMerger/debug/0
 renamed.0=classes.dex
 path.0=classes.dex

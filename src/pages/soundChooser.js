@@ -178,37 +178,6 @@ export default class SoundChooser extends Component {
 		}
 	};
 
-	// updateSound = async (soundName, soundRaw) => {
-	// 	let formData = new FormData();
-
-	// 	formData.append('id', this.state.userId);
-	// 	formData.append('name', this.state.userName);
-	// 	formData.append('email', this.state.userEmail);
-	// 	formData.append('pass', this.state.userPass);
-	// 	formData.append('soundRaw', soundRaw);
-	// 	formData.append('soundName', soundName);
-	// 	try {
-	// 		const response = await fetch(`${global.rawSource}/index.php/updateUser`, {
-	// 			method: 'POST',
-	// 			body: formData,
-	// 		});
-	// 		if (response.status === 200) {
-	// 			//const responseJson = await response.json();
-	// 			console.log('Mudança gravada no banco com sucesso!');
-	// 			// Alert.alert('Compomus', 'Som escolhido com sucesso!');
-	// 		} else {
-	// 			Alert.alert('Compomus', 'Erro ao definir som');
-	// 		}
-	// 	} catch (error) {
-	// 		Alert.alert(
-	// 			'Compomus',
-	// 			'Sem resposta do servidor\n Por Favor tente novamente'
-	// 		);
-	// 	}
-
-	// 	//console.log(formData);
-	// };
-
 	renderItem = ({ item, index }) => (
 		<View style={styles.soundContainer}>
 			<Text style={styles.soundName}>{item.name}</Text>
@@ -285,7 +254,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		// justifyContent: 'center',
 		// alignItems: 'center',
-		backgroundColor: '#333',
+		backgroundColor: '#e7e7e7',
 	},
 	list: {
 		padding: 0,
@@ -306,7 +275,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		// width: '95%',
 		alignItems: 'stretch',
-		padding: 20,
+		padding: '3%',
 		backgroundColor: '#fff',
 		marginTop: '2%',
 		marginLeft: '2%',

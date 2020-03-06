@@ -12,7 +12,8 @@ import {
 	Platform,
 	KeyboardAvoidingView,
 	SafeAreaView,
-	ActivityIndicator,
+	Keyboard,
+	TouchableWithoutFeedback,
 } from 'react-native';
 // import 'whatwg-fetch';
 import Ping from 'react-native-ping';
@@ -24,6 +25,11 @@ import { NavigationEvents } from 'react-navigation';
 // 	console.log('Connection type', state.type);
 // 	console.log('Look for Internet!', state.isInternetReachable);
 // });
+const DismissKeyboard = ({ children }) => (
+	<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+		{children}
+	</TouchableWithoutFeedback>
+);
 export default class Login extends Component {
 	constructor(props) {
 		super(props);
@@ -529,79 +535,79 @@ export default class Login extends Component {
 	render() {
 		console.disableYellowBox = true;
 		return (
-			<>
-				<StatusBar barStyle='dark-content' />
-				{/* <View style={styles.container}> */}
-				{/* <NavigationEvents onDidFocus={() => this.conection()} /> */}
-				<KeyboardAvoidingView
-					style={styles.container}
-					behavior={Platform.select({
-						ios: 'padding',
-						android: null,
-					})}>
-					<View style={styles.logoContent}>
-						<Image
-							style={styles.logo}
-							source={require('../assets/icon_round2.png')}
-						/>
-					</View>
+			<DismissKeyboard>
+				<SafeAreaView style={styles.container}>
+					<StatusBar barStyle='dark-content' />
+					{/* <View style={styles.container}> */}
+					{/* <NavigationEvents onDidFocus={() => this.conection()} /> */}
+					<KeyboardAvoidingView
+						behavior={Platform.select({
+							ios: 'padding',
+							android: null,
+						})}>
+						<View style={styles.logoContent}>
+							<Image
+								style={styles.logo}
+								source={require('../assets/icon_round2.png')}
+							/>
+						</View>
 
-					<View style={styles.inputer}>
-						{this.state.isLoading ? (
-							// <ActivityIndicator/>
-							<Text style={styles.welcome}>{this.state.conectionStatus}</Text>
-						) : (
-							<Text style={styles.welcome}>Bem Vindo(a) ao Compomus!</Text>
-						)}
+						<View style={styles.inputer}>
+							{this.state.isLoading ? (
+								// <ActivityIndicator/>
+								<Text style={styles.welcome}>{this.state.conectionStatus}</Text>
+							) : (
+								<Text style={styles.welcome}>Bem Vindo(a) ao Compomus!</Text>
+							)}
 
-						<TextInput
-							style={styles.input}
-							keyboardType='email-address'
-							autoCapitalize='none'
-							// textContentType={'emailAdress'}
-							placeholder='Digite seu Email'
-							placeholderTextColor='#b3b3b3'
-							returnKeyType='next'
-							onSubmitEditing={() => this.field2.focus()}
-							onChangeText={text => this.updateValue(text, 'email')}
-						/>
-						<TextInput
-							secureTextEntry
-							style={styles.input}
-							autoCapitalize='none'
-							returnKeyType='go'
-							ref={input => {
-								this.field2 = input;
-							}}
-							placeholder='Digite sua Senha'
-							placeholderTextColor='#b3b3b3'
-							onSubmitEditing={this.CheckTextInput}
-							onChangeText={text => this.updateValue(text, 'pass')}
-						/>
-					</View>
-					<View style={styles.contentButton}>
-						<TouchableOpacity
-							onPress={this.CheckTextInput}
-							style={styles.button}>
-							<Text style={styles.buttonText}>Login</Text>
-						</TouchableOpacity>
-						<View style={styles.contentButtonRegister}>
+							<TextInput
+								style={styles.input}
+								keyboardType='email-address'
+								autoCapitalize='none'
+								// textContentType={'emailAdress'}
+								placeholder='Digite seu Email'
+								placeholderTextColor='#b3b3b3'
+								returnKeyType='next'
+								onSubmitEditing={() => this.field2.focus()}
+								onChangeText={text => this.updateValue(text, 'email')}
+							/>
+							<TextInput
+								secureTextEntry
+								style={styles.input}
+								autoCapitalize='none'
+								returnKeyType='go'
+								ref={input => {
+									this.field2 = input;
+								}}
+								placeholder='Digite sua Senha'
+								placeholderTextColor='#b3b3b3'
+								onSubmitEditing={this.CheckTextInput}
+								onChangeText={text => this.updateValue(text, 'pass')}
+							/>
+							<TouchableOpacity
+								onPress={this.CheckTextInput}
+								style={styles.button}>
+								<Text style={styles.buttonText}>Login</Text>
+							</TouchableOpacity>
+						</View>
+						<View style={styles.contentButton}>
+							{/* <View style={styles.contentButtonRegister}> */}
 							<View style={styles.contentRegister}>
 								<Text style={styles.textRegister}>Não tem conta ainda? </Text>
 								<TouchableOpacity
 									onPress={() => {
 										this.props.navigation.navigate('Signup');
-									}}
-									style={styles.buttonRegister}>
+									}}>
 									<Text style={styles.buttonTextRegister}>Registrar-se</Text>
 								</TouchableOpacity>
 							</View>
+							{/* </View> */}
 						</View>
-					</View>
-				</KeyboardAvoidingView>
+					</KeyboardAvoidingView>
 
-				{/* </View> */}
-			</>
+					{/* </View> */}
+				</SafeAreaView>
+			</DismissKeyboard>
 		);
 	}
 }
@@ -610,6 +616,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		alignItems: 'center',
+
 		backgroundColor: '#f1f1f1',
 	},
 	logoContent: {
@@ -617,16 +624,17 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignSelf: 'stretch',
 		// alignItems: 'center',
-		marginTop: '12%',
+		// marginTop: '12%',
 		// width: '100%',
+		// backgroundColor: 'blue',
 	},
 	logo: {
 		// justifyContent: 'center',
-		marginBottom: '-5%',
+		// marginBottom: '-5%',
 		// alignItems: 'center',
 		resizeMode: 'contain',
 		width: '100%',
-		height: '60%',
+		height: '45%',
 		// borderRadius: 50,
 		// shadowColor: '#000',
 		// shadowOffset: { width: 0, height: 0 },
@@ -635,34 +643,35 @@ const styles = StyleSheet.create({
 	},
 	welcome: {
 		// marginTop: '5%',
-		marginBottom: '10%',
+		textAlign: 'center',
+		marginBottom: '7%',
 		// padding: 10,
 		fontSize: 18,
 		fontWeight: 'bold',
 		color: '#4DAE4C',
 	},
 	inputer: {
-		// flex: 3,
-		// marginTop: '10%',
-		justifyContent: 'flex-start',
+		// flex: 2,
+		marginTop: '2%',
+		justifyContent: 'space-between',
 		alignItems: 'center',
-		// backgroundColor: '#ddd',
+		// backgroundColor: 'red',
 	},
 	input: {
-		marginBottom: '8%',
+		marginBottom: '10%',
 		padding: '2%',
 		width: 300,
-		height: 50,
+		height: 48,
 		backgroundColor: '#fff',
 		fontSize: 16,
 		color: '#4a4a4a',
 		fontWeight: 'bold',
 		borderRadius: 14,
-		shadowColor: 'rgba(0, 0, 0, 0.22)',
+		shadowColor: 'rgba(0, 0, 0, 0.20)',
 		shadowOffset: { width: 0, height: 0 },
 		shadowOpacity: 0.5,
 		// shadowRadius: 1,
-		elevation: 0,
+		elevation: 0.5,
 	},
 	button: {
 		width: 300,
@@ -674,21 +683,16 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		shadowColor: 'rgba(0, 0, 0, 0.50)',
 		shadowOffset: { width: 0, height: 0 },
-		shadowOpacity: 0.5,
+		shadowOpacity: 0.1,
 		// shadowRadius: 1,
-		elevation: 0,
+		elevation: 0.5,
 	},
 	buttonText: {
 		color: '#fff',
 		fontSize: 16,
 		fontWeight: 'bold',
 	},
-	contentRegister: {
-		// flex: 1,
-		// justifyContent: 'flex-end',
-		alignItems: 'baseline',
-		flexDirection: 'row',
-	},
+
 	textRegister: {
 		color: '#4DAE4C',
 		fontSize: 16,
@@ -699,18 +703,21 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		fontWeight: 'bold',
 	},
-	contentButtonRegister: {
-		// flex: 1,
-		marginTop: '8%',
-		// justifyContent: 'flex-end',
-		// alignItems: 'center',
-		// marginBottom: '6%',
+	contentRegister: {
+		flex: 1,
+		// justifyContent: 'center',
+		alignItems: 'center',
+		flexDirection: 'row',
 	},
+
 	contentButton: {
 		// flex: 1,
-		marginTop: '22%',
-		justifyContent: 'flex-end',
-		alignItems: 'center',
-		// marginBottom: '4%',
+		marginTop: '2%',
+		width: '100%',
+		height: '15%',
+		justifyContent: 'center',
+		alignSelf: 'center',
+		// marginBottom: '2%',
+		// backgroundColor: 'green',
 	},
 });

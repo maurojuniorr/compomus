@@ -88,8 +88,8 @@ export default class ComposeIOS extends Component {
 		formData.append('name', name);
 		formData.append('email', email);
 		formData.append('pass', pass);
-		formData.append('soundRaw', nameSound);
-		formData.append('soundName', rawSound);
+		formData.append('soundRaw', rawSound);
+		formData.append('soundName', nameSound);
 		try {
 			console.log(global.rawSource);
 			const response = await fetch(`${global.rawSource}/index.php/updateUser`, {
@@ -152,6 +152,7 @@ export default class ComposeIOS extends Component {
 		});
 
 		this.screenColor();
+		this.screenActivity();
 	};
 
 	getBeaconData = async () => {
@@ -227,7 +228,6 @@ export default class ComposeIOS extends Component {
 			console.log('App has come to the foreground!');
 		}
 		this.setState({ appState: nextAppState });
-		this.screenActivity();
 	};
 
 	setupNative = async () => {

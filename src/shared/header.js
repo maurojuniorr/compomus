@@ -1,28 +1,38 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {
+	View,
+	Text,
+	StyleSheet,
+	TouchableWithoutFeedback,
+	Keyboard,
+} from 'react-native';
 import { Icon } from 'react-native-elements';
+const DismissKeyboard = ({ children }) => (
+	<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+		{children}
+	</TouchableWithoutFeedback>
+);
 export default function Header({ navigation, title }) {
-	const openMenu = () => {
-		navigation.openDrawer();
-	};
 	return (
-		<View style={styles.header}>
-			<View style={styles.icon}>
-				<Icon
-					name='align-justify'
-					size={31}
-					type='feather'
-					color='white'
-					onPress={openMenu}
-					reverseColor='white'
-					//activeOpacity={0.0}
-					underlayColor={'#4DAE4C'}
-				/>
+		<DismissKeyboard>
+			<View style={styles.header}>
+				<View style={styles.icon}>
+					<Icon
+						name='align-justify'
+						size={30}
+						type='feather'
+						color='white'
+						onPress={() => (navigation.openDrawer(), Keyboard.dismiss())}
+						reverseColor='white'
+						//activeOpacity={0.0}
+						underlayColor={'#0000'}
+					/>
+				</View>
+				<View style={styles.textContent}>
+					<Text style={styles.headerText}>{title}</Text>
+				</View>
 			</View>
-			<View style={styles.textContent}>
-				<Text style={styles.headerText}>{title}</Text>
-			</View>
-		</View>
+		</DismissKeyboard>
 	);
 }
 

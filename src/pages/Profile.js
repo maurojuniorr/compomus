@@ -5,14 +5,22 @@ import {
 	StyleSheet,
 	TouchableOpacity,
 	KeyboardAvoidingView,
+	TouchableWithoutFeedback,
+	Keyboard,
 	Image,
 	Alert,
 	TextInput,
 } from 'react-native';
-import { NavigationEvents } from 'react-navigation';
+import { NavigationEvents, SafeAreaView } from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
 // import Lottie from 'lottie-react-native';
 // import iconProfile from '../assets/iconProfile.json';
+
+const DismissKeyboard = ({ children }) => (
+	<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+		{children}
+	</TouchableWithoutFeedback>
+);
 export default class Profile extends Component {
 	state = {
 		userId: '',
@@ -186,36 +194,36 @@ export default class Profile extends Component {
 	render() {
 		const { navigation } = this.props;
 		return (
-			<>
-				{/* <StatusBar barStyle='dark-content' /> */}
-				{/* <View style={styles.container}> */}
-				<KeyboardAvoidingView
-					style={styles.container}
-					behavior={Platform.select({
-						ios: 'padding',
-						android: null,
-					})}>
-					<NavigationEvents onDidFocus={() => this.getData()} />
-					<View style={styles.logoContent}>
-						<Image
-							//autoSize={true}
-							// resizeMode='center'
-							style={styles.logo}
-							source={require('../assets/profileIcon.jpg')}
-						/>
-					</View>
-					<View style={styles.inputer}>
-						{this.state.isLoading ? (
-							// <ActivityIndicator/>
-							<Text style={styles.welcome}>Processando Aguarde...</Text>
-						) : this.state.statusRequest ? (
-							<Text style={styles.welcome}>
-								Mudanças efetuadas com sucesso!
-							</Text>
-						) : (
-							<Text style={[styles.welcome, { color: '#0000' }]}>33</Text>
-						)}
-						<View style={styles.labelContent}>
+			<DismissKeyboard>
+				<SafeAreaView style={styles.container}>
+					{/* <StatusBar barStyle='dark-content' /> */}
+					{/* <View style={styles.container}> */}
+
+					<KeyboardAvoidingView
+						behavior={Platform.select({
+							ios: 'padding',
+							android: null,
+						})}>
+						<NavigationEvents onDidFocus={() => this.getData()} />
+						<View style={styles.logoContent}>
+							<Image
+								//autoSize={true}
+								// resizeMode='center'
+								style={styles.logo}
+								source={require('../assets/profileIcon.jpg')}
+							/>
+							{this.state.isLoading ? (
+								// <ActivityIndicator/>
+								<Text style={styles.welcome}>Processando Aguarde...</Text>
+							) : this.state.statusRequest ? (
+								<Text style={styles.welcome}>
+									Mudanças efetuadas com sucesso!
+								</Text>
+							) : (
+								<Text style={[styles.welcome, { color: '#0000' }]}>teste</Text>
+							)}
+						</View>
+						<View style={styles.inputer}>
 							<Text style={styles.label}>Nome</Text>
 							<TextInput
 								style={styles.input}
@@ -255,32 +263,33 @@ export default class Profile extends Component {
 								//onSubmitEditing={this.CheckTextInput}
 								onChangeText={text => this.updateValue(text, 'pass')}
 							/>
+							<Text style={styles.label}></Text>
+							<TouchableOpacity
+								onPress={() => {
+									Alert.alert(
+										'Atualização de Dados',
+										'Você tem certeza disso?\nEsta ação não pode ser desfeita!',
+										[
+											{
+												text: 'Cancelar',
+												onPress: () => console.log('Cancel Pressed'),
+												style: 'cancel',
+											},
+											{ text: 'Confirmar', onPress: () => this.verifyData() },
+										],
+										{ cancelable: false }
+									);
+									// this.storeData();
+								}}
+								style={styles.button}>
+								<Text style={styles.buttonText}>Enviar</Text>
+							</TouchableOpacity>
 						</View>
-					</View>
-					<View style={styles.contentButton}>
-						<TouchableOpacity
-							onPress={() => {
-								Alert.alert(
-									'Atualização de Dados',
-									'Você tem certeza disso?\nEsta ação não pode ser desfeita!',
-									[
-										{
-											text: 'Cancelar',
-											onPress: () => console.log('Cancel Pressed'),
-											style: 'cancel',
-										},
-										{ text: 'Confirmar', onPress: () => this.verifyData() },
-									],
-									{ cancelable: false }
-								);
-								// this.storeData();
-							}}
-							style={styles.button}>
-							<Text style={styles.buttonText}>Enviar</Text>
-						</TouchableOpacity>
-					</View>
-				</KeyboardAvoidingView>
-			</>
+
+						<View style={styles.contentButton}></View>
+					</KeyboardAvoidingView>
+				</SafeAreaView>
+			</DismissKeyboard>
 		);
 	}
 }
@@ -298,52 +307,49 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 
 		marginTop: '2%',
+		// backgroundColor: 'red',
 	},
 	logo: {
 		//justifyContent: 'center',
-		alignItems: 'center',
+		// alignItems: 'center',
 		resizeMode: 'contain',
 		//alignSelf: 'stretch',
-		//marginTop: '5%',
-		marginBottom: '-5%',
+		// marginTop: '15%',
+		// marginBottom: '-5%',
 		width: '100%',
 		height: '70%',
 	},
 	label: {
 		color: '#4DAE4C',
-		fontSize: 16,
+		fontSize: 14,
 		fontWeight: 'bold',
-		marginBottom: 5,
+		marginBottom: '1%',
 		left: 5,
 		letterSpacing: 1,
 	},
 	welcome: {
 		// marginTop: '2%',
-		marginBottom: '4%',
-		//padding: 10,
+		textAlign: 'center',
+		marginTop: '5%',
+		// padding: 10,
 		fontSize: 18,
 		fontWeight: 'bold',
 		color: '#4DAE4C',
-	},
-	labelContent: {
-		//flex: 1,
-		// justifyContent: 'flex-start',
-		//alignItems: 'center',
-		//marginBottom: 280,
 	},
 
 	inputer: {
 		//flex: 2,
 		// marginTop: '10%',
-		justifyContent: 'flex-start',
-		alignItems: 'center',
+		// marginTop: '2%',
+		justifyContent: 'space-between',
+		// alignItems: 'center',
 		//alignSelf: 'stretch',
-		// backgroundColor: '#ddd',
+		// backgroundColor: 'blue',
 	},
 	input: {
-		marginBottom: 10,
+		marginBottom: '4%',
 		padding: '2%',
-		width: 300,
+		width: '100%',
 		height: 50,
 		backgroundColor: '#fff',
 		fontSize: 16,
@@ -354,7 +360,7 @@ const styles = StyleSheet.create({
 		shadowOffset: { width: 0, height: 0 },
 		shadowOpacity: 0.1,
 		// shadowRadius: 1,
-		elevation: 0,
+		elevation: 0.5,
 	},
 	button: {
 		width: 300,
@@ -368,7 +374,7 @@ const styles = StyleSheet.create({
 		shadowOffset: { width: 0, height: 0 },
 		shadowOpacity: 0.1,
 		// shadowRadius: 1,
-		elevation: 0,
+		elevation: 0.5,
 	},
 	buttonText: {
 		color: '#fff',
@@ -376,10 +382,13 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 	},
 	contentButton: {
-		//	flex: 1,
-		marginTop: '22%',
-		justifyContent: 'flex-end',
-		alignItems: 'center',
-		marginBottom: '6%',
+		// flex: 1,
+		marginBottom: '10%',
+		width: '100%',
+		height: '5%',
+		justifyContent: 'center',
+		alignSelf: 'center',
+		// marginBottom: '2%',
+		// backgroundColor: 'green',
 	},
 });

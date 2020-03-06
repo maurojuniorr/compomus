@@ -45,6 +45,7 @@ public class MyNativeModule extends ReactContextBaseJavaModule implements Beacon
     private SensorManager mSensorManager;
 
     private String identifier = "";
+    private String beacon = "";
     private String uuid = "";
     private int major = 123;
     private int minor = 456;
@@ -56,7 +57,7 @@ public class MyNativeModule extends ReactContextBaseJavaModule implements Beacon
     private String soundRaw = "";
     private String soundName = "";
     private float x,y;
-    private double distancia;
+    private double distancia = 0;
     private boolean entered = false;
     private boolean isInside = false;
     private String proximity = "";
@@ -91,6 +92,8 @@ public class MyNativeModule extends ReactContextBaseJavaModule implements Beacon
                         SensorManager.SENSOR_DELAY_NORMAL);
 
     }
+
+
 
     @NonNull
     @Override
@@ -161,9 +164,18 @@ public class MyNativeModule extends ReactContextBaseJavaModule implements Beacon
         mBeaconManager.addRangeNotifier(new RangeNotifier() {
             @Override
             public void didRangeBeaconsInRegion(Collection<Beacon> beacons, Region region) {
-                if (beacons.size() > 0) {
+
+                if (beacons.size() > 0 ) {
+                    beacon = String.valueOf(beacons.iterator().next().getId1());
                     distancia = beacons.iterator().next().getDistance();
+
                     update(distancia,azimuth);
+
+                }else {
+//                    azimuth = 0;
+                      distancia = 0;
+//                    proximity = "unknown";
+                    update(distancia, azimuth );
                 }
             }
 
@@ -172,9 +184,9 @@ public class MyNativeModule extends ReactContextBaseJavaModule implements Beacon
 
     private void update(double Distancia, double Azimuth){
 
-        if (Distancia == -1.0) {
+        if (Distancia == 0 || Distancia == -1.0) {
             proximity = "unknown";
-        } else if (Distancia < 1) {
+        } else if (Distancia < 1 && Distancia > 0) {
             proximity = "immediate";
         } else if (Distancia < 3) {
             proximity = "near";
@@ -227,21 +239,26 @@ public class MyNativeModule extends ReactContextBaseJavaModule implements Beacon
 
             sendUpdateOSC(x,y);
 
-            WritableMap params = Arguments.createMap();
-            params.putString("soundRaw", soundRaw);
-            params.putString("soundName", soundName);
-            params.putDouble("userId",  userId );
-            params.putDouble("degrees",  Azimuth );
-            params.putString("alive", alive);
-            params.putString("proximity", proximity);
-            params.putDouble("distance",  Distancia );
-            sendEvent(mReactContext, params);
+           
         }
 
-//        System.out.println("ta dentro "+isInside);
-//        System.out.println("Entrou "+entered);
-//        System.out.println("screen "+ screenStatus);
-//        System.out.println("Alive "+alive);
+        WritableMap params = Arguments.createMap();
+        params.putString("soundRaw", soundRaw);
+        params.putString("soundName", soundName);
+        params.putDouble("userId",  userId );
+        params.putDouble("degrees",  Azimuth );
+        params.putString("alive", alive);
+        params.putString("proximity", proximity);
+        params.putDouble("distance",  Distancia );
+        sendEvent(mReactContext, params);
+
+        System.out.println("Distancia "+distancia);
+        System.out.println("Proximity "+proximity);
+        System.out.println("ta dentro "+isInside);
+        System.out.println("Entrou "+entered);
+        System.out.println("screen "+ screenStatus);
+        System.out.println("Alive "+alive);
+        System.out.println("Beacon "+beacon);
 
 
 
