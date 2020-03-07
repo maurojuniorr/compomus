@@ -537,7 +537,15 @@ export default class Login extends Component {
 		return (
 			<DismissKeyboard>
 				<SafeAreaView style={styles.container}>
-					<StatusBar barStyle='dark-content' />
+					<StatusBar
+						// hidden={true}
+						backgroundColor='#0000'
+						barStyle={Platform.select({
+							ios: 'dark-content',
+							android: 'light-content',
+						})}
+					/>
+
 					{/* <View style={styles.container}> */}
 					{/* <NavigationEvents onDidFocus={() => this.conection()} /> */}
 					<KeyboardAvoidingView
@@ -548,7 +556,7 @@ export default class Login extends Component {
 						<View style={styles.logoContent}>
 							<Image
 								style={styles.logo}
-								source={require('../assets/icon_round2.png')}
+								source={require('../assets/logoTransparent1.png')}
 							/>
 						</View>
 
@@ -585,7 +593,7 @@ export default class Login extends Component {
 								onChangeText={text => this.updateValue(text, 'pass')}
 							/>
 							<TouchableOpacity
-								onPress={this.CheckTextInput}
+								onPress={() => (this.CheckTextInput(), Keyboard.dismiss())}
 								style={styles.button}>
 								<Text style={styles.buttonText}>Login</Text>
 							</TouchableOpacity>
@@ -634,7 +642,7 @@ const styles = StyleSheet.create({
 		// alignItems: 'center',
 		resizeMode: 'contain',
 		width: '100%',
-		height: '45%',
+		height: '85%',
 		// borderRadius: 50,
 		// shadowColor: '#000',
 		// shadowOffset: { width: 0, height: 0 },

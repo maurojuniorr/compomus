@@ -196,7 +196,7 @@ export default class Profile extends Component {
 		return (
 			<DismissKeyboard>
 				<SafeAreaView style={styles.container}>
-					{/* <StatusBar barStyle='dark-content' /> */}
+					{/* <StatusBar hidden={false} barStyle='light-content' /> */}
 					{/* <View style={styles.container}> */}
 
 					<KeyboardAvoidingView
@@ -210,7 +210,7 @@ export default class Profile extends Component {
 								//autoSize={true}
 								// resizeMode='center'
 								style={styles.logo}
-								source={require('../assets/profileIcon.jpg')}
+								source={require('../assets/iconProfile.png')}
 							/>
 							{this.state.isLoading ? (
 								// <ActivityIndicator/>
@@ -323,7 +323,7 @@ const styles = StyleSheet.create({
 		color: '#4DAE4C',
 		fontSize: 14,
 		fontWeight: 'bold',
-		marginBottom: '1%',
+		marginBottom: '0.6%',
 		left: 5,
 		letterSpacing: 1,
 	},
@@ -347,7 +347,7 @@ const styles = StyleSheet.create({
 		// backgroundColor: 'blue',
 	},
 	input: {
-		marginBottom: '4%',
+		marginBottom: '2%',
 		padding: '2%',
 		width: '100%',
 		height: 50,

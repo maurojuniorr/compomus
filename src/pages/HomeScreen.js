@@ -86,11 +86,11 @@ export default class HomeScreen extends Component {
 					<View style={styles.logoContent}>
 						<Image
 							style={styles.logo}
-							source={require('../assets/icon_round2.png')}
+							source={require('../assets/logoTransparent1.png')}
 						/>
-						<Text style={styles.text1}>COMPOMUS</Text>
 					</View>
 					<View style={styles.textContainer}>
+						<Text style={styles.text1}>COMPOMUS</Text>
 						<Text style={styles.text2}>Aqui todos participam!</Text>
 						<Text style={styles.text2}>
 							Experimente uma nova abordagem de interação com sons em espaços
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
 		// marginLeft: '-12%',
 		// marginRight: '-12%',
 		// backgroundColor: '#fff',
-		// backgroundColor: 'red',
+		// backgroundColor: 'blue',
 		// alignItems: 'center',
 		// justifyContent: 'center',
 		// marginBottom: '5%',
@@ -214,18 +214,19 @@ const styles = StyleSheet.create({
 	},
 	logoContent: {
 		flex: 1,
-		justifyContent: 'center',
-		alignSelf: 'stretch',
-		alignItems: 'center',
-		marginTop: '12%',
+		justifyContent: 'flex-end',
+		// alignSelf: 'stretch',
+		// alignItems: 'center',
+		// marginTop: '12%',
 		// width: '100%',
+		// backgroundColor: 'red',
 	},
 	logo: {
 		// justifyContent: 'center',
 		// marginBottom: '5%',
 		// alignItems: 'center',
 		resizeMode: 'contain',
-		width: '100%',
+		// width: '100%',
 		height: '100%',
 		// borderRadius: 50,
 		// shadowColor: '#000',
@@ -238,15 +239,15 @@ const styles = StyleSheet.create({
 		flex: 1,
 		marginLeft: '8%',
 		marginRight: '8%',
-		// backgroundColor: '#fff',
+		// backgroundColor: 'yellow',
 		alignItems: 'center',
 		justifyContent: 'center',
 
-		marginTop: '5%',
+		// marginTop: '5%',
 	},
 	text1: {
 		textAlign: 'center',
-		marginTop: '5%',
+		marginBottom: '5%',
 		color: '#4DAE4C',
 		fontSize: 30,
 		fontWeight: 'bold',

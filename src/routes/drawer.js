@@ -35,7 +35,7 @@ const customNavigator = (props, navigation) => (
 			}}>
 			<Image
 				style={{ height: 100, width: 100, borderRadius: 30 }}
-				source={require('../assets/icon_round.png')}
+				source={require('../assets/logoRounded.png')}
 			/>
 		</View>
 		<ScrollView>

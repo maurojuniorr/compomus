@@ -23,7 +23,7 @@ export default function About({ props }) {
 		<SafeAreaView style={styles.container}>
 			<StatusBar barStyle='light-content' />
 			<Modal animationType='slide' transparent={true} visible={modalOpen}>
-				<SafeAreaView style={styles.modalContainer}>
+				<View style={styles.modalContainer}>
 					<View style={styles.header}>
 						<View style={styles.headerIcon}>
 							<Icon
@@ -47,7 +47,7 @@ export default function About({ props }) {
 					{/* <View style={styles.webViewContainer}> */}
 					<WebView style={styles.webViewContainer} source={{ uri: url }} />
 					{/* </View> */}
-				</SafeAreaView>
+				</View>
 			</Modal>
 			<View style={styles.logoContent}>
 				<Text style={styles.text1}>Sobre a Ação Tecnológica</Text>
@@ -58,10 +58,7 @@ export default function About({ props }) {
 					UFAM.
 				</Text>
 			</View>
-
-			<View style={styles.textContainer}>
-				{/* <Text style={styles.text2}>FunTechShow [IComp/UFAM]</Text> */}
-
+			<View style={styles.meioContainer}>
 				<TouchableOpacity
 					onPress={() => {
 						[
@@ -75,6 +72,9 @@ export default function About({ props }) {
 						source={require('../assets/funtechGarantido.png')}
 					/>
 				</TouchableOpacity>
+			</View>
+			<View style={styles.textContainer}>
+				{/* <Text style={styles.text2}>FunTechShow [IComp/UFAM]</Text> */}
 
 				<View style={styles.iconsRedesSociais}>
 					<Icon
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
 	container: {
 		// backgroundColor: '#f1f1f1',
 		flex: 1,
-		// alignSelf: 'stretch',
+		alignSelf: 'stretch',
 		alignItems: 'center',
 	},
 	header: {
@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
 		// marginLeft: '0.1%',
 		// marginRight: '0.1%',
 		marginTop: '8%',
-		marginBottom: '-15%',
+		marginBottom: '-4%',
 
 		borderTopEndRadius: 15,
 		borderTopStartRadius: 15,
@@ -218,17 +218,28 @@ const styles = StyleSheet.create({
 		// justifyContent: 'flex-start',
 		// marginTop: '-40%',
 	},
+	logoContent: {
+		flex: 1,
+		justifyContent: 'center',
+		// alignSelf: 'stretch',
+		marginLeft: '5%',
+		marginRight: '5%',
+		// alignItems: 'center',
+		// marginTop: '10%',
+		// width: '100%',
+		// backgroundColor: 'red',
+	},
 	textContainer: {
 		flex: 1,
-		// marginLeft: '5%',
-		// marginRight: '5%',
+		marginLeft: '5%',
+		marginRight: '5%',
 		alignSelf: 'stretch',
 		// backgroundColor: 'blue',
 		alignItems: 'center',
 		// height: '20%',
-		// justifyContent: 'flex-start',
+		justifyContent: 'flex-start',
 
-		// marginTop: '-40%',
+		marginTop: '8%',
 	},
 
 	iconsRedesSociais: {
@@ -236,32 +247,33 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		// alignSelf: 'stretch',
-		// alignItems: 'center',
-		marginTop: '-15%',
-		backgroundColor: '#0000',
+		// marginLeft: '10%',
+		alignItems: 'center',
+		// marginTop: '-15%',
+		// backgroundColor: 'green',
 		width: '60%',
-		height: '16%',
+		// height: '18%',
 	},
+	meioContainer: {
+		// flex: ,
+		marginLeft: '5%',
+		marginRight: '5%',
+		// alignSelf: 'stretch',
+		// backgroundColor: 'orange',
+		alignItems: 'center',
+		height: '10%',
+		width: '75%',
+		justifyContent: 'center',
 
+		// marginTop: '10%',
+	},
 	imgFuntech: {
 		// backgroundColor: 'green',
 		resizeMode: 'contain',
 		// marginTop: '10%',
 		// marginBottom: '5%',
-		// width: '80%',
-		height: '48%',
-	},
-
-	logoContent: {
-		flex: 1,
-		justifyContent: 'center',
-		// alignSelf: 'stretch',
-		marginLeft: '5%',
-		marginRight: '5%',
-		alignItems: 'center',
-		// marginTop: '5%',
 		// width: '100%',
-		// backgroundColor: 'red',
+		height: '100%',
 	},
 
 	text1: {
@@ -281,7 +293,7 @@ const styles = StyleSheet.create({
 	},
 	text3: {
 		// marginLeft: '8%',
-		marginTop: '5%',
+		marginTop: '10%',
 		// padding: '2%',
 		color: '#565656',
 		fontSize: 16,
@@ -289,7 +301,7 @@ const styles = StyleSheet.create({
 	},
 	text4: {
 		// marginLeft: '8%',
-		marginTop: '5%',
+		marginTop: '8%',
 		// padding: '2%',
 		color: '#565656',
 		fontSize: 16,
@@ -299,7 +311,7 @@ const styles = StyleSheet.create({
 
 	text5: {
 		// marginLeft: '8%',
-		marginBottom: '5%',
+		marginBottom: '8%',
 		// padding: '2%',
 		color: '#565656',
 		fontSize: 16,

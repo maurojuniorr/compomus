@@ -626,7 +626,7 @@ export default class Signup extends Component {
 						<View style={styles.logoContent}>
 							<Image
 								style={styles.logo}
-								source={require('../assets/icon_round2.png')}
+								source={require('../assets/logoTransparent1.png')}
 							/>
 						</View>
 						<View style={styles.inputer}>
@@ -672,7 +672,7 @@ export default class Signup extends Component {
 								//onSubmitEditing={this.CheckTextInput}
 							/>
 							<TouchableOpacity
-								onPress={this.CheckTextInput}
+								onPress={() => (this.CheckTextInput(), Keyboard.dismiss())}
 								style={styles.button}>
 								<Text style={styles.buttonText}>Registrar</Text>
 							</TouchableOpacity>
@@ -715,7 +715,7 @@ const styles = StyleSheet.create({
 		// alignItems: 'center',
 		width: '100%',
 
-		height: '55%',
+		height: '85%',
 		// borderRadius: 980,
 		// shadowColor: '#000',
 		// shadowOffset: { width: 0, height: 0 },
