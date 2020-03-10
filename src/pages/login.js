@@ -14,6 +14,7 @@ import {
 	SafeAreaView,
 	Keyboard,
 	TouchableWithoutFeedback,
+	PermissionsAndroid,
 } from 'react-native';
 // import 'whatwg-fetch';
 import Ping from 'react-native-ping';
@@ -25,6 +26,26 @@ import { NavigationEvents } from 'react-navigation';
 // 	console.log('Connection type', state.type);
 // 	console.log('Look for Internet!', state.isInternetReachable);
 // });
+export async function request_location_runtime_permission() {
+	try {
+		const granted = await PermissionsAndroid.request(
+			PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+			{
+				title: 'Permissão de Localização',
+				message:
+					'O App Compomus precisa que você permita o uso da sua localização para funcionar corretamente',
+			}
+		);
+		if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+			// Alert.alert('Location Permission Granted.');
+		} else {
+			// Alert.alert('Location Permission Not Granted');
+		}
+	} catch (err) {
+		console.warn(err);
+	}
+}
+
 const DismissKeyboard = ({ children }) => (
 	<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
 		{children}
@@ -70,8 +91,9 @@ export default class Login extends Component {
 		serverPort: 0,
 	};
 
-	componentDidMount() {
+	async componentDidMount() {
 		NetInfo.addEventListener(this.handleConnectivityChange);
+		await request_location_runtime_permission();
 	}
 
 	handleConnectivityChange = isConnected => {
@@ -539,11 +561,8 @@ export default class Login extends Component {
 				<SafeAreaView style={styles.container}>
 					<StatusBar
 						// hidden={true}
-						backgroundColor='#0000'
-						barStyle={Platform.select({
-							ios: 'dark-content',
-							android: 'light-content',
-						})}
+						backgroundColor='#f1f1f1'
+						barStyle={'dark-content'}
 					/>
 
 					{/* <View style={styles.container}> */}

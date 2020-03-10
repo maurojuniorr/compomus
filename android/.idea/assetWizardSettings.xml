@@ -51,7 +51,8 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="scalingPercent" value="88" />
+                                                <entry key="scalingPercent" value="183" />
+                                                <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -61,7 +62,8 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="foregroundImage" value="$USER_HOME$/Desktop/icone app compomus.jpg" />
+                                      <entry key="backgroundAssetType" value="COLOR" />
+                                      <entry key="foregroundImage" value="$USER_HOME$/Desktop/icone branco.png" />
                                       <entry key="showGrid" value="true" />
                                     </map>
                                   </option>

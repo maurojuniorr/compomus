@@ -11,11 +11,11 @@ import Foundation
 import CoreLocation
 import SwiftOSC
 
-@available(iOS 13.0, *)
+//
 @objc(MyNativeModule)
 class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
   
-  var locationManager: CLLocationManager?
+  var locationManager: CLLocationManager!
   var lastDistance = CLProximity.unknown
   var locationAccuracy: CLLocationAccuracy?
   var heading: Double
@@ -25,8 +25,8 @@ class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
   var alive2: String
   var hasListeners: Bool
   private var UUID2: String
-  private var major: UInt16
-  private var minor: UInt16
+  private var majorVal: UInt16
+  private var minorVal: UInt16
   private var identifier: String
   private var beaconDistance: Double
   private var userId: NSNumber
@@ -43,8 +43,8 @@ class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
     alive = false
     alive2 = "dead"
     UUID2 = " "
-    major = 0
-    minor = 0
+    majorVal = 0
+    minorVal = 0
     identifier = " "
     beaconDistance = 0
     userId = 0
@@ -56,9 +56,9 @@ class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
     serverPort = 0
   super.init()
     locationManager = CLLocationManager()
-    locationManager?.delegate = self
-    locationManager?.requestWhenInUseAuthorization()
-    locationManager?.startUpdatingHeading()
+    locationManager.delegate = self
+    locationManager.requestWhenInUseAuthorization()
+    locationManager.startUpdatingHeading()
   }
   
   
@@ -72,8 +72,8 @@ class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
         print(beaconRange)
 
         UUID2 = uuid
-        major = UInt16(truncating: ma)
-        minor = UInt16(truncating: mi)
+    majorVal =  CLBeaconMajorValue(bitPattern: Int16(truncating: ma))
+    minorVal = CLBeaconMajorValue(bitPattern: Int16(truncating: mi))
         identifier = ident
         beaconDistance = Double(truncating: beaconRange)
         
@@ -119,15 +119,26 @@ class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
   
   //procura pelo beacon setado
   func startScanning( ){
+    if #available(iOS 13, *){
       let uuid = UUID(uuidString: UUID2)!
-      let constraint = CLBeaconIdentityConstraint(uuid: uuid, major: major, minor: minor)
+            let constraint = CLBeaconIdentityConstraint(uuid: uuid, major: majorVal, minor: minorVal)
       
       let beaconRegion = CLBeaconRegion(beaconIdentityConstraint: constraint, identifier: identifier)
-      locationManager?.startMonitoring(for: beaconRegion)
-      locationManager?.startRangingBeacons(satisfying: constraint)
+      locationManager.startMonitoring(for: beaconRegion)
+      locationManager.startRangingBeacons(satisfying: constraint)
+    }else{
+      let uuid = UUID(uuidString: UUID2)!
+      
+      let beaconRegion = CLBeaconRegion(proximityUUID: uuid, major: majorVal, minor: minorVal, identifier: identifier)
+      locationManager.startMonitoring(for: beaconRegion)
+      locationManager.startRangingBeacons(in: beaconRegion)
+      
+    }
+      
   }
   
   //Captura os dados do beacon encontrado
+  @available(iOS 13.0, *)
   func locationManager(_ manager: CLLocationManager, didRange beacons: [CLBeacon], satisfying beaconConstraint: CLBeaconIdentityConstraint) {
       if let beacon = beacons.first{
         update(distance: Double(round(1000 * beacon.accuracy)/1000), proximity: beacon.proximity, degrees: heading)
@@ -138,10 +149,21 @@ class MyNativeModule: RCTEventEmitter, CLLocationManagerDelegate {
       }
   }
   
+  func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+     if let beacon = beacons.first{
+           update(distance: Double(round(1000 * beacon.accuracy)/1000), proximity: beacon.proximity, degrees: heading)
+            
+             
+         }else{
+             update(distance: 0, proximity: .unknown, degrees: 0)
+         }
+  }
+  
+  
   //Verifica a direção em relação ao norte
   func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
     self.heading = Double(round(1 * newHeading.trueHeading) / 1)
-   // print("Degree is \(heading)")
+//    print("Degree is \(heading)")
     //updateHeading()
   }
   

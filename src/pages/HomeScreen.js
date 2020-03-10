@@ -81,7 +81,7 @@ export default class HomeScreen extends Component {
 
 		return (
 			<>
-				<StatusBar barStyle='light-content' />
+				<StatusBar barStyle='light-content' backgroundColor='#4dae4c' />
 				<SafeAreaView style={styles.container}>
 					<View style={styles.logoContent}>
 						<Image

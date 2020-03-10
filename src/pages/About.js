@@ -122,7 +122,7 @@ export default function About({ props }) {
 					/>
 				</View>
 				<Text style={styles.text3}>@funtechshow</Text>
-				<Text style={styles.text4}>contato@funtechshow.com</Text>
+				<Text style={styles.text3}>contato@funtechshow.com</Text>
 				<Text
 					style={styles.text4}
 					onPress={() => {
@@ -187,13 +187,13 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		// backgroundColor: 'blue',
 		// marginLeft: '-4%',
-		// marginBottom: '4%',
+		marginBottom: '2%',
 	},
 	modalContainer: {
 		flex: 1,
 		// marginLeft: '0.1%',
 		// marginRight: '0.1%',
-		marginTop: '8%',
+		marginTop: '9%',
 		marginBottom: '-4%',
 
 		borderTopEndRadius: 15,
@@ -239,7 +239,7 @@ const styles = StyleSheet.create({
 		// height: '20%',
 		justifyContent: 'flex-start',
 
-		marginTop: '8%',
+		// marginTop: '8%',
 	},
 
 	iconsRedesSociais: {
@@ -280,20 +280,20 @@ const styles = StyleSheet.create({
 		textAlign: 'center',
 		// marginTop: '15%',
 		color: '#4DAE4C',
-		fontSize: 25,
+		fontSize: 23,
 		fontWeight: 'bold',
 	},
 	text2: {
 		textAlign: 'justify',
-		marginTop: '10%',
+		marginTop: '8%',
 		// marginBottom: '10%',
 		color: '#565656',
-		fontSize: 18,
+		fontSize: 16,
 		fontWeight: 'bold',
 	},
 	text3: {
 		// marginLeft: '8%',
-		marginTop: '10%',
+		marginTop: '6%',
 		// padding: '2%',
 		color: '#565656',
 		fontSize: 16,
@@ -301,7 +301,7 @@ const styles = StyleSheet.create({
 	},
 	text4: {
 		// marginLeft: '8%',
-		marginTop: '8%',
+		marginTop: '6%',
 		// padding: '2%',
 		color: '#565656',
 		fontSize: 16,
@@ -311,7 +311,16 @@ const styles = StyleSheet.create({
 
 	text5: {
 		// marginLeft: '8%',
-		marginBottom: '8%',
+		marginBottom: '6%',
+		// padding: '2%',
+		color: '#565656',
+		fontSize: 16,
+		fontWeight: 'bold',
+		textDecorationLine: 'underline',
+	},
+	text6: {
+		// marginLeft: '8%',
+		marginTop: '6%',
 		// padding: '2%',
 		color: '#565656',
 		fontSize: 16,

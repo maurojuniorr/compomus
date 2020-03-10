@@ -34,8 +34,8 @@ const customNavigator = (props, navigation) => (
 				justifyContent: 'center',
 			}}>
 			<Image
-				style={{ height: 100, width: 100, borderRadius: 30 }}
-				source={require('../assets/logoRounded.png')}
+				style={{ height: 100, width: 100 }}
+				source={require('../assets/logodrawer.png')}
 			/>
 		</View>
 		<ScrollView>

@@ -387,7 +387,7 @@ const styles = StyleSheet.create({
 
 	soundContainer: {
 		// alignItems: 'stretch',
-		padding: 20,
+		padding: '5%',
 		backgroundColor: '#fff',
 		// marginBottom: 20,
 		marginLeft: '5%',
@@ -536,7 +536,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 	},
 	playButton: {
-		width: 130,
+		width: '40%',
 		height: 45,
 		marginTop: 20,
 		borderRadius: 14,
@@ -550,7 +550,7 @@ const styles = StyleSheet.create({
 		elevation: 0,
 	},
 	chooseButton: {
-		width: 130,
+		width: '40%',
 		height: 45,
 		marginTop: 20,
 		borderRadius: 14,

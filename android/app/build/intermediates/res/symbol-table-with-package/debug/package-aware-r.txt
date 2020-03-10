@@ -813,6 +813,7 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color ic_launcher_background
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1347,13 +1348,13 @@ drawable ic_clear_black_24dp
 drawable ic_edit_black_24dp
 drawable ic_keyboard_arrow_left_black_24dp
 drawable ic_keyboard_arrow_right_black_24dp
-drawable ic_launcher_foreground
 drawable ic_menu_arrow_down_black_24dp
 drawable ic_menu_arrow_up_black_24dp
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable logo_transparent2
 drawable mtrl_dialog_background
 drawable mtrl_dropdown_arrow
 drawable mtrl_ic_arrow_drop_down
@@ -1831,6 +1832,9 @@ layout text_view_without_line_height
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
+mipmap icon
+mipmap logo_512
+mipmap logo_transparent2
 plurals mtrl_badge_content_description
 string abc_action_bar_home_description
 string abc_action_bar_up_description
@@ -2260,6 +2264,7 @@ style SpinnerDatePickerDialog
 style SpinnerDatePickerStyle
 style SpinnerTimePickerDialog
 style SpinnerTimePickerStyle
+style SplashTheme
 style Test_ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Day
 style Test_Theme_MaterialComponents_MaterialCalendar
 style Test_Widget_MaterialComponents_MaterialCalendar

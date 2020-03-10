@@ -65,6 +65,12 @@ export default class ComposeIOS extends Component {
 	componentDidMount() {
 		AppState.addEventListener('change', this._handleAppStateChange);
 		eventEmitter.addListener('onChange', this._eventSubscription);
+		this._onFinishedPlayingSubscription = SoundPlayer.addEventListener(
+			'FinishedPlaying',
+			({ success }) => {
+				// console.log('finished playing', success);
+			}
+		);
 		this.playSong();
 
 		this.getBeaconData();
@@ -73,6 +79,7 @@ export default class ComposeIOS extends Component {
 
 	componentWillUnmount() {
 		SoundPlayer.stop();
+		this._onFinishedPlayingSubscription.remove();
 		AppState.removeEventListener('change', this._handleAppStateChange);
 		eventEmitter.removeAllListeners(
 			'onChange',
@@ -208,8 +215,8 @@ export default class ComposeIOS extends Component {
 		const { navigation } = this.props;
 		let song = navigation.getParam('soundRaw');
 		try {
-			SoundPlayer.loadUrl(`${global.rawSource}/raw/${song}.mp3`);
-			SoundPlayer.play();
+			SoundPlayer.playUrl(`${global.rawSource}/raw/${song}.mp3`);
+			// SoundPlayer.play();
 		} catch (e) {
 			Alert.alert('Esse som não pode ser reproduzido');
 			console.log('cannot play the song file', e);
@@ -543,21 +550,28 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	textContainer: {
-		flex: 1,
-		alignSelf: 'center',
-		justifyContent: 'flex-start',
-		marginTop: '8%',
-	},
-	animationContainer: {
-		flex: 1,
+		// flex: 1,
+		height: '15%',
+		width: '100%',
 		alignSelf: 'center',
 		justifyContent: 'center',
+		// marginTop: '8%',
+		// backgroundColor: 'blue',
+	},
+	animationContainer: {
+		flex: 2,
+		// alignSelf: 'stretch',
+		// alignItems: 'center',
+		// justifyContent: 'center',
+		// backgroundColor: 'red',
 	},
 	trocarSomContainer: {
-		flex: 1,
+		// flex: 1,
 		marginBottom: '8%',
-		justifyContent: 'flex-end',
+		justifyContent: 'center',
 		alignItems: 'center',
+		height: '13%',
+		// backgroundColor: 'green',
 	},
 	songName: {
 		justifyContent: 'center',
@@ -603,18 +617,18 @@ const styles = StyleSheet.create({
 		//position: 'absolute',
 		//justifyContent: 'flex-start',
 		//alignItems: 'flex-end',
-		marginTop: '-35%',
-		width: 320,
-		height: 220,
+		marginTop: '-130%',
+		width: '100%',
+		height: '100%',
 	},
 	animation2: {
 		//flex: 2,
-		//justifyContent: 'flex-start',
+		// justifyContent: 'flex-start',
 
 		//alignItems: 'center',
 		//marginTop: '20%',
-		width: 320,
-		height: 320,
+		width: '100%',
+		height: '100%',
 	},
 	loadingAnimation: {
 		//flex: 2,
