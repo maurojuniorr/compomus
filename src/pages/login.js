@@ -96,7 +96,7 @@ export default class Login extends Component {
 		await request_location_runtime_permission();
 	}
 
-	handleConnectivityChange = isConnected => {
+	handleConnectivityChange = (isConnected) => {
 		this.setState({
 			type: isConnected.type,
 			isInternetReachable: isConnected.isInternetReachable,
@@ -280,92 +280,114 @@ export default class Login extends Component {
 	};
 
 	checkIfOnline = async () => {
-		this.setState({ conectionStatus: 'Verficando conexão...' });
-		this.setState({ isLoading: true });
-
-		if (this.state.isInternetReachable && this.state.type === 'wifi') {
-			try {
-				const ms = await Ping.start(this.state.serverIp, { timeout: 1000 });
-				this.setState({ conectionStatus: 'Fazendo login local...' });
-				console.log('Ping ms: ', ms);
-				global.rawSource = global.localhost;
-				this.postData();
-				console.log('Server connection way: For performance using localhost');
-				// Alert.alert('Compomus', 'chegueiaqui');
-				// console.log('Confirm internet', this.state.isInternetReachable);
-			} catch (error) {
-				console.log('special code', error.code, error.message);
-				console.log('cheguei aqui');
-				fetch(`${global.online}/index.php`)
-					.then(response => {
-						console.log(response);
-						if (response.ok) {
-							global.rawSource = global.online;
-							this.setState({ conectionStatus: 'Fazendo login online...' });
-							this.postData();
-							console.log('Server connection way: only online with wifi ');
-							// console.log('Confirm internet', this.state.isInternetReachable);
-						} else if (response.status !== 200) {
-							// Alert.alert('Compomus', 'Erro de resposta do servidor');
-							this.setState({
-								conectionStatus: 'Erro de resposta do servidor',
-							});
-							this.messageTimer();
-						}
-					})
-					.catch(err => {
-						// Alert.alert('Compomus', 'Servidor online não responde');
-						this.setState({ conectionStatus: 'Servidor online não responde' });
-						this.messageTimer();
-					});
-			}
-		} else if (
-			this.state.isInternetReachable &&
-			this.state.type === 'cellular'
-		) {
-			// Alert.alert('Compomus', 'tem internet e é celular');
-			fetch(`${global.online}/index.php`)
-				.then(response => {
-					if (response.status === 200) {
-						this.setState({ conectionStatus: 'Fazendo login online...' });
-						global.rawSource = global.online;
-						this.postData();
-						console.log('Server connection way: only online with cellular ');
-						// console.log('Confirm internet', this.state.isInternetReachable);
-					} else if (response.status !== 200) {
-						// Alert.alert('Compomus', 'Erro de resposta do servidor');
-						this.setState({ conectionStatus: 'Erro de resposta do servidor' });
-						this.messageTimer();
-					}
-				})
-				.catch(err => {
-					// Alert.alert('Compomus', 'Servidor online não responde');
-					this.setState({ conectionStatus: 'Servidor online não responde' });
+		fetch(`${global.localhost}/index.php`)
+			.then((response) => {
+				if (response.status === 200) {
+					global.rawSource = global.localhost;
+					this.setState({ conectionStatus: 'Fazendo login Local...' });
+					this.postData();
+					console.log('Server connection way: localhost unknown ');
+					// console.log('Confirm internet', this.state.isInternetReachable);
+				} else if (response.status !== 200) {
+					// Alert.alert('Compomus', 'Erro de resposta do servidor');
+					this.setState({ conectionStatus: 'Erro de resposta do servidor' });
 					this.messageTimer();
-				});
-		} else {
-			fetch(`${global.localhost}/index.php`)
-				.then(response => {
-					if (response.status === 200) {
-						global.rawSource = global.localhost;
-						this.setState({ conectionStatus: 'Fazendo login Local...' });
-						this.postData();
-						console.log('Server connection way: localhost unknown ');
-						// console.log('Confirm internet', this.state.isInternetReachable);
-					} else if (response.status !== 200) {
-						// Alert.alert('Compomus', 'Erro de resposta do servidor');
-						this.setState({ conectionStatus: 'Erro de resposta do servidor' });
-						this.messageTimer();
-					}
-				})
-				.catch(err => {
-					this.setState({ conectionStatus: 'Servidor local não responde' });
-					this.messageTimer();
-					// Alert.alert('Compomus', 'Servidor local não responde');
-					// this.setState({ isLoading: false });
-				});
-		}
+				}
+			})
+			.catch((err) => {
+				this.setState({ conectionStatus: 'Servidor local não responde' });
+				this.messageTimer();
+				// Alert.alert('Compomus', 'Servidor local não responde');
+				// this.setState({ isLoading: false });
+			});
 	};
+	// checkIfOnline = async () => {
+	// 	this.setState({ conectionStatus: 'Verficando conexão...' });
+	// 	this.setState({ isLoading: true });
+
+	// 	if (this.state.isInternetReachable && this.state.type === 'wifi') {
+	// 		try {
+	// 			const ms = await Ping.start(this.state.serverIp, { timeout: 1000 });
+	// 			this.setState({ conectionStatus: 'Fazendo login local...' });
+	// 			console.log('Ping ms: ', ms);
+	// 			global.rawSource = global.localhost;
+	// 			this.postData();
+	// 			console.log('Server connection way: For performance using localhost');
+	// 			// Alert.alert('Compomus', 'chegueiaqui');
+	// 			// console.log('Confirm internet', this.state.isInternetReachable);
+	// 		} catch (error) {
+	// 			console.log('special code', error.code, error.message);
+	// 			console.log('cheguei aqui');
+	// 			fetch(`${global.online}/index.php`)
+	// 				.then(response => {
+	// 					console.log(response);
+	// 					if (response.ok) {
+	// 						global.rawSource = global.online;
+	// 						this.setState({ conectionStatus: 'Fazendo login online...' });
+	// 						this.postData();
+	// 						console.log('Server connection way: only online with wifi ');
+	// 						// console.log('Confirm internet', this.state.isInternetReachable);
+	// 					} else if (response.status !== 200) {
+	// 						// Alert.alert('Compomus', 'Erro de resposta do servidor');
+	// 						this.setState({
+	// 							conectionStatus: 'Erro de resposta do servidor',
+	// 						});
+	// 						this.messageTimer();
+	// 					}
+	// 				})
+	// 				.catch(err => {
+	// 					// Alert.alert('Compomus', 'Servidor online não responde');
+	// 					this.setState({ conectionStatus: 'Servidor online não responde' });
+	// 					this.messageTimer();
+	// 				});
+	// 		}
+	// 	} else if (
+	// 		this.state.isInternetReachable &&
+	// 		this.state.type === 'cellular'
+	// 	) {
+	// 		// Alert.alert('Compomus', 'tem internet e é celular');
+	// 		fetch(`${global.online}/index.php`)
+	// 			.then(response => {
+	// 				if (response.status === 200) {
+	// 					this.setState({ conectionStatus: 'Fazendo login online...' });
+	// 					global.rawSource = global.online;
+	// 					this.postData();
+	// 					console.log('Server connection way: only online with cellular ');
+	// 					// console.log('Confirm internet', this.state.isInternetReachable);
+	// 				} else if (response.status !== 200) {
+	// 					// Alert.alert('Compomus', 'Erro de resposta do servidor');
+	// 					this.setState({ conectionStatus: 'Erro de resposta do servidor' });
+	// 					this.messageTimer();
+	// 				}
+	// 			})
+	// 			.catch(err => {
+	// 				// Alert.alert('Compomus', 'Servidor online não responde');
+	// 				this.setState({ conectionStatus: 'Servidor online não responde' });
+	// 				this.messageTimer();
+	// 			});
+	// 	} else {
+	// 		fetch(`${global.localhost}/index.php`)
+	// 			.then(response => {
+	// 				if (response.status === 200) {
+	// 					global.rawSource = global.localhost;
+	// 					this.setState({ conectionStatus: 'Fazendo login Local...' });
+	// 					this.postData();
+	// 					console.log('Server connection way: localhost unknown ');
+	// 					// console.log('Confirm internet', this.state.isInternetReachable);
+	// 				} else if (response.status !== 200) {
+	// 					// Alert.alert('Compomus', 'Erro de resposta do servidor');
+	// 					this.setState({ conectionStatus: 'Erro de resposta do servidor' });
+	// 					this.messageTimer();
+	// 				}
+	// 			})
+	// 			.catch(err => {
+	// 				this.setState({ conectionStatus: 'Servidor local não responde' });
+	// 				this.messageTimer();
+	// 				// Alert.alert('Compomus', 'Servidor local não responde');
+	// 				// this.setState({ isLoading: false });
+	// 			});
+	// 	}
+	// };
 
 	storeData = async () => {
 		const userInfo = {
@@ -596,20 +618,20 @@ export default class Login extends Component {
 								placeholderTextColor='#b3b3b3'
 								returnKeyType='next'
 								onSubmitEditing={() => this.field2.focus()}
-								onChangeText={text => this.updateValue(text, 'email')}
+								onChangeText={(text) => this.updateValue(text, 'email')}
 							/>
 							<TextInput
 								secureTextEntry
 								style={styles.input}
 								autoCapitalize='none'
 								returnKeyType='go'
-								ref={input => {
+								ref={(input) => {
 									this.field2 = input;
 								}}
 								placeholder='Digite sua Senha'
 								placeholderTextColor='#b3b3b3'
 								onSubmitEditing={this.CheckTextInput}
-								onChangeText={text => this.updateValue(text, 'pass')}
+								onChangeText={(text) => this.updateValue(text, 'pass')}
 							/>
 							<TouchableOpacity
 								onPress={() => (this.CheckTextInput(), Keyboard.dismiss())}

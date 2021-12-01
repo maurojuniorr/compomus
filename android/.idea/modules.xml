@@ -3,7 +3,19 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Compomus.iml" filepath="$PROJECT_DIR$/Compomus.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Compomus.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Compomus.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/464618309/Compomus.lottie-react-native.iml" filepath="$PROJECT_DIR$/.idea/modules/464618309/Compomus.lottie-react-native.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1128080839/Compomus.react-native-community_async-storage.iml" filepath="$PROJECT_DIR$/.idea/modules/-1128080839/Compomus.react-native-community_async-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/668443674/Compomus.react-native-community_netinfo.iml" filepath="$PROJECT_DIR$/.idea/modules/668443674/Compomus.react-native-community_netinfo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1345705324/Compomus.react-native-community_toolbar-android.iml" filepath="$PROJECT_DIR$/.idea/modules/1345705324/Compomus.react-native-community_toolbar-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1640519135/Compomus.react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/.idea/modules/-1640519135/Compomus.react-native-gesture-handler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/467153847/Compomus.react-native-ping.iml" filepath="$PROJECT_DIR$/.idea/modules/467153847/Compomus.react-native-ping.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-419339429/Compomus.react-native-reanimated.iml" filepath="$PROJECT_DIR$/.idea/modules/-419339429/Compomus.react-native-reanimated.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/365477450/Compomus.react-native-safe-area-context.iml" filepath="$PROJECT_DIR$/.idea/modules/365477450/Compomus.react-native-safe-area-context.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1747292898/Compomus.react-native-screens.iml" filepath="$PROJECT_DIR$/.idea/modules/1747292898/Compomus.react-native-screens.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1567195740/Compomus.react-native-sound-player.iml" filepath="$PROJECT_DIR$/.idea/modules/-1567195740/Compomus.react-native-sound-player.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-860976811/Compomus.react-native-vector-icons.iml" filepath="$PROJECT_DIR$/.idea/modules/-860976811/Compomus.react-native-vector-icons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1006235476/Compomus.react-native-webview.iml" filepath="$PROJECT_DIR$/.idea/modules/1006235476/Compomus.react-native-webview.iml" />
     </modules>
   </component>
 </project>

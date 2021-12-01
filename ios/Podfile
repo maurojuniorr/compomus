@@ -14,6 +14,8 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
       :hermes_enabled => false
     )
 
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
   target 'CompomusTests' do
     inherit! :complete
     # Pods for testing

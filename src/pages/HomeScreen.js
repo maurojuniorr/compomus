@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
 		// shadowOffset: { width: 0, height: 0 },
 		// shadowOpacity: 0.9,
 		// shadowRadius: 1,
-		elevation: 0.7,
+		// elevation: 0.7,
 	},
 	textContainer: {
 		flex: 1,
@@ -345,7 +345,7 @@ const styles = StyleSheet.create({
 		shadowOffset: { width: 0, height: 0 },
 		shadowOpacity: 1.0,
 		// shadowRadius: 1,
-		elevation: 0.5,
+		// elevation: 0.5,
 	},
 	buttonText: {
 		color: '#fff',
